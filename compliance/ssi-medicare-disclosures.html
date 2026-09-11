@@ -1,0 +1,233 @@
+<!--
+  /medicare/ compliance pack — drop-in
+  Built for ssifinalexpense.com. Self-contained: no dependencies, no build step,
+  no external requests. Paste into an Elementor "HTML" widget, a Gutenberg
+  "Custom HTML" block, or the footer template.
+
+  ── WHAT IS IN THIS FILE ─────────────────────────────────────────────────────
+
+    Block A  CMS TPMO disclaimer set        /medicare/ ONLY. Foot of the page
+                                            body, after the last content section
+                                            and before the global footer. It
+                                            must be on the page itself, not only
+                                            in the site footer.
+
+    Block B  Agency licensing line          Global footer, every page.
+
+    Block C  /medicare/ copy replacements   Applied in the same edit as Block A.
+                                            Strips every named plan benefit so
+                                            the page does not require CMS
+                                            material review, and removes the
+                                            "no cost to the beneficiary" claim.
+
+  Do NOT put Block A on the final expense pages, the ACA page, or the homepage.
+  CMS marketing rules apply to Medicare Advantage and Part D communications.
+
+  ── WHY THERE IS NO MATERIAL ID AND NO ORGANIZATION / PRODUCT COUNT ──────────
+
+  The page is being written as generic educational content: it describes how
+  Medicare Advantage works and what a licensed agent can compare, and names no
+  plan benefit, premium, or carrier-specific feature. Content at that level
+  does not require CMS material review, so it carries no material ID. The
+  simplified TPMO disclaimer used in Block A is the CMS-permitted form that
+  requires no organization or product counts.
+
+  The moment any named benefit, premium figure, or plan-specific claim is
+  added back to /medicare/, that stops being true. Keep Block C in mind on
+  every future edit to the page.
+
+  data-entity ("Senior Solutions Insurance") and data-tty ("711") are as
+  supplied. No state list is published — see Block B.
+-->
+
+
+<!-- ══ BLOCK A — /medicare/ only ═══════════════════════════════════════════ -->
+
+<section class="ssi-disc ssi-disc--cms"
+         data-entity="Senior Solutions Insurance"
+         data-tty="711"
+         aria-labelledby="ssi-disc-h">
+
+  <h2 class="ssi-disc__h" id="ssi-disc-h">Important information about the plans we offer</h2>
+
+  <p>
+    We do not offer every plan available in your area. Any information we
+    provide is limited to those plans we do offer in your area. Please contact
+    <a href="https://www.medicare.gov" rel="noopener">Medicare.gov</a>,
+    <a href="tel:+18006334227">1-800-MEDICARE</a>, or your local State Health
+    Insurance Assistance Program (SHIP) to get information on all of your
+    options.
+  </p>
+
+  <p>
+    Senior Solutions Insurance is not connected with or endorsed by the
+    U.S.&nbsp;government or the federal Medicare program.
+  </p>
+
+  <p>
+    Deductibles, copays and coinsurance may apply. Limitations and exclusions
+    may apply.
+    <strong>You must continue to pay your Medicare Part&nbsp;B premium.</strong>
+    Enrollment in a plan depends on the plan&rsquo;s contract renewal with Medicare.
+  </p>
+
+  <p class="ssi-disc__tty">
+    To speak with a licensed insurance agent, call
+    <a href="tel:+18889573337">1-888-957-3337</a> &nbsp;&middot;&nbsp; TTY&nbsp;<strong>711</strong>
+    &nbsp;&middot;&nbsp; Monday&ndash;Friday 9:00&nbsp;AM&ndash;7:00&nbsp;PM, Saturday 9:00&nbsp;AM&ndash;5:00&nbsp;PM.
+  </p>
+</section>
+
+
+<!-- ══ BLOCK B — global footer, every page ═════════════════════════════════ -->
+
+<!--
+  Entity name only. No state list is published: an agency stating which states
+  it is licensed in is making a representation to every DOI on that list, and
+  the wrong list is a worse problem than no list. Individual producer NPNs are
+  not required and are not published. A handful of state DOIs have their own
+  advertising identification requirements, so run the final wording past
+  counsel.
+-->
+
+<p class="ssi-disc ssi-disc--license">
+  Senior Solutions Insurance is a licensed insurance agency. Not all products
+  are available in all states. Plan availability, benefits and premiums vary by
+  state and by carrier.
+</p>
+
+
+<!-- ══ BLOCK C — /medicare/ copy replacements ══════════════════════════════ -->
+
+<!--
+  Apply these in the page builder in the same edit as Block A. Each entry is
+  the live text as served on 10 Sep 2026, followed by what replaces it. Every
+  named benefit on the page is covered: vision, dental, prescription drugs,
+  drug coverage, fitness programs, transportation assistance, "no cost to the
+  beneficiary", "no out-of-pocket costs". Nothing else on the page names a
+  benefit, premium, or Part B giveback, so nothing else changes.
+
+  ── Section: "Why Choose Medicare Advantage?" ──
+
+  H2   LIVE:     Why Choose Medicare Advantage?
+       REPLACE:  How Medicare Advantage Works
+
+  H3   LIVE:     Comprehensive coverage and no cost to the beneficiary
+       REPLACE:  Comprehensive coverage in one plan
+  body LIVE:     Includes vision, dental, and prescription drugs, with many
+                 plans offering no out-of-pocket costs.
+       REPLACE:  Speak with a licensed agent to compare the Medicare
+                 Advantage plans available where you live.
+       (This card ships in Release 1, ahead of the FMO determination — it is
+        removal of a false claim, not new marketing. See
+        deploy/release-1-ship-now.md. If Release 1 has already gone out, this
+        entry is done and needs no further change.)
+
+  H3   LIVE:     Simplified experience
+       KEEP AS IS
+  body LIVE:     Combines medical, hospital, and drug coverage in one plan.
+       REPLACE:  Your hospital and medical coverage sit under one plan, one
+                 insurance card and one set of plan rules, instead of being
+                 managed separately.
+
+  H3   LIVE:     Wellness benefits
+       REPLACE:  Every plan is different
+  body LIVE:     Offers fitness programs and transportation assistance.
+       REPLACE:  Each plan sets its own provider network, its own costs and
+                 its own additional coverage. A licensed agent can lay those
+                 differences side by side for the plans available where you
+                 live, so you can see how they compare before you choose.
+
+  ── Section: "Frequently Asked Questions" ──
+
+  H5   LIVE:     What is Medicare Advantage?
+       KEEP AS IS
+  body LIVE:     Medicare Advantage is an all-in-one alternative to Original
+                 Medicare that includes additional benefits like dental,
+                 vision, and prescription drug coverage.
+       REPLACE:  Medicare Advantage, also called Medicare Part C, is a way to
+                 receive your Medicare Part A and Part B coverage through a
+                 private insurance company approved by Medicare, instead of
+                 directly through Original Medicare. Plans must cover
+                 everything Original Medicare covers, and each plan sets its
+                 own costs, provider network and rules.
+
+  The other three FAQ entries (Can I keep my doctor? / How do I know if I am
+  eligible? / What happens if I want to switch plans later?) name no benefit
+  and stay as they are.
+
+  ── Section: "Why Choose Senior Solutions Insurance" ──
+
+  H4   LIVE:     Dedicated agents with years of expertise
+       KEEP AS IS
+  body LIVE:     Our team has extensive experience helping individuals find
+                 the best Medicare Advantage plans.
+       REPLACE:  Our team has extensive experience helping individuals
+                 compare Medicare Advantage plans and find one that fits
+                 their needs.
+       (Not a benefit claim. Changed because "the best" is a superlative,
+        and CMS marketing guidance treats unsupported superlatives as a
+        misleading-claim risk. Same applies to the H1, "Discover the Best
+        Medicare Advantage Plans for You" — recommend "Compare Medicare
+        Advantage Plans With a Licensed Agent". That one is a recommendation,
+        not part of this change.)
+
+  ── Nothing else on the page changes. ──
+-->
+
+
+<style>
+/* Sized for the audience, not for the legal department: 17px floor, 1.65 line
+   height, real contrast. Disclosure copy that no one over 70 can read is a
+   disclosure in name only. Inherits the site's font stack; set --disc-* to
+   retheme. */
+.ssi-disc{
+  --disc-ink:#3A4854;
+  --disc-ink-strong:#1B2A3A;
+  --disc-rule:#D3DBE0;
+  --disc-panel:#F7F9F9;
+  --disc-link:#14594A;
+
+  font-size:17px;
+  line-height:1.65;
+  color:var(--disc-ink);
+  max-width:46rem;
+  margin:0 auto;
+  -webkit-text-size-adjust:100%;
+}
+.ssi-disc p{margin:0 0 .9rem;}
+.ssi-disc p:last-child{margin-bottom:0;}
+.ssi-disc strong{color:var(--disc-ink-strong);font-weight:700;}
+.ssi-disc a{color:var(--disc-link);text-decoration:underline;}
+.ssi-disc a:focus-visible{outline:3px solid #1F6FEB;outline-offset:2px;}
+
+.ssi-disc--cms{
+  background:var(--disc-panel);
+  border:1px solid var(--disc-rule);
+  border-radius:4px;
+  padding:1.75rem 1.5rem;
+  margin-top:2.5rem;
+}
+.ssi-disc__h{
+  font-size:1.15rem;line-height:1.3;font-weight:700;
+  color:var(--disc-ink-strong);
+  margin:0 0 1rem;
+}
+/* Phone + TTY sit above the legal copy in weight — this is the one line in the
+   block a visitor is meant to act on. */
+.ssi-disc__tty{
+  margin-top:1.25rem;padding-top:1.1rem;
+  border-top:1px solid var(--disc-rule);
+  font-size:1.05rem;color:var(--disc-ink-strong);
+}
+.ssi-disc__tty a{min-height:2.75rem;display:inline-block;}
+
+.ssi-disc--license{
+  font-size:.95rem;
+  margin-top:1rem;
+}
+
+@media (max-width:26rem){
+  .ssi-disc--cms{padding:1.25rem 1rem;}
+}
+</style>
