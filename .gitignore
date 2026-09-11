@@ -7,3 +7,5 @@ Thumbs.db
 /tmp/
 /scratch/
 *.bak
+# raw photo dump from the client; curated copies live in assets/img/
+assets/ssi/
