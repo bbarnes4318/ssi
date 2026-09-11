@@ -38,6 +38,7 @@ entry.
 - `deploy/release-2-medicare-held.md` — HELD. The `/medicare/` work waiting on
   the FMO determination.
 - `assets/ssi-logo.png`.
+- `index.html` — preview landing page so the Vercel static deploy has a root; links to widget previews and docs.
 
 ### Changed
 

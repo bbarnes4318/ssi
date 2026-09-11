@@ -16,6 +16,7 @@ by hand, following the checklists in `/deploy/`.
 | `/docs/` | The site audit and the open-items register. |
 | `/deploy/` | Release checklists. Release 1 ships now; Release 2 is held. |
 | `/assets/` | Brand assets (`ssi-logo.png`, 325×100). |
+| `index.html` | Preview landing page for the Vercel deploy. Links to the widget previews and the docs. Not part of the site. |
 | `CHANGELOG.md` | What changed, when, and why. Read the *Removed* entries before reusing any old copy. |
 
 ## Status
