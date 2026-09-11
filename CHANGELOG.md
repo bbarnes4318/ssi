@@ -16,8 +16,8 @@ entry.
   WordPress text, last updated 15 Nov 2024), so the footer link no longer
   points at the old domain. Markup only: numbered section headings with ids,
   sub-headings, real lists, a sticky contents rail (collapsible on phones)
-  and a styled contact block. `/privacy/` got the same treatment. Both now
-  carry the Greenwood Village office address at the client's instruction.
+  and a styled contact block. `/privacy/` got the same treatment. Both keep
+  the address the documents already carried, per the client.
 - `/404.html` — branded not-found page with the estimator, rates and phone as
   the three ways out. `noindex`.
 - Estimator: "Step N of 4" progress text with a "Private · no contact details
