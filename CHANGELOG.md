@@ -12,10 +12,12 @@ entry.
 
 ### Added
 
-- `/terms-and-conditions/` — the live WordPress terms migrated verbatim
-  (markup only: headings and a list for the table of contents), so the footer
-  link no longer points at the old domain. Counsel review pending; see
-  `docs/open-items.md`.
+- `/terms-and-conditions/` — the terms as supplied by the client (the live
+  WordPress text, last updated 15 Nov 2024), so the footer link no longer
+  points at the old domain. Markup only: numbered section headings with ids,
+  sub-headings, real lists, a sticky contents rail (collapsible on phones)
+  and a styled contact block. `/privacy/` got the same treatment. Both now
+  carry the Greenwood Village office address at the client's instruction.
 - `/404.html` — branded not-found page with the estimator, rates and phone as
   the three ways out. `noindex`.
 - Estimator: "Step N of 4" progress text with a "Private · no contact details

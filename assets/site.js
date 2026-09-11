@@ -70,6 +70,11 @@
     });
   });
 
+  // ── Legal pages: contents list starts collapsed on phones ──────────────
+  if (window.matchMedia && window.matchMedia('(max-width: 48rem)').matches) {
+    document.querySelectorAll('[data-toc]').forEach(function (d) { d.removeAttribute('open'); });
+  }
+
   // ── Footer year ──────────────────────────────────────────────────────────
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = String(new Date().getFullYear());

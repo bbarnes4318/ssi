@@ -20,8 +20,8 @@ and commit the output alongside the source.
 | `/health-insurance/` | `src/pages/health-insurance.html` | `/heatlh-insurance/` 301s here. |
 | `/about-us/` | `src/pages/about-us.html` | |
 | `/contact-us/` | `src/pages/contact-us.html` | |
-| `/privacy/` | `src/pages/privacy.html` | Text as published on the live WordPress site. |
-| `/terms-and-conditions/` | `src/pages/terms-and-conditions.html` | Text migrated verbatim from the live WordPress page (11 Sep 2026); headings are the only markup change. Counsel review pending — see `docs/open-items.md`. |
+| `/privacy/` | `src/pages/privacy.html` | Text as supplied by the client (the live WordPress policy); office address per client. Contents rail + `prose--legal` layout. |
+| `/terms-and-conditions/` | `src/pages/terms-and-conditions.html` | Text as supplied by the client (the live WordPress terms, last updated 15 Nov 2024); office address per client. Markup only: numbered headings, lists, contents rail. |
 | `/404.html` | `src/pages/404.html` | Branded not-found page (Vercel serves root `404.html`). `noindex`, not in the sitemap. |
 | `/preview/` | `preview/index.html` | Internal links page, `noindex`. |
 | `/api/lead` | `api/lead.js` | Quote form handler. Needs `LEAD_WEBHOOK_URL` (see below). |
