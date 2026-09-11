@@ -152,10 +152,41 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 .trust__item strong{display:block;color:var(--navy);font-size:1rem;line-height:1.2;}
 .trust__item span{display:block;font-size:.82rem;color:var(--gray);}
 
-/* Inner pages: institutional navy hero instead of stock photography */
-.hero--navy{background:radial-gradient(60rem 30rem at 85% 20%,rgba(198,168,107,.22),transparent 60%),linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);}
-.hero--navy::before{background:none;}
+/* Inner pages: a softened photo behind a navy wash — depth without stock cheese */
+.hero--navy{background:radial-gradient(60rem 30rem at 85% 20%,rgba(198,168,107,.22),transparent 60%),linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);overflow:hidden;min-height:20rem;}
+.hero--navy::before{background:linear-gradient(90deg,rgba(11,18,32,.92) 0%,rgba(11,18,32,.72) 50%,rgba(11,18,32,.55) 100%);z-index:1;}
+.hero--navy .hero__bg{position:absolute;inset:-4%;background-size:cover;background-position:center 30%;filter:blur(6px) saturate(.8);transform:scale(1.04);opacity:.9;}
+.hero--navy>.wrap{z-index:2;}
 .hero--navy .hero__copy{max-width:40rem;}
+.hero__points{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem .9rem;}
+.hero__points li{display:inline-flex;align-items:center;gap:.45rem;font-size:.92rem;color:#E6EAF0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.35rem .8rem;}
+.hero__points li::before{content:"";width:.5em;height:.3em;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg);margin-top:-.15em;}
+
+/* Contact panel — one navy card with icon rows, beside the map */
+.cpanel{background:linear-gradient(160deg,var(--navy-1),var(--navy-2));color:#fff;border-radius:16px;padding:2rem;box-shadow:0 24px 50px rgba(11,18,32,.25);border-top:4px solid var(--gold);}
+.cpanel h3{color:#fff;font-size:1.3rem;margin-bottom:1.25rem;}
+.cpanel__row{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;align-items:start;padding:1rem 0;border-top:1px solid var(--navy-border);}
+.cpanel__row:first-of-type{border-top:0;padding-top:0;}
+.cpanel__row svg{width:1.3rem;height:1.3rem;color:var(--navy);padding:.65rem;box-sizing:content-box;border-radius:50%;background:var(--gold);}
+.cpanel__row strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#C7CFDA;margin-bottom:.15rem;font-weight:600;}
+.cpanel__row a{color:#fff;text-decoration:none;}
+.cpanel__row a:hover{color:var(--gold);}
+.cpanel__tel{font-size:1.6rem;font-weight:700;letter-spacing:.01em;}
+.cpanel__row p{margin:0;color:#E6EAF0;}
+.cpanel .btn{margin-top:.5rem;}
+
+/* Product trio (About) */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;}
+.trio a{display:block;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:1.75rem;box-shadow:0 1px 2px rgba(11,18,32,.04),0 12px 32px rgba(11,18,32,.06);transition:transform .2s,box-shadow .2s,border-color .2s;}
+.trio a:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 20px 44px rgba(11,18,32,.1);}
+.trio svg{width:1.6rem;height:1.6rem;color:var(--navy);padding:.7rem;box-sizing:content-box;border-radius:12px;background:var(--gold-bg);border:1px solid var(--gold);margin-bottom:1rem;}
+.trio h3{font-size:1.2rem;margin-bottom:.4rem;}
+.trio p{margin:0 0 .75rem;font-size:.98rem;}
+.trio span{font-weight:700;color:var(--navy-2);}
+.trio a:hover span{color:var(--gold-muted);}
+.stat div{border-bottom:0;border-top:4px solid var(--gold);}
+.stat svg{width:1.4rem;height:1.4rem;color:var(--gold-muted);margin:0 auto .5rem;display:block;}
+
 
 /* Life page: same photo as the homepage, different crop and a heavier navy wash */
 .hero--tool-alt{background-position:right 30%;}
@@ -514,7 +545,7 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 @media (max-width:60rem){
   h1{font-size:2.4rem;}
   .hero--band h1{font-size:2.1rem;}
-  .blurbs,.quotes,.stat,.split,.quote__in,.two,.contact,.cards,.insights,.compare,.how{grid-template-columns:1fr;}
+  .blurbs,.quotes,.stat,.split,.quote__in,.two,.contact,.cards,.insights,.compare,.how,.trio{grid-template-columns:1fr;}
   .how{gap:2rem;}
   .trust__grid{grid-template-columns:1fr 1fr;}
   .trust__item{border-left:0;padding-left:0;}
