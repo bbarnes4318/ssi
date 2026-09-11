@@ -98,22 +98,25 @@ p{margin:0 0 1em;}
 .hero--band::before{background:linear-gradient(90deg,rgba(15,25,35,.75),rgba(15,25,35,.35));}
 .hero--band h1{font-size:2.6rem;}
 
-/* Rate tool — the card that overlaps the hero bottom edge */
-.tool{position:relative;z-index:2;margin-top:-5.5rem;}
-.tool__card{
-  background:var(--paper);border-radius:8px;box-shadow:0 12px 40px rgba(20,30,40,.18);
-  display:grid;grid-template-columns:1fr 1.25fr;overflow:hidden;
-}
-.tool__intro{background:var(--navy);color:#fff;padding:2.5rem 2.25rem;}
-.tool__intro h2{color:#fff;font-size:1.75rem;}
-.tool__intro p{color:#D5DDE4;}
-.tool__intro ul{padding-left:1.2rem;margin:1rem 0 1.5rem;color:#D5DDE4;}
-.tool__intro li{margin-bottom:.4rem;}
-.tool__kicker{display:inline-block;background:var(--gold);color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .7rem;border-radius:3px;margin-bottom:1rem;}
-.tool__body{padding:1.75rem 2rem 2rem;}
-.tool__body .ssi-est{font-size:17px;max-width:none;}
+/* Rate tool — lives inside the hero, right column, above the fold */
+.hero--tool{padding:3rem 0 3.5rem;min-height:0;align-items:stretch;}
+.hero--tool::before{background:linear-gradient(90deg,rgba(15,25,35,.78) 0%,rgba(15,25,35,.45) 50%,rgba(15,25,35,.35) 100%);}
+.hero__grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;}
+.hero--tool .hero__bbb{margin-top:1.5rem;}
+.tool{position:relative;z-index:2;background:var(--paper);border-radius:8px;box-shadow:0 12px 40px rgba(20,30,40,.25);overflow:hidden;color:var(--gray);}
+.tool__head{background:var(--navy);color:#fff;padding:1.1rem 1.5rem 1rem;}
+.tool__head h2{color:#fff;font-size:1.2rem;margin:0 0 .2rem;line-height:1.3;}
+.tool__head p{color:#D5DDE4;margin:0;font-size:.9rem;}
+.tool__kicker{display:inline-block;background:var(--gold);color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .6rem;border-radius:3px;margin-bottom:.4rem;}
+.tool__body{padding:1.1rem 1.5rem 1.25rem;}
+.tool__body .ssi-est{font-size:16px;max-width:none;}
 .tool__body .ssi-est__shell{border:0;padding:0;}
-.tool__body .ssi-est__disc{font-size:.8rem;}
+.tool__body .ssi-est__q{font-size:1.3rem;}
+/* The same card, used standalone on /final-expense-insurance/ */
+.tool--wide{display:grid;grid-template-columns:1fr 1.3fr;}
+.tool--wide .tool__head{padding:2rem 1.75rem;}
+.tool--wide .tool__head h2{font-size:1.5rem;}
+.tool--wide .tool__body{padding:1.5rem 1.75rem;}
 
 /* Retheme the estimator to the site palette. `body .ssi-est` outranks the
    widget's own inline <style>, which sets the same custom properties. */
@@ -191,41 +194,42 @@ body .ssi-est__call:hover{background:#A8925C;}
 .faq details p{padding:0 1.25rem 1.25rem;margin:0;color:var(--gray);}
 .sec--gold .faq details p{color:var(--gray);}
 
-/* Steps — numbered white icons on gold, as on the Divi site */
-.steps{list-style:none;margin:1.5rem 0 2rem;padding:0;}
-.steps li{display:grid;grid-template-columns:3.25rem 1fr;gap:1.25rem;align-items:start;margin-bottom:1.5rem;}
-.steps svg{width:3.25rem;height:3.25rem;color:#fff;}
-.steps h4{color:#fff;text-transform:uppercase;letter-spacing:.04em;font-size:1rem;margin:0 0 .15rem;}
-.steps p{margin:0;color:#fff;font-size:1.15rem;}
-.steps--dark li{color:var(--gray);}
+/* Steps — white icon left of uppercase STEP label, as on the Divi site */
+.steps{list-style:none;margin:1.25rem 0 1.5rem;padding:0;}
+.steps li{display:grid;grid-template-columns:2.25rem 1fr;gap:1rem;align-items:start;margin-bottom:1.1rem;}
+.steps svg{width:2.25rem;height:2.25rem;color:#fff;}
+.steps h4{color:#fff;text-transform:uppercase;letter-spacing:.03em;font-size:1.35rem;margin:0;line-height:1.2;}
+.steps p{margin:0;color:#fff;font-size:1.05rem;}
 .steps--dark svg{color:var(--blue);}
 .steps--dark h4{color:var(--navy);}
 .steps--dark p{color:var(--gray);}
 .cta-row{display:flex;gap:1rem;flex-wrap:wrap;}
 
-/* Quote form — white card */
-.quote{padding:4.5rem 0;}
-.quote__in{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;}
-.form{background:var(--paper);border-radius:6px;padding:2rem;color:var(--gray);box-shadow:0 8px 30px rgba(0,0,0,.12);}
-.form h2{font-size:1.5rem;color:var(--navy);}
-.form label{display:block;font-weight:600;color:var(--navy);margin-bottom:.35rem;font-size:.95rem;}
+/* Quote form — sits directly on the gold, white inputs, compact enough to see whole */
+.quote{padding:2.5rem 0 2.75rem;}
+.quote__in{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.quote h2{color:var(--blue);font-size:1.7rem;margin-bottom:.25rem;}
+.form{color:#fff;}
+.form>p{margin:0 0 .9rem;font-size:1rem;}
+.form label{display:block;font-weight:600;color:#fff;margin-bottom:.2rem;font-size:.85rem;}
 .form input[type="text"],.form input[type="tel"],.form input[type="date"]{
-  width:100%;min-height:3.25rem;font:inherit;font-size:1.05rem;padding:.6rem .8rem;
-  border:1px solid #BBB;border-radius:3px;background:var(--paper);color:var(--ink);
+  width:100%;min-height:2.9rem;font:inherit;font-size:1rem;padding:.45rem .8rem;
+  border:1px solid #898989;border-radius:3px;background:var(--paper);color:var(--ink);
 }
 .form input:focus{border-color:var(--blue);}
 .form input:invalid[data-touched]{border-color:#B3261E;}
-.form__row{margin-bottom:1rem;}
-.form__row--2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form__row{margin-bottom:.7rem;}
+.form__row--2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 .form__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
-.form__consent{display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;margin:1.25rem 0;font-size:.82rem;line-height:1.5;color:var(--gray);}
-.form__consent input{width:1.4rem;height:1.4rem;margin:.15rem 0 0;}
-.form__consent label{font-weight:400;margin:0;color:var(--gray);}
-.form__consent strong{display:block;color:var(--navy);margin-bottom:.25rem;}
-.form__assure{font-size:.9rem;margin-bottom:1rem;}
-.form__msg{margin:1rem 0 0;font-weight:600;min-height:1.5em;}
-.form__msg.is-error{color:#B3261E;}
-.form__msg.is-ok{color:#1E6B3A;}
+.form__consent{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;margin:.75rem 0;font-size:.74rem;line-height:1.4;color:#fff;}
+.form__consent input{width:1.3rem;height:1.3rem;margin:.1rem 0 0;}
+.form__consent label{font-weight:400;margin:0;color:#fff;font-size:.74rem;}
+.form__consent label a{color:#fff;}
+.form__consent strong{display:block;margin-bottom:.15rem;}
+.form__assure{font-size:.85rem;margin:0 0 .7rem;}
+.form__msg{margin:.6rem 0 0;font-weight:600;min-height:1.5em;color:#fff;}
+.form__msg.is-error{color:#FFE2DE;}
+.form__msg.is-ok{color:#fff;}
 
 /* Rate tables (final expense page) */
 .rates{overflow-x:auto;margin:1.5rem 0;}
@@ -300,7 +304,7 @@ body .ssi-est__call:hover{background:#A8925C;}
 @media (max-width:72rem){
   .carriers{grid-template-columns:repeat(3,1fr);}
   .ftr__grid{grid-template-columns:1fr 1fr;}
-  .tool__card{grid-template-columns:1fr;}
+  .hero__grid,.tool--wide{grid-template-columns:1fr;}
   .hero{min-height:32rem;}
 }
 @media (max-width:60rem){
@@ -329,8 +333,13 @@ body .ssi-est__call:hover{background:#A8925C;}
   .sec{padding:3rem 0;}
   .hero{padding:4rem 0 6rem;min-height:0;}
   .hero::before{background:rgba(15,25,35,.6);}
-  .tool{margin-top:-4rem;}
-  .tool__intro,.tool__body{padding:1.5rem 1.25rem;}
+  .tool__head,.tool__body{padding:1rem 1.1rem;}
+  /* Phone: keep the estimator reachable without a long scroll */
+  .hero--tool{padding:1.75rem 0 2rem;}
+  .hero--tool h1{font-size:2.1rem;}
+  .hero--tool .hero__sub{font-size:1.05rem;margin-bottom:1rem;}
+  .hero--tool .hero__bbb{display:none;}
+  .hero__grid{gap:1.5rem;}
   .carriers{grid-template-columns:1fr 1fr;}
   .ftr__grid{grid-template-columns:1fr;}
   .form{padding:1.5rem 1.25rem;}

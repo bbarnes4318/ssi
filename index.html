@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=5aba5030">
+<link rel="stylesheet" href="/assets/site.css?v=0f9ce610">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"Senior Solutions Insurance","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/ssi-logo.png","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Final Expense Insurance?","acceptedAnswer":{"@type":"Answer","text":"Final Expense Insurance is a life insurance policy designed to cover end-of-life costs like funeral expenses, medical bills, or unpaid debts."}},{"@type":"Question","name":"How much coverage can I get?","acceptedAnswer":{"@type":"Answer","text":"Policies typically range from $5,000 to $25,000, depending on your needs and budget."}},{"@type":"Question","name":"How much coverage do I need for final expenses?","acceptedAnswer":{"@type":"Answer","text":"This depends on your personal and family needs, but our agents can help you determine the right amount."}},{"@type":"Question","name":"Can I qualify if I have a pre-existing condition?","acceptedAnswer":{"@type":"Answer","text":"Yes, most applicants can qualify for final expense insurance regardless of pre-existing conditions."}}]}</script>
 </head>
@@ -64,8 +64,8 @@
 </svg>
 
 
-<section class="hero" style="background-image:url(/assets/img/hero-home.jpg)">
-  <div class="wrap">
+<section class="hero hero--tool" style="background-image:url(/assets/img/hero-home.jpg)">
+  <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow">Affordable Plans For</p>
       <h1>Final Expense Insurance</h1>
@@ -76,24 +76,14 @@
       </div>
       <img class="hero__bbb" src="/assets/bbb.png" alt="BBB A+ Rating" width="161" height="77">
     </div>
-  </div>
-</section>
-
-<div class="wrap tool" id="estimate">
-  <div class="tool__card">
-    <div class="tool__intro">
-      <span class="tool__kicker">New</span>
-      <h2>See what final expense insurance costs — in 60 seconds</h2>
-      <p>Answer four quick questions and get an estimated monthly rate, whether or not you can answer health questions.</p>
-      <ul>
-        <li>No name, phone or email needed to see it</li>
-        <li>Real 2026 market averages, not a sales pitch</li>
-        <li>Ages 50–85, $10,000 to $30,000 in coverage</li>
-      </ul>
-      <p><a href="/final-expense-insurance/" style="color:#fff;text-decoration:underline">See the full rate tables by age →</a></p>
-    </div>
-    <div class="tool__body">
-      <div class="ssi-est"
+    <div class="tool" id="estimate">
+      <div class="tool__head">
+        <span class="tool__kicker">New</span>
+        <h2>See what final expense insurance costs — in 60 seconds</h2>
+        <p>Four quick questions. No name, phone or email needed.</p>
+      </div>
+      <div class="tool__body">
+        <div class="ssi-est"
      data-phone="1-888-957-3337"
      data-tel="+18889573337"
      data-form="#quote">
@@ -201,30 +191,33 @@
     <section class="ssi-est__result" data-result hidden aria-live="polite">
       <h3 class="ssi-est__resulth" data-resulth></h3>
 
-      <div class="ssi-est__band ssi-est__band--si">
-        <h4>If you can answer a few health questions</h4>
-        <p class="ssi-est__bandsub">Most people can. Coverage starts on day one, with no medical exam.</p>
-        <p class="ssi-est__figure"><span data-si></span> <span class="ssi-est__per">per month</span></p>
+      <div class="ssi-est__bands">
+        <div class="ssi-est__band ssi-est__band--si">
+          <h4>With a few health questions</h4>
+          <p class="ssi-est__figure"><span data-si></span> <span class="ssi-est__per">per month</span></p>
+          <p class="ssi-est__bandsub">Most people qualify. No exam, coverage from day one.</p>
+        </div>
+        <div class="ssi-est__band ssi-est__band--gi">
+          <h4>No health questions at all</h4>
+          <p class="ssi-est__figure"><span data-gi></span> <span class="ssi-est__per">per month</span></p>
+          <p class="ssi-est__bandsub" data-gisub>Guaranteed acceptance. Costs more; full benefit after two years.</p>
+        </div>
       </div>
 
-      <div class="ssi-est__band ssi-est__band--gi">
-        <h4>If you would rather skip the health questions</h4>
-        <p class="ssi-est__bandsub" data-gisub>Guaranteed acceptance, no questions asked. It costs more, and the full benefit begins after two years.</p>
-        <p class="ssi-est__figure"><span data-gi></span> <span class="ssi-est__per">per month</span></p>
-      </div>
-
-      <p class="ssi-est__which">A licensed agent can tell you in one phone call which of these two you qualify for, and what the exact premium would be with each carrier we represent.</p>
+      <p class="ssi-est__which">One call to a licensed agent tells you which of these you qualify for, and the exact premium with each carrier.</p>
 
       <div class="ssi-est__cta">
         <a class="ssi-est__call" data-call href="#">
           <span class="ssi-est__callsm">Speak with a licensed agent</span>
           <span class="ssi-est__callno" data-callno></span>
         </a>
-        <button type="button" class="ssi-est__secondary" data-request>Have an agent call me instead</button>
-        <button type="button" class="ssi-est__restart" data-restart>Start over</button>
+        <button type="button" class="ssi-est__secondary" data-request>Have an agent call me</button>
       </div>
+      <p class="ssi-est__foot"><button type="button" class="ssi-est__restart" data-restart>Start over</button></p>
 
-      <p class="ssi-est__disc">
+      <details class="ssi-est__discwrap">
+        <summary>About these figures</summary>
+        <p class="ssi-est__disc">
         These figures are an estimate, not a quote and not an offer of insurance.
         They are based on market-average monthly premiums for simplified-issue
         final expense whole life coverage from MoneyGeek's 2026 rate analysis of
@@ -235,7 +228,8 @@
         and maximum face amounts vary by carrier and by age.
         Senior Solutions Insurance is a licensed insurance agency. Not all
         products are available in all states.
-      </p>
+        </p>
+      </details>
     </section>
 
   </div>
@@ -281,7 +275,7 @@
 
 /* Progress — a genuine four-step sequence, so numbering is doing real work. */
 .ssi-est__steps{
-  list-style:none;margin:0 0 1.75rem;padding:0 0 1rem;
+  list-style:none;margin:0 0 1.25rem;padding:0 0 .75rem;
   display:flex;gap:.25rem;border-bottom:1px solid var(--rule);
 }
 .ssi-est__steps li{
@@ -303,7 +297,7 @@
   font-size:1.6rem;line-height:1.25;font-weight:400;
   padding:0;margin:0 0 .5rem;
 }
-.ssi-est__help{margin:0 0 1.5rem;font-size:1rem;color:var(--ink-soft);}
+.ssi-est__help{margin:0 0 1rem;font-size:.95rem;color:var(--ink-soft);}
 .ssi-est__note{
   margin:1rem 0 0;padding:.9rem 1rem;background:var(--panel);
   border-left:3px solid var(--gi);font-size:.95rem;
@@ -338,7 +332,7 @@
 .ssi-est__choice:has(input:focus-visible),
 .ssi-est__choice.is-focus{outline:3px solid var(--focus);outline-offset:2px;}
 
-.ssi-est__nav{display:flex;gap:.75rem;margin-top:1.75rem;}
+.ssi-est__nav{display:flex;gap:.75rem;margin-top:1.25rem;}
 .ssi-est button{font:inherit;cursor:pointer;border-radius:4px;}
 .ssi-est__next{
   flex:1;min-height:3.5rem;padding:.75rem 1.5rem;
@@ -352,46 +346,49 @@
 }
 .ssi-est :is(button,select,a):focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
 
-/* Result — the number is the hero, set in the serif. */
+/* Result — everything, including the call button, fits in one view. */
 .ssi-est__resulth{
-  font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.3;
-  margin:0 0 1.5rem;
+  font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.3;
+  margin:0 0 .9rem;
 }
-.ssi-est__band{padding:1.25rem 1.25rem 1.35rem;border-radius:4px;margin-bottom:1rem;}
-.ssi-est__band--si{background:var(--si-bg);border-left:5px solid var(--si);}
-.ssi-est__band--gi{background:var(--gi-bg);border-left:5px solid var(--gi);}
-.ssi-est__band h4{margin:0 0 .3rem;font-size:1.05rem;font-weight:700;}
-.ssi-est__bandsub{margin:0 0 .75rem;font-size:.95rem;color:var(--ink-soft);}
+.ssi-est__bands{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.ssi-est__band{padding:.9rem 1rem 1rem;border-radius:4px;}
+.ssi-est__band--si{background:var(--si-bg);border-left:4px solid var(--si);}
+.ssi-est__band--gi{background:var(--gi-bg);border-left:4px solid var(--gi);}
+.ssi-est__band h4{margin:0 0 .25rem;font-size:.85rem;font-weight:700;line-height:1.3;}
+.ssi-est__bandsub{margin:.35rem 0 0;font-size:.78rem;line-height:1.4;color:var(--ink-soft);}
 .ssi-est__figure{
-  margin:0;font-family:var(--serif);font-size:2.1rem;line-height:1.15;font-weight:700;
+  margin:0;font-family:var(--serif);font-size:1.55rem;line-height:1.15;font-weight:700;
 }
 .ssi-est__band--si .ssi-est__figure{color:var(--si);}
 .ssi-est__band--gi .ssi-est__figure{color:var(--gi);}
 .ssi-est__per{
-  display:block;font-family:var(--sans);font-size:.9rem;font-weight:400;
-  color:var(--ink-soft);margin-top:.15rem;
+  display:inline;font-family:var(--sans);font-size:.75rem;font-weight:400;
+  color:var(--ink-soft);margin-left:.15rem;
 }
-.ssi-est__which{font-size:1rem;margin:1.5rem 0;}
+.ssi-est__which{font-size:.85rem;line-height:1.45;margin:.9rem 0;color:var(--ink-soft);}
 
-.ssi-est__cta{display:flex;flex-direction:column;gap:.75rem;}
+.ssi-est__cta{display:grid;grid-template-columns:1.2fr 1fr;gap:.6rem;align-items:stretch;}
 .ssi-est__call{
-  display:block;text-decoration:none;text-align:center;
-  min-height:4.25rem;padding:.85rem 1.25rem;
+  display:flex;flex-direction:column;justify-content:center;text-decoration:none;text-align:center;
+  min-height:3.5rem;padding:.5rem 1rem;
   background:var(--si);color:#fff;border-radius:4px;
 }
-.ssi-est__callsm{display:block;font-size:.9rem;opacity:.9;}
-.ssi-est__callno{display:block;font-size:1.5rem;font-weight:700;letter-spacing:.01em;}
+.ssi-est__callsm{display:block;font-size:.72rem;opacity:.9;}
+.ssi-est__callno{display:block;font-size:1.2rem;font-weight:700;letter-spacing:.01em;}
 .ssi-est__secondary{
-  min-height:3.5rem;padding:.75rem 1.25rem;background:var(--paper);
-  color:var(--si);border:2px solid var(--si);font-size:1.05rem;font-weight:600;
+  min-height:3.5rem;padding:.5rem .9rem;background:var(--paper);
+  color:var(--si);border:2px solid var(--si);font-size:.9rem;font-weight:600;
 }
+.ssi-est__foot{margin:.4rem 0 0;text-align:center;}
 .ssi-est__restart{
-  min-height:3rem;background:none;border:0;color:var(--ink-soft);
-  font-size:1rem;text-decoration:underline;padding:.5rem;
+  min-height:2.25rem;background:none;border:0;color:var(--ink-soft);
+  font-size:.85rem;text-decoration:underline;padding:.25rem .5rem;
 }
+.ssi-est__discwrap{margin-top:.5rem;border-top:1px solid var(--rule);padding-top:.5rem;}
+.ssi-est__discwrap summary{cursor:pointer;font-size:.8rem;color:var(--ink-soft);}
 .ssi-est__disc{
-  margin:1.75rem 0 0;padding-top:1.25rem;border-top:1px solid var(--rule);
-  font-size:.85rem;line-height:1.6;color:var(--ink-soft);
+  margin:.5rem 0 0;font-size:.78rem;line-height:1.5;color:var(--ink-soft);
 }
 
 @media (max-width:26rem){
@@ -401,6 +398,7 @@
   .ssi-est__choices--grid{grid-template-columns:1fr;}
   .ssi-est__steps li{font-size:.7rem;}
   .ssi-est__nav{flex-wrap:wrap;}
+  .ssi-est__bands,.ssi-est__cta{grid-template-columns:1fr;}
 }
 @media (prefers-reduced-motion:no-preference){
   .ssi-est__step[data-enter],.ssi-est__result[data-enter]{animation:ssiIn .18s ease-out;}
@@ -503,8 +501,19 @@
     root.querySelector('[data-result]').hidden = true;
     current = n;
     paintProgress();
-    var focusable = stepEl(n).querySelector('select, input, button');
+    syncNext(); // an already-answered step lands with Continue enabled
+    var focusable = stepEl(n).querySelector('input:checked, select, input, button');
     if (focusable) focusable.focus({ preventScroll: true });
+  }
+
+  // Choosing an answer is the answer: advance without a second click.
+  var advanceTimer = null;
+  function advance() {
+    clearTimeout(advanceTimer);
+    advanceTimer = setTimeout(function () {
+      if (!ready(current)) return;
+      if (current < 4) { show(current + 1); } else { finish(); }
+    }, 180);
   }
 
   function ready(n) {
@@ -548,7 +557,7 @@
   });
 
   root.querySelectorAll('input[name="ssi-gender"]').forEach(function (r) {
-    r.addEventListener('change', function () { state.gender = this.value; markChecked('ssi-gender'); syncNext(); });
+    r.addEventListener('change', function () { state.gender = this.value; markChecked('ssi-gender'); syncNext(); advance(); });
   });
 
   root.querySelectorAll('input[name="ssi-cov"]').forEach(function (r) {
@@ -563,11 +572,12 @@
         note.hidden = true;
       }
       syncNext();
+      advance();
     });
   });
 
   root.querySelectorAll('input[name="ssi-tob"]').forEach(function (r) {
-    r.addEventListener('change', function () { state.tobacco = this.value; markChecked('ssi-tob'); syncNext(); });
+    r.addEventListener('change', function () { state.tobacco = this.value; markChecked('ssi-tob'); syncNext(); advance(); });
   });
 
   root.querySelectorAll('[data-next]').forEach(function (b) {
@@ -604,8 +614,8 @@
 
     var giSub = root.querySelector('[data-gisub]');
     giSub.textContent = state.coverage > GI_MAX_FACE
-      ? 'Guaranteed acceptance plans generally cap at $25,000, so this estimate is for ' + money(GI_MAX_FACE) + '. It costs more, and the full benefit begins after two years.'
-      : 'Guaranteed acceptance, no questions asked. It costs more, and the full benefit begins after two years.';
+      ? 'Guaranteed acceptance, shown for ' + money(GI_MAX_FACE) + ' (the usual cap). Costs more; full benefit after two years.'
+      : 'Guaranteed acceptance. Costs more; full benefit after two years.';
 
     var call = root.querySelector('[data-call]');
     call.href = 'tel:' + TEL;
@@ -678,9 +688,10 @@
 })();
 </script>
 
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="sec">
   <div class="wrap">
@@ -793,15 +804,16 @@
     </div>
 
     <form class="form" method="post" action="/api/lead" data-lead-form novalidate>
-      <h2>Get a free quote</h2>
       <p>Your health, family, and legacy are in good hands. Get in touch to get a free quote on how you can save money on your insurance and get all of the benefits you're entitled to!</p>
-      <div class="form__row">
-        <label for="q-name">Full name</label>
-        <input id="q-name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div class="form__row">
-        <label for="q-phone">Phone number</label>
-        <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+      <div class="form__row form__row--2">
+        <div>
+          <label for="q-name">Full name</label>
+          <input id="q-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="q-phone">Phone number</label>
+          <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
       </div>
       <div class="form__row form__row--2">
         <div>
@@ -831,7 +843,7 @@
       <div data-turnstile></div>
 
       <p class="form__assure">We never sell your information. A licensed agent will call you back during business hours.</p>
-      <button class="btn btn--blue btn--big" type="submit">Submit</button>
+      <button class="btn btn--blue" type="submit" style="min-width:10rem">Submit</button>
       <p class="form__msg" data-form-msg role="status" aria-live="polite"></p>
     </form>
   </div>
