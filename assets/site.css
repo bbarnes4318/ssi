@@ -191,6 +191,21 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 .hero__photo::before{content:"";position:absolute;inset:-14px -14px auto auto;width:45%;height:45%;border-top:4px solid var(--gold);border-right:4px solid var(--gold);border-radius:0 22px 0 0;pointer-events:none;}
 .hero__photo figcaption{position:absolute;left:1rem;bottom:1rem;font-size:.8rem;color:#fff;background:rgba(11,18,32,.75);padding:.35rem .7rem;border-radius:999px;}
 
+/* Quick-answers panel (Life FAQ) */
+.quick{background:var(--paper);border-radius:18px;padding:1.75rem;box-shadow:0 24px 50px rgba(11,18,32,.3);border-top:5px solid var(--gold);align-self:start;}
+.quick__k{margin:0 0 .75rem;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--navy-2);}
+.quick__list{margin:0 0 1.25rem;}
+.quick__list div{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:.65rem 0;border-top:1px solid var(--rule);}
+.quick__list div:first-child{border-top:0;padding-top:0;}
+.quick__list dt{font-weight:600;color:var(--gray);font-size:.92rem;}
+.quick__list dd{margin:0;font-weight:700;color:var(--navy);}
+.quick__call{display:flex;align-items:center;gap:.9rem;text-decoration:none;background:var(--navy-1);color:#fff;border-radius:14px;padding:.9rem 1.1rem;border-left:4px solid var(--gold);transition:transform .15s;}
+.quick__call:hover{transform:translateY(-2px);color:#fff;}
+.quick__call img{width:3.5rem;height:3.5rem;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid var(--gold);flex:none;}
+.quick__call span{display:flex;flex-direction:column;line-height:1.2;}
+.quick__sm{font-size:.8rem;color:#C7CFDA;}
+.quick__call strong{font-size:1.3rem;}
+
 /* Contact hero: the phone number is the hero */
 .hero--call{padding:3rem 0 3.5rem;min-height:0;}
 .hero--call .hero__grid{grid-template-columns:1.15fr 1fr;align-items:center;}
