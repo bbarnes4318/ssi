@@ -1,0 +1,632 @@
+<!--
+  Final Expense Cost Estimator — drop-in widget
+  Built for ssifinalexpense.com. Self-contained: no dependencies, no build step,
+  no external requests. Paste the whole file into an Elementor "HTML" widget,
+  a Gutenberg "Custom HTML" block, or a WordPress shortcode template.
+
+  ── Configuration ────────────────────────────────────────────────────────────
+  Edit the data- attributes on <div class="ssi-est"> below:
+
+    data-phone      Display phone number.            default "1-888-957-3337"
+    data-tel        tel: href digits, E.164.         default "+18889573337"
+    data-form       CSS selector of the existing     default "#quote"
+                    lead form to scroll to when the
+                    visitor asks for a call back.
+
+  ── Wiring the result into your lead record ──────────────────────────────────
+  When a visitor finishes the estimate, the widget fires:
+
+    window.SSIEstimator.onComplete = function (data) { ... }
+
+  with data = { age, gender, coverage, tobacco, siLow, siHigh, giLow, giHigh }
+
+  By default it also fills any of these input names in your existing form, if
+  they exist: ssi_age, ssi_gender, ssi_coverage, ssi_tobacco. Add them to the
+  form as hidden fields and the agent gets the qualification data on the lead.
+
+  ── Rate basis ───────────────────────────────────────────────────────────────
+  Base figures are market-average monthly premiums for simplified-issue final
+  expense whole life, from MoneyGeek's 2026 final expense rate analysis
+  (updated 12 Aug 2026), baseline profile a nonsmoker in average health.
+  Ages between the five-year anchors and coverage amounts between $10k/$20k/$30k
+  are linearly interpolated.
+
+  Bands applied:
+    Simplified issue   0.80x – 1.20x of the market average
+                       (calibrated to the cheapest and dearest simplified-issue
+                        carriers in the source: Transamerica $31 and Fidelity $44
+                        against a $38 average for a 50-year-old man at $10,000)
+    Guaranteed issue   1.42x – 1.80x  (42% floor: 2026 Gerber SI-vs-GI comparison;
+                                       80% ceiling: 2026 GI pricing analysis)
+    Tobacco            1.25x – 1.30x on top of either band
+
+  Guaranteed issue is capped at $25,000 face, which reflects the category norm.
+
+  Re-pull the source annually. A rate table dated 2026 sitting on the site in
+  2028 is worse than no table at all.
+-->
+
+<div class="ssi-est"
+     data-phone="1-888-957-3337"
+     data-tel="+18889573337"
+     data-form="#quote">
+
+  <noscript>
+    <p class="ssi-est__noscript">
+      To see estimated monthly rates, please call a licensed agent at
+      <a href="tel:+18889573337">1-888-957-3337</a>. We are open Monday through
+      Friday, 9:00 AM to 7:00 PM, and Saturday, 9:00 AM to 5:00 PM.
+    </p>
+  </noscript>
+
+  <div class="ssi-est__shell" hidden data-shell>
+
+    <div class="ssi-est__progress" data-progress>
+      <ol class="ssi-est__steps">
+        <li data-dot="1"><span>1</span>Age</li>
+        <li data-dot="2"><span>2</span>Gender</li>
+        <li data-dot="3"><span>3</span>Coverage</li>
+        <li data-dot="4"><span>4</span>Tobacco</li>
+      </ol>
+    </div>
+
+    <!-- Step 1 — age -->
+    <fieldset class="ssi-est__step" data-step="1">
+      <legend class="ssi-est__q">How old are you?</legend>
+      <p class="ssi-est__help">Age is the single largest factor in what final expense coverage costs.</p>
+      <label class="ssi-est__selectwrap">
+        <span class="ssi-est__selectlabel">Your age</span>
+        <select data-age>
+          <option value="">Select your age</option>
+        </select>
+      </label>
+      <p class="ssi-est__note" data-agenote hidden></p>
+      <div class="ssi-est__nav">
+        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 2 — gender -->
+    <fieldset class="ssi-est__step" data-step="2" hidden>
+      <legend class="ssi-est__q">Are you male or female?</legend>
+      <p class="ssi-est__help">Carriers price these differently because of average life expectancy.</p>
+      <div class="ssi-est__choices">
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-gender" value="female"><span>Female</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-gender" value="male"><span>Male</span>
+        </label>
+      </div>
+      <div class="ssi-est__nav">
+        <button type="button" class="ssi-est__back" data-back>Back</button>
+        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 3 — coverage -->
+    <fieldset class="ssi-est__step" data-step="3" hidden>
+      <legend class="ssi-est__q">How much coverage do you want?</legend>
+      <p class="ssi-est__help">The median funeral and burial costs about $8,300, so most people start at $10,000.</p>
+      <div class="ssi-est__choices ssi-est__choices--grid">
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-cov" value="10000"><span>$10,000</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-cov" value="15000"><span>$15,000</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-cov" value="20000"><span>$20,000</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-cov" value="25000"><span>$25,000</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-cov" value="30000"><span>$30,000</span>
+        </label>
+      </div>
+      <p class="ssi-est__note" data-covnote hidden></p>
+      <div class="ssi-est__nav">
+        <button type="button" class="ssi-est__back" data-back>Back</button>
+        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 4 — tobacco -->
+    <fieldset class="ssi-est__step" data-step="4" hidden>
+      <legend class="ssi-est__q">Have you used tobacco in the past year?</legend>
+      <p class="ssi-est__help">This includes cigarettes, cigars, chewing tobacco and nicotine products.</p>
+      <div class="ssi-est__choices">
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-tob" value="no"><span>No</span>
+        </label>
+        <label class="ssi-est__choice">
+          <input type="radio" name="ssi-tob" value="yes"><span>Yes</span>
+        </label>
+      </div>
+      <div class="ssi-est__nav">
+        <button type="button" class="ssi-est__back" data-back>Back</button>
+        <button type="button" class="ssi-est__next ssi-est__next--go" data-next disabled>See my estimate</button>
+      </div>
+    </fieldset>
+
+    <!-- Result -->
+    <section class="ssi-est__result" data-result hidden aria-live="polite">
+      <h3 class="ssi-est__resulth" data-resulth></h3>
+
+      <div class="ssi-est__band ssi-est__band--si">
+        <h4>If you can answer a few health questions</h4>
+        <p class="ssi-est__bandsub">Most people can. Coverage starts on day one, with no medical exam.</p>
+        <p class="ssi-est__figure"><span data-si></span> <span class="ssi-est__per">per month</span></p>
+      </div>
+
+      <div class="ssi-est__band ssi-est__band--gi">
+        <h4>If you would rather skip the health questions</h4>
+        <p class="ssi-est__bandsub" data-gisub>Guaranteed acceptance, no questions asked. It costs more, and the full benefit begins after two years.</p>
+        <p class="ssi-est__figure"><span data-gi></span> <span class="ssi-est__per">per month</span></p>
+      </div>
+
+      <p class="ssi-est__which">A licensed agent can tell you in one phone call which of these two you qualify for, and what the exact premium would be with each carrier we represent.</p>
+
+      <div class="ssi-est__cta">
+        <a class="ssi-est__call" data-call href="#">
+          <span class="ssi-est__callsm">Speak with a licensed agent</span>
+          <span class="ssi-est__callno" data-callno></span>
+        </a>
+        <button type="button" class="ssi-est__secondary" data-request>Have an agent call me instead</button>
+        <button type="button" class="ssi-est__restart" data-restart>Start over</button>
+      </div>
+
+      <p class="ssi-est__disc">
+        These figures are an estimate, not a quote and not an offer of insurance.
+        They are based on market-average monthly premiums for simplified-issue
+        final expense whole life coverage from MoneyGeek's 2026 rate analysis of
+        final expense quotes across major carriers, updated August 12, 2026, using
+        a baseline profile of a nonsmoker in average health. Your actual premium
+        depends on your age, gender, tobacco use, health history, coverage amount,
+        the carrier you select and your state of residence. Coverage availability
+        and maximum face amounts vary by carrier and by age.
+        Senior Solutions Insurance is a licensed insurance agency. Not all
+        products are available in all states.
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<style>
+.ssi-est{
+  /* Retheme here. Green marks the path most people qualify for; amber marks the
+     fallback. The colours carry meaning, so keep them distinguishable. */
+  --ink:#1B2A3A;
+  --ink-soft:#4A5B6C;
+  --paper:#FFFFFF;
+  --panel:#F3F6F5;
+  --rule:#D3DBE0;
+  --si:#14594A;
+  --si-bg:#EDF4F1;
+  --gi:#8A5A20;
+  --gi-bg:#FAF4EA;
+  --focus:#1F6FEB;
+
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+
+  font-family:var(--sans);
+  font-size:20px;
+  line-height:1.55;
+  color:var(--ink);
+  max-width:37rem;
+  margin:0 auto;
+  padding:0;
+  -webkit-text-size-adjust:100%;
+}
+.ssi-est *,.ssi-est *::before,.ssi-est *::after{box-sizing:border-box;}
+.ssi-est__noscript{
+  font-size:1.05rem;padding:1.25rem;border:2px solid var(--rule);border-radius:4px;
+}
+.ssi-est__shell{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:1.75rem 1.5rem 1.5rem;
+}
+
+/* Progress — a genuine four-step sequence, so numbering is doing real work. */
+.ssi-est__steps{
+  list-style:none;margin:0 0 1.75rem;padding:0 0 1rem;
+  display:flex;gap:.25rem;border-bottom:1px solid var(--rule);
+}
+.ssi-est__steps li{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  font-size:.8rem;color:var(--ink-soft);letter-spacing:.01em;
+}
+.ssi-est__steps li span{
+  width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;
+  border:2px solid var(--rule);background:var(--paper);
+  font-size:.95rem;font-weight:600;color:var(--ink-soft);
+}
+.ssi-est__steps li[data-state="on"] span{border-color:var(--si);background:var(--si);color:#fff;}
+.ssi-est__steps li[data-state="on"]{color:var(--ink);font-weight:600;}
+.ssi-est__steps li[data-state="done"] span{border-color:var(--si);color:var(--si);}
+
+.ssi-est__step{border:0;margin:0;padding:0;min-width:0;}
+.ssi-est__q{
+  font-family:var(--serif);
+  font-size:1.6rem;line-height:1.25;font-weight:400;
+  padding:0;margin:0 0 .5rem;
+}
+.ssi-est__help{margin:0 0 1.5rem;font-size:1rem;color:var(--ink-soft);}
+.ssi-est__note{
+  margin:1rem 0 0;padding:.9rem 1rem;background:var(--panel);
+  border-left:3px solid var(--gi);font-size:.95rem;
+}
+
+.ssi-est__selectwrap{display:block;}
+.ssi-est__selectlabel{display:block;font-size:1rem;font-weight:600;margin-bottom:.5rem;}
+.ssi-est select{
+  width:100%;min-height:3.5rem;font:inherit;font-size:1.15rem;
+  padding:.65rem .9rem;border:2px solid var(--ink-soft);border-radius:4px;
+  background:var(--paper);color:var(--ink);
+}
+
+.ssi-est__choices{display:flex;flex-direction:column;gap:.75rem;}
+.ssi-est__choices--grid{display:grid;grid-template-columns:repeat(2,1fr);}
+.ssi-est__choice{
+  position:relative;display:block;min-height:3.75rem;
+  border:2px solid var(--rule);border-radius:4px;background:var(--paper);
+  cursor:pointer;
+}
+.ssi-est__choice input{
+  position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;
+}
+.ssi-est__choice span{
+  display:flex;align-items:center;min-height:3.75rem;padding:.5rem 1.1rem;
+  font-size:1.15rem;font-weight:500;
+}
+.ssi-est__choice:has(input:checked),
+.ssi-est__choice.is-checked{border-color:var(--si);background:var(--si-bg);}
+.ssi-est__choice:has(input:checked) span,
+.ssi-est__choice.is-checked span{font-weight:700;color:var(--si);}
+.ssi-est__choice:has(input:focus-visible),
+.ssi-est__choice.is-focus{outline:3px solid var(--focus);outline-offset:2px;}
+
+.ssi-est__nav{display:flex;gap:.75rem;margin-top:1.75rem;}
+.ssi-est button{font:inherit;cursor:pointer;border-radius:4px;}
+.ssi-est__next{
+  flex:1;min-height:3.5rem;padding:.75rem 1.5rem;
+  background:var(--si);color:#fff;border:2px solid var(--si);
+  font-size:1.1rem;font-weight:600;
+}
+.ssi-est__next[disabled]{background:var(--rule);border-color:var(--rule);color:#7A8894;cursor:not-allowed;}
+.ssi-est__back{
+  min-height:3.5rem;padding:.75rem 1.35rem;background:var(--paper);
+  color:var(--ink);border:2px solid var(--rule);font-size:1.05rem;
+}
+.ssi-est :is(button,select,a):focus-visible{outline:3px solid var(--focus);outline-offset:2px;}
+
+/* Result — the number is the hero, set in the serif. */
+.ssi-est__resulth{
+  font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.3;
+  margin:0 0 1.5rem;
+}
+.ssi-est__band{padding:1.25rem 1.25rem 1.35rem;border-radius:4px;margin-bottom:1rem;}
+.ssi-est__band--si{background:var(--si-bg);border-left:5px solid var(--si);}
+.ssi-est__band--gi{background:var(--gi-bg);border-left:5px solid var(--gi);}
+.ssi-est__band h4{margin:0 0 .3rem;font-size:1.05rem;font-weight:700;}
+.ssi-est__bandsub{margin:0 0 .75rem;font-size:.95rem;color:var(--ink-soft);}
+.ssi-est__figure{
+  margin:0;font-family:var(--serif);font-size:2.1rem;line-height:1.15;font-weight:700;
+}
+.ssi-est__band--si .ssi-est__figure{color:var(--si);}
+.ssi-est__band--gi .ssi-est__figure{color:var(--gi);}
+.ssi-est__per{
+  display:block;font-family:var(--sans);font-size:.9rem;font-weight:400;
+  color:var(--ink-soft);margin-top:.15rem;
+}
+.ssi-est__which{font-size:1rem;margin:1.5rem 0;}
+
+.ssi-est__cta{display:flex;flex-direction:column;gap:.75rem;}
+.ssi-est__call{
+  display:block;text-decoration:none;text-align:center;
+  min-height:4.25rem;padding:.85rem 1.25rem;
+  background:var(--si);color:#fff;border-radius:4px;
+}
+.ssi-est__callsm{display:block;font-size:.9rem;opacity:.9;}
+.ssi-est__callno{display:block;font-size:1.5rem;font-weight:700;letter-spacing:.01em;}
+.ssi-est__secondary{
+  min-height:3.5rem;padding:.75rem 1.25rem;background:var(--paper);
+  color:var(--si);border:2px solid var(--si);font-size:1.05rem;font-weight:600;
+}
+.ssi-est__restart{
+  min-height:3rem;background:none;border:0;color:var(--ink-soft);
+  font-size:1rem;text-decoration:underline;padding:.5rem;
+}
+.ssi-est__disc{
+  margin:1.75rem 0 0;padding-top:1.25rem;border-top:1px solid var(--rule);
+  font-size:.85rem;line-height:1.6;color:var(--ink-soft);
+}
+
+@media (max-width:26rem){
+  .ssi-est{font-size:19px;}
+  .ssi-est__shell{padding:1.25rem 1rem 1.25rem;}
+  .ssi-est__q{font-size:1.4rem;}
+  .ssi-est__choices--grid{grid-template-columns:1fr;}
+  .ssi-est__steps li{font-size:.7rem;}
+  .ssi-est__nav{flex-wrap:wrap;}
+}
+@media (prefers-reduced-motion:no-preference){
+  .ssi-est__step[data-enter],.ssi-est__result[data-enter]{animation:ssiIn .18s ease-out;}
+  @keyframes ssiIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+}
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  window.SSIEstimator = window.SSIEstimator || {};
+
+  var root = document.querySelector('.ssi-est');
+  if (!root) return;
+
+  var shell = root.querySelector('[data-shell]');
+  shell.hidden = false;
+
+  var PHONE = root.dataset.phone || '1-888-957-3337';
+  var TEL   = root.dataset.tel   || '+18889573337';
+  var FORM  = root.dataset.form  || '#quote';
+
+  // Market-average monthly premium, simplified issue, non-tobacco.
+  // Anchors at ages 50–85 in five-year steps.
+  var AGES = [50, 55, 60, 65, 70, 75, 80, 85];
+  var BASE = {
+    female: {
+      10000: [30, 36, 42, 50, 64, 87, 125, 155],
+      20000: [56, 69, 80, 97, 124, 171, 246, 299],
+      30000: [76, 89, 105, 129, 167, 229, 327, 460]
+    },
+    male: {
+      10000: [38, 46, 53, 66, 84, 113, 164, 203],
+      20000: [72, 87, 101, 126, 162, 220, 321, 396],
+      30000: [96, 115, 137, 168, 220, 302, 424, 601]
+    }
+  };
+
+  var SI_LOW = 0.80, SI_HIGH = 1.20;
+  var GI_LOW = 1.42, GI_HIGH = 1.80;
+  var TOB_LOW = 1.25, TOB_HIGH = 1.30;
+  var GI_MAX_FACE = 25000;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function atAge(series, age) {
+    if (age <= AGES[0]) return series[0];
+    if (age >= AGES[AGES.length - 1]) return series[series.length - 1];
+    for (var i = 0; i < AGES.length - 1; i++) {
+      if (age >= AGES[i] && age <= AGES[i + 1]) {
+        return lerp(series[i], series[i + 1], (age - AGES[i]) / (AGES[i + 1] - AGES[i]));
+      }
+    }
+    return series[series.length - 1];
+  }
+
+  function baseRate(gender, age, coverage) {
+    var t = BASE[gender];
+    if (coverage <= 10000) return atAge(t[10000], age);
+    if (coverage >= 30000) return atAge(t[30000], age);
+    if (coverage === 20000) return atAge(t[20000], age);
+    if (coverage < 20000) {
+      return lerp(atAge(t[10000], age), atAge(t[20000], age), (coverage - 10000) / 10000);
+    }
+    return lerp(atAge(t[20000], age), atAge(t[30000], age), (coverage - 20000) / 10000);
+  }
+
+  function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function range(lo, hi) { return money(lo) + ' to ' + money(hi); }
+
+  var state = { age: null, gender: null, coverage: null, tobacco: null };
+  var current = 1;
+
+  // Build the age list.
+  var ageSel = root.querySelector('[data-age]');
+  for (var a = 50; a <= 85; a++) {
+    var o = document.createElement('option');
+    o.value = String(a);
+    o.textContent = String(a);
+    ageSel.appendChild(o);
+  }
+
+  function stepEl(n) { return root.querySelector('[data-step="' + n + '"]'); }
+
+  function paintProgress() {
+    root.querySelectorAll('[data-dot]').forEach(function (li) {
+      var n = Number(li.dataset.dot);
+      li.dataset.state = n < current ? 'done' : (n === current ? 'on' : 'off');
+    });
+    root.querySelector('[data-progress]').hidden = current > 4;
+  }
+
+  function show(n) {
+    for (var i = 1; i <= 4; i++) {
+      var el = stepEl(i);
+      el.hidden = i !== n;
+      if (i === n) { el.dataset.enter = '1'; setTimeout(function (e) { delete e.dataset.enter; }, 250, el); }
+    }
+    root.querySelector('[data-result]').hidden = true;
+    current = n;
+    paintProgress();
+    var focusable = stepEl(n).querySelector('select, input, button');
+    if (focusable) focusable.focus({ preventScroll: true });
+  }
+
+  function ready(n) {
+    if (n === 1) return !!state.age;
+    if (n === 2) return !!state.gender;
+    if (n === 3) return !!state.coverage;
+    if (n === 4) return !!state.tobacco;
+    return false;
+  }
+
+  function syncNext() {
+    var el = stepEl(current);
+    if (!el) return;
+    var btn = el.querySelector('[data-next]');
+    if (btn) btn.disabled = !ready(current);
+  }
+
+  // ── Inputs ────────────────────────────────────────────────────────────────
+  ageSel.addEventListener('change', function () {
+    state.age = this.value ? Number(this.value) : null;
+    var note = root.querySelector('[data-agenote]');
+    if (state.age && state.age >= 76) {
+      note.textContent = 'Premiums rise sharply after age 75, and some carriers reduce the maximum coverage they will issue. It is worth calling sooner rather than later.';
+      note.hidden = false;
+    } else {
+      note.hidden = true;
+    }
+    syncNext();
+  });
+
+  // Keep a class in sync with :checked so browsers without :has() still show
+  // the selected state. Seniors are more likely to be on an older device.
+  function markChecked(name) {
+    root.querySelectorAll('input[name="' + name + '"]').forEach(function (i) {
+      i.closest('.ssi-est__choice').classList.toggle('is-checked', i.checked);
+    });
+  }
+  root.querySelectorAll('.ssi-est__choice input').forEach(function (i) {
+    i.addEventListener('focus', function () { i.closest('.ssi-est__choice').classList.add('is-focus'); });
+    i.addEventListener('blur', function () { i.closest('.ssi-est__choice').classList.remove('is-focus'); });
+  });
+
+  root.querySelectorAll('input[name="ssi-gender"]').forEach(function (r) {
+    r.addEventListener('change', function () { state.gender = this.value; markChecked('ssi-gender'); syncNext(); });
+  });
+
+  root.querySelectorAll('input[name="ssi-cov"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      state.coverage = Number(this.value);
+      markChecked('ssi-cov');
+      var note = root.querySelector('[data-covnote]');
+      if (state.coverage > GI_MAX_FACE) {
+        note.textContent = 'Above $25,000, coverage is generally available only with a health questionnaire. Guaranteed acceptance plans usually cap at $25,000.';
+        note.hidden = false;
+      } else {
+        note.hidden = true;
+      }
+      syncNext();
+    });
+  });
+
+  root.querySelectorAll('input[name="ssi-tob"]').forEach(function (r) {
+    r.addEventListener('change', function () { state.tobacco = this.value; markChecked('ssi-tob'); syncNext(); });
+  });
+
+  root.querySelectorAll('[data-next]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (!ready(current)) return;
+      if (current < 4) { show(current + 1); } else { finish(); }
+    });
+  });
+
+  root.querySelectorAll('[data-back]').forEach(function (b) {
+    b.addEventListener('click', function () { if (current > 1) show(current - 1); });
+  });
+
+  // ── Result ────────────────────────────────────────────────────────────────
+  function finish() {
+    var base = baseRate(state.gender, state.age, state.coverage);
+    var tobLo = state.tobacco === 'yes' ? TOB_LOW : 1;
+    var tobHi = state.tobacco === 'yes' ? TOB_HIGH : 1;
+
+    var siLow = base * SI_LOW * tobLo;
+    var siHigh = base * SI_HIGH * tobHi;
+
+    var giFace = Math.min(state.coverage, GI_MAX_FACE);
+    var giBase = baseRate(state.gender, state.age, giFace);
+    var giLow = giBase * GI_LOW * tobLo;
+    var giHigh = giBase * GI_HIGH * tobHi;
+
+    var res = root.querySelector('[data-result]');
+    root.querySelector('[data-resulth]').textContent =
+      'Estimated monthly cost for ' + money(state.coverage) + ' of coverage at age ' + state.age + '.';
+
+    root.querySelector('[data-si]').textContent = range(siLow, siHigh);
+    root.querySelector('[data-gi]').textContent = range(giLow, giHigh);
+
+    var giSub = root.querySelector('[data-gisub]');
+    giSub.textContent = state.coverage > GI_MAX_FACE
+      ? 'Guaranteed acceptance plans generally cap at $25,000, so this estimate is for ' + money(GI_MAX_FACE) + '. It costs more, and the full benefit begins after two years.'
+      : 'Guaranteed acceptance, no questions asked. It costs more, and the full benefit begins after two years.';
+
+    var call = root.querySelector('[data-call]');
+    call.href = 'tel:' + TEL;
+    root.querySelector('[data-callno]').textContent = PHONE;
+
+    for (var i = 1; i <= 4; i++) stepEl(i).hidden = true;
+    current = 5;
+    paintProgress();
+    res.hidden = false;
+    res.dataset.enter = '1';
+    setTimeout(function () { delete res.dataset.enter; }, 250);
+    res.querySelector('.ssi-est__resulth').setAttribute('tabindex', '-1');
+    res.querySelector('.ssi-est__resulth').focus({ preventScroll: true });
+
+    var payload = {
+      age: state.age,
+      gender: state.gender,
+      coverage: state.coverage,
+      tobacco: state.tobacco,
+      siLow: Math.round(siLow), siHigh: Math.round(siHigh),
+      giLow: Math.round(giLow), giHigh: Math.round(giHigh)
+    };
+
+    fillForm(payload);
+    if (typeof window.SSIEstimator.onComplete === 'function') {
+      try { window.SSIEstimator.onComplete(payload); } catch (e) {}
+    }
+  }
+
+  function fillForm(payload) {
+    var form = document.querySelector(FORM);
+    if (!form) return;
+    var map = {
+      ssi_age: payload.age,
+      ssi_gender: payload.gender,
+      ssi_coverage: payload.coverage,
+      ssi_tobacco: payload.tobacco
+    };
+    Object.keys(map).forEach(function (name) {
+      var field = form.querySelector('[name="' + name + '"]');
+      if (field) field.value = map[name];
+    });
+  }
+
+  root.querySelector('[data-request]').addEventListener('click', function () {
+    var form = document.querySelector(FORM);
+    if (form) {
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var first = form.querySelector('input:not([type="hidden"]), select, textarea');
+      if (first) setTimeout(function () { first.focus(); }, 400);
+    } else {
+      window.location.href = 'tel:' + TEL;
+    }
+  });
+
+  root.querySelector('[data-restart]').addEventListener('click', function () {
+    state = { age: null, gender: null, coverage: null, tobacco: null };
+    ageSel.value = '';
+    root.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+    root.querySelectorAll('.ssi-est__choice').forEach(function (l) { l.classList.remove('is-checked'); });
+    root.querySelectorAll('[data-agenote],[data-covnote]').forEach(function (n) { n.hidden = true; });
+    show(1);
+    syncNext();
+  });
+
+  window.SSIEstimator.rate = baseRate;
+
+  show(1);
+  syncNext();
+})();
+</script>
