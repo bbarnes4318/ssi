@@ -1,22 +1,56 @@
-# ssi — ssifinalexpense.com compliance, copy and widget assets
+# ssi — ssifinalexpense.com
 
-This repo holds the compliance language, replacement copy, drop-in widgets and
-deployment plans for **ssifinalexpense.com** (Senior Solutions Insurance).
+The static site for **ssifinalexpense.com** (Senior Solutions Insurance), plus
+the compliance language, drop-in widgets and deployment plans behind it.
 
-**The WordPress site itself is not in this repo.** Nothing here deploys
-anywhere on its own. Files are pasted into the page builder or footer template
-by hand, following the checklists in `/deploy/`.
+Deploys to Vercel from `main`. There is no build step on Vercel: the page HTML
+is committed. Edit under `src/`, then run
+
+    node scripts/build.js
+
+and commit the output alongside the source.
+
+## The site
+
+| URL | Source | Notes |
+|---|---|---|
+| `/` | `src/pages/home.html` | |
+| `/final-expense-insurance/` | `src/pages/final-expense-insurance.html` | Rate tables, underwriting explainer, carrier table, estimator (loaded from `/widgets/`). |
+| `/medicare/` | `src/pages/medicare.html` | **HELD, served `noindex`.** Block C copy, Block A disclosure inline. See `deploy/release-2-medicare-held.md`. |
+| `/health-insurance/` | `src/pages/health-insurance.html` | `/heatlh-insurance/` 301s here. |
+| `/about-us/` | `src/pages/about-us.html` | |
+| `/contact-us/` | `src/pages/contact-us.html` | |
+| `/privacy/` | `src/pages/privacy.html` | Text as published on the live WordPress site. |
+| `/preview/` | `preview/index.html` | Internal links page, `noindex`. |
+| `/api/lead` | `api/lead.js` | Quote form handler. Needs `LEAD_WEBHOOK_URL` (see below). |
+
+Shared pieces: `src/layout.html` (head, header, footer, sticky call bar),
+`src/partials/quote-form.html` (the one lead form, every page), `assets/site.css`,
+`assets/site.js`. Redirects and security headers are in `vercel.json`.
+
+### Environment variables (Vercel → Settings → Environment Variables)
+
+| Variable | Required | What it does |
+|---|---|---|
+| `LEAD_WEBHOOK_URL` | **Yes** | Where `/api/lead` POSTs each lead as JSON (CRM webhook, Zapier/Make catch hook, email relay). Until it is set the form returns 503 and tells the visitor to call. |
+| `TURNSTILE_SECRET` | No | Cloudflare Turnstile secret. When set, submissions must carry a valid token. Put the matching site key in `TURNSTILE_SITE_KEY` at the top of `assets/site.js`. Honeypot runs regardless. |
+
+Every lead carries TCPA consent evidence: timestamp, IP, user agent, page URL
+and the exact consent text shown. Whatever receives the webhook must store it.
 
 ## Layout
 
 | Path | What it is |
 |---|---|
-| `/widgets/` | Self-contained HTML widgets that drop into an Elementor HTML widget or Gutenberg Custom HTML block. |
+| `/src/` | Page sources, layout and partials. Edit here, then build. |
+| `/scripts/` | `build.js` — assembles `src/` into the committed page HTML and `sitemap.xml`. |
+| `/api/` | Vercel serverless functions (`lead.js`). |
+| `/widgets/` | Self-contained HTML widgets. The estimator is served from here and loaded into `/final-expense-insurance/`; it also drops into a WordPress HTML widget unchanged. |
 | `/compliance/` | Regulated disclosure language and the FMO review packet. Verbatim only — see below. |
 | `/docs/` | The site audit and the open-items register. |
-| `/deploy/` | Release checklists. Release 1 ships now; Release 2 is held. |
+| `/deploy/` | Release checklists. Release 1 is implemented in this site and doubles as its QA list; Release 2 is held. |
 | `/assets/` | Brand assets (`ssi-logo.png`, 325×100). |
-| `index.html` | Preview landing page for the Vercel deploy. Links to the widget previews and the docs. Not part of the site. |
+| `/preview/` | Internal links page for the widget previews and docs. `noindex`. |
 | `CHANGELOG.md` | What changed, when, and why. Read the *Removed* entries before reusing any old copy. |
 
 ## Status

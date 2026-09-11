@@ -74,8 +74,7 @@ Call us at 1-888-957-3337 or schedule a consultation online.
 Review the available plans with the guidance of our expert agents.
 
 **Step 3**
-Enroll in the plan that suits your needs and start enjoying your benefits
-immediately.
+Enroll in the plan that suits your needs.
 
 > "I found a plan that fit my needs perfectly—and it was so easy!" — John D.
 

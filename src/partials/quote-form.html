@@ -1,0 +1,50 @@
+<section class="quote" id="quote" aria-labelledby="quote-h">
+  <div class="wrap quote__in">
+    <div class="quote__intro">
+      <h2 class="quote__h" id="quote-h">Get a free quote</h2>
+      <p>Your health, family, and legacy are in good hands. Get in touch to get a free quote on how you can save money on your insurance and get all of the benefits you're entitled to!</p>
+      <p class="quote__alt">Prefer to talk now? Call <a href="tel:+18889573337">1-888-957-3337</a> or <a href="https://calendly.com/admin-ssi/insurance-review" rel="noopener">schedule a call online</a>.</p>
+    </div>
+
+    <form class="form" method="post" action="/api/lead" data-lead-form novalidate>
+      <div class="form__row">
+        <label for="q-name">Full name</label>
+        <input id="q-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="form__row">
+        <label for="q-phone">Phone number</label>
+        <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 303-555-0123" required>
+      </div>
+      <div class="form__row form__row--2">
+        <div>
+          <label for="q-zip">ZIP code</label>
+          <input id="q-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required>
+        </div>
+        <div>
+          <label for="q-dob">Date of birth</label>
+          <input id="q-dob" name="dob" type="date" autocomplete="bday" required>
+        </div>
+      </div>
+
+      <!-- Filled by the estimator when the visitor has used it. -->
+      <input type="hidden" name="ssi_age">
+      <input type="hidden" name="ssi_gender">
+      <input type="hidden" name="ssi_coverage">
+      <input type="hidden" name="ssi_tobacco">
+      <input type="hidden" name="page_url">
+      <!-- Honeypot: hidden from people, filled by bots. -->
+      <div class="form__hp" aria-hidden="true"><label for="q-website">Website</label><input id="q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+      <div class="form__consent">
+        <input id="q-consent" name="consent" type="checkbox" value="yes" required>
+        <label for="q-consent" data-consent-text>By providing your information and clicking "Submit," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
+      </div>
+
+      <div data-turnstile></div>
+
+      <p class="form__assure">We never sell your information. A licensed agent will call you back during business hours.</p>
+      <button class="btn btn--primary btn--big" type="submit">Submit</button>
+      <p class="form__msg" data-form-msg role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

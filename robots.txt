@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /api/
+Sitemap: https://ssifinalexpense.com/sitemap.xml

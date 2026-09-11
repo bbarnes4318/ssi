@@ -38,7 +38,29 @@ entry.
 - `deploy/release-2-medicare-held.md` — HELD. The `/medicare/` work waiting on
   the FMO determination.
 - `assets/ssi-logo.png`.
-- `index.html` — preview landing page so the Vercel static deploy has a root; links to widget previews and docs.
+- **The site itself**, deployable to Vercel: `src/` sources, `scripts/build.js`,
+  committed page HTML for `/`, `/final-expense-insurance/`, `/medicare/`
+  (noindex, held), `/health-insurance/`, `/about-us/`, `/contact-us/`,
+  `/privacy/`; `assets/site.css` and `assets/site.js`; `api/lead.js` form
+  handler with TCPA consent evidence, honeypot and optional Turnstile;
+  `vercel.json` with 301s (`/heatlh-insurance/` → `/health-insurance/`,
+  `/privacy-policy` → `/privacy/`, `/life-insurance` →
+  `/final-expense-insurance/`) and security headers (HSTS, CSP,
+  X-Frame-Options, X-Content-Type-Options, Referrer-Policy);
+  `robots.txt`, `sitemap.xml`, `assets/favicon.svg`.
+- `preview/index.html` — internal links page (was the repo root; moved when
+  the site took the root).
+- Release 1 items implemented in the site: viewport without zoom lock, `tel:`
+  header number and sticky mobile call bar with open/closed state, one quote
+  form sitewide (Name / Phone / ZIP / DOB, visible labels, unchecked consent
+  box, honeypot), "Save Up to 60%" deleted, "instant quotes" → "same-day
+  quotes", editorial note and Medicare copy gone from the health page, H1 on
+  every page, skip link, visible focus, 18px base / ≥16px inputs, meta
+  descriptions and Open Graph on every indexable page, `InsuranceAgency` +
+  `FAQPage` JSON-LD, contextual links between the three product pages,
+  Calendly `?month=` stripped, one experience number (18 years / founded
+  2008), children's ages removed, dynamic copyright year, active-page nav
+  indicator, health page named one thing everywhere.
 
 ### Changed
 
@@ -58,6 +80,12 @@ entry.
   Release 1 interim card ("Comprehensive coverage in one plan" / "Speak with a
   licensed agent to compare the Medicare Advantage plans available where you
   live.") so there is one version of that card, not two.
+
+- `/medicare/` Step 3: "start enjoying your benefits immediately" → "Enroll in
+  the plan that suits your needs." Effective dates are not immediate. Block C
+  and the FMO packet updated to match.
+- Carrier logos are rendered as text names on the new site. The PNG/JPG logo
+  files were not copied from WordPress.
 
 ### Removed
 
