@@ -1,6 +1,17 @@
 /* ssifinalexpense.com — site behaviour. No dependencies. */
 (function () {
   'use strict';
+  document.documentElement.classList.add('js');
+
+  // ── Reveal on scroll ─────────────────────────────────────────────────────
+  (function () {
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length || !('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
 
   var TURNSTILE_SITE_KEY = ''; // Cloudflare Turnstile site key. Empty = Turnstile off, honeypot only.
 
