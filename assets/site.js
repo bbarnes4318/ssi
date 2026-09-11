@@ -34,10 +34,9 @@
     el.textContent = String(new Date().getFullYear());
   });
 
-  // ── Sticky call bar: open / closed in Mountain Time ─────────────────────
+  // ── Open / closed in Mountain Time (top bar + mobile call bar) ──────────
   (function () {
-    var state = document.querySelector('[data-callstate]');
-    if (!state) return;
+    var open = null;
     try {
       var parts = new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/Denver', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
@@ -45,10 +44,27 @@
       var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ''; };
       var day = get('weekday'), h = Number(get('hour')) + Number(get('minute')) / 60;
       var close = (day === 'Sat') ? 17 : (day === 'Sun') ? null : 19;
-      var open = close !== null && h >= 9 && h < close;
+      open = close !== null && h >= 9 && h < close;
+    } catch (e) { return; }
+    var state = document.querySelector('[data-callstate]');
+    if (state) {
       state.textContent = open ? 'Open now — a licensed agent will answer' : 'Closed now · Mon–Fri 9–7, Sat 9–5 MT';
       state.classList.toggle('is-open', open);
-    } catch (e) { /* leave the default hours text */ }
+    }
+    var top = document.querySelector('[data-openstate]');
+    if (top) top.textContent = open ? 'Licensed agents answering now · Mon–Fri 9–7, Sat 9–5 MT' : 'Licensed agents available Mon–Fri 9–7, Sat 9–5 MT';
+    var dot = document.querySelector('[data-open-dot]');
+    if (dot) dot.classList.toggle('is-open', open);
+  })();
+
+  // ── Sticky header shadow ────────────────────────────────────────────────
+  (function () {
+    var hdr = document.querySelector('[data-hdr]');
+    if (!hdr) return;
+    var tick = false;
+    function paint() { hdr.classList.toggle('is-stuck', window.scrollY > 8); tick = false; }
+    window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(paint); } }, { passive: true });
+    paint();
   })();
 
   // ── Lead form ────────────────────────────────────────────────────────────
