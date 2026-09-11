@@ -119,8 +119,9 @@
       </label>
       <p class="ssi-est__note" data-agenote hidden></p>
       <div class="ssi-est__nav">
-        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+        <button type="button" class="ssi-est__next" data-next>Continue</button>
       </div>
+      <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
     </fieldset>
 
     <!-- Step 2 — gender -->
@@ -137,8 +138,9 @@
       </div>
       <div class="ssi-est__nav">
         <button type="button" class="ssi-est__back" data-back>Back</button>
-        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+        <button type="button" class="ssi-est__next" data-next>Continue</button>
       </div>
+      <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
     </fieldset>
 
     <!-- Step 3 — coverage -->
@@ -165,8 +167,9 @@
       <p class="ssi-est__note" data-covnote hidden></p>
       <div class="ssi-est__nav">
         <button type="button" class="ssi-est__back" data-back>Back</button>
-        <button type="button" class="ssi-est__next" data-next disabled>Continue</button>
+        <button type="button" class="ssi-est__next" data-next>Continue</button>
       </div>
+      <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
     </fieldset>
 
     <!-- Step 4 — tobacco -->
@@ -183,8 +186,9 @@
       </div>
       <div class="ssi-est__nav">
         <button type="button" class="ssi-est__back" data-back>Back</button>
-        <button type="button" class="ssi-est__next ssi-est__next--go" data-next disabled>See my estimate</button>
+        <button type="button" class="ssi-est__next ssi-est__next--go" data-next>See my estimate</button>
       </div>
+      <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
     </fieldset>
 
     <!-- Result -->
@@ -339,7 +343,8 @@
   background:var(--si);color:#fff;border:2px solid var(--si);
   font-size:1.1rem;font-weight:600;
 }
-.ssi-est__next[disabled]{background:var(--rule);border-color:var(--rule);color:#7A8894;cursor:not-allowed;}
+.ssi-est__next:hover{filter:brightness(1.08);}
+.ssi-est__nudge{margin:.6rem 0 0;font-size:.9rem;font-weight:600;color:#B3261E;}
 .ssi-est__back{
   min-height:3.5rem;padding:.75rem 1.35rem;background:var(--paper);
   color:var(--ink);border:2px solid var(--rule);font-size:1.05rem;
@@ -524,11 +529,27 @@
     return false;
   }
 
+  // Continue is always live. If nothing is answered yet, say so and put the
+  // cursor where the answer goes instead of greying the button out.
+  var NUDGE = {
+    1: 'Please choose your age to continue.',
+    2: 'Please choose male or female to continue.',
+    3: 'Please choose a coverage amount to continue.',
+    4: 'Please answer yes or no to continue.'
+  };
   function syncNext() {
     var el = stepEl(current);
     if (!el) return;
-    var btn = el.querySelector('[data-next]');
-    if (btn) btn.disabled = !ready(current);
+    var n = el.querySelector('[data-nudge]');
+    if (n && ready(current)) n.hidden = true;
+  }
+  function nudge() {
+    var el = stepEl(current);
+    var n = el.querySelector('[data-nudge]');
+    n.textContent = NUDGE[current];
+    n.hidden = false;
+    var f = el.querySelector('select, input');
+    if (f) f.focus({ preventScroll: true });
   }
 
   // ── Inputs ────────────────────────────────────────────────────────────────
@@ -582,7 +603,7 @@
 
   root.querySelectorAll('[data-next]').forEach(function (b) {
     b.addEventListener('click', function () {
-      if (!ready(current)) return;
+      if (!ready(current)) { nudge(); return; }
       if (current < 4) { show(current + 1); } else { finish(); }
     });
   });
@@ -676,7 +697,7 @@
     ageSel.value = '';
     root.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
     root.querySelectorAll('.ssi-est__choice').forEach(function (l) { l.classList.remove('is-checked'); });
-    root.querySelectorAll('[data-agenote],[data-covnote]').forEach(function (n) { n.hidden = true; });
+    root.querySelectorAll('[data-agenote],[data-covnote],[data-nudge]').forEach(function (n) { n.hidden = true; });
     show(1);
     syncNext();
   });
