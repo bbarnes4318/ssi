@@ -162,14 +162,18 @@
         <div class="ssi-est__band ssi-est__band--si">
           <h4>With a few health questions</h4>
           <p class="ssi-est__figure"><span data-si></span> <span class="ssi-est__per">per month</span></p>
+          <div class="ssi-est__bar"><span data-bar-si></span></div>
           <p class="ssi-est__bandsub">Most people qualify. No exam, coverage from day one.</p>
         </div>
         <div class="ssi-est__band ssi-est__band--gi">
           <h4>No health questions at all</h4>
           <p class="ssi-est__figure"><span data-gi></span> <span class="ssi-est__per">per month</span></p>
+          <div class="ssi-est__bar ssi-est__bar--gi"><span data-bar-gi></span></div>
           <p class="ssi-est__bandsub" data-gisub>Guaranteed acceptance. Costs more; full benefit after two years.</p>
         </div>
       </div>
+
+      <p class="ssi-est__wait" data-wait hidden></p>
 
       <p class="ssi-est__which">One call to a licensed agent tells you which of these you qualify for, and the exact premium with each carrier.</p>
 
@@ -334,7 +338,12 @@
   display:inline;font-family:var(--sans);font-size:.75rem;font-weight:400;
   color:var(--ink-soft);margin-left:.15rem;
 }
-.ssi-est__which{font-size:.85rem;line-height:1.45;margin:.9rem 0;color:var(--ink-soft);}
+.ssi-est__bar{height:.4rem;border-radius:999px;background:rgba(0,0,0,.08);margin:.35rem 0 0;overflow:hidden;}
+.ssi-est__bar span{display:block;height:100%;border-radius:999px;background:var(--si);transition:width .5s ease;}
+.ssi-est__bar--gi span{background:var(--gi);}
+.ssi-est__wait{margin:.6rem 0 0;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;background:var(--panel);border-left:3px solid var(--gi);border-radius:4px;color:var(--ink);}
+.ssi-est__wait b{color:var(--ink);}
+.ssi-est__which{font-size:.8rem;line-height:1.4;margin:.55rem 0;color:var(--ink-soft);}
 
 .ssi-est__cta{display:grid;grid-template-columns:1.2fr 1fr;gap:.6rem;align-items:stretch;}
 .ssi-est__call{
@@ -595,6 +604,24 @@
 
     root.querySelector('[data-si]').textContent = range(siLow, siHigh);
     root.querySelector('[data-gi]').textContent = range(giLow, giHigh);
+
+    // Bars: both ranges on the same scale, so the gap between them is visible.
+    var top = giHigh;
+    root.querySelector('[data-bar-si]').style.width = Math.round(siHigh / top * 100) + '%';
+    root.querySelector('[data-bar-gi]').style.width = '100%';
+
+    // The cost of waiting, at the visitor's own numbers.
+    var wait = root.querySelector('[data-wait]');
+    if (state.age <= 80) {
+      var later = Math.min(state.age + 5, 85);
+      var lBase = baseRate(state.gender, later, state.coverage);
+      var lLow = lBase * SI_LOW * tobLo, lHigh = lBase * SI_HIGH * tobHi;
+      var pct = Math.round((lBase / base - 1) * 100);
+      wait.innerHTML = 'Wait until <b>' + later + '</b> and the same coverage runs about <b>' + range(lLow, lHigh) + '</b> a month \u2014 <b>' + pct + '% more</b>. Your rate is set by your age when you buy.';
+      wait.hidden = false;
+    } else {
+      wait.hidden = true;
+    }
 
     var giSub = root.querySelector('[data-gisub]');
     giSub.textContent = state.coverage > GI_MAX_FACE

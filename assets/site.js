@@ -133,8 +133,19 @@
       }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, body: j }; }); })
         .then(function (res) {
           if (res.ok) {
-            form.reset();
-            say('Thank you. A licensed agent will call you back during business hours.', 'is-ok');
+            var first = String(data.name || '').trim().split(/\s+/)[0] || '';
+            var done = document.createElement('div');
+            done.className = 'form__done';
+            done.setAttribute('role', 'status');
+            done.innerHTML =
+              '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>' +
+              '<h3>Thank you' + (first ? ', ' + first.replace(/[<>&]/g, '') : '') + '.</h3>' +
+              '<p>A licensed agent will call you at <strong>' + String(data.phone || '').replace(/[<>&]/g, '') + '</strong> during business hours \u2014 Monday to Friday 9\u20137, Saturday 9\u20135 Mountain Time.</p>' +
+              '<p class="form__done-alt">Rather not wait? <a href="tel:+18889573337">Call 1-888-957-3337 now</a>.</p>';
+            form.replaceWith(done);
+            done.querySelector('h3').setAttribute('tabindex', '-1');
+            done.querySelector('h3').focus({ preventScroll: true });
+            return;
           } else {
             say((res.body && res.body.error) || 'We could not send your request. Please call 1-888-957-3337 and we will take care of you.', 'is-error');
           }

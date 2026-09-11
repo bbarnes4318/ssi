@@ -17,11 +17,13 @@
 <meta name="twitter:title" content="Final Expense Insurance Cost by Age (2026 Rates) | Senior Solutions Insurance">
 <meta name="twitter:description" content="What final expense insurance costs at 50, 60, 70 and 80, simplified vs. guaranteed issue explained, and a 4-question estimator. Call 1-888-957-3337 for a same-day quote.">
 <meta name="twitter:image" content="https://ssifinalexpense.com/assets/img/hero-home.jpg">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=55922d81">
+<link rel="stylesheet" href="/assets/site.css?v=caa089b1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"Senior Solutions Insurance","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/ssi-logo.png","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Final Expense Insurance?","acceptedAnswer":{"@type":"Answer","text":"Final Expense Insurance is a life insurance policy designed to cover end-of-life costs like funeral expenses, medical bills, or unpaid debts."}},{"@type":"Question","name":"How much coverage can I get?","acceptedAnswer":{"@type":"Answer","text":"Policies typically range from $5,000 to $25,000, depending on your needs and budget. The rate table on this page shows $10,000, $20,000 and $30,000; $25,000 falls between the second and third columns."}},{"@type":"Question","name":"How much coverage do I need for final expenses?","acceptedAnswer":{"@type":"Answer","text":"This depends on your personal and family needs, but our agents can help you determine the right amount."}},{"@type":"Question","name":"Can I qualify if I have a pre-existing condition?","acceptedAnswer":{"@type":"Answer","text":"Yes, most applicants can qualify for final expense insurance regardless of pre-existing conditions."}}]}</script>
 </head>
@@ -74,7 +76,7 @@
 </svg>
 
 
-<section class="hero hero--tool" style="background-image:url(/assets/img/hero-home.jpg)">
+<section class="hero hero--tool hero--tool-alt" style="background-image:url(/assets/img/hero-home.jpg)">
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow">Life Insurance</p>
@@ -208,14 +210,18 @@
         <div class="ssi-est__band ssi-est__band--si">
           <h4>With a few health questions</h4>
           <p class="ssi-est__figure"><span data-si></span> <span class="ssi-est__per">per month</span></p>
+          <div class="ssi-est__bar"><span data-bar-si></span></div>
           <p class="ssi-est__bandsub">Most people qualify. No exam, coverage from day one.</p>
         </div>
         <div class="ssi-est__band ssi-est__band--gi">
           <h4>No health questions at all</h4>
           <p class="ssi-est__figure"><span data-gi></span> <span class="ssi-est__per">per month</span></p>
+          <div class="ssi-est__bar ssi-est__bar--gi"><span data-bar-gi></span></div>
           <p class="ssi-est__bandsub" data-gisub>Guaranteed acceptance. Costs more; full benefit after two years.</p>
         </div>
       </div>
+
+      <p class="ssi-est__wait" data-wait hidden></p>
 
       <p class="ssi-est__which">One call to a licensed agent tells you which of these you qualify for, and the exact premium with each carrier.</p>
 
@@ -380,7 +386,12 @@
   display:inline;font-family:var(--sans);font-size:.75rem;font-weight:400;
   color:var(--ink-soft);margin-left:.15rem;
 }
-.ssi-est__which{font-size:.85rem;line-height:1.45;margin:.9rem 0;color:var(--ink-soft);}
+.ssi-est__bar{height:.4rem;border-radius:999px;background:rgba(0,0,0,.08);margin:.35rem 0 0;overflow:hidden;}
+.ssi-est__bar span{display:block;height:100%;border-radius:999px;background:var(--si);transition:width .5s ease;}
+.ssi-est__bar--gi span{background:var(--gi);}
+.ssi-est__wait{margin:.6rem 0 0;padding:.5rem .7rem;font-size:.78rem;line-height:1.4;background:var(--panel);border-left:3px solid var(--gi);border-radius:4px;color:var(--ink);}
+.ssi-est__wait b{color:var(--ink);}
+.ssi-est__which{font-size:.8rem;line-height:1.4;margin:.55rem 0;color:var(--ink-soft);}
 
 .ssi-est__cta{display:grid;grid-template-columns:1.2fr 1fr;gap:.6rem;align-items:stretch;}
 .ssi-est__call{
@@ -642,6 +653,24 @@
     root.querySelector('[data-si]').textContent = range(siLow, siHigh);
     root.querySelector('[data-gi]').textContent = range(giLow, giHigh);
 
+    // Bars: both ranges on the same scale, so the gap between them is visible.
+    var top = giHigh;
+    root.querySelector('[data-bar-si]').style.width = Math.round(siHigh / top * 100) + '%';
+    root.querySelector('[data-bar-gi]').style.width = '100%';
+
+    // The cost of waiting, at the visitor's own numbers.
+    var wait = root.querySelector('[data-wait]');
+    if (state.age <= 80) {
+      var later = Math.min(state.age + 5, 85);
+      var lBase = baseRate(state.gender, later, state.coverage);
+      var lLow = lBase * SI_LOW * tobLo, lHigh = lBase * SI_HIGH * tobHi;
+      var pct = Math.round((lBase / base - 1) * 100);
+      wait.innerHTML = 'Wait until <b>' + later + '</b> and the same coverage runs about <b>' + range(lLow, lHigh) + '</b> a month \u2014 <b>' + pct + '% more</b>. Your rate is set by your age when you buy.';
+      wait.hidden = false;
+    } else {
+      wait.hidden = true;
+    }
+
     var giSub = root.querySelector('[data-gisub]');
     giSub.textContent = state.coverage > GI_MAX_FACE
       ? 'Guaranteed acceptance, shown for ' + money(GI_MAX_FACE) + ' (the usual cap). Costs more; full benefit after two years.'
@@ -870,7 +899,7 @@
         <p>No public rate table. A licensed agent quotes it for your age and state.</p>
       </div>
       <div class="ccard ccard--gi">
-        <img src="/assets/carriers/aig.png" alt="AIG" width="200" height="57" loading="lazy">
+        <img src="/assets/carriers/aig.svg" alt="AIG" width="200" height="60" loading="lazy">
         <span class="ccard__tag ccard__tag--gi">Guaranteed issue</span>
         <p class="ccard__rate"><b>$39</b> women · <b>$56</b> men</p>
         <p>No health questions, graded benefit for the first two years, face amounts typically capped at $25,000. The higher price is the product working as designed.</p>
@@ -1023,6 +1052,6 @@
   </a>
 </div>
 
-<script src="/assets/site.js?v=7d1b5224" defer></script>
+<script src="/assets/site.js?v=ed2fd0a6" defer></script>
 </body>
 </html>
