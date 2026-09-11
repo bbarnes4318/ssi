@@ -64,6 +64,25 @@ entry.
 
 ### Changed
 
+- **Site redesigned to match and extend the existing Divi site** instead of a
+  generic look: Poppins, the gold / navy / blue palette, full-bleed photo
+  heroes with white type and gold CTAs, the two-row header (call line + gold
+  button over the uppercase nav), the black four-column footer with the
+  white logo, blue-icon trust blurbs, white testimonial cards on the grey
+  band, the gold call-out band, the photo/FAQ split and the gold
+  enrollment-steps + form section. All photography pulled from the WordPress
+  media library into `assets/img/`.
+- **The rate estimator now sits on the homepage**, in a card overlapping the
+  hero, as the primary above-the-fold conversion — plus on
+  `/final-expense-insurance/`. It is inlined at build time from
+  `widgets/ssi-cost-estimator.html` (no runtime fetch), and rethemed to the
+  site palette.
+- BBB A+ badge restored to the hero as on the current site (still unlinked
+  until the profile URL is supplied).
+- Nav labels and order match the current site (Health Insurance / Medicare /
+  Life Insurance / About Us / Contact Us); "Life Insurance" now points to the
+  dedicated `/final-expense-insurance/` page.
+
 - `widgets/ssi-cost-estimator.html`: result disclaimer now names the licensed
   entity ("Senior Solutions Insurance is a licensed insurance agency. Not all
   products are available in all states.").

@@ -11,19 +11,22 @@
   ]
 } -->
 
-<section class="hero hero--plain">
+{{icons}}
+<section class="hero hero--band" style="background-image:url(/assets/img/hero-health.jpg)">
   <div class="wrap">
-    <p class="eyebrow">Final Expense Insurance</p>
-    <h1>What final expense insurance costs — by age, gender and coverage</h1>
-    <p class="lede">Real market averages, not a sales pitch. Then a four-question estimator, and one phone call to a licensed agent who will tell you exactly which plans you qualify for.</p>
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="#estimate">Estimate my rate</a>
-      <a class="btn btn--outline" href="tel:+18889573337">Call now: 1-888-957-3337</a>
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Final Expense Insurance</p>
+      <h1>What final expense insurance costs — by age, gender and coverage</h1>
+      <p class="hero__sub">Real market averages, then a four-question estimator, then one phone call to a licensed agent who tells you exactly which plans you qualify for.</p>
+      <div class="hero__actions">
+        <a class="btn btn--gold btn--upper" href="#estimate">Estimate my rate</a>
+        <a class="btn btn--outline" href="tel:+18889573337">Call now: 1-888-957-3337</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="rates">
+<section class="sec sec--lighter" id="rates">
   <div class="wrap">
     <h2>Average monthly premium — non-tobacco</h2>
     <p class="lede">Market-average rates for simplified-issue final expense whole life coverage. Find your age, then the coverage amount you want.</p>
@@ -78,16 +81,16 @@
   </div>
 </section>
 
-<section class="sec sec--panel" id="underwriting">
+<section class="sec" id="underwriting">
   <div class="wrap">
     <h2>Two ways to qualify — and why one costs more</h2>
     <p class="lede">Final expense policies come in two kinds. Which one you are offered depends on your health, and it matters more than which carrier you pick.</p>
     <div class="two">
-      <div class="band">
+      <div class="path">
         <h3>Simplified issue — answer a few health questions</h3>
         <p>No medical exam. A short list of yes/no health questions on the application. Most people qualify, and coverage starts on day one. This is what the rate tables above show.</p>
       </div>
-      <div class="band band--gi">
+      <div class="path path--gi">
         <h3>Guaranteed issue — no health questions at all</h3>
         <p>Guaranteed acceptance, regardless of health. It costs more — typically 40 to 80% more for the same age and coverage — and carries a two-year waiting period: if you pass away in the first two years for a reason other than an accident, most policies return the premiums you paid rather than the full benefit. After two years, the full benefit applies.</p>
       </div>
@@ -96,7 +99,7 @@
   </div>
 </section>
 
-<section class="sec" id="carriers">
+<section class="sec sec--light" id="carriers">
   <div class="wrap">
     <h2>The carriers we represent, and where each fits</h2>
     <div class="rates rates--stack">
@@ -125,17 +128,22 @@
   </div>
 </section>
 
-<section class="sec sec--panel" id="estimate">
+<section class="sec" id="estimate">
   <div class="wrap">
-    <h2>Estimate your rate in four questions</h2>
-    <p class="lede">Age, gender, coverage, tobacco. You get an estimated monthly range for both ways of qualifying, side by side. No name or phone number needed to see it.</p>
-    <div class="est-mount" data-estimator>
-      <noscript><p>To see estimated monthly rates, please call a licensed agent at <a href="tel:+18889573337">1-888-957-3337</a>.</p></noscript>
+    <div class="tool__card" style="max-width:66rem;margin:0 auto">
+      <div class="tool__intro">
+        <span class="tool__kicker">Estimate</span>
+        <h2>Estimate your rate in four questions</h2>
+        <p>Age, gender, coverage, tobacco. You get an estimated monthly range for both ways of qualifying, side by side. No name or phone number needed to see it.</p>
+      </div>
+      <div class="tool__body">
+        {{estimator}}
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec--lighter">
   <div class="wrap">
     <h2>Final expense insurance FAQs</h2>
     <div class="faq">

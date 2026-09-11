@@ -21,6 +21,10 @@ const partials = {};
 for (const f of fs.readdirSync(path.join(SRC, 'partials'))) {
   partials[path.basename(f, '.html')] = fs.readFileSync(path.join(SRC, 'partials', f), 'utf8');
 }
+// The estimator is inlined at build time from the single drop-in widget file,
+// so the site and the WordPress paste-in never drift apart.
+partials['estimator'] = fs.readFileSync(path.join(ROOT, 'widgets', 'ssi-cost-estimator.html'), 'utf8')
+  .replace(/^<!--[\s\S]*?-->\s*/, '');
 
 const SITE = 'https://ssifinalexpense.com';
 
@@ -59,7 +63,7 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   if (!m) throw new Error(f + ': missing <!-- meta {...} --> header');
   const meta = JSON.parse(m[1]);
   let body = raw.slice(m[0].length);
-  body = fill(body, partials);
+  body = fill(fill(body, partials), partials); // partials may nest one level
 
   const schemas = [AGENCY_SCHEMA];
   if (meta.faq) {

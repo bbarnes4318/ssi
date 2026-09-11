@@ -107,25 +107,4 @@
     });
   });
 
-  // ── Estimator: load the drop-in widget from /widgets/ so there is one copy ─
-  (function () {
-    var mount = document.querySelector('[data-estimator]');
-    if (!mount) return;
-    fetch('/widgets/ssi-cost-estimator.html')
-      .then(function (r) { return r.text(); })
-      .then(function (html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        var scripts = Array.prototype.slice.call(doc.querySelectorAll('script'));
-        scripts.forEach(function (s) { s.remove(); });
-        mount.innerHTML = doc.body.innerHTML;
-        scripts.forEach(function (s) {
-          var n = document.createElement('script');
-          n.textContent = s.textContent;
-          document.body.appendChild(n);
-        });
-      })
-      .catch(function () {
-        mount.innerHTML = '<p>To see estimated monthly rates, call a licensed agent at <a href="tel:+18889573337">1-888-957-3337</a>.</p>';
-      });
-  })();
 })();
