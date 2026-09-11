@@ -15,7 +15,7 @@ change in `CHANGELOG.md`.
 | List of states the agency is licensed in | Fuller footer licensing line | sitewide | open |
 | BBB business profile URL | Linking the BBB badge | homepage | supplied — linked from the hero badge, trust strip, footer and schema `sameAs`. Profile shows A+ and **not accredited**; do not add "Accredited" wording. |
 | Google Business Profile URL | Footer link and `InsuranceAgency` schema `sameAs` | sitewide | supplied — `https://share.google/7cX0zbH3SjcK8Eqj2` (Knowledge Graph id `/g/11q2w5b020`), linked from footer, reviews section and schema |
-| Google star rating and review count | Showing the live rating next to the testimonials. Google blocks automated reads of the listing, so the number has to be supplied by hand and refreshed periodically. | homepage reviews section | open |
+| Google star rating and review count | Supplied: 4.3 stars, 6 reviews (11 Sep 2026). Hard-coded in the badge on the homepage reviews section (`src/pages/home.html`, class `grating`: number, count and `--fill` = rating ÷ 5). Refresh by hand when it changes. | homepage reviews section | supplied — refresh periodically |
 | Methodology behind "Save Up to 60%", if any exists | Only if the claim is to return with a footnote; otherwise it stays deleted (Release 1, P0.6) | homepage | open |
 | Lead delivery: `RESEND_API_KEY` + `LEAD_TO_EMAIL` (email) or `LEAD_WEBHOOK_URL` (CRM/webhook) | `api/lead.js` needs one of them or the form tells visitors to call. Email is the 10-minute option. | quote form, every page | open |
 | Cloudflare Turnstile keys | Optional bot check on the quote form. Honeypot is already on; only needed if spam shows up. | quote form, every page | deferred |
