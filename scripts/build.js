@@ -56,7 +56,7 @@ const AGENCY_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' }
   ],
-  sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare']
+  sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare', 'https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012']
 };
 
 function fill(tpl, vars) {
