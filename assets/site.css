@@ -235,7 +235,7 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 
 .hero--navy>.wrap{z-index:2;}
 .hero--navy .hero__copy{max-width:40rem;}
-.hero__points{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem .9rem;}
+.hero__points{list-style:none;margin:1.25rem 0 1.6rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem .9rem;}
 .hero__points li{display:inline-flex;align-items:center;gap:.45rem;font-size:.92rem;color:#E6EAF0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.35rem .8rem;}
 .hero__points li::before{content:"";width:.5em;height:.3em;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg);margin-top:-.15em;}
 
