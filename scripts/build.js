@@ -28,6 +28,15 @@ partials['estimator'] = fs.readFileSync(path.join(ROOT, 'widgets', 'ssi-cost-est
 
 const SITE = 'https://ssifinalexpense.com';
 
+// Cache-busting: stamp css/js URLs with a content hash so a redeploy can never
+// leave a visitor on an old stylesheet.
+const crypto = require('crypto');
+function stamp(rel) {
+  const h = crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
+  return '/' + rel + '?v=' + h;
+}
+const ASSET = { css: stamp('assets/site.css'), js: stamp('assets/site.js') };
+
 const AGENCY_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'InsuranceAgency',
@@ -88,7 +97,9 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     schema: schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n'),
     body
   };
-  const html = fill(fill(layout, partials), vars);
+  const html = fill(fill(layout, partials), vars)
+    .replace('/assets/site.css', ASSET.css)
+    .replace('/assets/site.js', ASSET.js);
 
   const outFile = path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
