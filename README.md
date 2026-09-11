@@ -21,12 +21,21 @@ and commit the output alongside the source.
 | `/about-us/` | `src/pages/about-us.html` | |
 | `/contact-us/` | `src/pages/contact-us.html` | |
 | `/privacy/` | `src/pages/privacy.html` | Text as published on the live WordPress site. |
+| `/terms-and-conditions/` | `src/pages/terms-and-conditions.html` | Text migrated verbatim from the live WordPress page (11 Sep 2026); headings are the only markup change. Counsel review pending — see `docs/open-items.md`. |
+| `/404.html` | `src/pages/404.html` | Branded not-found page (Vercel serves root `404.html`). `noindex`, not in the sitemap. |
 | `/preview/` | `preview/index.html` | Internal links page, `noindex`. |
 | `/api/lead` | `api/lead.js` | Quote form handler. Needs `LEAD_WEBHOOK_URL` (see below). |
 
 Shared pieces: `src/layout.html` (head, header, footer, sticky call bar),
 `src/partials/quote-form.html` (the one lead form, every page), `assets/site.css`,
 `assets/site.js`. Redirects and security headers are in `vercel.json`.
+
+The build also: wraps every `/assets/img/*.jpg` in a `<picture>` with its
+`.webp` sibling and stamps the real pixel size (so keep a `.webp` next to each
+photo — `scripts/imgsize.js` reads the JPEG header, no dependency); resolves
+the header "Get a Quote" button to `#quote` on pages that carry the form and
+to `/contact-us/#quote` on pages that do not; and emits a hero preload when a
+page's meta sets `preload`.
 
 ### Environment variables (Vercel → Settings → Environment Variables)
 

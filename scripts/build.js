@@ -40,10 +40,17 @@ const ASSET = { css: stamp('assets/site.css'), js: stamp('assets/site.js') };
 const AGENCY_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'InsuranceAgency',
+  '@id': SITE + '/#agency',
   name: 'Senior Solutions Insurance',
+  legalName: 'Christopher L Martin Insurance Group',
   url: SITE + '/',
   telephone: '+1-888-957-3337',
-  image: SITE + '/assets/ssi-logo.png',
+  image: SITE + '/assets/img/team-boardroom.jpg',
+  logo: SITE + '/assets/ssi-logo.png',
+  foundingDate: '2008',
+  founder: { '@type': 'Person', name: 'Chris Martin', jobTitle: 'Founder & CEO' },
+  description: 'Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.',
+  hasMap: 'https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '5775 DTC Blvd, Suite 250-S',
@@ -58,6 +65,23 @@ const AGENCY_SCHEMA = {
   ],
   sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare', 'https://share.google/7cX0zbH3SjcK8Eqj2', 'https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012']
 };
+
+// Photos: every /assets/img/*.jpg has a WebP sibling, so serve that first, and
+// stamp the real pixel size so the markup never lies about intrinsic dimensions.
+let sizeOf;
+try { sizeOf = require('./imgsize'); } catch (e) { sizeOf = null; }
+function pictures(html) {
+  return html.replace(/<img([^>]*?)src="(\/assets\/img\/([\w-]+)\.jpg)"([^>]*)>/g, (m, pre, src, name, post) => {
+    const webp = path.join(ROOT, 'assets', 'img', name + '.webp');
+    let attrs = pre + 'src="' + src + '"' + post;
+    if (sizeOf) {
+      const d = sizeOf(path.join(ROOT, 'assets', 'img', name + '.jpg'));
+      if (d) attrs = attrs.replace(/width="\d+"/, 'width="' + d.width + '"').replace(/height="\d+"/, 'height="' + d.height + '"');
+    }
+    if (!fs.existsSync(webp)) return '<img' + attrs + '>';
+    return '<picture><source type="image/webp" srcset="/assets/img/' + name + '.webp"><img' + attrs + '></picture>';
+  });
+}
 
 function fill(tpl, vars) {
   return tpl.replace(/\{\{([\w-]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
@@ -86,8 +110,11 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     });
   }
 
+  const hasForm = /id="quote"/.test(body);
   const vars = {
     title: meta.title,
+    quoteHref: hasForm ? '#quote' : '/contact-us/#quote',
+    preload: meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" type="image/webp" fetchpriority="high">` : '',
     description: meta.description || '',
     descriptionTag: meta.description ? `<meta name="description" content="${meta.description.replace(/"/g, '&quot;')}">` : '',
     robots: meta.noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large',
@@ -97,14 +124,15 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     schema: schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n'),
     body
   };
-  const html = fill(fill(layout, partials), vars)
+  const html = pictures(fill(fill(layout, partials), vars))
     .replace('/assets/site.css', ASSET.css)
     .replace('/assets/site.js', ASSET.js);
 
-  const outFile = path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
+  // meta.out overrides the output file (the 404 page must be /404.html for Vercel).
+  const outFile = meta.out ? path.join(ROOT, meta.out) : path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
-  built.push({ path: meta.path, noindex: !!meta.noindex, out: path.relative(ROOT, outFile) });
+  built.push({ path: meta.path, noindex: !!meta.noindex || !!meta.out, out: path.relative(ROOT, outFile) });
 }
 
 // Sitemap: every indexable page.

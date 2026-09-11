@@ -23,19 +23,49 @@
   var menuBtn = document.querySelector('.hdr__menu');
   var nav = document.getElementById('nav');
   if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
+    var setMenu = function (open) {
+      nav.classList.toggle('is-open', open);
       menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.querySelector('b').textContent = open ? 'Close' : 'Menu';
+    };
+    menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('is-open') && !nav.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false);
     });
   }
 
   // ── Rate card tabs (Women / Men) ─────────────────────────────────────────
   document.querySelectorAll('[data-tabs]').forEach(function (box) {
-    var tabs = box.querySelectorAll('[data-tab]');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
-        box.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = p.dataset.panel !== tab.dataset.tab; });
+    var tabs = Array.prototype.slice.call(box.querySelectorAll('[data-tab]'));
+    var panels = box.querySelectorAll('[data-panel]');
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      panels.forEach(function (p) { p.hidden = p.dataset.panel !== tab.dataset.tab; });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.id = tab.id || 'tab-' + tab.dataset.tab;
+      var panel = box.querySelector('[data-panel="' + tab.dataset.tab + '"]');
+      if (panel) {
+        panel.id = panel.id || 'panel-' + tab.dataset.tab;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tab.id);
+        tab.setAttribute('aria-controls', panel.id);
+      }
+      tab.setAttribute('tabindex', tab.getAttribute('aria-selected') === 'true' ? '0' : '-1');
+      tab.addEventListener('click', function () { select(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+        if (j === null) return;
+        e.preventDefault();
+        select(tabs[(j + tabs.length) % tabs.length], true);
       });
     });
   });
@@ -84,8 +114,42 @@
     var pageUrl = form.querySelector('[name="page_url"]');
     if (pageUrl) pageUrl.value = location.href;
 
+    // Validation written for people: one plain sentence under the field that
+    // needs attention, announced to screen readers, never colour alone.
+    var RULES = {
+      name: function (v) { return v.trim().length >= 2 ? '' : 'Please enter your name so we know who to ask for.'; },
+      phone: function (v) {
+        var d = v.replace(/\D/g, '');
+        if (d.length === 11 && d[0] === '1') d = d.slice(1);
+        return d.length === 10 ? '' : 'Please enter a 10-digit phone number, like 303-555-0123.';
+      },
+      zip: function (v) { return /^\d{5}$/.test(v.trim()) ? '' : 'Please enter your 5-digit ZIP code.'; },
+      dob: function (v) {
+        if (!v) return 'Please enter your date of birth.';
+        var d = new Date(v + 'T12:00:00'), now = new Date();
+        if (isNaN(d)) return 'Please enter a valid date of birth.';
+        var age = now.getFullYear() - d.getFullYear() - ((now.getMonth() < d.getMonth() || (now.getMonth() === d.getMonth() && now.getDate() < d.getDate())) ? 1 : 0);
+        if (age < 18) return 'You must be 18 or older to request a quote.';
+        if (age > 110) return 'That date of birth does not look right. Please check the year.';
+        return '';
+      },
+      consent: function (v, el) { return el.checked ? '' : 'Please tick the consent box so we are allowed to call you back.'; }
+    };
+    function errEl(name) { return form.querySelector('[data-err-for="' + name + '"]'); }
+    function check(field) {
+      var rule = RULES[field.name];
+      if (!rule) return true;
+      var m = rule(field.value, field);
+      var e = errEl(field.name);
+      if (e) { e.textContent = m; e.hidden = !m; }
+      field.setAttribute('aria-invalid', m ? 'true' : 'false');
+      field.classList.toggle('is-invalid', !!m);
+      return !m;
+    }
     form.querySelectorAll('input').forEach(function (i) {
-      i.addEventListener('blur', function () { i.dataset.touched = '1'; });
+      i.addEventListener('blur', function () { if (i.value || i.type === 'checkbox') { i.dataset.touched = '1'; check(i); } });
+      i.addEventListener('input', function () { if (i.dataset.touched) check(i); });
+      i.addEventListener('change', function () { if (i.type === 'checkbox') check(i); });
     });
 
     var tsMount = form.querySelector('[data-turnstile]');
@@ -105,14 +169,15 @@
 
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
-      form.querySelectorAll('input').forEach(function (i) { i.dataset.touched = '1'; });
-
-      if (!form.checkValidity()) {
-        var bad = form.querySelector(':invalid');
-        say(bad && bad.name === 'consent'
-          ? 'Please tick the consent box so we are allowed to call you back.'
-          : 'Please check the highlighted fields.', 'is-error');
-        if (bad) bad.focus();
+      var firstBad = null, badCount = 0;
+      form.querySelectorAll('input[name]').forEach(function (i) {
+        if (!RULES[i.name]) return;
+        i.dataset.touched = '1';
+        if (!check(i)) { badCount++; if (!firstBad) firstBad = i; }
+      });
+      if (firstBad) {
+        say(badCount === 1 ? 'One field needs your attention.' : badCount + ' fields need your attention.', 'is-error');
+        firstBad.focus();
         return;
       }
 
@@ -123,8 +188,11 @@
       if (ts) data.turnstile = ts.value;
 
       var btn = form.querySelector('button[type="submit"]');
+      if (btn.disabled) return; // a second tap while sending
       btn.disabled = true;
-      say('Sending…');
+      btn.dataset.label = btn.textContent;
+      btn.textContent = 'Sending your request…';
+      say('');
 
       fetch(form.action, {
         method: 'POST',
@@ -134,6 +202,7 @@
         .then(function (res) {
           if (res.ok) {
             var first = String(data.name || '').trim().split(/\s+/)[0] || '';
+            var est = data.ssi_age ? '<p class="form__done-est">We have your estimate details (age ' + String(data.ssi_age).replace(/\D/g, '') + ', $' + Number(data.ssi_coverage || 0).toLocaleString('en-US') + ' of coverage), so the agent can start with real quotes.</p>' : '';
             var done = document.createElement('div');
             done.className = 'form__done';
             done.setAttribute('role', 'status');
@@ -141,6 +210,7 @@
               '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>' +
               '<h3>Thank you' + (first ? ', ' + first.replace(/[<>&]/g, '') : '') + '.</h3>' +
               '<p>A licensed agent will call you at <strong>' + String(data.phone || '').replace(/[<>&]/g, '') + '</strong> during business hours \u2014 Monday to Friday 9\u20137, Saturday 9\u20135 Mountain Time.</p>' +
+              est +
               '<p class="form__done-alt">Rather not wait? <a href="tel:+18889573337">Call 1-888-957-3337 now</a>.</p>';
             form.replaceWith(done);
             done.querySelector('h3').setAttribute('tabindex', '-1');
@@ -153,7 +223,7 @@
         .catch(function () {
           say('We could not send your request. Please call 1-888-957-3337 and we will take care of you.', 'is-error');
         })
-        .then(function () { btn.disabled = false; });
+        .then(function () { btn.disabled = false; if (btn.dataset.label) btn.textContent = btn.dataset.label; });
     });
   });
 

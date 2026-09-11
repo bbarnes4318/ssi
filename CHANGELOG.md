@@ -8,6 +8,112 @@ entry.
 
 ## [Unreleased]
 
+## [2026-09-11] — A- to A+ optimization pass
+
+### Added
+
+- `/terms-and-conditions/` — the live WordPress terms migrated verbatim
+  (markup only: headings and a list for the table of contents), so the footer
+  link no longer points at the old domain. Counsel review pending; see
+  `docs/open-items.md`.
+- `/404.html` — branded not-found page with the estimator, rates and phone as
+  the three ways out. `noindex`.
+- Estimator: "Step N of 4" progress text with a "Private · no contact details
+  needed" note; "Under 50" and "Over 85" age options that explain the
+  situation and hand off to the phone instead of dead-ending; a visible
+  "An estimate, not a quote" line on the result card (the long version stays
+  under "About these figures"); a third next step, "Schedule a time online"
+  (`data-schedule` on the widget root); answers persist in `sessionStorage`
+  so a refresh or the browser's back button restores the result.
+- Lead form: per-field, plain-English validation under each field ("Please
+  enter a 10-digit phone number, like 303-555-0123."), `aria-invalid` and
+  `aria-describedby` wiring, a sending state on the button, a second-tap
+  guard, and a success message that confirms the estimator details when the
+  visitor used it. Field labels say why ZIP and date of birth are asked.
+- WebP variant of every photo, served through `<picture>` (generated at
+  build time; `scripts/imgsize.js` stamps true pixel sizes). Hero photo
+  preloaded on the two pages that use it; `image-set()` WebP for the hero
+  background. Unused photos and the superseded JPEG carrier logos removed.
+- Header "Get a Quote" resolves to `/contact-us/#quote` on pages without the
+  form (it was a dead `#quote` anchor on `/contact-us/` and `/privacy/`).
+- Mobile menu closes on Escape and on an outside tap; the button reads
+  "Close" while open. Rate-card tabs got real tab semantics and arrow-key
+  navigation. `prefers-reduced-motion` now disables every transition.
+- Schema: `legalName`, `foundingDate`, `founder`, `logo`, `hasMap`,
+  `description` on the `InsuranceAgency`; `og:image` size/alt, `og:locale`,
+  `theme-color`.
+
+### Changed
+
+- Homepage hero: specific sub-copy ($5,000–$25,000, no exam, licensed agents
+  compare up to 25 carriers), buttons "See what it costs" / "Talk to a
+  licensed agent", a proof row (BBB, since 2008, licensed agents) instead of
+  the lone badge. Trust strip now carries different facts (families helped,
+  same-day quotes, no exam, Google rating) so the fold does not repeat itself.
+  "New" kicker → "Free estimate". Uppercase, exclamation-mark buttons retired.
+- Homepage copy rewritten without filler: "Why families choose" blurbs, the
+  founder section ("18 years of helping families plan for final expenses",
+  no "nationally recognized" headline claim), the gold band ("Ready to see
+  what you qualify for?" — "how much you can save" implied a savings claim).
+- Reviews: six testimonials instead of nine under a badge that says "6
+  Google reviews"; each attributed "Senior Solutions client"; link text
+  "See our reviews on Google" (no count that could disagree with the badge).
+  No testimonial text was altered.
+- FAQ: two new entries — "Is the number on this page a quote?" and "Do I have
+  to give my contact information to see prices?" — on the page and in the
+  `FAQPage` schema.
+- Quote-form section retitled "Prefer we call you? Here is what happens
+  next." with three concrete steps (agent calls back, we compare carriers,
+  you decide) instead of "Step 1 / Speak with our experts". Button "Request
+  my call back" everywhere, and the TCPA consent text now names that button
+  (it said "Submit", which was not on the page). Form intro no longer promises
+  "all of the benefits you're entitled to".
+- About page: hero "A real insurance office, run by the people you talk to";
+  story and founder copy rewritten from the supplied facts only; the founder
+  quote no longer appears twice; product trio links say where they go.
+- Contact page: "Request a call back" is the gold primary, "Schedule a time
+  online" secondary; the form card is `#quote`; "What happens next" is four
+  steps starting with "You choose how to connect"; on phones the call card
+  comes straight after the headline.
+- Health page: hero "ACA Marketplace Health Insurance, Compared by a Licensed
+  Agent"; "Why choose" blurbs replaced ("We understand that no two individuals
+  are the same" is gone).
+- Footer: "Coverage" / "Company" / "Hours (Mountain Time)" columns, identity
+  line, TTY, hours summary, phone in the same `1-888-957-3337` format as the
+  rest of the site (was `(888) 957-3337`), and a second licensing-line
+  paragraph stating that estimator and rate-table figures are estimates, not
+  quotes. Terms link → `/terms-and-conditions/`.
+- Sticky mobile call bar reads "Call 1-888-957-3337" over the open/closed
+  state; header phone label "Talk to a licensed agent" (was "Free quote, no
+  obligation").
+- Mobile: "Why" blurbs collapse to icon-left rows, trust strip is two
+  columns, hero buttons hide where the estimator immediately follows, rate
+  table scrolls inside its card at 320px, 21rem breakpoint for the smallest
+  phones. Legal pages share one navy hero and a `prose--legal` measure.
+- Carrier logo wall: no hover lift, consistent 2.6rem cap and 85% width.
+- `/medicare/` was **not** edited beyond the shared header, footer and form —
+  its copy is Block C under FMO review. The compliance file's own
+  recommendation to replace the H1 ("Discover the Best…") still stands.
+
+### Fixed
+
+- Life page "At a glance" call card: `.split img` was stretching the agent
+  avatar to full width, breaking the card and overflowing the viewport at
+  375px.
+- Privacy policy overflowed horizontally on phones (unbroken URLs).
+- Contact-page consent "Privacy Policy" link was white on white.
+- `.form__err` rows and the consent error were hidden on the contact card by
+  the rule that hid the form intro.
+- Steps used `h4` directly under `h2`; now `h3`.
+
+### Removed
+
+- `assets/img/about-founder.jpg`, `about-home.jpg`, `consult.jpg`,
+  `hero-health.jpg`, `hero-medicare.jpg`, `agents-pair.jpg` and the JPEG
+  carrier logos superseded by SVGs (`aetna`, `aig`, `anthem`, `humana`,
+  `uhc`) — none were referenced.
+
+
 ## [2026-09-10]
 
 ### Added

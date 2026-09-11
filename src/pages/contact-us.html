@@ -1,6 +1,6 @@
 <!-- meta {
   "path": "/contact-us/",
-  "title": "Contact Us for a Quote | Senior Solutions Insurance",
+  "title": "Talk to a Licensed Agent | Senior Solutions Insurance, Greenwood Village CO",
   "description": "Call Senior Solutions Insurance at 1-888-957-3337, schedule a call online, or request a callback. Greenwood Village, CO. Open Mon–Fri 9–7, Sat 9–5 MT.",
   "bodyClass": "page-contact",
   "faq": [
@@ -16,15 +16,15 @@
     <div class="hero__copy">
       <p class="hero__eyebrow">Contact Us</p>
       <h1>Talk to a licensed agent</h1>
-      <p class="hero__sub">Call now, pick a time, or send us your details and we call you. No obligation, no pressure.</p>
+      <p class="hero__sub">Three ways to reach a licensed agent: call now, tell us when to call you, or pick a time online. No fee, no obligation, no pressure.</p>
       <ul class="hero__points"><li>Answered in Greenwood Village, CO</li><li>Not a call center</li><li>TTY 711</li></ul>
       <div class="hero__actions">
-        <a class="btn btn--outline" href="#callback">Request a call back</a>
-        <a class="btn btn--outline" href="https://calendly.com/admin-ssi/insurance-review" rel="noopener">Schedule online</a>
+        <a class="btn btn--gold" href="#quote">Request a call back</a>
+        <a class="btn btn--outline" href="https://calendly.com/admin-ssi/insurance-review" rel="noopener">Schedule a time online</a>
       </div>
     </div>
     <a class="callcard" href="tel:+18889573337">
-      <img src="/assets/img/agent-phone.jpg" alt="" width="1400" height="1866" loading="eager">
+      <img src="/assets/img/agent-phone.jpg" alt="" width="1400" height="1866" loading="eager" fetchpriority="high">
       <span class="callcard__status"><span class="topbar__dot" data-open-dot></span><span data-openstate>Licensed agents available Mon–Fri 9–7, Sat 9–5 MT</span></span>
       <span class="callcard__label">Tap or dial</span>
       <span class="callcard__no">1-888-957-3337</span>
@@ -35,6 +35,9 @@
 
 <section class="sec sec--lighter" id="callback">
   <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Choose how you want to connect</span>
+    <h2 class="sec__h">Call, schedule, or have us call you</h2>
+    <hr class="divider divider--center">
     <div class="creach">
       <div class="cpanel">
         <h3>Reach us directly</h3>
@@ -54,10 +57,10 @@
           <svg aria-hidden="true"><use href="#i-list"/></svg>
           <div><strong>Office</strong><p>5775 DTC Blvd, Suite 250-S<br>Greenwood Village, CO 80111</p></div>
         </div>
-        <a class="btn btn--gold btn--arrow" href="https://calendly.com/admin-ssi/insurance-review" rel="noopener">Schedule a call online</a>
+        <a class="btn btn--gold btn--arrow" href="https://calendly.com/admin-ssi/insurance-review" rel="noopener">Schedule a time online</a>
       </div>
 
-      <div class="cform">
+      <div class="cform" id="quote">
         <h3>Request a call back</h3>
         <p>Tell us how to reach you and a licensed agent will call during business hours.</p>
         {{form}}
@@ -87,12 +90,13 @@
 <section class="sec sec--light">
   <div class="wrap" data-reveal>
     <span class="eyebrow eyebrow--center">What to expect</span>
-    <h2 class="sec__h">What happens when you call</h2>
+    <h2 class="sec__h">What happens next</h2>
     <hr class="divider divider--center">
-    <div class="how">
-      <div class="how__step"><span class="how__n">1</span><h3>A licensed agent answers</h3><p>Not a call center, not a menu. You talk to someone in our Colorado office who does this every day.</p></div>
-      <div class="how__step"><span class="how__n">2</span><h3>We compare your options</h3><p>Final expense, Medicare Advantage or ACA — we check the carriers we represent for your age, health and budget.</p></div>
-      <div class="how__step"><span class="how__n">3</span><h3>You decide, on your schedule</h3><p>Enroll on the call, or take the numbers and call back when you are ready. There is no fee either way.</p></div>
+    <div class="how how--4">
+      <div class="how__step"><span class="how__n" aria-hidden="true">1</span><h3>You choose how to connect</h3><p>Call, request a call back, or book a time. Whichever you pick, nothing is sold on the first hello.</p></div>
+      <div class="how__step"><span class="how__n" aria-hidden="true">2</span><h3>A licensed agent answers</h3><p>Not a call center, not a menu. You talk to someone in our Colorado office who does this every day.</p></div>
+      <div class="how__step"><span class="how__n" aria-hidden="true">3</span><h3>We review your options</h3><p>Final expense, Medicare Advantage or ACA — we check the carriers we represent for your age, health and budget.</p></div>
+      <div class="how__step"><span class="how__n" aria-hidden="true">4</span><h3>You decide, on your schedule</h3><p>Enroll on the call, or take the numbers and call back when you are ready. There is no fee either way.</p></div>
     </div>
     <div class="faq" style="margin:2.5rem auto 0">
       <details><summary>Do I have to buy anything?</summary><p>No. A call is a conversation about your options. There is no fee and no obligation.</p></details>

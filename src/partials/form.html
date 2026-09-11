@@ -1,23 +1,27 @@
 <form class="form" method="post" action="/api/lead" data-lead-form novalidate>
-      <p>Your health, family, and legacy are in good hands. Get in touch to get a free quote on how you can save money on your insurance and get all of the benefits you're entitled to!</p>
+      <p>Four fields, no email address, no obligation. A licensed agent calls you back during business hours with real quotes for your age and health.</p>
       <div class="form__row form__row--2">
-        <div>
+        <div class="form__field">
           <label for="q-name">Full name</label>
-          <input id="q-name" name="name" type="text" autocomplete="name" required>
+          <input id="q-name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="q-name-err">
+          <p class="form__err" id="q-name-err" data-err-for="name" hidden></p>
         </div>
-        <div>
+        <div class="form__field">
           <label for="q-phone">Phone number</label>
-          <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <input id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="q-phone-err">
+          <p class="form__err" id="q-phone-err" data-err-for="phone" hidden></p>
         </div>
       </div>
       <div class="form__row form__row--2">
-        <div>
-          <label for="q-zip">ZIP code</label>
-          <input id="q-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required>
+        <div class="form__field">
+          <label for="q-zip">ZIP code <span class="form__why">so we quote your state</span></label>
+          <input id="q-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required aria-describedby="q-zip-err">
+          <p class="form__err" id="q-zip-err" data-err-for="zip" hidden></p>
         </div>
-        <div>
-          <label for="q-dob">Date of birth</label>
-          <input id="q-dob" name="dob" type="date" autocomplete="bday" required>
+        <div class="form__field">
+          <label for="q-dob">Date of birth <span class="form__why">rates are set by age</span></label>
+          <input id="q-dob" name="dob" type="date" autocomplete="bday" required aria-describedby="q-dob-err">
+          <p class="form__err" id="q-dob-err" data-err-for="dob" hidden></p>
         </div>
       </div>
 
@@ -31,13 +35,14 @@
       <div class="form__hp" aria-hidden="true"><label for="q-website">Website</label><input id="q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 
       <div class="form__consent">
-        <input id="q-consent" name="consent" type="checkbox" value="yes" required>
-        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Submit," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
+        <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-describedby="q-consent-err">
+        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
       </div>
+      <p class="form__err" id="q-consent-err" data-err-for="consent" hidden></p>
 
       <div data-turnstile></div>
 
-      <p class="form__assure">We never sell your information. A licensed agent will call you back during business hours.</p>
-      <button class="btn btn--gold btn--arrow" type="submit" style="min-width:12rem">Get my free quote</button>
+      <p class="form__assure">We never sell your information. All fields are required.</p>
+      <button class="btn btn--gold btn--arrow" type="submit" data-submit>Request my call back</button>
       <p class="form__msg" data-form-msg role="status" aria-live="polite"></p>
     </form>
