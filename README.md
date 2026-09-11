@@ -30,10 +30,14 @@ Shared pieces: `src/layout.html` (head, header, footer, sticky call bar),
 
 ### Environment variables (Vercel → Settings → Environment Variables)
 
-| Variable | Required | What it does |
-|---|---|---|
-| `LEAD_WEBHOOK_URL` | **Yes** | Where `/api/lead` POSTs each lead as JSON (CRM webhook, Zapier/Make catch hook, email relay). Until it is set the form returns 503 and tells the visitor to call. |
-| `TURNSTILE_SECRET` | No | Cloudflare Turnstile secret. When set, submissions must carry a valid token. Put the matching site key in `TURNSTILE_SITE_KEY` at the top of `assets/site.js`. Honeypot runs regardless. |
+Set **one** of the two delivery options (both is fine). Until one is set the
+form returns 503 and tells the visitor to call.
+
+| Variable | What it does |
+|---|---|
+| `RESEND_API_KEY` + `LEAD_TO_EMAIL` | **Option 1, simplest.** Emails every lead to `LEAD_TO_EMAIL`. Free resend.com account; until a sending domain is verified there, `LEAD_TO_EMAIL` must be the address the Resend account was created with. |
+| `LEAD_WEBHOOK_URL` | **Option 2.** POSTs every lead as JSON to that URL — a CRM webhook, a Make.com/Zapier catch hook, a Google Apps Script. |
+| `TURNSTILE_SECRET` | Optional bot check (Cloudflare Turnstile, free). When set, submissions must carry a valid token; put the matching site key in `TURNSTILE_SITE_KEY` at the top of `assets/site.js`. The honeypot runs regardless, so this can wait until spam actually shows up. |
 
 Every lead carries TCPA consent evidence: timestamp, IP, user agent, page URL
 and the exact consent text shown. Whatever receives the webhook must store it.

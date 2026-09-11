@@ -121,6 +121,16 @@ p{margin:0 0 1em;}
   font-family:var(--serif);font-size:1.15rem;background:var(--paper);
 }
 .carriers{padding:0;}
+.carriers--logos{align-items:center;gap:1rem;}
+.carriers--logos li{
+  padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:center;
+  min-height:5.5rem;flex:1 1 9rem;max-width:12rem;
+}
+.carriers--logos img{max-height:3.25rem;width:auto;max-width:100%;object-fit:contain;}
+@media (max-width:48rem){
+  .carriers--logos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+  .carriers--logos li{max-width:none;min-height:4.75rem;}
+}
 
 /* Testimonials */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;}

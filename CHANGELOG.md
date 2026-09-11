@@ -84,8 +84,12 @@ entry.
 - `/medicare/` Step 3: "start enjoying your benefits immediately" → "Enroll in
   the plan that suits your needs." Effective dates are not immediate. Block C
   and the FMO packet updated to match.
-- Carrier logos are rendered as text names on the new site. The PNG/JPG logo
-  files were not copied from WordPress.
+- Carrier logos pulled from the WordPress media library into
+  `assets/carriers/` (renamed to plain names, alt text corrected) and shown
+  on the homepage, `/medicare/` and `/health-insurance/`. `bbb.png` saved to
+  `assets/` but not displayed until the BBB profile URL is supplied.
+- `api/lead.js` gained an email delivery option (Resend) alongside the
+  webhook, so leads can go straight to an inbox with no CRM in the loop.
 
 ### Removed
 

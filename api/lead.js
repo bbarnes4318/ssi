@@ -1,12 +1,24 @@
 // POST /api/lead — receives the quote form, records TCPA consent evidence,
 // and forwards the lead to wherever the agency wants it.
 //
-// Environment variables (Vercel → Project → Settings → Environment Variables):
+// Environment variables (Vercel → Project → Settings → Environment Variables).
+// Set ONE of the two delivery options; both may be set.
 //
-//   LEAD_WEBHOOK_URL   Required. Any URL that accepts a JSON POST — a CRM
-//                      webhook, Zapier/Make catch hook, or an email relay.
-//                      Until it is set, the form returns 503 and the page
-//                      tells the visitor to call instead.
+//   Option 1 — email the lead (simplest):
+//   RESEND_API_KEY     API key from resend.com (free account).
+//   LEAD_TO_EMAIL      Inbox that receives leads. Until a sending domain is
+//                      verified in Resend, this must be the email the Resend
+//                      account was created with.
+//   LEAD_FROM_EMAIL    Optional. Defaults to onboarding@resend.dev, which
+//                      works without domain verification.
+//
+//   Option 2 — POST the lead as JSON somewhere:
+//   LEAD_WEBHOOK_URL   Any URL that accepts a JSON POST — a CRM webhook, a
+//                      Make.com / Zapier catch hook, a Google Apps Script.
+//
+//   Until one of them is set, the form returns 503 and the page tells the
+//   visitor to call instead.
+//
 //   TURNSTILE_SECRET   Optional. Cloudflare Turnstile secret key. When set,
 //                      every submission must carry a valid Turnstile token
 //                      (the site key goes in assets/site.js).
@@ -58,7 +70,9 @@ module.exports = async function handler(req, res) {
     if (!ok) return res.status(400).json({ error: 'Verification failed. Please try again or call 1-888-957-3337.' });
   }
 
-  if (!process.env.LEAD_WEBHOOK_URL) {
+  var canEmail = !!(process.env.RESEND_API_KEY && process.env.LEAD_TO_EMAIL);
+  var canPost = !!process.env.LEAD_WEBHOOK_URL;
+  if (!canEmail && !canPost) {
     return res.status(503).json({ error: 'Online requests are not available right now. Please call 1-888-957-3337 and we will take care of you.' });
   }
 
@@ -85,17 +99,62 @@ module.exports = async function handler(req, res) {
     }
   };
 
-  try {
-    var fr = await fetch(process.env.LEAD_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(lead)
-    });
-    if (!fr.ok) throw new Error('webhook ' + fr.status);
-  } catch (e) {
-    console.error('lead forward failed', e && e.message);
-    return res.status(502).json({ error: 'We could not send your request. Please call 1-888-957-3337 and we will take care of you.' });
+  var delivered = false;
+
+  if (canEmail) {
+    try {
+      var est = lead.estimator;
+      var text = [
+        'New quote request from ssifinalexpense.com',
+        '',
+        'Name:   ' + lead.name,
+        'Phone:  ' + lead.phone,
+        'ZIP:    ' + lead.zip,
+        'DOB:    ' + lead.dob,
+        '',
+        est.age ? 'Estimator: age ' + est.age + ', ' + est.gender + ', $' + est.coverage + ' coverage, tobacco ' + est.tobacco : 'Estimator: not used',
+        '',
+        '-- TCPA consent evidence --',
+        'Time:       ' + lead.consent.timestamp,
+        'IP:         ' + lead.consent.ip,
+        'Page:       ' + lead.consent.page_url,
+        'User agent: ' + lead.consent.user_agent,
+        'Consent text shown:',
+        lead.consent.text
+      ].join('\n');
+      var er = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: process.env.LEAD_FROM_EMAIL || 'SSI Website <onboarding@resend.dev>',
+          to: [process.env.LEAD_TO_EMAIL],
+          subject: 'New lead: ' + lead.name + ' - ' + lead.phone,
+          text: text
+        })
+      });
+      if (!er.ok) throw new Error('resend ' + er.status + ' ' + (await er.text()).slice(0, 200));
+      delivered = true;
+    } catch (e) {
+      console.error('lead email failed', e && e.message);
+    }
   }
 
+  if (canPost) {
+    try {
+      var fr = await fetch(process.env.LEAD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      });
+      if (!fr.ok) throw new Error('webhook ' + fr.status);
+      delivered = true;
+    } catch (e) {
+      console.error('lead forward failed', e && e.message);
+    }
+  }
+
+  if (!delivered) {
+    return res.status(502).json({ error: 'We could not send your request. Please call 1-888-957-3337 and we will take care of you.' });
+  }
   return res.status(200).json({ ok: true });
 };
