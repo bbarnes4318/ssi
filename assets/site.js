@@ -62,10 +62,10 @@
       state.textContent = open ? 'Open now — a licensed agent will answer' : 'Closed now · Mon–Fri 9–7, Sat 9–5 MT';
       state.classList.toggle('is-open', open);
     }
-    var top = document.querySelector('[data-openstate]');
-    if (top) top.textContent = open ? 'Licensed agents answering now · Mon–Fri 9–7, Sat 9–5 MT' : 'Licensed agents available Mon–Fri 9–7, Sat 9–5 MT';
-    var dot = document.querySelector('[data-open-dot]');
-    if (dot) dot.classList.toggle('is-open', open);
+    document.querySelectorAll('[data-openstate]').forEach(function (el) {
+      el.textContent = open ? 'Licensed agents answering now · Mon–Fri 9–7, Sat 9–5 MT' : 'Licensed agents available Mon–Fri 9–7, Sat 9–5 MT';
+    });
+    document.querySelectorAll('[data-open-dot]').forEach(function (d) { d.classList.toggle('is-open', open); });
   })();
 
   // ── Sticky header shadow ────────────────────────────────────────────────

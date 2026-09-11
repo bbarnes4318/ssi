@@ -182,6 +182,24 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 .founder__q::before{content:"\201C";color:var(--gold);font-size:1.6em;line-height:0;vertical-align:-.3em;margin-right:.15rem;}
 @media (max-width:30rem){.founder__top{grid-template-columns:1fr;}.founder img{width:100%;height:16rem;}}
 
+/* Contact hero: the phone number is the hero */
+.hero--call{padding:3rem 0 3.5rem;min-height:0;}
+.hero--call .hero__grid{grid-template-columns:1.15fr 1fr;align-items:center;}
+.hero--call .hero__copy{max-width:none;}
+.callcard{
+  display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;
+  background:var(--paper);color:var(--navy);border-radius:18px;padding:2rem 1.75rem 1.75rem;
+  box-shadow:0 30px 60px rgba(11,18,32,.45);border-top:5px solid var(--gold);
+  transition:transform .15s,box-shadow .15s;
+}
+.callcard:hover{transform:translateY(-3px);box-shadow:0 36px 70px rgba(11,18,32,.5);color:var(--navy);}
+.callcard img{width:7.5rem;height:7.5rem;border-radius:50%;object-fit:cover;object-position:center 20%;border:4px solid var(--gold);margin-bottom:1rem;box-shadow:0 8px 20px rgba(11,18,32,.2);}
+.callcard__status{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--gray);background:var(--light);border-radius:999px;padding:.35rem .85rem;margin-bottom:1rem;}
+.callcard__status .topbar__dot.is-open{box-shadow:0 0 0 3px rgba(32,164,243,.2);}
+.callcard__label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-muted);}
+.callcard__no{font-size:clamp(1.9rem,1.2rem + 2.2vw,2.6rem);font-weight:700;letter-spacing:.01em;line-height:1.15;margin:.2rem 0 .6rem;color:var(--navy);}
+.callcard__sub{font-size:.88rem;color:var(--gray);}
+
 /* Contact page */
 .creach{display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:start;}
 .cform{background:var(--paper);border-radius:16px;padding:2rem;box-shadow:0 24px 50px rgba(11,18,32,.12);border:1px solid var(--rule);border-top:4px solid var(--gold);}
@@ -593,7 +611,7 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
   .hdr__logo img{width:180px;}
   .carriers{grid-template-columns:repeat(3,1fr);}
   .ftr__grid{grid-template-columns:1fr 1fr;}
-  .hero__grid,.tool--wide{grid-template-columns:1fr;}
+  .hero__grid,.tool--wide,.hero--call .hero__grid{grid-template-columns:1fr;}
   .hero{min-height:32rem;}
 }
 /* Header switches to logo + phone button + Menu below 72rem (1152px) */
