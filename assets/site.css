@@ -160,6 +160,18 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 .hero--team::before{background:linear-gradient(90deg,rgba(11,18,32,.88) 0%,rgba(11,18,32,.6) 45%,rgba(11,18,32,.3) 100%);}
 .hero--team .hero__bg{filter:none;transform:none;inset:0;opacity:1;background-position:center 35%;}
 
+/* Founder card */
+.founder{position:relative;max-width:30rem;margin:0 auto;background:var(--paper);border-radius:18px;overflow:hidden;box-shadow:0 24px 50px rgba(11,18,32,.18);border:1px solid var(--rule);}
+.founder img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
+.founder__plate{padding:1.1rem 1.5rem;background:linear-gradient(160deg,var(--navy-1),var(--navy-2));color:#fff;border-top:4px solid var(--gold);}
+.founder__plate strong{display:block;font-size:1.25rem;}
+.founder__plate span{display:block;font-size:.85rem;color:#C7CFDA;}
+.founder__q{margin:0;padding:1rem 1.5rem 1.25rem;font-size:.98rem;color:var(--navy);border-top:1px solid var(--rule);}
+.founder__q::before{content:"\201C";color:var(--gold);font-size:1.6em;line-height:0;vertical-align:-.3em;margin-right:.15rem;}
+.reviews__more{text-align:center;margin-top:2rem;}
+.reviews__more a{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--navy-2);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:.15rem;}
+.reviews__more a:hover{color:var(--gold-muted);}
+
 /* Team gallery */
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:13rem;gap:.9rem;margin-top:2rem;}
 .gallery figure{margin:0;border-radius:12px;overflow:hidden;position:relative;background:var(--light);}
