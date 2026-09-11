@@ -36,6 +36,7 @@
       var close = (day === 'Sat') ? 17 : (day === 'Sun') ? null : 19;
       var open = close !== null && h >= 9 && h < close;
       state.textContent = open ? 'Open now — a licensed agent will answer' : 'Closed now · Mon–Fri 9–7, Sat 9–5 MT';
+      state.classList.toggle('is-open', open);
     } catch (e) { /* leave the default hours text */ }
   })();
 

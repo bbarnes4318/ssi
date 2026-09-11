@@ -64,6 +64,15 @@ entry.
 
 ### Changed
 
+- **Palette switched to the AurumShield system**: deep institutional navy
+  (`#0B1220` / surfaces `#0F1A2B` `#13233A` `#182B46`, border `#243653`) +
+  bullion gold (`#C6A86B`, hover `#D3B77D`, pressed `#C49A4A`, muted
+  `#9F8A4C` for gold-as-text). Blue `#5A8CCB` is link-hover only, `#7FA6FF`
+  the focus ring, cyan `#20A4F3` only for the "Open now" trust state. Gold
+  buttons carry navy text (white-on-gold fails contrast). The Divi site's
+  gold content sections became navy surfaces with gold accents; the short
+  CTA band stays gold with navy text. Footer is navy with a gold rule.
+
 - **Site redesigned to match and extend the existing Divi site** instead of a
   generic look: Poppins, the gold / navy / blue palette, full-bleed photo
   heroes with white type and gold CTAs, the two-row header (call line + gold
