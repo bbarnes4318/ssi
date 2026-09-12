@@ -154,12 +154,14 @@ new path under `/assets/img/` if one exists; otherwise leave it at 410.
 - [ ] **Submit the XML sitemap** in Search Console:
       `https://ssifinalexpense.com/sitemap.xml`. Remove the old
       `wp-sitemap.xml` entry.
-      — verify: status "Success", 7 URLs discovered (the six pages plus
-      `/terms-and-conditions/`, which was added after the six-page count).
-- [ ] **Request indexing** (URL Inspection → Request indexing) on every
-      indexable page — the six: `/`, `/final-expense-insurance/`,
-      `/health-insurance/`, `/about-us/`, `/contact-us/`, `/privacy/` —
-      plus `/terms-and-conditions/`. (`/medicare/` is excluded while held.)
+      — verify: status "Success", 5 URLs discovered (`/`,
+      `/final-expense-insurance/`, `/health-insurance/`, `/about-us/`,
+      `/contact-us/`). `/privacy/` and `/terms-and-conditions/` are
+      noindex, follow by design and are not in the sitemap.
+- [ ] **Request indexing** (URL Inspection → Request indexing) on the five
+      indexable pages: `/`, `/final-expense-insurance/`, `/health-insurance/`,
+      `/about-us/`, `/contact-us/`. (`/medicare/` is excluded while held;
+      `/privacy/` and `/terms-and-conditions/` are noindex by design.)
 - [ ] **Smoke test on the live domain**: header phone, mobile call bar,
       every form submits with the consent box ticked and is refused without
       it, estimator fills the form's hidden fields, `/404` page renders for
@@ -201,7 +203,8 @@ new path under `/assets/img/` if one exists; otherwise leave it at 410.
         or a deliberate 410, same day.
       - "Redirect error" — a chain or loop; fix in `vercel.json`.
       - "Page with redirect" count should fall as Google processes the map.
-      - "Excluded by 'noindex' tag" should list only `/medicare/`.
+      - "Excluded by 'noindex' tag" should list only `/medicare/`,
+        `/privacy/` and `/terms-and-conditions/`.
       Log each check with the date in `docs/open-items.md`.
 - [ ] **Old WordPress host**: keep it running but unreachable from DNS for
       30 days, then cancel. Keep the export and DB backup for a year.

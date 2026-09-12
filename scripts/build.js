@@ -98,6 +98,15 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   if (!m) throw new Error(f + ': missing <!-- meta {...} --> header');
   const meta = JSON.parse(m[1]);
   let body = raw.slice(m[0].length);
+  // Which source files this page is made of (for the sitemap lastmod).
+  const sources = ['src/pages/' + f];
+  const addPartials = (txt) => {
+    for (const [, k] of txt.matchAll(/\{\{([\w-]+)\}\}/g)) {
+      if (k === 'estimator') { if (!sources.includes('widgets/ssi-cost-estimator.html')) sources.push('widgets/ssi-cost-estimator.html'); }
+      else if (k in partials) { const sp = 'src/partials/' + k + '.html'; if (!sources.includes(sp)) { sources.push(sp); addPartials(partials[k]); } }
+    }
+  };
+  addPartials(body);
   body = fill(fill(body, partials), partials); // partials may nest one level
 
   const schemas = [AGENCY_SCHEMA];
@@ -166,13 +175,26 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   const outFile = meta.out ? path.join(ROOT, meta.out) : path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
-  built.push({ path: meta.path, noindex: !!meta.noindex || !!meta.out, out: path.relative(ROOT, outFile) });
+  built.push({ path: meta.path, noindex: !!meta.noindex || !!meta.out, out: path.relative(ROOT, outFile), sources });
 }
 
-// Sitemap: every indexable page.
-const today = new Date().toISOString().slice(0, 10);
+// Sitemap: every indexable page, with a real lastmod — the date of the last
+// commit that touched the page's source or a partial it pulls in (the layout
+// is deliberately excluded: a nav label is not a content change). A file
+// with uncommitted edits is dated today, since that is what is about to ship.
+const { execSync } = require('child_process');
+function lastmod(files) {
+  const today = new Date().toISOString().slice(0, 10);
+  const list = files.map(f => JSON.stringify(f)).join(' ');
+  try {
+    const dirty = execSync('git status --porcelain -- ' + list, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    if (dirty) return today;
+    const d = execSync('git log -1 --format=%cs -- ' + list, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    return d || today;
+  } catch (e) { return today; }
+}
 const urls = built.filter(p => !p.noindex).map(p =>
-  `  <url><loc>${SITE}${p.path}</loc><lastmod>${today}</lastmod></url>`).join('\n');
+  `  <url><loc>${SITE}${p.path}</loc><lastmod>${lastmod(p.sources)}</lastmod></url>`).join('\n');
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 
