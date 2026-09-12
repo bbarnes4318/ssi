@@ -10,6 +10,12 @@ entry.
 
 ## [2026-09-12] — Release 2: /medicare/ live
 
+### Added
+- `/burial-insurance-with-pre-existing-conditions/` published after the
+  condition table review against the carrier panel and the Chris Martin
+  review: indexable, in `sitemap.xml`, inbound links from the final expense
+  and homepage pre-existing-condition FAQ answers, footer link.
+
 ### Changed
 - `/medicare/` released from the Release 2 hold on the FMO determination
   (ruling and date to be recorded in `docs/open-items.md` — the record row
