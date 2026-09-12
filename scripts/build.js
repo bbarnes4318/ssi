@@ -195,7 +195,8 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
 // with uncommitted edits is dated today, since that is what is about to ship.
 const { execSync } = require('child_process');
 function lastmod(files) {
-  const today = new Date().toISOString().slice(0, 10);
+  // Local date, to agree with git's %cs once the change is committed.
+  const today = new Date().toLocaleDateString('en-CA');
   const list = files.map(f => JSON.stringify(f)).join(' ');
   try {
     const dirty = execSync('git status --porcelain -- ' + list, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
