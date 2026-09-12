@@ -1,28 +1,35 @@
 {{icons}}
 <section class="hero hero--band hero--legal">
-  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Final expense insurance &middot; {{state}}</p><h1>Final Expense Insurance in {{state}}</h1></div></div>
+  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Final expense insurance &middot; {{state}}</p><h1>Final Expense Insurance in {{state}}</h1><p class="hero__stat">{{heroStat}}</p></div></div>
 </section>
 
-<article class="sec guide">
+<section class="sec guide state-sec" id="funeral-costs">
   <div class="wrap">
     <div class="prose prose--guide">
 {{intro}}
 
-<h2 id="funeral-costs">What a funeral costs in {{state}}</h2>
-<p>Medians from {{lists}} {{state}} funeral home price lists collected in 2026, beside the national median for each charge. Funeral-home charges only.</p>
-<table class="ctable"><caption class="sr">What a funeral costs in {{state}}</caption>
-<thead><tr><th scope="col">Charge</th><th scope="col">{{state}} median</th><th scope="col">National median</th><th scope="col">How {{state}} compares</th></tr></thead>
-<tbody>
-<tr><th scope="row">Direct cremation</th><td data-label="{{state}} median">{{cremation}}</td><td data-label="National median">{{natCremation}}</td><td data-label="How {{state}} compares">{{cremationCmp}}</td></tr>
-<tr><th scope="row">Immediate burial</th><td data-label="{{state}} median">{{burial}}</td><td data-label="National median">{{natBurial}}</td><td data-label="How {{state}} compares">{{burialCmp}}</td></tr>
-<tr><th scope="row">Basic services fee (non-declinable)</th><td data-label="{{state}} median">{{basic}}</td><td data-label="National median">{{natBasic}}</td><td data-label="How {{state}} compares">{{basicCmp}}</td></tr>
-</tbody></table>
+<span class="eyebrow">Funeral costs</span>
+<h2>What a funeral costs in {{state}}</h2>
+<div class="stats" role="list" aria-label="{{state}} funeral-home medians beside the national median">
+  <div class="stats__card" role="listitem"><span class="stats__label">Direct cremation</span><span class="stats__num">{{cremation}}</span><span class="stats__cmp">{{cremationCmpShort}}</span></div>
+  <div class="stats__card" role="listitem"><span class="stats__label">Immediate burial</span><span class="stats__num">{{burial}}</span><span class="stats__cmp">{{burialCmpShort}}</span></div>
+  <div class="stats__card" role="listitem"><span class="stats__label">Basic services fee</span><span class="stats__num">{{basic}}</span><span class="stats__cmp">{{basicCmpShort}}<small>Non-declinable</small></span></div>
+</div>
+<p class="stats__note">Medians from {{lists}} {{state}} funeral home price lists collected in 2026, beside the national median for each charge ({{natCremation}} cremation, {{natBurial}} burial, {{natBasic}} basic services fee). Funeral-home charges only.</p>
 {{observation}}
 <p>Cemetery costs are separate on every one of these figures. A plot, a vault or grave liner, the opening and closing of the grave and a headstone are billed by the cemetery, not the funeral home, and add {{cemLow}}&ndash;{{cemHigh}} or more. For the full itemized picture, including the FTC rules that protect you when you sit down with a funeral director, see <a href="/how-much-does-a-funeral-cost/">how much a funeral costs</a>.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="rates">Final expense rates by age</h2>
+<section class="sec sec--light guide state-sec" id="rates">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Rates</span>
+<h2>Final expense rates by age</h2>
 <p>Final expense rates are set by age, gender, tobacco use and health &mdash; not by state. A 70-year-old in {{state}} is quoted from the same tables as a 70-year-old anywhere else. The figures below are market averages for $10,000 of simplified-issue coverage, non-tobacco; they are a benchmark, not a quote.</p>
-<table class="ctable ctable--rates"><caption class="sr">Final expense rates by age, $10,000 of coverage</caption>
+<p class="tablecap">Monthly premium for $10,000 of coverage, non-tobacco, simplified issue</p>
+<table class="ctable ctable--rates"><caption class="sr">Final expense rates by age, $10,000 of coverage, non-tobacco</caption>
 <thead><tr><th scope="col">Age</th><th scope="col">Women</th><th scope="col">Men</th></tr></thead>
 <tbody>
 <tr><th scope="row">50</th><td data-label="Women">$30</td><td data-label="Men">$38</td></tr>
@@ -36,22 +43,84 @@
 </tbody></table>
 <p>Tobacco use typically adds 25 to 30%. Guaranteed acceptance plans, which ask no health questions, run roughly 40 to 80% more and carry a two-year waiting period before the full benefit applies.</p>
 <p class="guide__links"><a href="/final-expense-insurance/#rates">See rates for $20,000 and $30,000 of coverage &rarr;</a><a href="/#estimate">Estimate your own monthly range &rarr;</a><a href="/burial-insurance-with-pre-existing-conditions/">See which health conditions affect approval &rarr;</a></p>
+    </div>
+    <div class="state-carriers">
+      <span class="eyebrow eyebrow--center">Carriers</span>
+      <h2 class="sec__h sec__h--sm">Some of the carriers we represent</h2>
+      <p class="sec__sub">We are appointed with these and other final expense carriers. Availability varies by state.</p>
+      <ul class="carriers">
+        <li><img src="/assets/carriers/sentinel.png" alt="Sentinel Security Life" width="200" height="57" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/carriers/liberty-bankers.png" alt="Liberty Bankers Life" width="200" height="57" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/carriers/prosperity.png" alt="Prosperity Life" width="200" height="57" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/carriers/americo.png" alt="Americo" width="200" height="57" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/carriers/transamerica.png" alt="Transamerica" width="200" height="57" loading="lazy" decoding="async"></li>
+        <li><img src="/assets/carriers/aig.svg" alt="AIG" width="200" height="60" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<h2 id="coverage">How much coverage {{state}} families typically need</h2>
-<p>Start from the {{state}} figures above and add what they leave out. An immediate burial at the {{state}} median of {{burial}} plus cemetery costs of {{cemLow}}&ndash;{{cemHigh}} comes to <strong>{{burialPlusLow}}&ndash;{{burialPlusHigh}}</strong> before any service. A full traditional funeral with a viewing runs about {{natFull}} in funeral-home charges nationally; with the same cemetery costs on top, that is <strong>{{fullPlusLow}}&ndash;{{fullPlusHigh}}</strong>.</p>
+<section class="sec guide state-sec" id="coverage">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Coverage</span>
+<h2>How much coverage {{state}} families typically need</h2>
+<div class="costs">
+  <strong class="costs__h" id="costs-burial-h">Immediate burial, with cemetery costs</strong>
+  <ul aria-labelledby="costs-burial-h">
+    <li><span>Immediate burial ({{state}} median)</span><span class="costs__amt">{{burial}}</span></li>
+    <li><span>Cemetery costs (plot, vault or grave liner, opening and closing, headstone)</span><span class="costs__amt">{{cemLow}} &ndash; {{cemHigh}}</span></li>
+    <li class="costs__total"><span>Before any service</span><span class="costs__amt">{{burialPlusLow}} &ndash; {{burialPlusHigh}}</span></li>
+  </ul>
+</div>
+<div class="costs">
+  <strong class="costs__h" id="costs-full-h">Full traditional funeral with a viewing</strong>
+  <ul aria-labelledby="costs-full-h">
+    <li><span>Funeral-home charges (national)</span><span class="costs__amt">{{natFull}}</span></li>
+    <li><span>Cemetery costs (plot, vault or grave liner, opening and closing, headstone)</span><span class="costs__amt">{{cemLow}} &ndash; {{cemHigh}}</span></li>
+    <li class="costs__total"><span>With the same cemetery costs on top</span><span class="costs__amt">{{fullPlusLow}} &ndash; {{fullPlusHigh}}</span></li>
+  </ul>
+</div>
+<div class="callout">
+  <span class="eyebrow">Where {{state}} families typically land</span>
+  <strong class="callout__num">{{bandLow}}&ndash;{{bandHigh}}</strong>
+  <span class="callout__sub">Cremation with a gathering toward the low end; burial with a service toward the high end.</span>
 {{coverageNote}}
+</div>
 <p>Then add any outstanding medical bills, small debts and a margin for your family&rsquo;s immediate expenses. A licensed agent will work through the number with you on the call; the <a href="/#estimate">estimator</a> shows what a given amount costs per month at your age.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="regulation">{{state}} insurance&nbsp;regulation</h2>
-{{regSection}}
+<section class="sec sec--light guide state-sec" id="regulation">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<div class="agentcard agentcard--light">
+  <img src="/assets/img/agent-desk.jpg" alt="A Senior Solutions agent at his desk on a call" width="1600" height="1296" loading="lazy" decoding="async">
+  <p><strong>A real person calls you back.</strong>Licensed agents in our Greenwood Village, Colorado office &mdash; not a call center, not a robot.</p>
+</div>
+<span class="eyebrow">Regulation</span>
+<h2>{{state}} insurance&nbsp;regulation</h2>
+<div class="infocard">
+  <h3>{{deptName}}</h3>
+{{regBody}}
+  <div class="cta-row"><a class="btn btn--secondary btn--arrow" href="{{deptUrl}}" rel="noopener">Visit the department website</a></div>
+</div>
+    </div>
+  </div>
+</section>
 
-<h2 id="common-questions">Common questions</h2>
+<section class="sec guide state-sec" id="common-questions">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">FAQ</span>
+<h2>Common questions</h2>
 <div class="faq faq--guide">
 {{faq}}
 </div>
     </div>
   </div>
-</article>
+</section>
 
 <section class="sec--gold band">
   <div class="wrap" data-reveal>

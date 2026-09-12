@@ -77,9 +77,9 @@ for slug, (name, abbr) in NAMES.items():
         "medicaid": {"expanded": EXPANDED[slug], "section": aca["medicaid"]},
         "titles": {"fe": f"Final Expense Insurance in {name} | Rates & Funeral Costs", "medicare": f"Medicare Advantage Plans in {name} | Senior Solutions Insurance", "aca": f"ACA Marketplace Plans in {name} | Senior Solutions Insurance"},
         "descriptions": dict(zip(("fe", "medicare", "aca"), DESC[slug])),
-        "fe": {"intro": fe["intro"], "observation": fe["obs"], "coverageNote": fe["cov"], "regSection": fe["reg"]},
-        "medicare": {"intro": med["intro"], "shipSection": med["ship"], "regSection": med["reg"]},
-        "aca": {"intro": aca["intro"], "regSection": None},
+        "fe": {"intro": fe["intro"], "observation": fe["obs"], "coverageNote": fe["cov"], "regSection": fe["reg"], "bandLow": copy_fe.BAND[slug][0], "bandHigh": copy_fe.BAND[slug][1]},
+        "medicare": {"intro": med["intro"], "shipSection": med["ship"], "regSection": med["reg"], "heroStat": copy_medicare.COUNTY.format(s=name)},
+        "aca": {"intro": aca["intro"], "regSection": None, "heroStat": copy_aca.hero(name, EXPANDED[slug])},
         "faq": {"fe": fe["faq"], "medicare": med["faq"], "aca": aca["faq"]},
     })
 

@@ -18,6 +18,13 @@ CITE = (f'Expansion status per <a href="{KFF}" rel="noopener">KFF&rsquo;s Medica
         f'<a href="https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf" rel="noopener">medicaid.gov</a>; '
         f'income lines from the <a href="{HHS}" rel="noopener">2026 HHS poverty guidelines</a>.')
 
+FPL1, FPL138_1 = "$15,960", "$22,025"   # 2026 HHS poverty guideline for one person; 138% of it
+def hero(state, is_expanded):
+    """One-line hero strip: the state's Medicaid position and the dollar line that follows from it."""
+    if is_expanded:
+        return f"{state} has expanded Medicaid: an adult qualifies up to about <strong>{FPL138_1}</strong> in 2026, and marketplace subsidies pick up above that."
+    return f"{state} has not expanded Medicaid: marketplace subsidies begin at <strong>{FPL1}</strong> for one person in 2026, and below that there is no subsidy."
+
 def expanded(state, medicaid_name, extra=''):
     return (f'<p><strong>{state} has expanded Medicaid.</strong> An adult with household income up to about 138% of the federal poverty level qualifies for {medicaid_name} rather than a marketplace plan &mdash; in 2026 that is roughly <strong>$22,025</strong> for one person, <strong>$29,863</strong> for two, <strong>$37,702</strong> for three and <strong>$45,540</strong> for four. Above those lines the premium tax credit takes over and is applied to a marketplace plan. There is no coverage gap: the application checks income first and routes each household to the right program. {extra}{CITE}</p>')
 

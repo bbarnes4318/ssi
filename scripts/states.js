@@ -33,6 +33,15 @@ const money = n => '$' + Number(n).toLocaleString('en-US');
 const pct = (state, national) => Math.round(Math.abs(state / national - 1) * 100);
 const esc = s => String(s).replace(/&(?!amp;|mdash;|ndash;|rarr;|nbsp;|#)/g, '&amp;');
 
+// Callout cards carry the department / program link as a button, so the same
+// link inside the body copy becomes plain text. Wording is untouched.
+function unlink(html, url) {
+  const i = html.indexOf('<a href="' + url + '"');
+  if (i < 0) return html;
+  const open = html.indexOf('>', i), close = html.indexOf('</a>', open);
+  return html.slice(0, i) + html.slice(open + 1, close) + html.slice(close + 4);
+}
+
 function faq(list) {
   return list.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('\n');
 }
@@ -58,9 +67,17 @@ function vars(st, product) {
       if (d === 0) return 'at the national median';
       return d + '% ' + (val < nat ? 'below' : 'above') + ' the national median of ' + money(nat);
     };
+    // Short form for the stat cards ("18% above national") and the hero strip.
+    const cmpShort = (val, nat) => { const d = pct(val, nat); return d === 0 ? 'at the national median' : d + '% ' + (val < nat ? 'below' : 'above') + ' national'; };
+    const heroCmp = (val, nat) => { const d = pct(val, nat); return d === 0 ? 'at the national average' : d + '% ' + (val < nat ? 'below' : 'above') + ' the national average'; };
     Object.assign(v, {
       lists: f.lists,
       cremation: money(f.cremation), burial: money(f.burial), basic: money(f.basic),
+      cremationCmpShort: cmpShort(f.cremation, NAT.cremation), burialCmpShort: cmpShort(f.burial, NAT.burial), basicCmpShort: cmpShort(f.basic, NAT.basic),
+      heroStat: `Direct cremation in ${st.name}: <strong>${money(f.cremation)}</strong> median &mdash; ${heroCmp(f.cremation, NAT.cremation)}.`,
+      bandLow: money(st.fe.bandLow), bandHigh: money(st.fe.bandHigh),
+      natFullRaw: money(NAT.full),
+      regBody: unlink(st.fe.regSection, st.dept.url),
       natCremation: money(NAT.cremation), natBurial: money(NAT.burial), natBasic: money(NAT.basic), natFull: money(NAT.full),
       cremationCmp: cmp(f.cremation, NAT.cremation), burialCmp: cmp(f.burial, NAT.burial), basicCmp: cmp(f.basic, NAT.basic),
       gapPct: Math.round((f.burial / f.cremation - 1) * 100),
@@ -74,10 +91,11 @@ function vars(st, product) {
     });
   }
   if (product === 'aca') {
-    Object.assign(v, { intro: st.aca.intro, medicaidSection: st.medicaid.section, exchangeKind: st.exchange.kind, exchangeNote: st.exchange.note || '' });
+    Object.assign(v, { intro: st.aca.intro, heroStat: st.aca.heroStat, medicaidSection: st.medicaid.section, exchangeKind: st.exchange.kind, exchangeNote: st.exchange.note || '' });
   }
   if (product === 'medicare') {
-    Object.assign(v, { intro: st.medicare.intro, shipSection: st.medicare.shipSection, regSection: st.medicare.regSection });
+    Object.assign(v, { intro: st.medicare.intro, heroStat: st.medicare.heroStat, shipSection: st.medicare.shipSection, regSection: st.medicare.regSection,
+      shipBody: unlink(st.medicare.shipSection, st.ship.url), regBody: unlink(st.medicare.regSection, st.dept.url) });
   }
   return v;
 }

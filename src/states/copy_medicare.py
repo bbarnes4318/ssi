@@ -13,7 +13,8 @@ P = lambda *ps: "\n".join(f"<p>{p}</p>" for p in ps)
 COUNTY = "Medicare Advantage availability in {s} is set by county, not by state, so two people in the same state can have entirely different options."
 
 def opener(state, ship_sentence):
-    return P(COUNTY.format(s=state) + " " + ship_sentence,
+    # COUNTY is rendered in the hero stat strip (identical on every state page, deliberately); the opener starts with the state's SHIP sentence.
+    return P(ship_sentence,
              f"A licensed agent in our Greenwood Village, Colorado office compares the Medicare Advantage plans filed for your {state} county, explains the differences, and you decide. How <a href=\"/medicare/\">Medicare Advantage works</a> is the same in every state; what is available to you is not.")
 
 COPY = {}

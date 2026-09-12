@@ -5,6 +5,10 @@
 # details are from each department's homepage, fetched 12 Sep 2026.
 P = lambda *ps: "\n".join(f"<p>{p}</p>" for p in ps)
 COPY = {}
+# Recommended coverage band per state, rendered in the coverage callout. Every coverage note below
+# concludes at the same two figures: cremation with a gathering within $10,000, burial with a
+# service toward $15,000. Override per slug if a state's note ever concludes differently.
+BAND = {slug: (10000, 15000) for slug in ("colorado", "tennessee", "florida", "texas", "california", "pennsylvania", "ohio", "michigan", "north-carolina", "georgia", "arizona")}
 
 COPY["colorado"] = dict(
  intro=P("A direct cremation in Colorado has a median cost of $1,650 and an immediate burial $2,565 &mdash; 17% and 8% below the national medians, and cheaper than average on every funeral-home charge we measured. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.",
