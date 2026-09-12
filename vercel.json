@@ -74,10 +74,6 @@
       "headers": [ { "key": "X-Robots-Tag", "value": "noindex, follow" } ]
     },
     {
-      "source": "/(final-expense-insurance|medicare|health-insurance)/([a-z-]+)/",
-      "headers": [ { "key": "X-Robots-Tag", "value": "noindex, follow" } ]
-    },
-    {
       "source": "/preview/(.*)",
       "headers": [ { "key": "X-Robots-Tag", "value": "noindex, nofollow" } ]
     },
