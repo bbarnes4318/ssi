@@ -63,7 +63,9 @@ const AGENCY_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' }
   ],
-  sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare', 'https://share.google/7cX0zbH3SjcK8Eqj2', 'https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012']
+  // No geo, areaServed, aggregateRating or Google Business Profile URL here —
+  // each needs verifying first; see docs/open-items.md.
+  sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare', 'https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012']
 };
 
 // Photos: every /assets/img/*.jpg has a WebP sibling, so serve that first, and
@@ -99,14 +101,36 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   body = fill(fill(body, partials), partials); // partials may nest one level
 
   const schemas = [AGENCY_SCHEMA];
-  if (meta.faq) {
+
+  // FAQPage is read from the page's own <details> so the markup can never
+  // say something the visitor cannot see. Only pages flagged faqSchema get
+  // it: the final expense page owns those questions (the homepage FAQ
+  // overlaps and is deliberately not marked up), and /medicare/ never
+  // while it is noindex and held.
+  if (meta.faqSchema) {
+    const qa = [...body.matchAll(/<details>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>\s*<\/details>/g)]
+      .map(m => [m[1], m[2]].map(t => t.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&mdash;/g, '—').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()));
+    if (!qa.length) throw new Error(f + ': faqSchema set but no <details> FAQ found');
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: meta.faq.map(([q, a]) => ({
+      mainEntity: qa.map(([q, a]) => ({
         '@type': 'Question', name: q,
         acceptedAnswer: { '@type': 'Answer', text: a }
       }))
+    });
+  }
+
+  // BreadcrumbList on every real page except the homepage (the 404 has no
+  // canonical place in the tree). Names are the nav labels the visitor sees.
+  if (meta.path !== '/' && !meta.out) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+        { '@type': 'ListItem', position: 2, name: meta.crumb || meta.title.split('|')[0].trim(), item: SITE + meta.path }
+      ]
     });
   }
 
