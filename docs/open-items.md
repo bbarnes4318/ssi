@@ -6,10 +6,11 @@ change in `CHANGELOG.md`.
 
 | Item | Needed for | Blocking | Status |
 |---|---|---|---|
+| **FMO determination for `/medicare/` — the record** | Release 2 shipped 12 Sep 2026 on the instruction that the determination had come through. **Ruling not yet recorded here: fill in** (a) communications, or (b) marketing with carrier approval obtained and HPMS filing complete (material ID, organization and product counts); the date of the determination; who at the FMO issued it. This row is what matters at the next plan-year turnover, when Block A paragraph 1 must be re-confirmed character for character. | `/medicare/` | **supplied — record the ruling** |
 | Number of MA/Part D organizations and products represented | TPMO disclaimer, if the FMO rules the page is marketing | `/medicare/` | open |
 | CMS material ID | Only if `/medicare/` keeps plan-specific benefits | `/medicare/` | open |
 | Names of all MA/Part D organizations represented | Required on marketing materials | `/medicare/` | open |
-| FMO determination: is the stripped `/medicare/` page "marketing" or "communications" under CMS rules | Decides whether carrier approval and annual HPMS filing are required | `/medicare/` | open |
+| FMO determination: is the stripped `/medicare/` page "marketing" or "communications" under CMS rules | Decides whether carrier approval and annual HPMS filing are required | `/medicare/` | supplied 12 Sep 2026 — see the record row above |
 | Current plan-year verbatim TPMO disclaimer text from the FMO | The disclaimer is standardized and must be used character for character | `/medicare/` | open |
 | Licensed entity name | Footer licensing line | sitewide | supplied — "Senior Solutions Insurance", in `compliance/ssi-medicare-disclosures.html` Block B and `widgets/ssi-cost-estimator.html` |
 | List of states the agency is licensed in | Fuller footer licensing line | sitewide | open |

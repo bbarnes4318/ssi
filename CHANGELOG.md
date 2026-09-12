@@ -8,6 +8,18 @@ entry.
 
 ## [Unreleased]
 
+## [2026-09-12] — Release 2: /medicare/ live
+
+### Changed
+- `/medicare/` released from the Release 2 hold on the FMO determination
+  (ruling and date to be recorded in `docs/open-items.md` — the record row
+  is there, awaiting the text). `noindex` removed from the page and from the
+  per-path header rule; page added to `sitemap.xml`; `FAQPage` JSON-LD
+  generated from the visible FAQ; inbound links from `/health-insurance/`
+  (turning-65 FAQ answer) and `/about-us/` (story paragraph). Block A —
+  simplified TPMO disclaimer, not-connected-or-endorsed line,
+  deductibles/copays/Part B paragraph, TTY 711 — unchanged.
+
 ## [2026-09-11] — A- to A+ optimization pass
 
 ### Added

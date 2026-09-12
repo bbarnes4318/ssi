@@ -16,7 +16,7 @@ and commit the output alongside the source.
 |---|---|---|
 | `/` | `src/pages/home.html` | |
 | `/final-expense-insurance/` | `src/pages/final-expense-insurance.html` | Rate tables, underwriting explainer, carrier table, estimator (loaded from `/widgets/`). |
-| `/medicare/` | `src/pages/medicare.html` | **HELD, served `noindex`.** Block C copy, Block A disclosure inline. See `deploy/release-2-medicare-held.md`. |
+| `/medicare/` | `src/pages/medicare.html` | **Live** since 12 Sep 2026 (Release 2, on the FMO determination — see `docs/open-items.md`). Block C copy, Block A disclosure inline; `compliance/ssi-medicare-disclosures.html` is the source of truth. |
 | `/health-insurance/` | `src/pages/health-insurance.html` | `/heatlh-insurance/` 301s here. |
 | `/about-us/` | `src/pages/about-us.html` | |
 | `/contact-us/` | `src/pages/contact-us.html` | |
@@ -73,15 +73,15 @@ and the exact consent text shown. Whatever receives the webhook must store it.
 | Final expense cost estimator | `widgets/ssi-cost-estimator.html` | **Ready to ship** — Release 1 | Nothing. Goes on the new `/final-expense-insurance/` page. |
 | Footer licensing line (Block B) | `compliance/ssi-medicare-disclosures.html` | **Ready to ship** — Release 1 | Nothing. Entity name is supplied; state list deliberately omitted. |
 | `/medicare/` false-claim removal | `deploy/release-1-ship-now.md` | **Ready to ship** — Release 1 | Nothing. Removal of a false claim does not wait on the FMO. |
-| `/medicare/` TPMO disclaimer (Block A) | `compliance/ssi-medicare-disclosures.html` | **HELD** — Release 2 | FMO determination (marketing vs. communications) and current plan-year disclaimer text. |
-| `/medicare/` copy rewrite (Block C) | `compliance/ssi-medicare-disclosures.html` | **HELD** — Release 2 | Same FMO determination. |
+| `/medicare/` TPMO disclaimer (Block A) | `compliance/ssi-medicare-disclosures.html` | **Shipped** — Release 2, 12 Sep 2026 | Re-confirm paragraph 1 against the FMO text at each plan-year turnover. |
+| `/medicare/` copy rewrite (Block C) | `compliance/ssi-medicare-disclosures.html` | **Shipped** — Release 2, 12 Sep 2026 | Nothing. |
 | FMO review packet | `compliance/fmo-review-packet.md` | **Ready to send** | Jimmy to send it. |
 | Site audit | `docs/audit.md` | Reference | — |
 | Open items | `docs/open-items.md` | Live register | See the table. |
 
-While Release 2 is held, `/medicare/` should carry
-`<meta name="robots" content="noindex, follow">`. Details in
-`deploy/release-2-medicare-held.md`.
+Release 2 shipped 12 Sep 2026; `/medicare/` is indexable and in the sitemap.
+The checklist it shipped against is `deploy/release-2-medicare-held.md`; the
+FMO ruling is recorded in `docs/open-items.md`.
 
 ## Before you edit anything
 

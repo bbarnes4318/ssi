@@ -1,6 +1,10 @@
-# Release 2 — /medicare/ — HELD
+# Release 2 — /medicare/ — SHIPPED 12 Sep 2026
 
-**Status: HELD.** Nothing in this file ships until the FMO answers the four
+**Status: SHIPPED** on the FMO determination (record the ruling in
+`../docs/open-items.md`). The checklist below is kept as the record of what
+shipped. Original hold text follows.
+
+**Status (at the time): HELD.** Nothing in this file ships until the FMO answers the four
 questions in `../compliance/fmo-review-packet.md`. The determination that
 unblocks it: whether the stripped page is "marketing" or "communications"
 under CMS rules, and the current plan-year TPMO disclaimer text.
