@@ -1,6 +1,6 @@
 # State landing pages — data pack and build spec
 
-**Status: DRAFT PROPOSAL for the agency.** Nothing here publishes without their sign-off. Build everything, deploy it unpublished, and let them review real pages rather than a description of pages.
+**Status: PUBLISHED at cutover, 12 Sep 2026** (all three product flags in `src/states/publish.json` are `true`; the 33 pages are in the sitemap and linked from the parent-page hub sections and the footer). Originally a draft proposal built and deployed unpublished for agency review.
 
 **Scope:** 11 states × 3 products = 33 pages.
 
@@ -12,17 +12,31 @@
 |---|---|---|
 | Colorado | Home state — the agency's own office and existing exchange certification | Connect for Health Colorado |
 | Tennessee | | healthcare.gov |
-| Florida | Largest senior share in the country | healthcare.gov |
+| Florida | 21.8% of residents aged 65 and over — the fourth-highest share in the country in 2024, behind Maine, Vermont and West Virginia (Census ACS 2024 via USAFacts) | healthcare.gov |
 | Texas | | healthcare.gov |
-| California | Largest 65+ population | Covered California |
+| California | More residents aged 65 and over than any other state, about 6.5 million in 2024, though only about 16.6% of the state's population (Census 2024 via USAFacts) | Covered California |
 | Pennsylvania | | Pennie |
 | Ohio | | healthcare.gov |
 | Michigan | | healthcare.gov |
 | North Carolina | | healthcare.gov |
 | Georgia | | Georgia Access |
-| Arizona | Large retiree in-migration | healthcare.gov |
+| Arizona | Second-largest net domestic in-migration of residents 65 and over of any state: 18,318 (2022 ACS via the University of Arizona Economic and Business Research Center) | healthcare.gov |
 
 Override any of these if the agency has better selection criteria — call volume by state, carrier appointments, or where the existing book of business sits all beat population.
+
+### Sources (the same set recorded in `src/states/states.json` → `sources`)
+
+- **Funeral medians** — analysis of 1,000+ funeral home General Price Lists across 50 states, 2026, medians per state (the table below). Client-supplied dataset; the pages quote it verbatim.
+- **Population share 65+** — US Census Bureau, 2024 American Community Survey, via USAFacts: Maine 23.5%, Vermont 22.9%, West Virginia 21.9%, Florida 21.8% (fourth). usafacts.org/articles/america-is-getting-older-which-states-have-the-largest-elderly-populations/ (read 12 Sep 2026).
+- **California 65+ count and share** — US Census Bureau 2024 via USAFacts: about 6.52 million, 16.6%. usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/.
+- **Arizona 65+ in-migration** — University of Arizona Economic and Business Research Center, from the 2022 1-year ACS: second-largest net domestic migration of people 65+, 18,318 (Florida first, 49,732). azeconomy.org/2023/12/economy/what-states-do-workers-and-retirees-migrate-to/.
+- **Medicaid expansion status** — KFF, *Status of State Medicaid Expansion Decisions* (as of 21 Aug 2026: 41 incl. DC adopted / 10 not), cross-checked with medicaid.gov's Adult Coverage Expansion map. Georgia Pathways criteria from pathways.georgia.gov. Income lines from the 2026 HHS poverty guidelines (aspe.hhs.gov).
+- **SHIP programs** — shiphelp.org state listings (https://www.shiphelp.org/ships/<state>/), read 12 Sep 2026; operating agencies from the linked program sites. Phone numbers only as listed there.
+- **Exchanges** — exchange type and name per state from the exchange's own site / healthcare.gov's state list, confirmed 12 Sep 2026.
+- **Insurance departments** — each department homepage fetched and title-checked 12 Sep 2026; only services that appear on that homepage are named on the pages. No department phone numbers unless shown on the department's own site.
+- **County counts** — state county lists, confirmed 12 Sep 2026.
+
+Correction record: the original rows for Florida ("largest senior share in the country" — false; Florida is fourth), California ("largest 65+ population" — imprecise) and Arizona ("large retiree in-migration" — unsourced) were replaced on 12 Sep 2026 with the sourced figures above.
 
 ---
 
@@ -65,9 +79,9 @@ Source: analysis of more than 1,000 funeral home General Price Lists collected a
 **The specific observation each page leads with**, computed from the table:
 
 - **Colorado** — cremation at $1,650 is 17% below national and burial at $2,565 is 8% below. Cheaper than average on every measure, worth saying plainly on the home-state page.
-- **Tennessee** — cremation at $2,348 runs 18% above national and burial at $2,990 is above it too, which cuts against Tennessee's general reputation as a low-cost state for services.
+- **Tennessee** — cremation at $2,348 runs 18% above national and burial at $2,990 is above it too. *(The earlier "cuts against Tennessee's reputation as a low-cost state for services" framing was deleted 12 Sep 2026 as unsourceable — do not reinstate it from an old copy.)*
 - **Arizona** — $1,240 cremation is the second-lowest in the country, 38% below national. The strongest single state fact in the set.
-- **Georgia** — $2,525 cremation and $3,225 burial are both well above national and among the highest in the South, which cuts against the assumption that Southern states are cheap.
+- **Georgia** — $2,525 cremation and $3,225 burial are both well above national and the highest of the eleven states in this set. *(The earlier "among the highest in the South" / "Southern states are cheap" framing was deleted 12 Sep 2026 as unsourceable — the dataset table covers eleven states, not a regional ranking. Do not reinstate it from an old copy.)*
 - **Pennsylvania** — highest basic services fee of the eleven at $2,562, 17% above national. That is the one charge nobody can decline.
 - **North Carolina** — widest cremation-to-burial gap of the eleven: $1,700 against $2,920, a 72% difference. The choice between the two matters more here than anywhere else in the set.
 - **Michigan** — narrowest gap of the eleven: $2,250 against $2,575, just 14%. Cremation saves a Michigan family far less than it saves a North Carolina family.
