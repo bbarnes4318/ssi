@@ -6,8 +6,7 @@
 <title>{{title}}</title>
 {{descriptionTag}}
 <meta name="robots" content="{{robots}}">
-<script>/* Only ssifinalexpense.com may be indexed. Any other host (Vercel preview, *.vercel.app, localhost) is switched to noindex before anything else loads; vercel.json also sends X-Robots-Tag: noindex, nofollow and a Disallow-all robots.txt for those hosts. */
-(function(){var h=location.hostname;if(h==='ssifinalexpense.com'||h==='www.ssifinalexpense.com')return;var m=document.querySelector('meta[name="robots"]');if(m)m.setAttribute('content','noindex, nofollow');})();</script>
+<script src="/assets/host-guard.js"></script>
 <link rel="canonical" href="{{canonical}}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Senior Solutions Insurance">
@@ -33,6 +32,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-700.woff2" crossorigin>
 {{preload}}
 <link rel="stylesheet" href="/assets/site.css">
+{{head}}
 {{schema}}
 </head>
 <body class="{{bodyClass}}" data-path="{{path}}">

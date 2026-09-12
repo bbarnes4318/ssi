@@ -58,7 +58,7 @@ and the exact consent text shown. Whatever receives the webhook must store it.
 | `/src/` | Page sources, layout and partials. Edit here, then build. |
 | `/scripts/` | `build.js` — assembles `src/` into the committed page HTML and `sitemap.xml`. |
 | `/api/` | Vercel serverless functions (`lead.js`). |
-| `/widgets/` | Self-contained HTML widgets. The estimator is served from here and loaded into `/final-expense-insurance/`; it also drops into a WordPress HTML widget unchanged. |
+| `/widgets/` | Estimator markup, inlined by the build into `/` and `/final-expense-insurance/`. Its styles and script live in `assets/estimator.css` and `assets/estimator.js` so the site can run a strict CSP with no inline script or style. |
 | `/compliance/` | Regulated disclosure language and the FMO review packet. Verbatim only — see below. |
 | `/docs/` | The site audit and the open-items register. |
 | `/deploy/` | Release checklists. Release 1 is implemented in this site and doubles as its QA list; Release 2 is held. |

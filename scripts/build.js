@@ -21,8 +21,9 @@ const partials = {};
 for (const f of fs.readdirSync(path.join(SRC, 'partials'))) {
   partials[path.basename(f, '.html')] = fs.readFileSync(path.join(SRC, 'partials', f), 'utf8');
 }
-// The estimator is inlined at build time from the single drop-in widget file,
-// so the site and the WordPress paste-in never drift apart.
+// The estimator markup is inlined at build time from the widget file; its CSS
+// and JS are separate files (assets/estimator.*) referenced from <head> on the
+// pages that carry it, so the CSP needs no inline allowances.
 partials['estimator'] = fs.readFileSync(path.join(ROOT, 'widgets', 'ssi-cost-estimator.html'), 'utf8')
   .replace(/^<!--[\s\S]*?-->\s*/, '');
 
@@ -35,7 +36,7 @@ function stamp(rel) {
   const h = crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8);
   return '/' + rel + '?v=' + h;
 }
-const ASSET = { css: stamp('assets/site.css'), js: stamp('assets/site.js') };
+const ASSET = { css: stamp('assets/site.css'), js: stamp('assets/site.js'), guard: stamp('assets/host-guard.js'), estCss: stamp('assets/estimator.css'), estJs: stamp('assets/estimator.js') };
 
 const AGENCY_SCHEMA = {
   '@context': 'https://schema.org',
@@ -156,7 +157,15 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   const ogSize = (sizeOf && sizeOf(path.join(ROOT, og.file.replace(/^\//, '')))) || { width: 1200, height: 630 };
 
   const hasForm = /id="quote"/.test(body);
+  // The estimator's CSS and JS are separate files (strict CSP: no inline
+  // script or style), pulled in only on pages that carry the widget.
+  const hasEstimator = /class="ssi-est"/.test(body);
+  const head = hasEstimator
+    ? `<link rel="stylesheet" href="${ASSET.estCss}">
+<script src="${ASSET.estJs}" defer></script>`
+    : '';
   const vars = {
+    head,
     ogImage: SITE + og.file,
     ogAlt: og.alt.replace(/"/g, '&quot;'),
     ogWidth: ogSize.width,
@@ -175,7 +184,15 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   };
   const html = pictures(fill(fill(layout, partials), vars))
     .replace('/assets/site.css', ASSET.css)
-    .replace('/assets/site.js', ASSET.js);
+    .replace('/assets/site.js', ASSET.js)
+    .replace('/assets/host-guard.js', ASSET.guard);
+
+  // Strict CSP: no inline <script> (other than JSON-LD data blocks) and no
+  // inline <style> may reach the page.
+  for (const [tag] of html.matchAll(/<script[^>]*>/g)) {
+    if (!/src=/.test(tag) && !/type="application\/ld\+json"/.test(tag)) throw new Error(f + ': inline <script> is not allowed under the CSP: ' + tag);
+  }
+  if (/<style/.test(html)) throw new Error(f + ': inline <style> is not allowed under the CSP');
 
   // Every <img> ships with explicit width and height so nothing reflows.
   for (const [tag] of html.matchAll(/<img[^>]*>/g)) {
