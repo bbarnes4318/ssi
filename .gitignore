@@ -9,3 +9,4 @@ Thumbs.db
 *.bak
 # raw photo dump from the client; curated copies live in assets/img/
 assets/ssi/
+__pycache__/
