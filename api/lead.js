@@ -47,12 +47,18 @@ module.exports = async function handler(req, res) {
   var zip = String(body.zip || '').trim();
   var dob = String(body.dob || '').trim();
   var consent = body.consent === 'yes' || body.consent === true;
+  var consentText = String(body.consent_text || '').trim();
 
   if (!name || phone.replace(/\D/g, '').length < 10 || !/^\d{5}$/.test(zip) || !dob) {
     return res.status(400).json({ error: 'Please check the highlighted fields.' });
   }
   if (!consent) {
     return res.status(400).json({ error: 'Please tick the consent box so we are allowed to call you back.' });
+  }
+  // A consent record without the disclosure the visitor actually saw is not
+  // evidence of anything, so a submission that omits it is refused.
+  if (!consentText) {
+    return res.status(400).json({ error: 'We could not record your consent. Please reload the page and try again, or call 1-888-957-3337.' });
   }
 
   var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || '';
@@ -89,13 +95,17 @@ module.exports = async function handler(req, res) {
       coverage: body.ssi_coverage || null,
       tobacco: body.ssi_tobacco || null
     },
+    // TCPA consent record. Stored with every lead, verbatim, so a dispute can
+    // be answered from the lead itself: when, from where, on which page, and
+    // exactly what the visitor agreed to. The text is the text, not a pointer.
     consent: {
       given: true,
-      timestamp: new Date().toISOString(),
+      method: 'unchecked checkbox, ticked by the visitor before submit',
+      timestamp_utc: new Date().toISOString(),
       ip: ip,
       user_agent: req.headers['user-agent'] || '',
       page_url: body.page_url || req.headers.referer || '',
-      text: String(body.consent_text || '')
+      text: consentText
     }
   };
 
@@ -115,7 +125,8 @@ module.exports = async function handler(req, res) {
         est.age ? 'Estimator: age ' + est.age + ', ' + est.gender + ', $' + est.coverage + ' coverage, tobacco ' + est.tobacco : 'Estimator: not used',
         '',
         '-- TCPA consent evidence --',
-        'Time:       ' + lead.consent.timestamp,
+        'Time (UTC): ' + lead.consent.timestamp_utc,
+        'Method:     ' + lead.consent.method,
         'IP:         ' + lead.consent.ip,
         'Page:       ' + lead.consent.page_url,
         'User agent: ' + lead.consent.user_agent,

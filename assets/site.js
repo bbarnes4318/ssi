@@ -119,6 +119,12 @@
     var pageUrl = form.querySelector('[name="page_url"]');
     if (pageUrl) pageUrl.value = location.href;
 
+    // TCPA consent must be an affirmative act. The box ships unchecked and we
+    // clear it here too, so a browser restoring form state on back/reload can
+    // never present it pre-ticked.
+    var consentBox = form.querySelector('[name="consent"]');
+    if (consentBox) { consentBox.checked = false; consentBox.removeAttribute('checked'); }
+
     // Validation written for people: one plain sentence under the field that
     // needs attention, announced to screen readers, never colour alone.
     var RULES = {
@@ -188,7 +194,12 @@
 
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = v; });
-      data.consent_text = (form.querySelector('[data-consent-text]') || {}).textContent || '';
+      // The disclosure exactly as rendered at the moment of submission — the
+      // text itself, not a version number. innerText keeps line breaks the
+      // visitor saw; textContent is the fallback for very old engines.
+      var consentLabel = form.querySelector('[data-consent-text]');
+      data.consent_text = consentLabel ? String(consentLabel.innerText || consentLabel.textContent || '').trim() : '';
+      data.consent_checked = !!(consentBox && consentBox.checked);
       var ts = form.querySelector('[name="cf-turnstile-response"]');
       if (ts) data.turnstile = ts.value;
 

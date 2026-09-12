@@ -525,9 +525,14 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .form__row{margin-bottom:.7rem;}
 .form__row--2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
 .form__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
-.form__consent{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;margin:.75rem 0 .25rem;font-size:.8rem;line-height:1.45;color:#C7CFDA;}
-.form__consent input{width:1.35rem;height:1.35rem;margin:.1rem 0 0;}
-.form__consent label{font-weight:400;margin:0;color:#C7CFDA;font-size:.8rem;}
+.form__consent{display:grid;grid-template-columns:auto 1fr;gap:.6rem .75rem;align-items:start;margin:.25rem 0 1rem;font-size:.8rem;line-height:1.45;color:#C7CFDA;}
+/* TCPA checkbox: 24x24 minimum hit area (WCAG 2.5.8), visible on the navy
+   panel, and the site's focus ring rather than the browser default. */
+.form__consent input{width:1.5rem;height:1.5rem;min-width:24px;min-height:24px;margin:0;flex:none;accent-color:var(--gold);background:#fff;border-radius:4px;cursor:pointer;}
+.form__consent input:focus-visible{outline:3px solid var(--focus);outline-offset:3px;box-shadow:0 0 0 3px var(--navy),0 0 0 6px var(--focus);}
+.form__consent input.is-invalid{outline:2px solid #FFB4A8;outline-offset:2px;}
+.form__consent label{font-weight:400;margin:0;color:#C7CFDA;font-size:.8rem;cursor:pointer;}
+.form__err--consent{grid-column:1 / -1;margin:0;}
 .form__consent label a{color:#fff;}
 .form__consent strong{display:block;margin-bottom:.15rem;color:#fff;}
 .form__assure{font-size:.85rem;margin:0 0 .7rem;}

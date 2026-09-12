@@ -34,15 +34,19 @@
       <!-- Honeypot: hidden from people, filled by bots. -->
       <div class="form__hp" aria-hidden="true"><label for="q-website">Website</label><input id="q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 
-      <div class="form__consent">
-        <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-describedby="q-consent-err">
-        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
-      </div>
-      <p class="form__err" id="q-consent-err" data-err-for="consent" hidden></p>
-
       <div data-turnstile></div>
 
       <p class="form__assure">We never sell your information. All fields are required.</p>
+
+      <!-- TCPA consent: an unchecked box the visitor must tick. Never pre-checked,
+           never set by script; autocomplete="off" stops browsers restoring a
+           checked state on reload/back. The full disclosure is the label. -->
+      <div class="form__consent" data-consent>
+        <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-required="true" autocomplete="off" aria-describedby="q-consent-err">
+        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
+        <p class="form__err form__err--consent" id="q-consent-err" data-err-for="consent" hidden></p>
+      </div>
+
       <button class="btn btn--gold btn--arrow" type="submit" data-submit>Request my call back</button>
       <p class="form__msg" data-form-msg role="status" aria-live="polite"></p>
     </form>

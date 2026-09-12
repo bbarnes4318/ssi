@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 <link rel="preload" as="image" href="/assets/img/hero-home.webp" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="/assets/site.css?v=d937787c">
+<link rel="stylesheet" href="/assets/site.css?v=62cb6ce1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://ssifinalexpense.com/#agency","name":"Senior Solutions Insurance","legalName":"Christopher L Martin Insurance Group","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/img/team-boardroom.jpg","logo":"https://ssifinalexpense.com/assets/ssi-logo.png","foundingDate":"2008","founder":{"@type":"Person","name":"Chris Martin","jobTitle":"Founder & CEO"},"description":"Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.","hasMap":"https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://share.google/7cX0zbH3SjcK8Eqj2","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is final expense insurance?","acceptedAnswer":{"@type":"Answer","text":"Final expense insurance is a small whole life policy, usually $5,000 to $25,000, designed to cover a funeral, burial or cremation, final medical bills and other debts so your family is not left paying them."}},{"@type":"Question","name":"How much coverage can I get?","acceptedAnswer":{"@type":"Answer","text":"Policies typically range from $5,000 to $25,000, depending on your age, health and budget. Some carriers issue up to $50,000 at younger ages."}},{"@type":"Question","name":"Is the number on this page a quote?","acceptedAnswer":{"@type":"Answer","text":"No. The estimator shows a monthly range based on published 2026 market averages. A licensed agent gives you an actual quote from a specific carrier after a few health questions, and that is the price you would pay."}},{"@type":"Question","name":"Can I qualify if I have a pre-existing condition?","acceptedAnswer":{"@type":"Answer","text":"Yes. Most applicants qualify for final expense insurance with a few health questions and no medical exam, and guaranteed acceptance plans are available for people who do not."}},{"@type":"Question","name":"Do I have to give my contact information to see prices?","acceptedAnswer":{"@type":"Answer","text":"No. The estimator asks only your age, gender, coverage amount and tobacco use. You share your name and phone number only if you want a licensed agent to call you."}}]}</script>
 </head>
@@ -1044,15 +1044,19 @@
       <!-- Honeypot: hidden from people, filled by bots. -->
       <div class="form__hp" aria-hidden="true"><label for="q-website">Website</label><input id="q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 
-      <div class="form__consent">
-        <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-describedby="q-consent-err">
-        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
-      </div>
-      <p class="form__err" id="q-consent-err" data-err-for="consent" hidden></p>
-
       <div data-turnstile></div>
 
       <p class="form__assure">We never sell your information. All fields are required.</p>
+
+      <!-- TCPA consent: an unchecked box the visitor must tick. Never pre-checked,
+           never set by script; autocomplete="off" stops browsers restoring a
+           checked state on reload/back. The full disclosure is the label. -->
+      <div class="form__consent" data-consent>
+        <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-required="true" autocomplete="off" aria-describedby="q-consent-err">
+        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
+        <p class="form__err form__err--consent" id="q-consent-err" data-err-for="consent" hidden></p>
+      </div>
+
       <button class="btn btn--gold btn--arrow" type="submit" data-submit>Request my call back</button>
       <p class="form__msg" data-form-msg role="status" aria-live="polite"></p>
     </form>
@@ -1125,6 +1129,6 @@
   </a>
 </div>
 
-<script src="/assets/site.js?v=459f1f47" defer></script>
+<script src="/assets/site.js?v=e526716b" defer></script>
 </body>
 </html>
