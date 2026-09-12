@@ -70,14 +70,14 @@ function vars(st, product) {
       burialPlusLow: money(f.burial + NAT.cemeteryLow), burialPlusHigh: money(f.burial + NAT.cemeteryHigh),
       fullPlusLow: money(NAT.full + NAT.cemeteryLow), fullPlusHigh: money(NAT.full + NAT.cemeteryHigh),
       cemLow: money(NAT.cemeteryLow), cemHigh: money(NAT.cemeteryHigh),
-      intro: st.fe.intro, observation: st.fe.observation, coverageNote: st.fe.coverageNote
+      intro: st.fe.intro, observation: st.fe.observation, coverageNote: st.fe.coverageNote, regSection: st.fe.regSection
     });
   }
   if (product === 'aca') {
     Object.assign(v, { intro: st.aca.intro, medicaidSection: st.medicaid.section, exchangeKind: st.exchange.kind, exchangeNote: st.exchange.note || '' });
   }
   if (product === 'medicare') {
-    Object.assign(v, { countyNote: st.medicare.countyNote });
+    Object.assign(v, { intro: st.medicare.intro, shipSection: st.medicare.shipSection, regSection: st.medicare.regSection });
   }
   return v;
 }
