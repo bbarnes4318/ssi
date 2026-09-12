@@ -36,6 +36,23 @@
     {
       "source": "/preview/(.*)",
       "headers": [ { "key": "X-Robots-Tag", "value": "noindex, nofollow" } ]
+    },
+    {
+      "source": "/(.*)",
+      "missing": [ { "type": "host", "value": "(www\\.)?ssifinalexpense\\.com" } ],
+      "headers": [ { "key": "X-Robots-Tag", "value": "noindex, nofollow" } ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "has": [ { "type": "host", "value": "(www\\.)?ssifinalexpense\\.com" } ],
+      "destination": "/robots-production.txt"
+    },
+    {
+      "source": "/robots.txt",
+      "missing": [ { "type": "host", "value": "(www\\.)?ssifinalexpense\\.com" } ],
+      "destination": "/robots-preview.txt"
     }
   ]
 }
