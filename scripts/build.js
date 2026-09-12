@@ -110,8 +110,18 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     });
   }
 
+  // Social image: each page names its own 1200x630 in meta.og; the homepage
+  // hero is the default. Size is read from the file so the tags never lie.
+  const OG_DEFAULT = { file: '/assets/img/hero-home.jpg', alt: 'Senior Solutions Insurance — final expense insurance from licensed agents' };
+  const og = meta.og ? { file: meta.og, alt: meta.ogAlt || OG_DEFAULT.alt } : OG_DEFAULT;
+  const ogSize = (sizeOf && sizeOf(path.join(ROOT, og.file.replace(/^\//, '')))) || { width: 1200, height: 630 };
+
   const hasForm = /id="quote"/.test(body);
   const vars = {
+    ogImage: SITE + og.file,
+    ogAlt: og.alt.replace(/"/g, '&quot;'),
+    ogWidth: ogSize.width,
+    ogHeight: ogSize.height,
     title: meta.title,
     quoteHref: hasForm ? '#quote' : '/contact-us/#quote',
     preload: meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" type="image/webp" fetchpriority="high">` : '',
