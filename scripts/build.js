@@ -214,7 +214,9 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     preload: meta.preload ? `<link rel="preload" as="image" href="${meta.preload}" type="image/webp" fetchpriority="high">` : '',
     description: meta.description || '',
     descriptionTag: meta.description ? `<meta name="description" content="${meta.description.replace(/"/g, '&quot;')}">` : '',
-    robots: meta.noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large',
+    // meta.held: built and deployable, but unpublished — noindex and out of the
+    // sitemap until the content is signed off (see docs/open-items.md).
+    robots: (meta.noindex || meta.held) ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large',
     canonical: SITE + meta.path,
     path: meta.path,
     bodyClass: meta.bodyClass || '',
@@ -242,7 +244,7 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   const outFile = meta.out ? path.join(ROOT, meta.out) : path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
-  built.push({ path: meta.path, noindex: !!meta.noindex || !!meta.out, out: path.relative(ROOT, outFile), sources });
+  built.push({ path: meta.path, noindex: !!meta.noindex || !!meta.out || !!meta.held, out: path.relative(ROOT, outFile), sources });
 }
 
 // Sitemap: every indexable page, with a real lastmod — the date of the last

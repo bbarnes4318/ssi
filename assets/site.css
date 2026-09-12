@@ -570,6 +570,8 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .ctable td{color:var(--gray);}
 .ctable tbody tr:nth-child(even){background:var(--lighter);}
 .ctable--rates th[scope="row"]{width:auto;}
+.ctable--conditions th[scope="row"]{width:28%;}
+.ctable--plans td{font-weight:600;color:var(--navy-2);font-variant-numeric:tabular-nums;white-space:nowrap;}
 .ctable--rates td{font-weight:600;color:var(--navy-2);font-variant-numeric:tabular-nums;}
 @media (max-width:40rem){
   .ctable{border:0;background:none;box-shadow:none;border-radius:0;}
@@ -579,7 +581,16 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
   .ctable th[scope="row"]{font-size:1.05rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule);margin-bottom:.35rem;}
   .ctable th[scope="row"]:empty{display:none;}
   .ctable td::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-muted);margin-bottom:.1rem;}
+  .ctable td:empty{display:none;}
+  .ctable--conditions th[scope="row"]{font-size:1.05rem;}
   .ctable--rates tbody tr{display:grid;grid-template-columns:auto 1fr 1fr;align-items:center;gap:.75rem;padding:.6rem .9rem;}
+  /* Five-column rate table (level + GI): age as the card heading, values in a 2x2 grid */
+  .ctable--plans tbody tr{display:block;padding:.6rem .9rem .75rem;}
+  .ctable--plans th[scope="row"]{display:block;border-bottom:1px solid var(--rule);margin-bottom:.5rem;padding:0 0 .4rem;}
+  .ctable--plans th[scope="row"]::before{content:"Age ";font-weight:400;color:var(--gray);}
+  .ctable--plans tbody{display:block;}
+  .ctable--plans tr>td{display:inline-block;width:48%;vertical-align:top;padding:.2rem 0;}
+  .ctable--plans td::before{display:block;margin-right:0;}
   .ctable--rates th[scope="row"]{border:0;margin:0;padding:0;min-width:2.5rem;}
   .ctable--rates td::before{display:inline;margin-right:.35rem;}
 }
