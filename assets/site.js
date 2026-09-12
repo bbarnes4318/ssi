@@ -98,7 +98,8 @@
       state.classList.toggle('is-open', open);
     }
     document.querySelectorAll('[data-openstate]').forEach(function (el) {
-      el.textContent = open ? 'Licensed agents answering now · Mon–Fri 9–7, Sat 9–5 MT' : 'Licensed agents available Mon–Fri 9–7, Sat 9–5 MT';
+      // The hours live in a sibling span so the swap never changes the line count (layout shift at phone widths).
+      el.textContent = open ? 'Licensed agents answering now' : 'Licensed agents available';
     });
     document.querySelectorAll('[data-open-dot]').forEach(function (d) { d.classList.toggle('is-open', open); });
   })();

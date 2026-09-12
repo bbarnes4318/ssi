@@ -114,7 +114,8 @@ p{margin:0 0 1em;}
 /* Utility bar — licensed / hours / TTY / schedule */
 .topbar{background:var(--navy);color:#C7CFDA;font-size:.82rem;line-height:1.4;}
 .topbar__in{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:2.25rem;padding-top:.3rem;padding-bottom:.3rem;}
-.topbar p{margin:0;display:flex;align-items:center;gap:.6rem;}
+.topbar p{margin:0;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;}
+.topbar__hours{white-space:nowrap;}
 .topbar a{color:#fff;text-decoration:none;font-weight:600;}
 .topbar a:hover{color:var(--gold);}
 .topbar__r span{padding-right:.75rem;border-right:1px solid var(--navy-border);margin-right:.15rem;}
@@ -937,6 +938,7 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
   .ratetable th,.ratetable td{padding:.65rem .6rem;}
   .ratetable tr.is-jump th::after{display:none;}
   .compare dl div{grid-template-columns:1fr;gap:.15rem;}
+  .topbar .topbar__hours{display:none;}  /* hours are in the call bar and footer; keeps the strip to one line at phone widths */
   .callbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--navy-1);border-top:2px solid var(--gold);}
   .callbar a{display:block;padding:.6rem 1rem;color:#fff;text-decoration:none;text-align:center;min-height:56px;}
   .callbar__no{display:block;font-weight:700;font-size:1.2rem;line-height:1.2;}
