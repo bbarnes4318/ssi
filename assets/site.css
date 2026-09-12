@@ -523,7 +523,7 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .steps li{display:grid;grid-template-columns:3.25rem 1fr;gap:1rem;align-items:start;margin-bottom:1.1rem;}
 .steps svg{width:1.5rem;height:1.5rem;color:var(--navy);padding:.85rem;box-sizing:content-box;border-radius:50%;background:var(--gold);}
 .steps h3,.steps h4{color:#fff;font-size:1.1rem;margin:0 0 .15rem;line-height:1.25;}
-.steps h4{text-transform:uppercase;letter-spacing:.03em;font-size:1.35rem;}
+.steps h4,.steps .steps__step{text-transform:uppercase;letter-spacing:.03em;font-size:1.35rem;}
 .steps p{margin:0;color:#E6EAF0;font-size:.98rem;}
 .steps--dark svg{color:var(--navy);}
 .steps--dark h3,.steps--dark h4{color:var(--navy);}
