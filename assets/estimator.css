@@ -30,6 +30,9 @@
 .ssi-est__noscript{
   font-size:1.05rem;padding:1.25rem;border:2px solid var(--rule);border-radius:4px;
 }
+/* The shell is laid out from first paint (the html.js class is set by the synchronous host-guard.js);
+   without JavaScript it is hidden and the <noscript> message shows instead. */
+html:not(.js) .ssi-est__shell{display:none;}
 .ssi-est__shell{
   background:var(--paper);
   border:1px solid var(--rule);

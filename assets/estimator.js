@@ -10,6 +10,7 @@
   if (!root) return;
 
   var shell = root.querySelector('[data-shell]');
+  document.documentElement.classList.add('js');
   shell.hidden = false;
 
   var PHONE = root.dataset.phone || '1-888-957-3337';
