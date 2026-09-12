@@ -234,6 +234,8 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
     if (!/src=/.test(tag) && !/type="application\/ld\+json"/.test(tag)) throw new Error(f + ': inline <script> is not allowed under the CSP: ' + tag);
   }
   if (/<style/.test(html)) throw new Error(f + ': inline <style> is not allowed under the CSP');
+  const styleAttr = html.match(/<[a-z][^>]*\sstyle="[^"]*"[^>]*>/i);
+  if (styleAttr) throw new Error(f + ': style="" attribute is not allowed under the CSP: ' + styleAttr[0].slice(0, 120));
 
   // Every <img> ships with explicit width and height so nothing reflows.
   for (const [tag] of html.matchAll(/<img[^>]*>/g)) {
