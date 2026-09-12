@@ -73,6 +73,12 @@ const AGENCY_SCHEMA = {
 let sizeOf;
 try { sizeOf = require('./imgsize'); } catch (e) { sizeOf = null; }
 function pictures(html) {
+  // Carrier logos: every raster logo has a WebP sibling; SVGs are served as is.
+  html = html.replace(/<img([^>]*?)src="(\/assets\/carriers\/([\w-]+)\.png)"([^>]*)>/g, (m, pre, src, name, post) => {
+    const webp = path.join(ROOT, 'assets', 'carriers', name + '.webp');
+    if (!fs.existsSync(webp)) return m;
+    return '<picture><source type="image/webp" srcset="/assets/carriers/' + name + '.webp"><img' + pre + 'src="' + src + '"' + post + '></picture>';
+  });
   return html.replace(/<img([^>]*?)src="(\/assets\/img\/([\w-]+)\.jpg)"([^>]*)>/g, (m, pre, src, name, post) => {
     const webp = path.join(ROOT, 'assets', 'img', name + '.webp');
     let attrs = pre + 'src="' + src + '"' + post;
@@ -170,6 +176,11 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   const html = pictures(fill(fill(layout, partials), vars))
     .replace('/assets/site.css', ASSET.css)
     .replace('/assets/site.js', ASSET.js);
+
+  // Every <img> ships with explicit width and height so nothing reflows.
+  for (const [tag] of html.matchAll(/<img[^>]*>/g)) {
+    if (!/width="\d+"/.test(tag) || !/height="\d+"/.test(tag)) throw new Error(f + ': <img> without width/height: ' + tag.slice(0, 120));
+  }
 
   // meta.out overrides the output file (the 404 page must be /404.html for Vercel).
   const outFile = meta.out ? path.join(ROOT, meta.out) : path.join(ROOT, meta.path.replace(/^\//, ''), 'index.html');
