@@ -51,7 +51,7 @@ COPY["tennessee"] = dict(
 )
 
 COPY["florida"] = dict(
- intro=P("Florida has not expanded Medicaid, so a Florida adult earning less than $15,960 a year in 2026 &mdash; the federal poverty level for one person &mdash; who does not fit a traditional Medicaid category gets neither Medicaid nor a marketplace subsidy. With the largest share of seniors of any state, Florida also has a large population approaching 65 who need to know that the premium tax credit, which begins at $15,960, ends the month Medicare starts. Florida&rsquo;s plans are sold on healthcare.gov."),
+ intro=P("Florida has not expanded Medicaid, so a Florida adult earning less than $15,960 a year in 2026 &mdash; the federal poverty level for one person &mdash; who does not fit a traditional Medicaid category gets neither Medicaid nor a marketplace subsidy. With 21.8% of its residents aged 65 and over &mdash; the fourth-highest share in the country in 2024 &mdash; Florida also has a large population approaching 65 who need to know that the premium tax credit, which begins at $15,960, ends the month Medicare starts. Florida&rsquo;s plans are sold on healthcare.gov."),
  exch_note="Florida has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit.",
  medicaid=not_expanded("Florida"),
  faq=[

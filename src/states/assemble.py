@@ -98,7 +98,8 @@ out = {"national": NAT, "sources": {
     "ship": "shiphelp.org state listings (https://www.shiphelp.org/ships/<state>/), read 12 Sep 2026; operating agencies from the linked program sites",
     "medicaid": "KFF, Status of State Medicaid Expansion Decisions (as of 21 Aug 2026: 41 incl. DC adopted / 10 not), cross-checked with medicaid.gov's Adult Coverage Expansion map; Georgia Pathways criteria from pathways.georgia.gov; income lines from the 2026 HHS poverty guidelines (aspe.hhs.gov)",
     "departments": "each department homepage fetched and title-checked 12 Sep 2026; services named on pages appear on that homepage",
-    "counties": "state county lists, confirmed 12 Sep 2026"
+    "counties": "state county lists, confirmed 12 Sep 2026",
+    "population": "Share of residents 65+ by state: US Census Bureau, 2024 American Community Survey, via USAFacts (Maine 23.5%, Vermont 22.9%, West Virginia 21.9%, Florida 21.8% — fourth; usafacts.org/articles/america-is-getting-older-which-states-have-the-largest-elderly-populations/, read 12 Sep 2026). California 65+ count and share: US Census Bureau 2024 via USAFacts (about 6.52 million, 16.6%; usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/). Arizona 65+ net domestic migration: University of Arizona Economic and Business Research Center, from the 2022 1-year ACS (second, 18,318; azeconomy.org/2023/12/economy/what-states-do-workers-and-retirees-migrate-to/)"
 }, "states": states}
 json.dump(out, open(os.path.join(HERE, "states.json"), "w", encoding="utf-8", newline="\n"), indent=1, ensure_ascii=False)
 print("states:", len(states), "| faqs:", sum(len(v) for st in states for v in st["faq"].values()))
