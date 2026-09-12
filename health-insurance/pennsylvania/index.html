@@ -31,7 +31,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-700.woff2" crossorigin>
 
-<link rel="stylesheet" href="/assets/site.css?v=fc8c5551">
+<link rel="stylesheet" href="/assets/site.css?v=8a243045">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://ssifinalexpense.com/#agency","name":"Senior Solutions Insurance","legalName":"Christopher L Martin Insurance Group","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/img/team-boardroom.jpg","logo":"https://ssifinalexpense.com/assets/ssi-logo.png","foundingDate":"2008","founder":{"@type":"Person","name":"Chris Martin","jobTitle":"Founder & CEO"},"description":"Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.","hasMap":"https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"areaServed":{"@type":"Country","name":"United States"},"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do Pennsylvania residents buy marketplace coverage?","acceptedAnswer":{"@type":"Answer","text":"Through Pennie, Pennsylvania’s own exchange, not healthcare.gov. Pennie checks Medicaid eligibility first — about $22,025 for one person in 2026 — then calculates the premium tax credit for everyone above that line. A licensed agent can help you enroll at no extra cost."}},{"@type":"Question","name":"Has Pennsylvania expanded Medicaid, and what is the income line?","acceptedAnswer":{"@type":"Answer","text":"Yes. Household income up to about 138% of the federal poverty level — roughly $22,025 for one person, $29,863 for two, $45,540 for four in 2026 — qualifies for Pennsylvania Medicaid. Above that, premium tax credits apply to a Pennie plan, so Pennsylvania has no coverage gap."}},{"@type":"Question","name":"Is Pennie’s open enrollment the same as healthcare.gov’s?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Pennie is a state-based marketplace and sets its own window, which has often run longer than the federal one. The dates are set each plan year; we confirm the current Pennie window on the call."}},{"@type":"Question","name":"I am turning 65 in Pennsylvania. What happens to my Pennie plan?","acceptedAnswer":{"@type":"Answer","text":"Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary, so the Pennie plan should end when Medicare starts; tell both Pennie and your agent the start date so you are not billed for a month you cannot use. PA MEDI, the state’s Medicare counseling program at 1-800-783-7067, is a free second opinion on the Medicare Advantage plans filed for your Pennsylvania county."}}]}</script>
@@ -86,33 +86,86 @@
 </svg>
 
 <section class="hero hero--band hero--legal">
-  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Health insurance &middot; Pennsylvania</p><h1>ACA Marketplace Health Insurance in Pennsylvania</h1></div></div>
+  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Health insurance &middot; Pennsylvania</p><h1>ACA Marketplace Health Insurance in Pennsylvania</h1><p class="hero__stat">Pennsylvania has expanded Medicaid: an adult qualifies up to about <strong>$22,025</strong> in 2026, and marketplace subsidies pick up above that.</p></div></div>
 </section>
 
-<article class="sec guide">
+<section class="sec guide state-sec" id="overview">
   <div class="wrap">
     <div class="prose prose--guide">
 <p>Pennsylvania&rsquo;s Medicaid expansion covers an adult earning up to about $22,025 in 2026 &mdash; 138% of the federal poverty level &mdash; and Pennie, the state&rsquo;s own exchange rather than healthcare.gov, applies the premium tax credit to everyone above that line.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="where-to-buy">Where Pennsylvania residents buy marketplace coverage</h2>
+<section class="sec sec--light guide state-sec" id="where-to-buy">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Where to buy</span>
+<h2>Where Pennsylvania residents buy marketplace coverage</h2>
 <p>Pennsylvania marketplace plans are sold through <a href="https://pennie.com/" rel="noopener">Pennie</a>. It is a state-based marketplace with its own enrollment system and its own open enrollment window. Every plan sold there covers the ten essential health benefits, none can decline you or charge more for a pre-existing condition, and the premium tax credit is applied through the same application. A licensed agent can enroll you there at no extra cost &mdash; the carrier pays us; your premium does not change. See <a href="/health-insurance/">how ACA marketplace plans work</a>.</p>
+<!-- Plan stat cards: when the CMS marketplace API data lands, render it here with the same
+     .stats / .stats__card markup the final expense pages use (label, number, comparison). -->
+    </div>
+  </div>
+</section>
 
-<h2 id="medicaid">Medicaid expansion in Pennsylvania</h2>
+<section class="sec guide state-sec" id="medicaid">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Medicaid</span>
+<h2>Medicaid expansion in Pennsylvania</h2>
 <p><strong>Pennsylvania has expanded Medicaid.</strong> An adult with household income up to about 138% of the federal poverty level qualifies for Pennsylvania Medicaid rather than a marketplace plan &mdash; in 2026 that is roughly <strong>$22,025</strong> for one person, <strong>$29,863</strong> for two, <strong>$37,702</strong> for three and <strong>$45,540</strong> for four. Above those lines the premium tax credit takes over and is applied to a marketplace plan. There is no coverage gap: the application checks income first and routes each household to the right program. Expansion status per <a href="https://www.kff.org/status-of-state-medicaid-expansion-decisions/" rel="noopener">KFF&rsquo;s Medicaid expansion tracker</a> (as of August 2026) and <a href="https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf" rel="noopener">medicaid.gov</a>; income lines from the <a href="https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines" rel="noopener">2026 HHS poverty guidelines</a>.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="subsidies">Subsidies and what you would actually pay</h2>
+<section class="sec sec--light guide state-sec" id="subsidies">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Subsidies</span>
+<h2>Subsidies and what you would actually pay</h2>
 <p>Premium tax credits are based on your household income and household size, and they are applied directly to your monthly premium rather than paid back at tax time. The sticker price of a plan on Pennie is not what most people pay. We check what you qualify for before you pick a plan, so you are comparing what you would actually pay each month, and we tell you if a plan&rsquo;s deductible or network makes the cheapest premium a poor choice.</p>
 
+<span class="eyebrow">Enrollment</span>
 <h2 id="open-enrollment">Open enrollment in Pennsylvania</h2>
 <p>Open Enrollment is the annual window when anyone can sign up for a marketplace plan or change the one they have. It generally runs from November into January. Pennie is a state-based marketplace and sets its own window, which has often run longer than the federal one. Outside that window you need a qualifying life event &mdash; losing job coverage, moving, marriage, or a new child &mdash; to enroll. We do not publish specific dates here because they are set each plan year; a licensed agent will confirm the current ones on the call.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="turning-65">Turning 65 in Pennsylvania</h2>
+<section class="sec guide state-sec" id="turning-65">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Turning 65</span>
+<h2>Turning 65 in Pennsylvania</h2>
 <p>If you are turning 65, or already have Medicare, a marketplace plan is usually the wrong product: once Part A and Part B begin, the premium tax credit ends and Medicare becomes primary. The natural next step is a Medicare Advantage plan for your county. See <a href="/medicare/pennsylvania/">Medicare Advantage plans in Pennsylvania</a>, or ask the agent on the call to walk you through the transition.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="regulation">Pennsylvania insurance&nbsp;regulation</h2>
-<p>Marketplace plans sold in Pennsylvania are regulated by the <a href="https://www.pa.gov/agencies/insurance" rel="noopener">Pennsylvania Insurance Department</a>, which approves the plans and rates carriers may offer, licenses the agents who sell them and handles consumer complaints.</p>
+<section class="sec sec--light guide state-sec" id="regulation">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<div class="agentcard agentcard--light">
+  <picture><source type="image/webp" srcset="/assets/img/agent-desk.webp"><img src="/assets/img/agent-desk.jpg" alt="A Senior Solutions agent at his desk on a call" width="1600" height="1296" loading="lazy" decoding="async"></picture>
+  <p><strong>A real person calls you back.</strong>Licensed agents in our Greenwood Village, Colorado office &mdash; not a call center, not a robot.</p>
+</div>
+<span class="eyebrow">Regulation</span>
+<h2>Pennsylvania insurance&nbsp;regulation</h2>
+<div class="infocard">
+  <h3>Pennsylvania Insurance Department</h3>
+  <p>Marketplace plans sold in Pennsylvania are regulated by the Pennsylvania Insurance Department, which approves the plans and rates carriers may offer, licenses the agents who sell them and handles consumer complaints.</p>
+  <div class="cta-row"><a class="btn btn--secondary btn--arrow" href="https://www.pa.gov/agencies/insurance" rel="noopener">Visit the department website</a></div>
+</div>
+    </div>
+  </div>
+</section>
 
-<h2 id="common-questions">Common questions</h2>
+<section class="sec guide state-sec" id="common-questions">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">FAQ</span>
+<h2>Common questions</h2>
 <div class="faq faq--guide">
 <details><summary>Where do Pennsylvania residents buy marketplace coverage?</summary><p>Through Pennie, Pennsylvania&rsquo;s own exchange, not healthcare.gov. Pennie checks Medicaid eligibility first &mdash; about $22,025 for one person in 2026 &mdash; then calculates the premium tax credit for everyone above that line. A licensed agent can help you enroll at no extra cost.</p></details>
 <details><summary>Has Pennsylvania expanded Medicaid, and what is the income line?</summary><p>Yes. Household income up to about 138% of the federal poverty level &mdash; roughly $22,025 for one person, $29,863 for two, $45,540 for four in 2026 &mdash; qualifies for Pennsylvania Medicaid. Above that, premium tax credits apply to a Pennie plan, so Pennsylvania has no coverage gap.</p></details>
@@ -121,7 +174,7 @@
 </div>
     </div>
   </div>
-</article>
+</section>
 
 <section class="sec--gold band">
   <div class="wrap" data-reveal>

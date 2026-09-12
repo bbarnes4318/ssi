@@ -31,7 +31,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-700.woff2" crossorigin>
 
-<link rel="stylesheet" href="/assets/site.css?v=fc8c5551">
+<link rel="stylesheet" href="/assets/site.css?v=8a243045">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://ssifinalexpense.com/#agency","name":"Senior Solutions Insurance","legalName":"Christopher L Martin Insurance Group","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/img/team-boardroom.jpg","logo":"https://ssifinalexpense.com/assets/ssi-logo.png","foundingDate":"2008","founder":{"@type":"Person","name":"Chris Martin","jobTitle":"Founder & CEO"},"description":"Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.","hasMap":"https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"areaServed":{"@type":"Country","name":"United States"},"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"I earn less than the poverty level in Florida. Can I get help?","acceptedAnswer":{"@type":"Answer","text":"Below $15,960 for one person or $21,640 for two in 2026, healthcare.gov offers no premium tax credit, and because Florida did not expand Medicaid, adult Medicaid covers only specific groups. That is Florida’s coverage gap. If you are a low-income parent, pregnant, disabled or 65 and over, Florida Medicaid may still apply; otherwise ask the agent what exists rather than accepting a quote you cannot pay."}},{"@type":"Question","name":"Where do Florida residents buy ACA coverage?","acceptedAnswer":{"@type":"Answer","text":"Through healthcare.gov, the federal marketplace; Florida does not run its own exchange. The application checks whether your income is above Florida’s $15,960 subsidy line for one person and calculates the premium tax credit. A licensed agent can enroll you at no extra cost."}},{"@type":"Question","name":"I retired to Florida before 65. What will a marketplace plan cost me?","acceptedAnswer":{"@type":"Answer","text":"The premium after your tax credit, which is set by household income and size. Many early retirees in Florida qualify for a larger credit than they expect once earned income stops, provided household income stays above the $15,960 (one person) or $21,640 (two) subsidy floor. We calculate it before comparing plans."}},{"@type":"Question","name":"I am turning 65 in Florida. What changes?","acceptedAnswer":{"@type":"Answer","text":"Your premium tax credit ends when Medicare Part A and Part B begin, and Medicare becomes primary. Florida’s SHINE program (Serving Health Insurance Needs of Elders), run by the Department of Elder Affairs at 1-800-963-5337, offers free Medicare counseling, and our agents compare the Medicare Advantage plans filed for your Florida county."}}]}</script>
@@ -86,33 +86,86 @@
 </svg>
 
 <section class="hero hero--band hero--legal">
-  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Health insurance &middot; Florida</p><h1>ACA Marketplace Health Insurance in Florida</h1></div></div>
+  <div class="wrap"><div class="hero__copy"><p class="hero__eyebrow">Health insurance &middot; Florida</p><h1>ACA Marketplace Health Insurance in Florida</h1><p class="hero__stat">Florida has not expanded Medicaid: marketplace subsidies begin at <strong>$15,960</strong> for one person in 2026, and below that there is no subsidy.</p></div></div>
 </section>
 
-<article class="sec guide">
+<section class="sec guide state-sec" id="overview">
   <div class="wrap">
     <div class="prose prose--guide">
 <p>Florida has not expanded Medicaid, so a Florida adult earning less than $15,960 a year in 2026 &mdash; the federal poverty level for one person &mdash; who does not fit a traditional Medicaid category gets neither Medicaid nor a marketplace subsidy. With 21.8% of its residents aged 65 and over &mdash; the fourth-highest share in the country in 2024 &mdash; Florida also has a large population approaching 65 who need to know that the premium tax credit, which begins at $15,960, ends the month Medicare starts. Florida&rsquo;s plans are sold on healthcare.gov.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="where-to-buy">Where Florida residents buy marketplace coverage</h2>
+<section class="sec sec--light guide state-sec" id="where-to-buy">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Where to buy</span>
+<h2>Where Florida residents buy marketplace coverage</h2>
 <p>Florida marketplace plans are sold through <a href="https://www.healthcare.gov/" rel="noopener">healthcare.gov</a>. Florida has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit. Every plan sold there covers the ten essential health benefits, none can decline you or charge more for a pre-existing condition, and the premium tax credit is applied through the same application. A licensed agent can enroll you there at no extra cost &mdash; the carrier pays us; your premium does not change. See <a href="/health-insurance/">how ACA marketplace plans work</a>.</p>
+<!-- Plan stat cards: when the CMS marketplace API data lands, render it here with the same
+     .stats / .stats__card markup the final expense pages use (label, number, comparison). -->
+    </div>
+  </div>
+</section>
 
-<h2 id="medicaid">Medicaid expansion in Florida</h2>
+<section class="sec guide state-sec" id="medicaid">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Medicaid</span>
+<h2>Medicaid expansion in Florida</h2>
 <p><strong>Florida has not expanded Medicaid.</strong> Adult Medicaid here covers specific groups only &mdash; children, pregnant women, some parents with very low income, people with disabilities and older adults. Marketplace premium tax credits begin at 100% of the federal poverty level, which in 2026 is <strong>$15,960</strong> for one person, <strong>$21,640</strong> for two, <strong>$27,320</strong> for three and <strong>$33,000</strong> for four. An adult in Florida who earns less than that and does not fit a Medicaid category is in the coverage gap: no Medicaid and no marketplace subsidy. If that is your situation, say so on the call &mdash; the honest answer is not a quote for a plan you cannot afford. Expansion status per <a href="https://www.kff.org/status-of-state-medicaid-expansion-decisions/" rel="noopener">KFF&rsquo;s Medicaid expansion tracker</a> (as of August 2026) and <a href="https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf" rel="noopener">medicaid.gov</a>; income lines from the <a href="https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines" rel="noopener">2026 HHS poverty guidelines</a>.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="subsidies">Subsidies and what you would actually pay</h2>
+<section class="sec sec--light guide state-sec" id="subsidies">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Subsidies</span>
+<h2>Subsidies and what you would actually pay</h2>
 <p>Premium tax credits are based on your household income and household size, and they are applied directly to your monthly premium rather than paid back at tax time. The sticker price of a plan on healthcare.gov is not what most people pay. We check what you qualify for before you pick a plan, so you are comparing what you would actually pay each month, and we tell you if a plan&rsquo;s deductible or network makes the cheapest premium a poor choice.</p>
 
+<span class="eyebrow">Enrollment</span>
 <h2 id="open-enrollment">Open enrollment in Florida</h2>
 <p>Open Enrollment is the annual window when anyone can sign up for a marketplace plan or change the one they have. It generally runs from November into January. Florida uses the federal marketplace, so its window follows the healthcare.gov schedule. Outside that window you need a qualifying life event &mdash; losing job coverage, moving, marriage, or a new child &mdash; to enroll. We do not publish specific dates here because they are set each plan year; a licensed agent will confirm the current ones on the call.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="turning-65">Turning 65 in Florida</h2>
+<section class="sec guide state-sec" id="turning-65">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">Turning 65</span>
+<h2>Turning 65 in Florida</h2>
 <p>If you are turning 65, or already have Medicare, a marketplace plan is usually the wrong product: once Part A and Part B begin, the premium tax credit ends and Medicare becomes primary. The natural next step is a Medicare Advantage plan for your county. See <a href="/medicare/florida/">Medicare Advantage plans in Florida</a>, or ask the agent on the call to walk you through the transition.</p>
+    </div>
+  </div>
+</section>
 
-<h2 id="regulation">Florida insurance&nbsp;regulation</h2>
-<p>Marketplace plans sold in Florida are regulated by the <a href="https://www.myfloridacfo.com/division/consumers" rel="noopener">Florida Department of Financial Services, Division of Consumer Services</a>, which approves the plans and rates carriers may offer, licenses the agents who sell them and handles consumer complaints.</p>
+<section class="sec sec--light guide state-sec" id="regulation">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<div class="agentcard agentcard--light">
+  <picture><source type="image/webp" srcset="/assets/img/agent-desk.webp"><img src="/assets/img/agent-desk.jpg" alt="A Senior Solutions agent at his desk on a call" width="1600" height="1296" loading="lazy" decoding="async"></picture>
+  <p><strong>A real person calls you back.</strong>Licensed agents in our Greenwood Village, Colorado office &mdash; not a call center, not a robot.</p>
+</div>
+<span class="eyebrow">Regulation</span>
+<h2>Florida insurance&nbsp;regulation</h2>
+<div class="infocard">
+  <h3>Florida Department of Financial Services, Division of Consumer Services</h3>
+  <p>Marketplace plans sold in Florida are regulated by the Florida Department of Financial Services, Division of Consumer Services, which approves the plans and rates carriers may offer, licenses the agents who sell them and handles consumer complaints.</p>
+  <div class="cta-row"><a class="btn btn--secondary btn--arrow" href="https://www.myfloridacfo.com/division/consumers" rel="noopener">Visit the department website</a></div>
+</div>
+    </div>
+  </div>
+</section>
 
-<h2 id="common-questions">Common questions</h2>
+<section class="sec guide state-sec" id="common-questions">
+  <div class="wrap">
+    <div class="prose prose--guide">
+<span class="eyebrow">FAQ</span>
+<h2>Common questions</h2>
 <div class="faq faq--guide">
 <details><summary>I earn less than the poverty level in Florida. Can I get help?</summary><p>Below $15,960 for one person or $21,640 for two in 2026, healthcare.gov offers no premium tax credit, and because Florida did not expand Medicaid, adult Medicaid covers only specific groups. That is Florida&rsquo;s coverage gap. If you are a low-income parent, pregnant, disabled or 65 and over, Florida Medicaid may still apply; otherwise ask the agent what exists rather than accepting a quote you cannot pay.</p></details>
 <details><summary>Where do Florida residents buy ACA coverage?</summary><p>Through healthcare.gov, the federal marketplace; Florida does not run its own exchange. The application checks whether your income is above Florida&rsquo;s $15,960 subsidy line for one person and calculates the premium tax credit. A licensed agent can enroll you at no extra cost.</p></details>
@@ -121,7 +174,7 @@
 </div>
     </div>
   </div>
-</article>
+</section>
 
 <section class="sec--gold band">
   <div class="wrap" data-reveal>
