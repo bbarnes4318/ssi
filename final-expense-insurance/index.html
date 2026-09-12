@@ -1092,10 +1092,11 @@
 
       <!-- TCPA consent: an unchecked box the visitor must tick. Never pre-checked,
            never set by script; autocomplete="off" stops browsers restoring a
-           checked state on reload/back. The full disclosure is the label. -->
+           checked state on reload/back. The full disclosure is the label, and
+           /api/lead stores it exactly as rendered with every submission. -->
       <div class="form__consent" data-consent>
         <input id="q-consent" name="consent" type="checkbox" value="yes" required aria-required="true" autocomplete="off" aria-describedby="q-consent-err">
-        <label for="q-consent" data-consent-text><strong>TCPA Disclosure and Consent</strong>By providing your information and clicking "Request my call back," you consent to receive communications by text message from Senior Solutions Insurance regarding your insurance options. This consent may include the use of automated technology, such as autodialed or prerecorded calls, text messages, and emails to the phone number and email address you provided. Your consent is not required to purchase any goods or services, and you may revoke your consent at any time. You may opt-out by replying "STOP" to any future messages or ask for more information by replying "HELP." Message frequency varies. Message and data rates may apply. For more information, please review our <a href="/privacy/">Privacy Policy</a>.</label>
+        <label for="q-consent" data-consent-text>I agree to receive calls and text messages from Senior Solutions Insurance at the phone number I provided, including calls made using an automatic telephone dialing system or an artificial or prerecorded voice. I understand that my consent is not a condition of purchasing any goods or services and that I may revoke it at any time. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. See our <a href="/privacy/">Privacy Policy</a> and <a href="/terms-and-conditions/">Terms and Conditions</a>.</label>
         <p class="form__err form__err--consent" id="q-consent-err" data-err-for="consent" hidden></p>
       </div>
 
