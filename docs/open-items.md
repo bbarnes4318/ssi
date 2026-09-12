@@ -23,7 +23,9 @@ change in `CHANGELOG.md`.
 | `/contact-us/` title | Client copy supplied 12 Sep 2026: "Contact Senior Solutions Insurance \| 1-888-957-3337" (51). | `/contact-us/` | supplied — applied |
 | `/privacy/` and `/terms-and-conditions/` meta descriptions | 85 and 87 characters. Client decision 12 Sep 2026: no change. | `/privacy/`, `/terms-and-conditions/` | not applicable, page is noindex |
 | `/medicare/` meta description length | Client supplied a 159-character version 12 Sep 2026; applied. | `/medicare/` | supplied — applied |
-| Funeral cost pillar page content (`/how-much-does-a-funeral-cost/`) | Page build (SEO pass item 5, 12 Sep 2026). The content file and prompt are to come from Jimmy; nothing in the repo yet. | `/how-much-does-a-funeral-cost/` | open — waiting on content file |
+| Funeral cost pillar page content (`/how-much-does-a-funeral-cost/`) | Content supplied 12 Sep 2026 at `docs/content/funeral-costs.md` and built verbatim. | `/how-much-does-a-funeral-cost/` | supplied — built |
+| State-by-state funeral cost table | Second pass on `/how-much-does-a-funeral-cost/` per the content file's Open item: opens the "average funeral cost in [state]" long tail and carries no licensing exposure (no insurance product advertised). Needs a sourced per-state dataset. | `/how-much-does-a-funeral-cost/` | deferred — second pass |
+| Inbound link from the eventual "How much burial insurance do I need" page | The content file lists it as a third inbound link to the funeral cost page; that page does not exist yet. | future page | deferred |
 | Methodology behind "Save Up to 60%", if any exists | Only if the claim is to return with a footnote; otherwise it stays deleted (Release 1, P0.6) | homepage | open |
 | Lead delivery: `RESEND_API_KEY` + `LEAD_TO_EMAIL` (email) or `LEAD_WEBHOOK_URL` (CRM/webhook) | `api/lead.js` needs one of them or the form tells visitors to call. Email is the 10-minute option. | quote form, every page | open |
 | Cloudflare Turnstile keys | Optional bot check on the quote form. Honeypot is already on; only needed if spam shows up. | quote form, every page | deferred |

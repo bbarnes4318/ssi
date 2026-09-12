@@ -96,6 +96,23 @@ function fill(tpl, vars) {
   return tpl.replace(/\{\{([\w-]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 }
 
+// Dates from git for a set of source files: first commit (published) and last
+// commit (modified). A file with uncommitted edits is "modified" today.
+const { execSync } = require('child_process');
+function git(cmd) { try { return execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); } catch (e) { return ''; } }
+function gitDates(files) {
+  const now = new Date();
+  const today = now.toLocaleDateString('en-CA');
+  const list = files.map(f => JSON.stringify(f)).join(' ');
+  const dirty = git('git status --porcelain -- ' + list);
+  // Published: when the page's own file (files[0]) first landed in git. A page
+  // that is not committed yet is published now. Full ISO 8601 with offset,
+  // which is what Article markup wants; the sitemap uses the date part.
+  const firstIso = git('git log --diff-filter=A --format=%cI -- ' + JSON.stringify(files[0])).split(/\r?\n/).filter(Boolean).pop() || now.toISOString();
+  const lastIso = dirty ? now.toISOString() : (git('git log -1 --format=%cI -- ' + list) || now.toISOString());
+  return { published: firstIso, modified: lastIso, modifiedDate: dirty ? today : lastIso.slice(0, 10) };
+}
+
 const pagesDir = path.join(SRC, 'pages');
 const built = [];
 for (const f of fs.readdirSync(pagesDir).sort()) {
@@ -134,6 +151,28 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
         '@type': 'Question', name: q,
         acceptedAnswer: { '@type': 'Answer', text: a }
       }))
+    });
+  }
+
+  // Article markup for long-form guide pages: author is a Person node for the
+  // founder, publisher points at the InsuranceAgency node already on the page.
+  // No Product or Offer — nothing is sold on these pages.
+  if (meta.article) {
+    const dates = gitDates(sources);
+    const h1 = (body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, meta.title])[1].replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': SITE + meta.path + '#article',
+      mainEntityOfPage: SITE + meta.path,
+      headline: h1,
+      description: meta.description || '',
+      image: SITE + (meta.og || '/assets/img/hero-home.jpg'),
+      datePublished: dates.published,
+      dateModified: dates.modified,
+      inLanguage: 'en-US',
+      author: { '@type': 'Person', name: 'Chris Martin', jobTitle: 'Founder & CEO', url: SITE + '/about-us/', worksFor: { '@id': SITE + '/#agency' } },
+      publisher: { '@id': SITE + '/#agency' }
     });
   }
 
@@ -210,20 +249,8 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
 // commit that touched the page's source or a partial it pulls in (the layout
 // is deliberately excluded: a nav label is not a content change). A file
 // with uncommitted edits is dated today, since that is what is about to ship.
-const { execSync } = require('child_process');
-function lastmod(files) {
-  // Local date, to agree with git's %cs once the change is committed.
-  const today = new Date().toLocaleDateString('en-CA');
-  const list = files.map(f => JSON.stringify(f)).join(' ');
-  try {
-    const dirty = execSync('git status --porcelain -- ' + list, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
-    if (dirty) return today;
-    const d = execSync('git log -1 --format=%cs -- ' + list, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
-    return d || today;
-  } catch (e) { return today; }
-}
 const urls = built.filter(p => !p.noindex).map(p =>
-  `  <url><loc>${SITE}${p.path}</loc><lastmod>${lastmod(p.sources)}</lastmod></url>`).join('\n');
+  `  <url><loc>${SITE}${p.path}</loc><lastmod>${gitDates(p.sources).modifiedDate}</lastmod></url>`).join('\n');
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 

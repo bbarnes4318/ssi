@@ -550,6 +550,49 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .form__msg.is-error{color:#FFB4A8;}
 .form__msg.is-ok{color:var(--cyan);}
 
+/* ── Guide pages (long-form content, e.g. /how-much-does-a-funeral-cost/) ── */
+.guide .prose{margin:0 auto;}
+.prose--guide>p,.prose--guide li{font-size:1.125rem;line-height:1.75;}
+.prose--guide h2{margin-top:2.75rem;font-size:clamp(1.5rem,1.15rem + .9vw,1.9rem);}
+.prose--guide h2:first-child{margin-top:0;}
+.prose--guide strong{color:var(--navy);}
+.guide__links{display:grid;gap:.5rem;margin:1.25rem 0 1.75rem;}
+.guide__links a{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;color:var(--navy-2);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:.15rem;justify-self:start;}
+.guide__links a:hover{color:var(--navy);border-bottom-color:var(--navy);}
+.faq--guide{margin:1.25rem 0 0;}
+
+/* Cost tables: real <table> markup; below 40rem each row becomes a card and
+   the column header is repeated from data-label so nothing scrolls sideways. */
+.ctable{width:100%;border-collapse:collapse;margin:1.25rem 0 1.5rem;font-size:1.125rem;line-height:1.45;background:var(--paper);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(11,18,32,.05);}
+.ctable thead th{background:var(--navy-1);color:#fff;font-weight:600;font-size:.95rem;letter-spacing:.02em;padding:.75rem .9rem;text-align:left;vertical-align:bottom;}
+.ctable th[scope="row"],.ctable td{padding:.7rem .9rem;text-align:left;vertical-align:top;border-top:1px solid var(--rule);}
+.ctable th[scope="row"]{font-weight:600;color:var(--navy);width:34%;}
+.ctable td{color:var(--gray);}
+.ctable tbody tr:nth-child(even){background:var(--lighter);}
+.ctable--rates th[scope="row"]{width:auto;}
+.ctable--rates td{font-weight:600;color:var(--navy-2);font-variant-numeric:tabular-nums;}
+@media (max-width:40rem){
+  .ctable{border:0;background:none;box-shadow:none;border-radius:0;}
+  .ctable thead{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+  .ctable tbody tr{display:block;background:var(--paper)!important;border:1px solid var(--rule);border-radius:12px;padding:.6rem .9rem .75rem;margin:0 0 .75rem;box-shadow:0 4px 14px rgba(11,18,32,.05);}
+  .ctable th[scope="row"],.ctable td{display:block;width:auto;border:0;padding:.25rem 0;}
+  .ctable th[scope="row"]{font-size:1.05rem;padding-bottom:.4rem;border-bottom:1px solid var(--rule);margin-bottom:.35rem;}
+  .ctable th[scope="row"]:empty{display:none;}
+  .ctable td::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-muted);margin-bottom:.1rem;}
+  .ctable--rates tbody tr{display:grid;grid-template-columns:auto 1fr 1fr;align-items:center;gap:.75rem;padding:.6rem .9rem;}
+  .ctable--rates th[scope="row"]{border:0;margin:0;padding:0;min-width:2.5rem;}
+  .ctable--rates td::before{display:inline;margin-right:.35rem;}
+}
+
+.sources{padding:2rem 0 3rem;background:var(--light);border-top:1px solid var(--rule);}
+.sources__h{font-size:1rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-muted);margin-bottom:.6rem;}
+.sources__list{margin:0 0 .9rem;padding-left:1.2rem;font-size:1rem;color:var(--gray);}
+.sources__list li{margin-bottom:.3rem;}
+.sources__updated{font-size:.9rem;color:var(--gray);margin:0;}
+.cta-row--center{justify-content:center;}
+.fact a{color:#fff;text-decoration:underline;text-underline-offset:2px;}
+.fact a:hover{color:var(--gold);}
+
 /* ── Life insurance page ────────────────────────────────────────────────── */
 .sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
