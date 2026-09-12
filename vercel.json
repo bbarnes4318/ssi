@@ -1,5 +1,4 @@
 {
-  "trailingSlash": true,
   "redirects": [
     { "source": "/heatlh-insurance", "destination": "/health-insurance/", "statusCode": 301 },
     { "source": "/heatlh-insurance/", "destination": "/health-insurance/", "statusCode": 301 },
@@ -19,7 +18,13 @@
     { "source": "/contact/", "destination": "/contact-us/", "statusCode": 301 },
     { "source": "/index.php", "destination": "/", "statusCode": 301 },
     { "source": "/home", "destination": "/", "statusCode": 301 },
-    { "source": "/home/", "destination": "/", "statusCode": 301 }
+    { "source": "/home/", "destination": "/", "statusCode": 301 },
+    { "source": "/final-expense-insurance", "destination": "/final-expense-insurance/", "statusCode": 301 },
+    { "source": "/medicare", "destination": "/medicare/", "statusCode": 301 },
+    { "source": "/health-insurance", "destination": "/health-insurance/", "statusCode": 301 },
+    { "source": "/about-us", "destination": "/about-us/", "statusCode": 301 },
+    { "source": "/contact-us", "destination": "/contact-us/", "statusCode": 301 },
+    { "source": "/index.html", "destination": "/", "statusCode": 301 }
   ],
   "routes": [
     { "src": "/wp-content/(.*)", "status": 410 },

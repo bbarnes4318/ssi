@@ -17,9 +17,11 @@ The live rules are in `vercel.json` (`redirects` for 301s, `routes` for
 `vercel.json` and update this table in the same commit.
 
 Every row is a **301**, explicitly (`"statusCode": 301`). Vercel's
-`"permanent": true` emits a 308 and is not used. Slash-less old URLs are
-listed on their own row so they land in one hop rather than passing through
-Vercel's trailing-slash 308 first.
+`"permanent": true` emits a 308 and is not used. Vercel's `trailingSlash`
+option is also off: its 308 runs *before* custom redirects, which turned
+`/privacy` into a 308 and `/about` into a 308→301 chain when tested. Instead
+the slash-less form of every page has its own 301 row below, so each lands
+in one hop. Any new page added to the site needs a slash-less row too.
 
 ### Pages that moved
 
@@ -36,8 +38,20 @@ Vercel's trailing-slash 308 first.
 | `/final-expense/`, `/final-expense` | `/final-expense-insurance/` | 301 |
 | `/about/`, `/about` | `/about-us/` | 301 |
 | `/contact/`, `/contact` | `/contact-us/` | 301 |
-| `/index.php` | `/` | 301 |
+| `/index.php`, `/index.html` | `/` | 301 |
 | `/home/`, `/home` | `/` | 301 |
+
+### Slash-less forms of the live pages (replaces Vercel's 308)
+
+| Request | New URL | Status |
+|---|---|---|
+| `/final-expense-insurance` | `/final-expense-insurance/` | 301 |
+| `/medicare` | `/medicare/` | 301 |
+| `/health-insurance` | `/health-insurance/` | 301 |
+| `/about-us` | `/about-us/` | 301 |
+| `/contact-us` | `/contact-us/` | 301 |
+| `/privacy` | `/privacy/` | 301 |
+| `/terms-and-conditions` | `/terms-and-conditions/` | 301 |
 
 ### Pages that keep their URL (200 on both stacks, no rule needed)
 
