@@ -94,12 +94,39 @@ function pictures(html) {
   });
 }
 
-// Named entities used in page copy, decoded for schema text (JSON, not HTML).
-const ENTITIES = { amp: '&', nbsp: ' ', mdash: '—', ndash: '–', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', hellip: '…', rarr: '→', middot: '·', quot: '"', lt: '<', gt: '>' };
+// Character references in page copy, decoded for schema text (JSON, not
+// HTML). The named table is the complete WHATWG list (scripts/entities.json,
+// from https://html.spec.whatwg.org/entities.json — 2,231 names, including
+// the legacy forms without a trailing semicolon); numeric references follow
+// the spec's tokenizer rules. An unknown name is left as written and caught
+// by the JSON-LD assert below rather than silently emitted.
+const ENTITIES = JSON.parse(fs.readFileSync(path.join(__dirname, 'entities.json'), 'utf8'));
+const NUMERIC_REPLACEMENTS = { 0x00: 0xFFFD, 0x80: 0x20AC, 0x82: 0x201A, 0x83: 0x0192, 0x84: 0x201E, 0x85: 0x2026, 0x86: 0x2020, 0x87: 0x2021, 0x88: 0x02C6, 0x89: 0x2030, 0x8A: 0x0160, 0x8B: 0x2039, 0x8C: 0x0152, 0x8E: 0x017D, 0x91: 0x2018, 0x92: 0x2019, 0x93: 0x201C, 0x94: 0x201D, 0x95: 0x2022, 0x96: 0x2013, 0x97: 0x2014, 0x98: 0x02DC, 0x99: 0x2122, 0x9A: 0x0161, 0x9B: 0x203A, 0x9C: 0x0153, 0x9E: 0x017E, 0x9F: 0x0178 };
 function decodeEntities(s) {
-  return s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => e[0] === '#'
-    ? String.fromCodePoint(parseInt(e[1] === 'x' ? e.slice(2) : e.slice(1), e[1] === 'x' ? 16 : 10))
-    : (e in ENTITIES ? ENTITIES[e] : m));
+  return s.replace(/&(#[xX][0-9a-fA-F]+|#[0-9]+|[A-Za-z][A-Za-z0-9]*);?/g, (m, e) => {
+    if (e[0] === '#') {
+      const hex = e[1] === 'x' || e[1] === 'X';
+      let cp = parseInt(e.slice(hex ? 2 : 1), hex ? 16 : 10);
+      if (cp in NUMERIC_REPLACEMENTS) cp = NUMERIC_REPLACEMENTS[cp];
+      if (cp > 0x10FFFF || (cp >= 0xD800 && cp <= 0xDFFF)) cp = 0xFFFD;
+      return String.fromCodePoint(cp);
+    }
+    if (m in ENTITIES) return ENTITIES[m].characters;              // "&name;" or a legacy "&name"
+    if (('&' + e + ';') in ENTITIES) return ENTITIES['&' + e + ';'].characters;
+    // Legacy reference without a semicolon followed by more text (&copy2026):
+    // the spec takes the longest table entry that prefixes the name.
+    if (!m.endsWith(';')) for (let i = e.length - 1; i > 0; i--) if (('&' + e.slice(0, i)) in ENTITIES) return ENTITIES['&' + e.slice(0, i)].characters + e.slice(i);
+    return m;
+  });
+}
+
+// Every JSON-LD block must be plain text: no character reference may survive
+// into the structured data, whether it came from copy, a title or a FAQ.
+function assertNoEntitiesInJsonLd(f, html) {
+  for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    const hit = json.match(/&(#[xX]?[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);/);
+    if (hit) throw new Error(f + ': undecoded character reference in JSON-LD: ' + hit[0] + ' near ' + JSON.stringify(json.slice(Math.max(0, hit.index - 40), hit.index + 40)));
+  }
 }
 
 function fill(tpl, vars) {
@@ -251,16 +278,17 @@ for (const { f, raw, src } of pageSources) {
 
   // Strict CSP: no inline <script> (other than JSON-LD data blocks) and no
   // inline <style> may reach the page.
-  for (const [tag] of html.matchAll(/<script[^>]*>/g)) {
-    if (!/src=/.test(tag) && !/type="application\/ld\+json"/.test(tag)) throw new Error(f + ': inline <script> is not allowed under the CSP: ' + tag);
+  for (const [tag] of html.matchAll(/<script\b[^>]*>/g)) {
+    if (!/\bsrc=/.test(tag) && !/type="application\/ld\+json"/.test(tag)) throw new Error(f + ': inline <script> is not allowed under the CSP: ' + tag);
   }
-  if (/<style/.test(html)) throw new Error(f + ': inline <style> is not allowed under the CSP');
+  if (/<style\b/.test(html)) throw new Error(f + ': inline <style> is not allowed under the CSP');
+  assertNoEntitiesInJsonLd(f, html);
   const styleAttr = html.match(/<[a-z][^>]*\sstyle="[^"]*"[^>]*>/i);
   if (styleAttr) throw new Error(f + ': style="" attribute is not allowed under the CSP: ' + styleAttr[0].slice(0, 120));
 
   // Every <img> ships with explicit width and height so nothing reflows.
-  for (const [tag] of html.matchAll(/<img[^>]*>/g)) {
-    if (!/width="\d+"/.test(tag) || !/height="\d+"/.test(tag)) throw new Error(f + ': <img> without width/height: ' + tag.slice(0, 120));
+  for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+    if (!/\bwidth="\d+"/.test(tag) || !/\bheight="\d+"/.test(tag)) throw new Error(f + ': <img> without width/height: ' + tag.slice(0, 120));
   }
 
   // meta.out overrides the output file (the 404 page must be /404.html for Vercel).
