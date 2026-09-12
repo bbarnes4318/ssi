@@ -17,6 +17,9 @@ entry.
   and homepage pre-existing-condition FAQ answers, footer link.
 
 ### Changed
+- Licensing confirmed nationwide (client, 12 Sep 2026): footer licensing
+  line gains "Licensed in all 50 states." (Block B updated to match) and
+  the `InsuranceAgency` schema gains `areaServed` as a single Country node.
 - `/medicare/` released from the Release 2 hold on the FMO determination
   (ruling and date to be recorded in `docs/open-items.md` — the record row
   is there, awaiting the text). `noindex` removed from the page and from the

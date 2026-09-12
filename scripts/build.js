@@ -64,8 +64,10 @@ const AGENCY_SCHEMA = {
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' }
   ],
-  // No geo, areaServed, aggregateRating or Google Business Profile URL here —
-  // each needs verifying first; see docs/open-items.md.
+  // Licensed in all 50 states (client confirmation, 12 Sep 2026): one Country
+  // node, not fifty State nodes. No geo, aggregateRating or Google Business
+  // Profile URL yet — each needs verifying first; see docs/open-items.md.
+  areaServed: { '@type': 'Country', name: 'United States' },
   sameAs: ['https://www.facebook.com/SeniorSolutionsInsuranceMedicare', 'https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012']
 };
 
