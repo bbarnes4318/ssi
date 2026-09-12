@@ -158,6 +158,8 @@ partials['state-hub:fe'] = states.hub('fe');
 partials['state-hub:medicare'] = states.hub('medicare');
 partials['state-hub:aca'] = states.hub('aca');
 partials['state-footer-links'] = states.footerLinks();
+// Layout-shift guard: no deferred script may reveal hidden content at load time.
+console.log('layout-shift guard: ' + require('./check-cls').staticCheck() + ' deferred script(s) clean');
 if (states.syncVercelNoindex()) console.log('vercel.json: state-page noindex rule updated from src/states/publish.json');
 
 const pagesDir = path.join(SRC, 'pages');

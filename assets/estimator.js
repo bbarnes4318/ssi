@@ -9,9 +9,9 @@
   var root = document.querySelector('.ssi-est');
   if (!root) return;
 
-  var shell = root.querySelector('[data-shell]');
+  // The shell is laid out from first paint (html.js is set by host-guard.js; this
+  // is the fallback if that file is blocked). Nothing is revealed at load time.
   document.documentElement.classList.add('js');
-  shell.hidden = false;
 
   var PHONE = root.dataset.phone || '1-888-957-3337';
   var TEL   = root.dataset.tel   || '+18889573337';
