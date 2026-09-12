@@ -10,7 +10,7 @@
   --gold:#C6A86B;        /* primary gold */
   --gold-hover:#D3B77D;
   --gold-press:#C49A4A;
-  --gold-muted:#9F8A4C;  /* gold as text on light grounds */
+  --gold-muted:#7A6934;  /* gold as text on light grounds; 4.8:1+ on every light surface (was #9F8A4C, 3.4:1) */
   --gold-deep:#B68D29;
   --gold-bg:#F7F2E7;
 
@@ -684,6 +684,9 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 
 /* Medicare disclosure block (Block A) — mirrors compliance/ssi-medicare-disclosures.html */
 .ssi-disc{font-size:17px;line-height:1.65;color:#3A4854;max-width:46rem;}
+/* The footer licensing line sits on navy: the generic .ssi-disc colour above
+   would render it at 2:1. Same text tone as the rest of the footer. */
+.ftr .ssi-disc--license{color:#B8C2D0;}
 .ssi-disc p{margin:0 0 .9rem;}
 .ssi-disc p:last-child{margin-bottom:0;}
 .ssi-disc strong{color:var(--navy);}
