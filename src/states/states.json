@@ -1,0 +1,1262 @@
+{
+ "national": {
+  "cremation": 1995,
+  "burial": 2800,
+  "basic": 2195,
+  "full": 6415,
+  "cemeteryLow": 2000,
+  "cemeteryHigh": 5000
+ },
+ "sources": {
+  "funeral": "docs/content/state-pages.md — analysis of 1,000+ funeral home General Price Lists, 50 states, 2026 (medians per state)",
+  "ship": "shiphelp.org state listings, read 12 Sep 2026",
+  "medicaid": "medicaid.gov Adult Coverage Expansion map (as of Dec 2023) and May 2026 Medicaid & CHIP Enrollment Data Highlights (41 expansion incl. DC / 10 non-expansion); Georgia Pathways criteria from pathways.georgia.gov, 12 Sep 2026",
+  "departments": "each department homepage fetched and title checked 12 Sep 2026",
+  "counties": "state county lists, confirmed 12 Sep 2026"
+ },
+ "states": [
+  {
+   "slug": "colorado",
+   "name": "Colorado",
+   "abbr": "CO",
+   "funeral": {
+    "lists": 31,
+    "cremation": 1650,
+    "burial": 2565,
+    "basic": 1985
+   },
+   "dept": {
+    "name": "Colorado Division of Insurance",
+    "url": "https://doi.colorado.gov/"
+   },
+   "ship": {
+    "name": "State Health Insurance Assistance Program (SHIP)",
+    "url": "https://doi.colorado.gov/insurance-products/health-insurance/senior-health-care-medicare",
+    "phone": "1-888-696-7213",
+    "source": "https://www.shiphelp.org/ships/colorado/"
+   },
+   "exchange": {
+    "name": "Connect for Health Colorado",
+    "url": "https://connectforhealthco.com/",
+    "kind": "Connect for Health Colorado is a state-based marketplace and sets its own window, which has often run longer than the federal one.",
+    "note": "It is a state-based marketplace, and Senior Solutions Insurance holds the Connect for Health Colorado certification shown on our health insurance page."
+   },
+   "counties": 64,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>Colorado has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid rather than a subsidized marketplace plan. There is no coverage gap: the Connect for Health Colorado application checks income first and routes lower-income households to Medicaid, while households above that line receive premium tax credits toward a marketplace plan. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Colorado | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Colorado | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Colorado | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Colorado. A direct cremation runs $1,650 and an immediate burial $2,565, below the national median. Call 1-888-957-3337 today.",
+    "medicare": "Medicare Advantage in Colorado is filed county by county across 64 counties. A Greenwood Village agent compares your county's plans. Call 1-888-957-3337.",
+    "aca": "ACA marketplace plans in Colorado are sold through Connect for Health Colorado. Certified agents check your subsidy first. Call 1-888-957-3337, TTY 711."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Colorado has a median cost of $1,650 and an immediate burial $2,565 &mdash; 17% and 8% below the national medians, and cheaper than average on every funeral-home charge we measured. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>\n<p>This is our home state. Senior Solutions Insurance works from Greenwood Village, and the licensed agent who calls you back sits in that office.</p>",
+    "observation": "<p><strong>Colorado is cheaper than average on every measure.</strong> Cremation at $1,650 is 17% below the national median and burial at $2,565 is 8% below; the non-declinable basic services fee, $1,985, is 10% below. Colorado families generally need less coverage for the funeral home&rsquo;s bill than the national averages suggest &mdash; the cemetery is where the number climbs.</p>",
+    "coverageNote": "<p>For a Colorado family choosing burial, the funeral home&rsquo;s bill is below average but the cemetery&rsquo;s is not, so the Front Range plot price tends to decide the total. Ten thousand dollars covers the simplest burial with room to spare; a full service with a viewing points toward $10,000 to $15,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Colorado has 64 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Denver County are not the same list as the plans filed for Mesa or Weld, so the first question is not &ldquo;what is available in Colorado&rdquo; but &ldquo;what is available where I live.&rdquo;</p>"
+   },
+   "aca": {
+    "intro": "<p>Colorado runs its own marketplace, Connect for Health Colorado, rather than using healthcare.gov, and Senior Solutions Insurance is certified with it. Colorado has also expanded Medicaid, so the application sorts households by income: below roughly 138% of the federal poverty level you are routed to Health First Colorado, the state&rsquo;s Medicaid program; above it, premium tax credits apply to a marketplace plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Colorado?",
+      "The 2026 median from 31 Colorado funeral home price lists is $1,650 for a direct cremation and $2,565 for an immediate burial, both below the national medians of $1,995 and $2,800. Those are funeral-home charges only; the cemetery bills a plot, vault, opening and closing, and headstone separately, typically $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Is final expense insurance cheaper in Colorado?",
+      "No. Premiums are set by your age, gender, tobacco use and health, and a 65-year-old in Denver is quoted from the same tables as a 65-year-old in Atlanta. What differs in Colorado is what you are insuring against: funeral-home charges here run 8 to 17% below national, so the same $10,000 policy stretches further."
+     ],
+     [
+      "How much coverage do I need for a Colorado funeral?",
+      "Add the cemetery to the funeral home. An immediate burial at Colorado&rsquo;s $2,565 median plus $2,000&ndash;$5,000 of cemetery costs is $4,565&ndash;$7,565; a full traditional funeral with a viewing lands at $8,415&ndash;$11,415. Most Colorado families land between $10,000 and $15,000 once medical bills and small debts are added."
+     ],
+     [
+      "Do I need a medical exam to qualify?",
+      "No. Final expense underwriting uses a short list of yes/no health questions, a prescription history check and a database review. Most applicants qualify for a level benefit plan with full coverage from day one; those who do not can take a guaranteed acceptance plan with a two-year waiting period."
+     ],
+     [
+      "Where is Senior Solutions Insurance located?",
+      "In Greenwood Village, Colorado, at 5775 DTC Blvd, Suite 250-S. The agent who calls you back works from that office and is licensed by the Colorado Division of Insurance."
+     ]
+    ],
+    "medicare": [
+     [
+      "Which Medicare Advantage plans are available in my part of Colorado?",
+      "It depends on your county. Colorado has 64 counties and each plan files the counties it serves, so the options in Denver County differ from those in Larimer, El Paso or on the Western Slope. A licensed agent compares the plans filed for your county; the Medicare Plan Finder at medicare.gov does the same by ZIP code."
+     ],
+     [
+      "Where can I get free, independent Medicare help in Colorado?",
+      "Colorado&rsquo;s State Health Insurance Assistance Program (SHIP), run through the Colorado Division of Insurance, offers free counseling from trained counselors who do not sell insurance, at 1-888-696-7213. It is a good second opinion on anything an agent tells you, including us."
+     ],
+     [
+      "Do I have to be in Colorado to work with Senior Solutions Insurance?",
+      "No, but Colorado is where we are. Our office is in Greenwood Village and our agents are licensed here first. If you live in the state, the person who calls you back is local."
+     ],
+     [
+      "When can I enroll in a Medicare Advantage plan?",
+      "In the seven months around your 65th birthday, during the Annual Enrollment Period from October 15 to December 7 each year, during the Medicare Advantage Open Enrollment Period from January 1 to March 31 if you already have a plan, or during a Special Enrollment Period after a qualifying event such as moving to a new county."
+     ]
+    ],
+    "aca": [
+     [
+      "Do I buy a marketplace plan in Colorado through healthcare.gov?",
+      "No. Colorado runs its own exchange, Connect for Health Colorado, and that is where every subsidized individual and family plan in the state is sold. Senior Solutions Insurance is certified with Connect for Health Colorado and can enroll you there at no extra cost."
+     ],
+     [
+      "Has Colorado expanded Medicaid?",
+      "Yes. Adults with household income up to about 138% of the federal poverty level qualify for Health First Colorado, the state&rsquo;s Medicaid program, so there is no coverage gap in Colorado. The marketplace application routes you to Medicaid or to a subsidized plan based on income."
+     ],
+     [
+      "How does the premium tax credit work?",
+      "It is calculated from your household income and household size and applied directly to your monthly premium, so the price you see after the credit is what you pay. We check what you qualify for before you pick a plan."
+     ],
+     [
+      "What if I am turning 65 in Colorado?",
+      "Once Medicare Part A and Part B begin, the premium tax credit for a marketplace plan ends and Medicare becomes your primary coverage. The usual next step is a Medicare Advantage plan filed for your county; a licensed agent can walk you through the transition on the same call."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "tennessee",
+   "name": "Tennessee",
+   "abbr": "TN",
+   "funeral": {
+    "lists": 26,
+    "cremation": 2348,
+    "burial": 2990,
+    "basic": 2298
+   },
+   "dept": {
+    "name": "Tennessee Department of Commerce and Insurance",
+    "url": "https://www.tn.gov/commerce/insurance-division.html"
+   },
+   "ship": {
+    "name": "State Health Insurance Assistance Program (SHIP)",
+    "url": "https://www.tn.gov/disability-and-aging/disability-aging-programs/tn-ship.html",
+    "phone": "1-877-801-0044",
+    "source": "https://www.shiphelp.org/ships/tennessee/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Tennessee uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Tennessee has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 95,
+   "medicaid": {
+    "expanded": false,
+    "section": "<p><strong>Tennessee has not expanded Medicaid.</strong> Adult Medicaid eligibility here is limited to specific groups &mdash; children, pregnant women, some parents with very low income, people with disabilities and older adults &mdash; rather than all adults up to 138% of the federal poverty level. Premium tax credits for a marketplace plan begin at 100% of the poverty level, so an adult who earns less than that and does not fit one of the Medicaid categories falls into a coverage gap: too much for Medicaid, too little for a subsidy. If that is your situation, a licensed agent can tell you what options exist rather than quoting a plan you cannot afford. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Tennessee | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Tennessee | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Tennessee | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Tennessee. A direct cremation runs $2,348 and an immediate burial $2,990, above the national median. Call 1-888-957-3337 now.",
+    "medicare": "Medicare Advantage in Tennessee is filed county by county across 95 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337.",
+    "aca": "ACA plans in Tennessee are sold on healthcare.gov, and Tennessee has not expanded Medicaid. A licensed agent checks your subsidy first. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Tennessee has a median cost of $2,348 &mdash; 18% above the national median of $1,995 &mdash; and an immediate burial $2,990, which is also above the national figure. That cuts against Tennessee&rsquo;s reputation as a low-cost state for services. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Tennessee runs above the national median on every funeral-home charge.</strong> Cremation at $2,348 is 18% above national, burial at $2,990 is 7% above, and the non-declinable basic services fee of $2,298 is 5% above. If you assumed a Tennessee funeral would be cheaper than average, the price lists say otherwise; plan the coverage amount accordingly.</p>",
+    "coverageNote": "<p>Because Tennessee&rsquo;s funeral-home charges sit above national, a Tennessee family should not round down. An immediate burial with cemetery costs already approaches $8,000 at the top of the range; a full service with a viewing points toward $15,000 rather than $10,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Tennessee has 95 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Shelby County are a different list from the plans filed for Davidson, Knox or a rural county on the Cumberland Plateau, so the useful question is what is available at your address.</p>"
+   },
+   "aca": {
+    "intro": "<p>Tennessee is one of the ten states that has not expanded Medicaid, and its residents buy individual and family plans on the federal marketplace, healthcare.gov, rather than a state exchange. The first fact matters more than the second: it creates a coverage gap for some lower-income adults, and where you fall relative to the federal poverty level decides which program you should be applying to.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Tennessee?",
+      "From 26 Tennessee funeral home price lists collected in 2026, the median is $2,348 for a direct cremation and $2,990 for an immediate burial. Both are above the national medians of $1,995 and $2,800. Cemetery costs &mdash; plot, vault, opening and closing, headstone &mdash; are billed separately and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Why is cremation more expensive in Tennessee than the national average?",
+      "The price lists do not say why, only that it is: Tennessee&rsquo;s $2,348 median for direct cremation is 18% above the national $1,995, and the basic services fee of $2,298 is above national too. The practical point is that Tennessee is not the low-cost state for funerals that it is for some other services, so do not size a policy on the national average."
+     ],
+     [
+      "How much final expense coverage does a Tennessee family need?",
+      "An immediate burial at Tennessee&rsquo;s $2,990 median plus $2,000&ndash;$5,000 of cemetery costs is $4,990&ndash;$7,990 before any service. A full traditional funeral with a viewing runs $8,415&ndash;$11,415 with the cemetery included. With medical bills and small debts added, $10,000 to $15,000 is where most Tennessee families land, and the higher figure is the safer one here."
+     ],
+     [
+      "Are final expense rates different in Tennessee?",
+      "No. Premiums are set by age, gender, tobacco use and health, not by state. The rate table on this page applies to a Tennessee applicant exactly as it applies to anyone else; what changes is how much coverage you need, which the Tennessee funeral figures above help you decide."
+     ],
+     [
+      "Can I qualify with a health condition?",
+      "Usually. Simplified issue asks a short list of yes/no health questions with no exam, and common conditions such as controlled diabetes or high blood pressure typically pass. If your history rules that out, guaranteed acceptance asks no health questions at all, costs more, and pays the full benefit after two years."
+     ]
+    ],
+    "medicare": [
+     [
+      "Are the same Medicare Advantage plans available across Tennessee?",
+      "No. Each plan files the counties it will serve, and Tennessee has 95 of them. Memphis, Nashville, Knoxville and the rural counties between them can each have a different list. A licensed agent compares the plans filed for your county specifically."
+     ],
+     [
+      "Where can Tennessee residents get free Medicare counseling?",
+      "Through Tennessee&rsquo;s State Health Insurance Assistance Program (SHIP), operated by the Tennessee Department of Disability and Aging, at 1-877-801-0044. Counselors are trained, free and do not sell insurance, which makes them a good independent check on any agent&rsquo;s advice."
+     ],
+     [
+      "I moved to Tennessee from another state. Can I change my plan?",
+      "Moving to a new county is a qualifying event that opens a Special Enrollment Period, because the plans available to you have changed. Tell the agent your move date; the window is limited, so it is worth acting on promptly."
+     ],
+     [
+      "What are the regular enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday, the Annual Enrollment Period from October 15 to December 7, and the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people who already have a plan. Special Enrollment Periods cover events such as moving or losing other coverage."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Tennessee residents buy ACA coverage?",
+      "Through healthcare.gov, the federal marketplace. Tennessee does not run its own exchange. Every subsidized individual and family plan in the state is sold there, and a licensed agent can enroll you at no extra cost."
+     ],
+     [
+      "Has Tennessee expanded Medicaid?",
+      "No. Tennessee is one of ten non-expansion states as of medicaid.gov&rsquo;s most recent reporting. Adults who do not fit a traditional Medicaid category and earn less than 100% of the federal poverty level fall into a coverage gap, because marketplace subsidies start at 100%. Above that line, premium tax credits apply."
+     ],
+     [
+      "How much will a Tennessee marketplace plan cost me?",
+      "It depends on your household income and size, because the premium tax credit is applied to the monthly premium before you pay it. The listed price is rarely the real price. We run the credit first, then compare plans on what you would actually pay."
+     ],
+     [
+      "I am turning 65 in Tennessee. Do I keep my marketplace plan?",
+      "Usually not. Once Medicare Part A and Part B begin, your premium tax credit ends and Medicare becomes primary. The next step for most people is a Medicare Advantage plan filed for their Tennessee county."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "florida",
+   "name": "Florida",
+   "abbr": "FL",
+   "funeral": {
+    "lists": 32,
+    "cremation": 1882,
+    "burial": 2695,
+    "basic": 2025
+   },
+   "dept": {
+    "name": "Florida Department of Financial Services, Division of Consumer Services",
+    "url": "https://www.myfloridacfo.com/division/consumers"
+   },
+   "ship": {
+    "name": "Serving Health Insurance Needs of Elders (SHINE)",
+    "url": "https://www.floridashine.org/",
+    "phone": "1-800-963-5337",
+    "source": "https://www.shiphelp.org/ships/florida/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Florida uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Florida has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 67,
+   "medicaid": {
+    "expanded": false,
+    "section": "<p><strong>Florida has not expanded Medicaid.</strong> Adult Medicaid eligibility is limited to specific groups &mdash; children, pregnant women, some parents with very low income, people with disabilities and older adults &mdash; rather than all adults up to 138% of the federal poverty level. Marketplace premium tax credits begin at 100% of the poverty level, so an adult earning less than that who does not fit a Medicaid category is in a coverage gap. If that describes you, say so on the call; there are sometimes options, but not a subsidized marketplace plan. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Florida | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Florida | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Florida | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Florida. A direct cremation runs $1,882 and an immediate burial $2,695, near the national median. Call 1-888-957-3337 today.",
+    "medicare": "Medicare Advantage in Florida is filed county by county across 67 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337, TTY 711.",
+    "aca": "ACA plans in Florida are sold on healthcare.gov, and Florida has not expanded Medicaid. A licensed agent checks your subsidy first. Call 1-888-957-3337 today."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Florida has a median cost of $1,882 and an immediate burial $2,695 &mdash; within a few percent of the national medians on every funeral-home charge. What moves the total for a Florida family is not the funeral home; it is the cemetery, which is left out of every published average. Final expense insurance covers both with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Florida tracks the national median closely</strong> &mdash; cremation 6% below, burial 4% below, the basic services fee 8% below &mdash; so the national averages are a fair guide to the funeral home&rsquo;s bill here. The figure they leave out is the cemetery: a plot, vault, opening and closing and a marker add $2,000&ndash;$5,000 or more, and in Florida&rsquo;s larger metro cemeteries the upper end of that range is the realistic one.</p>",
+    "coverageNote": "<p>With the funeral home near the national average, Florida&rsquo;s coverage decision comes down to the cemetery and to whether the family wants a viewing. Cremation with a memorial gathering can be covered comfortably by $10,000; burial with a service in a metro-area cemetery points toward $15,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Each of Florida&rsquo;s 67 counties gets its own list of Medicare Advantage plans, because availability is decided county by county, not statewide. Florida has the largest share of seniors of any state, so it also has more plans filed than many states &mdash; but a plan filed for Miami-Dade is not necessarily filed for Collier, Polk or the Panhandle counties, and the list for your county is the only one that matters.</p>"
+   },
+   "aca": {
+    "intro": "<p>Florida, with the largest share of seniors of any state, buys its individual and family plans on the federal marketplace, healthcare.gov, and has not expanded Medicaid. Both facts shape what a Florida household should do: everyone shops in the same federal exchange, but adults below the poverty level who do not fit a traditional Medicaid category fall into a coverage gap that expansion states do not have.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Florida?",
+      "From 32 Florida funeral home price lists collected in 2026, the median direct cremation is $1,882 and the median immediate burial $2,695 &mdash; within a few percent of the national medians of $1,995 and $2,800. Those are funeral-home charges only; cemetery costs add $2,000&ndash;$5,000 or more on top."
+     ],
+     [
+      "Why do Florida funeral costs vary so much between quotes?",
+      "Because the cemetery is a separate business with a separate bill, and Florida plot prices vary widely between a metro cemetery and a rural one. The funeral home&rsquo;s own charges in Florida are steady and close to national; the spread you see between quotes is mostly cemetery, casket and whether a viewing is included."
+     ],
+     [
+      "How much final expense coverage does a Florida family need?",
+      "An immediate burial at Florida&rsquo;s $2,695 median plus $2,000&ndash;$5,000 of cemetery costs is $4,695&ndash;$7,695. A full traditional funeral with a viewing and cemetery costs lands at $8,415&ndash;$11,415. Add medical bills and small debts and most Florida families choose between $10,000 and $15,000."
+     ],
+     [
+      "Are final expense premiums higher for Florida residents?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state or by hurricane exposure. The table on this page is the same one a Florida applicant is quoted from."
+     ],
+     [
+      "Can I buy final expense insurance in Florida if I spend part of the year elsewhere?",
+      "Yes. A final expense policy is not tied to a funeral home or a state; it pays cash to the person you name, wherever the funeral takes place. Tell the agent which state is your legal residence so the policy is issued correctly."
+     ]
+    ],
+    "medicare": [
+     [
+      "Does Florida have more Medicare Advantage plans than other states?",
+      "Florida has a large senior population and correspondingly many plans filed, but availability is still decided county by county across 67 counties. The number that matters is not how many plans exist in Florida; it is how many are filed for your county, and a licensed agent compares exactly that list."
+     ],
+     [
+      "Where can Florida residents get free Medicare counseling?",
+      "Florida&rsquo;s State Health Insurance Assistance Program is called SHINE &mdash; Serving Health Insurance Needs of Elders &mdash; and is reachable at 1-800-963-5337. Counseling is free and independent; the counselors do not sell insurance."
+     ],
+     [
+      "I split the year between Florida and another state. Which plans can I use?",
+      "Medicare Advantage plans are tied to the county of your permanent residence, and many have service areas that do not follow you to a second home for routine care. If you spend months elsewhere, tell the agent; it changes which plan types are worth comparing."
+     ],
+     [
+      "When can I enroll or switch?",
+      "In the seven months around your 65th birthday, from October 15 to December 7 each year, from January 1 to March 31 if you already have a Medicare Advantage plan and want to make one change, or during a Special Enrollment Period after a qualifying event such as moving to a new county."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Florida residents buy ACA coverage?",
+      "Through healthcare.gov, the federal marketplace; Florida does not run its own exchange. Every subsidized individual and family plan in the state is sold there, and a licensed agent can enroll you at no extra cost."
+     ],
+     [
+      "Has Florida expanded Medicaid?",
+      "No. Florida is one of the ten non-expansion states in medicaid.gov&rsquo;s most recent reporting. Adults outside the traditional Medicaid categories who earn less than 100% of the federal poverty level fall into a coverage gap; above 100%, premium tax credits apply to a marketplace plan."
+     ],
+     [
+      "What will I actually pay for a Florida marketplace plan?",
+      "The premium after your tax credit, which is set by household income and size and applied monthly rather than refunded at tax time. We calculate the credit first and compare plans on the net price."
+     ],
+     [
+      "I am turning 65 in Florida. What changes?",
+      "Your premium tax credit ends when Medicare Part A and Part B begin, and Medicare becomes your primary coverage. Most people then choose a Medicare Advantage plan filed for their Florida county; a licensed agent can handle both steps."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "texas",
+   "name": "Texas",
+   "abbr": "TX",
+   "funeral": {
+    "lists": 40,
+    "cremation": 2015,
+    "burial": 2890,
+    "basic": 2245
+   },
+   "dept": {
+    "name": "Texas Department of Insurance",
+    "url": "https://www.tdi.texas.gov/"
+   },
+   "ship": {
+    "name": "Health Information, Counseling, and Advocacy Program (HICAP)",
+    "url": "https://hhs.texas.gov/services/health/medicare",
+    "phone": "1-800-252-9240",
+    "source": "https://www.shiphelp.org/ships/texas/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Texas uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Texas has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 254,
+   "medicaid": {
+    "expanded": false,
+    "section": "<p><strong>Texas has not expanded Medicaid.</strong> Adult Medicaid eligibility is limited to specific groups &mdash; children, pregnant women, some parents with very low income, people with disabilities and older adults &mdash; rather than all adults up to 138% of the federal poverty level. Because marketplace premium tax credits begin at 100% of the poverty level, an adult earning less than that who does not fit a Medicaid category is in a coverage gap. Tell the agent if that is your situation; the honest answer may not be a marketplace plan. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Texas | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Texas | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Texas | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Texas. A direct cremation runs $2,015 and an immediate burial $2,890, above the national median. Call 1-888-957-3337 today.",
+    "medicare": "Medicare Advantage in Texas is filed county by county across all 254 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337.",
+    "aca": "ACA plans in Texas are sold on healthcare.gov, and Texas has not expanded Medicaid. A licensed agent checks your subsidy first. Call 1-888-957-3337, TTY 711."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Texas has a median cost of $2,015, right at the national median of $1,995, while an immediate burial at $2,890 sits above the national $2,800. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Texas splits the difference:</strong> cremation is 1% above national, essentially at it, while burial is 3% above and the non-declinable basic services fee of $2,245 is 2% above. In a state this size the medians hide a wide spread between the big metros and the rest, and the 40 price lists behind these figures make Texas one of the better-sampled states in the set.</p>",
+    "coverageNote": "<p>Texas burial costs run a little above national, and cemetery prices in the Dallas&ndash;Fort Worth, Houston and Austin metros sit toward the top of the $2,000&ndash;$5,000 range. A Texas family planning a burial with a service should size toward $15,000; cremation with a memorial is comfortably within $10,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Texas has 254 counties, more than any other state, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Harris County are not the plans filed for Lubbock, Hidalgo or a Panhandle county, and with 254 lists in play the only reliable answer to &ldquo;what is available&rdquo; is the one for your own address.</p>"
+   },
+   "aca": {
+    "intro": "<p>Texas residents buy individual and family plans on the federal marketplace, healthcare.gov, and Texas is one of the ten states that has not expanded Medicaid &mdash; across 254 counties, that coverage gap reaches a great many people: adults below the poverty level who do not fit a traditional Medicaid category fall into a coverage gap that does not exist in expansion states.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Texas?",
+      "From 40 Texas funeral home price lists collected in 2026, the median direct cremation is $2,015 and the median immediate burial $2,890. Cremation is at the national median of $1,995; burial is above the national $2,800. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Is burial or cremation the bigger saving in Texas?",
+      "Cremation. The gap between Texas&rsquo;s $2,015 cremation and $2,890 burial medians is about 43% before the cemetery is counted, and choosing cremation also removes the plot, vault and marker. For a Texas family the choice between the two changes the coverage need by several thousand dollars."
+     ],
+     [
+      "How much final expense coverage does a Texas family need?",
+      "An immediate burial at Texas&rsquo;s $2,890 median plus $2,000&ndash;$5,000 of cemetery costs is $4,890&ndash;$7,890. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. With medical bills and small debts added, most Texas families land between $10,000 and $15,000."
+     ],
+     [
+      "Are final expense rates different in Texas?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state. The table on this page applies to a Texas applicant as it does to anyone else."
+     ],
+     [
+      "Who regulates final expense insurance in Texas?",
+      "The Texas Department of Insurance licenses the agents and carriers that sell it and takes consumer complaints. Ask your agent for their license number if you would like to look it up."
+     ]
+    ],
+    "medicare": [
+     [
+      "Why do my options differ from a relative&rsquo;s elsewhere in Texas?",
+      "Because Medicare Advantage plans file by county, and Texas has 254 of them. A plan available in Dallas County may not be filed for Tarrant, and a plan in San Antonio may not exist in the Valley. A licensed agent compares only the plans filed for your county."
+     ],
+     [
+      "Where can Texans get free, independent Medicare help?",
+      "From Texas&rsquo;s State Health Insurance Assistance Program, called the Health Information, Counseling, and Advocacy Program (HICAP), run through Texas Health and Human Services, at 1-800-252-9240. Counselors are trained, free and do not sell insurance."
+     ],
+     [
+      "I live in a rural Texas county. Will I have any Medicare Advantage options?",
+      "Possibly fewer than a metro county, and in some counties very few. That is exactly why the county-level check matters; if the list is short or empty, a licensed agent can tell you what the alternatives are rather than leaving you to guess."
+     ],
+     [
+      "When are the enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday, the Annual Enrollment Period from October 15 to December 7, the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people already in a plan, and Special Enrollment Periods after qualifying events such as a move."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Texans buy ACA marketplace coverage?",
+      "Through healthcare.gov, the federal marketplace. Texas does not run its own exchange. A licensed agent can enroll you there at no extra cost and check your premium tax credit first."
+     ],
+     [
+      "Has Texas expanded Medicaid?",
+      "No. Texas is one of ten non-expansion states in medicaid.gov&rsquo;s most recent reporting. Adults outside the traditional Medicaid categories who earn under 100% of the federal poverty level fall into a coverage gap; from 100% upward, premium tax credits apply to a marketplace plan."
+     ],
+     [
+      "How is the premium tax credit applied?",
+      "Directly to your monthly premium, based on your household income and household size, rather than as a refund at tax time. The listed premium on healthcare.gov is not what most Texans pay once the credit is applied."
+     ],
+     [
+      "I am turning 65 in Texas. Should I keep my marketplace plan?",
+      "Usually not. Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary. Most people then choose a Medicare Advantage plan filed for their Texas county, which a licensed agent can compare on the same call."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "california",
+   "name": "California",
+   "abbr": "CA",
+   "funeral": {
+    "lists": 90,
+    "cremation": 1895,
+    "burial": 2499,
+    "basic": 1995
+   },
+   "dept": {
+    "name": "California Department of Insurance",
+    "url": "https://www.insurance.ca.gov/"
+   },
+   "ship": {
+    "name": "California Health Insurance Counseling and Advocacy Program (HICAP)",
+    "url": "https://www.aging.ca.gov/hicap/",
+    "phone": "1-800-434-0222",
+    "source": "https://www.shiphelp.org/ships/california/"
+   },
+   "exchange": {
+    "name": "Covered California",
+    "url": "https://www.coveredca.com/",
+    "kind": "Covered California is a state-based marketplace and sets its own window, which has often run longer than the federal one.",
+    "note": "It is a state-based marketplace with its own enrollment system and its own open enrollment window."
+   },
+   "counties": 58,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>California has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medi-Cal, the state&rsquo;s Medicaid program, rather than a subsidized marketplace plan. There is no coverage gap: the Covered California application checks income first and routes lower-income households to Medi-Cal, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in California | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in California | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in California | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in California. A direct cremation runs $1,895 and an immediate burial $2,499, below the national median. Call 1-888-957-3337 now.",
+    "medicare": "Medicare Advantage in California is filed county by county across 58 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337.",
+    "aca": "ACA plans in California are sold through Covered California, with Medi-Cal below 138% of the poverty level. Agents check your subsidy. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in California has a median cost of $1,895 and an immediate burial $2,499 &mdash; both below the national medians, and drawn from 90 funeral home price lists, the largest sample of any state in our data. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>California&rsquo;s figures are the most reliable in the set</strong> &mdash; 90 price lists, three times the typical state &mdash; and they run below national on both measures: cremation 5% below and burial 11% below, with the basic services fee of $1,995 9% below. The funeral home is not where a California funeral gets expensive. The cemetery is, and California plot prices in the coastal metros sit at the top of any national range.</p>",
+    "coverageNote": "<p>California&rsquo;s funeral-home charges are below average, but a plot in Los Angeles, Orange County or the Bay Area can exceed the $5,000 upper end of the cemetery range on its own. A California family choosing burial should size toward $15,000 or more; cremation, the more common choice in the state, is comfortably covered by $10,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>California has 58 counties, and Medicare Advantage availability is decided county by county, not statewide. With the largest population of people 65 and over in the country, California has many plans filed &mdash; but the list for Los Angeles County is not the list for Fresno, Shasta or a Sierra county, and the only list that matters is the one for your address.</p>"
+   },
+   "aca": {
+    "intro": "<p>California runs its own marketplace, Covered California, rather than using healthcare.gov, and it has expanded Medicaid, which in California is called Medi-Cal. The application sorts households by income: below roughly 138% of the federal poverty level you are routed to Medi-Cal; above it, premium tax credits apply to a Covered California plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in California?",
+      "From 90 California funeral home price lists collected in 2026 &mdash; the largest sample of any state &mdash; the median direct cremation is $1,895 and the median immediate burial $2,499, both below the national medians of $1,995 and $2,800. Cemetery costs are separate and, in California&rsquo;s coastal metros, often exceed the $2,000&ndash;$5,000 national range."
+     ],
+     [
+      "Why is a California funeral expensive if the funeral home is cheaper than average?",
+      "Because the funeral home is only half the bill. California&rsquo;s funeral-home medians are 5 to 11% below national, but the cemetery &mdash; plot, vault, opening and closing, marker &mdash; is billed separately, and urban California plots are among the most expensive in the country. That is why cremation, which skips the plot, is the majority choice in the state."
+     ],
+     [
+      "How much final expense coverage does a California family need?",
+      "An immediate burial at California&rsquo;s $2,499 median plus $2,000&ndash;$5,000 of cemetery costs is $4,499&ndash;$7,499, and a full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. In the coastal metros the cemetery can push those totals higher, so $15,000 is a reasonable target for burial; $10,000 covers cremation with a memorial."
+     ],
+     [
+      "Are final expense rates higher in California?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state, so a California applicant is quoted from the same table as anyone else. The cost of living affects what you are insuring, not the premium."
+     ],
+     [
+      "Who regulates final expense insurance in California?",
+      "The California Department of Insurance, which licenses agents and carriers and takes consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Does living in a big California county mean more Medicare Advantage choices?",
+      "Often, but not always, and it is the county that decides, not the state. Plans file for specific counties, so Los Angeles, San Diego and Sacramento each have their own list, and rural counties can have far shorter ones. A licensed agent compares the plans filed for your county."
+     ],
+     [
+      "Where can Californians get free Medicare counseling?",
+      "From the California Health Insurance Counseling and Advocacy Program (HICAP), run through the California Department of Aging, at 1-800-434-0222. It is free, independent and staffed by trained counselors who do not sell insurance."
+     ],
+     [
+      "I am moving between California counties. Does my plan come with me?",
+      "Not necessarily. A plan is filed for specific counties, and moving to one it does not serve is a qualifying event that opens a Special Enrollment Period to choose again. Tell the agent your move date."
+     ],
+     [
+      "When are the enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday, the Annual Enrollment Period from October 15 to December 7, the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people already in a plan, and Special Enrollment Periods after qualifying events."
+     ]
+    ],
+    "aca": [
+     [
+      "Do Californians use healthcare.gov?",
+      "No. California runs its own exchange, Covered California, and that is where every subsidized individual and family plan in the state is sold. A licensed agent can help you enroll there at no extra cost."
+     ],
+     [
+      "Has California expanded Medicaid?",
+      "Yes. Adults with household income up to about 138% of the federal poverty level qualify for Medi-Cal, so California has no coverage gap. The Covered California application routes you to Medi-Cal or to a subsidized plan based on income."
+     ],
+     [
+      "Does Covered California run a longer open enrollment than healthcare.gov?",
+      "State-based marketplaces set their own windows, and Covered California&rsquo;s has often run longer than the federal one. The dates are set each plan year, so we confirm the current window on the call rather than publishing one here."
+     ],
+     [
+      "I am turning 65 in California. What happens to my Covered California plan?",
+      "Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary, so most people leave the marketplace plan. The usual next step is a Medicare Advantage plan filed for your California county."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "pennsylvania",
+   "name": "Pennsylvania",
+   "abbr": "PA",
+   "funeral": {
+    "lists": 24,
+    "cremation": 2462,
+    "burial": 2998,
+    "basic": 2562
+   },
+   "dept": {
+    "name": "Pennsylvania Insurance Department",
+    "url": "https://www.pa.gov/agencies/insurance"
+   },
+   "ship": {
+    "name": "PA MEDI &ndash; Pennsylvania Medicare Education and Decision Insight",
+    "url": "https://www.pa.gov/agencies/aging/aging-programs-and-services/pa-medi-medicare-counseling",
+    "phone": "1-800-783-7067",
+    "source": "https://www.shiphelp.org/ships/pennsylvania/"
+   },
+   "exchange": {
+    "name": "Pennie",
+    "url": "https://pennie.com/",
+    "kind": "Pennie is a state-based marketplace and sets its own window, which has often run longer than the federal one.",
+    "note": "It is a state-based marketplace with its own enrollment system and its own open enrollment window."
+   },
+   "counties": 67,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>Pennsylvania has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid rather than a subsidized marketplace plan, so there is no coverage gap. The Pennie application checks income first and routes lower-income households to Medicaid, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Pennsylvania | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Pennsylvania | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Pennsylvania | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Pennsylvania. The basic services fee runs $2,562 here, the highest of our eleven states. Rates by age. Call 1-888-957-3337.",
+    "medicare": "Medicare Advantage in Pennsylvania is filed county by county across 67 counties. A licensed agent compares your county's plans. Call 1-888-957-3337, TTY 711.",
+    "aca": "ACA plans in Pennsylvania are sold through Pennie, the state exchange, with Medicaid below 138% of the poverty level. Call 1-888-957-3337 for real numbers."
+   },
+   "fe": {
+    "intro": "<p>Pennsylvania has the highest basic services fee of the eleven states we cover: $2,562, 17% above the national median, and it is the one charge on a funeral bill that nobody can decline. Direct cremation, at $2,462, is 23% above national too. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Pennsylvania&rsquo;s non-declinable fee is the story.</strong> Under the FTC Funeral Rule, everything on a funeral home&rsquo;s price list is optional except the basic services fee, and in Pennsylvania that fee&rsquo;s median of $2,562 is the highest in our set and 17% above the national $2,195. Cremation at $2,462 is 23% above national; burial at $2,998 is 7% above. A Pennsylvania family cannot shop its way below that floor, so the coverage amount should assume it.</p>",
+    "coverageNote": "<p>Pennsylvania families should size toward the top of each band. The basic services fee alone is $2,562 before anything else is chosen, and burial with cemetery costs runs close to $8,000 at the upper end. A full service with a viewing points to $15,000; even cremation with a gathering is more comfortably covered by $10,000 here than in a below-average state.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Pennsylvania has 67 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Philadelphia and Allegheny counties differ from those filed for the rural counties between them, and a plan a neighbor has across a county line may not be offered at your address.</p>"
+   },
+   "aca": {
+    "intro": "<p>Pennsylvania runs its own marketplace, Pennie, rather than using healthcare.gov, and it has expanded Medicaid. The application sorts households by income: below roughly 138% of the federal poverty level you are routed to Medicaid; above it, premium tax credits apply to a Pennie plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Pennsylvania?",
+      "From 24 Pennsylvania funeral home price lists collected in 2026, the median direct cremation is $2,462 and the median immediate burial $2,998, both above the national medians of $1,995 and $2,800. The basic services fee, $2,562, is the highest of the eleven states we cover. Cemetery costs add $2,000&ndash;$5,000 or more on top."
+     ],
+     [
+      "What is the basic services fee, and why does it matter in Pennsylvania?",
+      "It is the one charge on a funeral bill you cannot decline: it covers the funeral director&rsquo;s time, planning, permits and coordination. Nationally the median is $2,195; in Pennsylvania it is $2,562, 17% higher. Every other line on the price list is a choice, so this fee sets the floor of any Pennsylvania funeral."
+     ],
+     [
+      "How much final expense coverage does a Pennsylvania family need?",
+      "An immediate burial at Pennsylvania&rsquo;s $2,998 median plus $2,000&ndash;$5,000 of cemetery costs is $4,998&ndash;$7,998. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415, and Pennsylvania&rsquo;s above-average fees argue for the top of that range. Most Pennsylvania families land between $10,000 and $15,000, leaning toward $15,000."
+     ],
+     [
+      "Are final expense premiums higher in Pennsylvania?",
+      "No &mdash; and that surprises people, because Pennsylvania&rsquo;s funeral bills are. Premiums are set by age, gender, tobacco use and health, so a 70-year-old in Pittsburgh pays the same as a 70-year-old in Phoenix for the same $10,000. What Pennsylvania changes is how much you buy: with the non-declinable basic services fee alone at $2,562, plan on the higher end of the coverage bands on this page."
+     ],
+     [
+      "Who regulates final expense insurance in Pennsylvania?",
+      "The Pennsylvania Insurance Department, which licenses agents and carriers and handles consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Are Medicare Advantage options the same across Pennsylvania?",
+      "No. Plans file for specific counties, and Pennsylvania has 67. Philadelphia, Pittsburgh, the Lehigh Valley and the rural center of the state each have their own list. A licensed agent compares the plans filed for your county."
+     ],
+     [
+      "Where can Pennsylvanians get free Medicare counseling?",
+      "From PA MEDI &mdash; Pennsylvania Medicare Education and Decision Insight &mdash; the state&rsquo;s State Health Insurance Assistance Program, run through the Pennsylvania Department of Aging, at 1-800-783-7067. Counseling is free and independent."
+     ],
+     [
+      "I am moving within Pennsylvania. Can I change plans?",
+      "If the move takes you to a county your current plan does not serve, that is a qualifying event and opens a Special Enrollment Period to choose a plan filed for the new county. Tell the agent your move date; the window is limited."
+     ],
+     [
+      "When are the regular enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday; the Annual Enrollment Period from October 15 to December 7; the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people already in a plan; and Special Enrollment Periods after events such as moving between Pennsylvania counties. PA MEDI counselors can confirm which window applies to you."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Pennsylvania residents buy marketplace coverage?",
+      "Through Pennie, Pennsylvania&rsquo;s own exchange, not healthcare.gov. Every subsidized individual and family plan in the state is sold there, and a licensed agent can help you enroll at no extra cost."
+     ],
+     [
+      "Has Pennsylvania expanded Medicaid?",
+      "Yes. Adults with household income up to about 138% of the federal poverty level qualify for Medicaid, so Pennsylvania has no coverage gap. The Pennie application routes you to Medicaid or to a subsidized plan based on income."
+     ],
+     [
+      "Is Pennie&rsquo;s open enrollment the same as healthcare.gov&rsquo;s?",
+      "Not necessarily. Pennie is a state-based marketplace and sets its own window, which has often run longer than the federal one. The dates are set each plan year; we confirm the current window on the call."
+     ],
+     [
+      "I am turning 65 in Pennsylvania. What happens to my Pennie plan?",
+      "Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary, so the Pennie plan should end when Medicare starts. Because Pennie is a state exchange, tell both Pennie and your agent the start date so you are not billed for a month you cannot use. The usual next step is a Medicare Advantage plan filed for your Pennsylvania county."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "ohio",
+   "name": "Ohio",
+   "abbr": "OH",
+   "funeral": {
+    "lists": 31,
+    "cremation": 1850,
+    "burial": 2648,
+    "basic": 1995
+   },
+   "dept": {
+    "name": "Ohio Department of Insurance",
+    "url": "https://insurance.ohio.gov/"
+   },
+   "ship": {
+    "name": "Ohio Senior Health Insurance Information Program (OSHIIP)",
+    "url": "https://insurance.ohio.gov/consumers/medicare/01-oshiip",
+    "phone": "1-800-686-1578",
+    "source": "https://www.shiphelp.org/ships/ohio/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Ohio uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Ohio has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 88,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>Ohio has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid rather than a subsidized marketplace plan, so there is no coverage gap in Ohio. The healthcare.gov application checks income first and routes lower-income households to Ohio Medicaid, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Ohio | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Ohio | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Ohio | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Ohio. A direct cremation runs $1,850 and an immediate burial $2,648, close to the national median. Call 1-888-957-3337 today.",
+    "medicare": "Medicare Advantage in Ohio is filed county by county across 88 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337, TTY 711.",
+    "aca": "ACA plans in Ohio are sold on healthcare.gov, with Ohio Medicaid below 138% of the poverty level. A licensed agent checks your subsidy. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Ohio has a median cost of $1,850 and an immediate burial $2,648 &mdash; each within a few percent of the national medians. The funeral home is not the surprise on an Ohio funeral bill; the cemetery is, because it is left out of every published average. Final expense insurance covers both with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Ohio tracks the national median</strong> &mdash; cremation 7% below, burial 5% below, the basic services fee 9% below &mdash; so the national averages are a fair guide to what an Ohio funeral home charges. What those averages leave out is the cemetery: a plot, vault, opening and closing and a marker add $2,000&ndash;$5,000 or more, and that is the line that turns a $2,648 burial into a $5,000 to $8,000 one.</p>",
+    "coverageNote": "<p>With Ohio&rsquo;s funeral-home charges at or a little below average, the coverage decision is mostly about the cemetery and the service. Cremation with a memorial gathering is well within $10,000; burial with a viewing in a Columbus, Cleveland or Cincinnati cemetery points toward $15,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Ohio has 88 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Cuyahoga, Franklin and Hamilton counties are not the same lists, and a rural county in Appalachian Ohio can have a very different set again.</p>"
+   },
+   "aca": {
+    "intro": "<p>Ohio expanded Medicaid and uses the federal marketplace, healthcare.gov, which for an Ohio household means one application and no coverage gap: below roughly 138% of the federal poverty level the healthcare.gov application routes you to Ohio Medicaid, and above it premium tax credits apply to a marketplace plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Ohio?",
+      "From 31 Ohio funeral home price lists collected in 2026, the median direct cremation is $1,850 and the median immediate burial $2,648, both a few percent below the national medians of $1,995 and $2,800. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Why does the total Ohio funeral bill end up so far above these figures?",
+      "Because these are funeral-home charges only. In Ohio the funeral home is close to average, but the cemetery &mdash; plot, vault, opening and closing, marker &mdash; is a separate business with a separate bill. Adding it to Ohio&rsquo;s $2,648 burial median gives $4,648&ndash;$7,648 before any service."
+     ],
+     [
+      "How much final expense coverage does an Ohio family need?",
+      "An immediate burial at $2,648 plus $2,000&ndash;$5,000 of cemetery costs is $4,648&ndash;$7,648. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. With medical bills and small debts, most Ohio families land between $10,000 and $15,000."
+     ],
+     [
+      "Are final expense rates different in Ohio?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state. The table on this page is the one an Ohio applicant is quoted from."
+     ],
+     [
+      "Who regulates final expense insurance in Ohio?",
+      "The Ohio Department of Insurance licenses agents and carriers and handles consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Do Cleveland, Columbus and Cincinnati have the same Medicare Advantage plans?",
+      "No. Plans file for specific counties, and Ohio has 88 of them, so Cuyahoga, Franklin and Hamilton counties each have their own list. A licensed agent compares only the plans filed for your county."
+     ],
+     [
+      "Where can Ohioans get free Medicare counseling?",
+      "From the Ohio Senior Health Insurance Information Program (OSHIIP), run by the Ohio Department of Insurance, at 1-800-686-1578. It is free and independent; OSHIIP counselors do not sell insurance."
+     ],
+     [
+      "I live in a rural Ohio county. Will I have Medicare Advantage options?",
+      "Possibly fewer than a metro county. That is why the county-level check matters: if the list for your county is short, a licensed agent can tell you what the alternatives are rather than leaving you to assume."
+     ],
+     [
+      "When can I enroll or switch?",
+      "In the seven months around your 65th birthday, from October 15 to December 7 each year, from January 1 to March 31 if you already have a plan and want to make one change, or during a Special Enrollment Period after a qualifying event such as moving to a new county."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Ohio residents buy ACA coverage?",
+      "Through healthcare.gov. Ohio is one of the states that did not build its own exchange, so the federal marketplace handles enrollment, the premium tax credit and the Ohio Medicaid referral in one application. A licensed agent can complete it with you at no extra cost; the price is the same as applying yourself."
+     ],
+     [
+      "Has Ohio expanded Medicaid?",
+      "Yes. Ohio Medicaid covers adults with household income up to about 138% of the federal poverty level, so there is no coverage gap: below that line the healthcare.gov application sends you to Medicaid, above it you receive a premium tax credit. If your income sits near the line, say so &mdash; a small change in the estimate can move an Ohio household between the two programs."
+     ],
+     [
+      "What will an Ohio marketplace plan actually cost?",
+      "The premium after your tax credit, which is set by household income and size and applied monthly. We calculate the credit first and compare plans on the net price, not the sticker price."
+     ],
+     [
+      "I am turning 65 in Ohio. Do I keep my marketplace plan?",
+      "Usually not. Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary. Most people then choose a Medicare Advantage plan filed for their Ohio county."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "michigan",
+   "name": "Michigan",
+   "abbr": "MI",
+   "funeral": {
+    "lists": 29,
+    "cremation": 2250,
+    "burial": 2575,
+    "basic": 2345
+   },
+   "dept": {
+    "name": "Michigan Department of Insurance and Financial Services",
+    "url": "https://www.michigan.gov/difs"
+   },
+   "ship": {
+    "name": "Michigan State Health Insurance Assistance Program (SHIP)",
+    "url": "https://www.michigan.gov/mdhhs/adult-child-serv/adults-and-seniors/acls/state-health-insurance-assistance-program",
+    "phone": "1-800-803-7174",
+    "source": "https://www.shiphelp.org/ships/michigan/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Michigan uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Michigan has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 83,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>Michigan has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid rather than a subsidized marketplace plan, so there is no coverage gap in Michigan. The healthcare.gov application checks income first and routes lower-income households to Michigan Medicaid, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Michigan | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Michigan | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Michigan | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Michigan. A direct cremation runs $2,250 and an immediate burial $2,575, only 14% apart. Rates by age. Call 1-888-957-3337 today.",
+    "medicare": "Medicare Advantage in Michigan is filed county by county across 83 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337.",
+    "aca": "ACA plans in Michigan are sold on healthcare.gov, with Michigan Medicaid below 138% of the poverty level. Agents check your subsidy. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>Michigan has the narrowest gap between cremation and burial of the eleven states we cover: a direct cremation runs $2,250 and an immediate burial $2,575, just 14% apart. Cremation saves a Michigan family far less at the funeral home than it saves a family in most other states. Final expense insurance covers either choice with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>In Michigan the cremation-versus-burial choice barely moves the funeral home&rsquo;s bill.</strong> Cremation at $2,250 is 13% above the national median while burial at $2,575 is 8% below it, which closes the gap between them to 14% &mdash; against 72% in North Carolina and about 40% nationally. Where cremation does still save a Michigan family money is the cemetery: skipping the plot, vault and marker removes $2,000&ndash;$5,000 or more.</p>",
+    "coverageNote": "<p>Because Michigan&rsquo;s funeral-home charges are similar either way, the coverage decision turns almost entirely on whether there will be a cemetery bill. Cremation with a memorial gathering is comfortably within $10,000; burial with a viewing points toward $15,000.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Michigan has 83 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Wayne and Oakland counties are not the plans filed for Kent, Grand Traverse or the Upper Peninsula, and in a state this shape the differences between metro Detroit and the U.P. can be large.</p>"
+   },
+   "aca": {
+    "intro": "<p>Michigan expanded Medicaid, and Michigan residents buy individual and family plans on the federal marketplace, healthcare.gov, so there is one place to shop and no coverage gap: below roughly 138% of the federal poverty level the application routes you to Michigan Medicaid, and above it premium tax credits apply to a marketplace plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Michigan?",
+      "From 29 Michigan funeral home price lists collected in 2026, the median direct cremation is $2,250 and the median immediate burial $2,575. Cremation is 13% above the national median of $1,995; burial is 8% below the national $2,800. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Does cremation save much money in Michigan?",
+      "At the funeral home, less than almost anywhere else: Michigan&rsquo;s $2,250 cremation and $2,575 burial medians are only 14% apart, the narrowest gap of the eleven states we cover. The real saving from cremation in Michigan is avoiding the cemetery bill &mdash; plot, vault, opening and closing, marker &mdash; not the funeral home&rsquo;s charge."
+     ],
+     [
+      "How much final expense coverage does a Michigan family need?",
+      "An immediate burial at Michigan&rsquo;s $2,575 median plus $2,000&ndash;$5,000 of cemetery costs is $4,575&ndash;$7,575. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. With medical bills and small debts, most Michigan families land between $10,000 and $15,000."
+     ],
+     [
+      "Are final expense rates different in Michigan?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state. In Michigan the useful question runs the other way: because cremation ($2,250) and burial ($2,575) cost nearly the same at the funeral home here, the coverage amount depends mostly on whether there will be a cemetery bill, not on which of the two you choose."
+     ],
+     [
+      "Who regulates final expense insurance in Michigan?",
+      "The Michigan Department of Insurance and Financial Services, which licenses agents and carriers and handles consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Are the same Medicare Advantage plans available in the Upper Peninsula as in Detroit?",
+      "Usually not. Plans file for specific counties, and Michigan has 83 of them. Metro Detroit counties, Grand Rapids and the Upper Peninsula each have their own list, and the U.P. counties can have far fewer options. A licensed agent compares the plans filed for your county."
+     ],
+     [
+      "Where can Michigan residents get free Medicare counseling?",
+      "From the Michigan State Health Insurance Assistance Program (SHIP), run through the Michigan Department of Health and Human Services, at 1-800-803-7174. Counseling is free and independent; the counselors do not sell insurance."
+     ],
+     [
+      "I spend winters out of state. Does that affect my Michigan plan choice?",
+      "It can. Medicare Advantage plans are tied to your county of permanent residence and many have service areas that do not extend to a second home for routine care. Tell the agent how long you are away each year; it changes which plan types are worth comparing."
+     ],
+     [
+      "When can I enroll or switch?",
+      "In the seven months around your 65th birthday, from October 15 to December 7 each year, from January 1 to March 31 if you already have a plan and want to make one change, or during a Special Enrollment Period after a qualifying event."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Michigan residents buy ACA coverage?",
+      "Through healthcare.gov, the federal marketplace. Michigan has not set up a state exchange, so healthcare.gov handles the application, the premium tax credit and any Michigan Medicaid referral in one place. Enrolling through a licensed agent costs nothing extra."
+     ],
+     [
+      "Has Michigan expanded Medicaid?",
+      "Yes. Michigan Medicaid covers adults up to about 138% of the federal poverty level, so Michigan has no coverage gap. The application routes you by projected income; if yours varies through the year, as it does for many seasonal and self-employed Michigan workers, an agent can help you estimate it so you land in the right program."
+     ],
+     [
+      "How does the subsidy change what I pay?",
+      "The premium tax credit is set by household income and size and applied to your monthly premium, so the price after the credit is what you pay. We calculate it first and compare plans on the net figure."
+     ],
+     [
+      "I am turning 65 in Michigan. What changes?",
+      "Your premium tax credit ends when Medicare Part A and Part B begin, and Medicare becomes primary. Most people then choose a Medicare Advantage plan filed for their Michigan county. If you are one of the many Michigan retirees who spend winters in a warmer state, tell the agent about the second home; it changes which plan types are worth comparing."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "north-carolina",
+   "name": "North Carolina",
+   "abbr": "NC",
+   "funeral": {
+    "lists": 13,
+    "cremation": 1700,
+    "burial": 2920,
+    "basic": 2190
+   },
+   "dept": {
+    "name": "North Carolina Department of Insurance",
+    "url": "https://www.ncdoi.gov/"
+   },
+   "ship": {
+    "name": "Seniors&rsquo; Health Insurance Information Program (SHIIP)",
+    "url": "https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip",
+    "phone": "1-855-408-1212",
+    "source": "https://www.shiphelp.org/ships/north-carolina/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "North Carolina uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "North Carolina has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 100,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>North Carolina has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid rather than a subsidized marketplace plan, so there is no coverage gap in North Carolina. The healthcare.gov application checks income first and routes lower-income households to Medicaid, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in North Carolina | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in North Carolina | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in North Carolina | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in North Carolina. A direct cremation runs $1,700 and an immediate burial $2,920, a 72% gap. Call 1-888-957-3337 for rates by age.",
+    "medicare": "Medicare Advantage in North Carolina is filed county by county across 100 counties. A licensed agent compares your county's plans. Call 1-888-957-3337.",
+    "aca": "ACA plans in North Carolina are sold on healthcare.gov, with Medicaid below 138% of the poverty level. Agents check your subsidy first. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>North Carolina has the widest gap between cremation and burial of the eleven states we cover: a direct cremation runs $1,700 and an immediate burial $2,920, a 72% difference. The choice between the two matters more here than anywhere else in the set. Final expense insurance covers either with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>In North Carolina, cremation versus burial is the decision.</strong> Cremation at $1,700 is 15% below the national median; burial at $2,920 is 4% above it, and the two are 72% apart before the cemetery is counted &mdash; against 14% in Michigan and about 40% nationally. Add the plot, vault and marker that burial requires and the same family&rsquo;s bill can differ by $4,000 or more depending on that one choice.</p>",
+    "coverageNote": "<p>A North Carolina family that has decided on cremation can size a policy at $10,000 with confidence. One that wants a burial should size toward $15,000, because the state&rsquo;s burial median is above national and the cemetery adds $2,000&ndash;$5,000 on top. If the decision is not made yet, insure for burial; the policy pays cash either way.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>North Carolina has 100 counties, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Mecklenburg and Wake counties are not the plans filed for the mountain counties in the west or the coastal counties in the east, and with 100 lists in play the only reliable answer is the one for your own address.</p>"
+   },
+   "aca": {
+    "intro": "<p>North Carolina is an expansion state that uses the federal marketplace, healthcare.gov, so a North Carolina household has one place to shop and no coverage gap: below roughly 138% of the federal poverty level the application routes you to North Carolina Medicaid, and above it premium tax credits apply to a marketplace plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in North Carolina?",
+      "From 13 North Carolina funeral home price lists collected in 2026, the median direct cremation is $1,700 and the median immediate burial $2,920. Cremation is 15% below the national median of $1,995; burial is 4% above the national $2,800. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Why does cremation save so much in North Carolina?",
+      "Because the two medians are unusually far apart: $1,700 against $2,920, a 72% gap and the widest of the eleven states we cover. Cremation also removes the cemetery&rsquo;s plot, vault and marker, so the total difference for a North Carolina family is routinely $4,000 or more."
+     ],
+     [
+      "How much final expense coverage does a North Carolina family need?",
+      "An immediate burial at $2,920 plus $2,000&ndash;$5,000 of cemetery costs is $4,920&ndash;$7,920. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. Cremation with a memorial is comfortably covered by $10,000; burial with a service points toward $15,000."
+     ],
+     [
+      "Are final expense rates different in North Carolina?",
+      "No. Rates come from the same age, gender, tobacco and health tables in every state. In North Carolina the decision that moves the number is cremation versus burial &mdash; $1,700 against $2,920 before the cemetery &mdash; so two neighbors of the same age pay the same monthly premium for very different coverage needs."
+     ],
+     [
+      "Who regulates final expense insurance in North Carolina?",
+      "The North Carolina Department of Insurance, which licenses agents and carriers and handles consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Are Charlotte and Raleigh Medicare Advantage options the same as the mountains or the coast?",
+      "No. Plans file for specific counties, and North Carolina has 100 of them. Mecklenburg, Wake, the western mountain counties and the eastern coastal counties each have their own list. A licensed agent compares the plans filed for your county."
+     ],
+     [
+      "Where can North Carolinians get free Medicare counseling?",
+      "From the Seniors&rsquo; Health Insurance Information Program (SHIIP), run by the North Carolina Department of Insurance, at 1-855-408-1212. It is free and independent; SHIIP counselors do not sell insurance."
+     ],
+     [
+      "I retired to North Carolina from another state. Can I change my plan?",
+      "Moving to a new county is a qualifying event that opens a Special Enrollment Period, because the plans available to you have changed. Tell the agent your move date; the window is limited."
+     ],
+     [
+      "When are the regular enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday, the Annual Enrollment Period from October 15 to December 7, and the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people already in a plan. Retiring to North Carolina from another state opens a Special Enrollment Period of its own; if you are unsure which window you are in, SHIIP at 1-855-408-1212 will tell you for free."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do North Carolina residents buy ACA coverage?",
+      "Through healthcare.gov. North Carolina uses the federal marketplace rather than running its own, so the application, the subsidy calculation and the handoff to North Carolina Medicaid all happen there. A licensed agent can walk through it with you at no extra cost."
+     ],
+     [
+      "Has North Carolina expanded Medicaid?",
+      "Yes. North Carolina Medicaid covers adults up to about 138% of the federal poverty level, so there is no coverage gap in the state. If you were once told you earned too little for a marketplace subsidy but too much for Medicaid, that answer no longer applies in North Carolina &mdash; ask again."
+     ],
+     [
+      "What will a North Carolina marketplace plan actually cost?",
+      "The premium after your tax credit, which is set by household income and size and applied monthly rather than refunded at tax time. For a North Carolina household near the 138% Medicaid line, the more important question is whether you belong in Medicaid at all; the application settles that before any premium is quoted, and we check it first."
+     ],
+     [
+      "I am turning 65 in North Carolina. What changes?",
+      "Your premium tax credit ends when Medicare Part A and Part B begin, and Medicare becomes primary. Most people then choose a Medicare Advantage plan filed for their North Carolina county; if you retired to North Carolina recently, the move itself may also open a Special Enrollment Period for that choice."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "georgia",
+   "name": "Georgia",
+   "abbr": "GA",
+   "funeral": {
+    "lists": 40,
+    "cremation": 2525,
+    "burial": 3225,
+    "basic": 2578
+   },
+   "dept": {
+    "name": "Georgia Office of Insurance and Safety Fire Commissioner",
+    "url": "https://oci.georgia.gov/"
+   },
+   "ship": {
+    "name": "Georgia State Health Insurance Assistance Program",
+    "url": "https://aging.georgia.gov/georgia-ship",
+    "phone": "1-866-552-4464",
+    "source": "https://www.shiphelp.org/ships/georgia/"
+   },
+   "exchange": {
+    "name": "Georgia Access",
+    "url": "https://georgiaaccess.gov/",
+    "kind": "Georgia Access is a state-based marketplace and sets its own window, which has often run longer than the federal one.",
+    "note": "It is a state-based marketplace with its own enrollment system and its own open enrollment window."
+   },
+   "counties": 159,
+   "medicaid": {
+    "expanded": false,
+    "section": "<p><strong>Georgia has not expanded Medicaid.</strong> Traditional adult Medicaid is limited to specific groups &mdash; children, pregnant women, some parents with very low income, people with disabilities and older adults. Georgia does run a limited alternative, <a href=\"https://pathways.georgia.gov/\" rel=\"noopener\">Georgia Pathways to Coverage</a>, for adults aged 19 to 64 with household income up to 100% of the federal poverty level who complete 80 hours a month of qualifying activities such as work, education or community service. Because marketplace premium tax credits begin at 100% of the poverty level, an adult below that line who does not qualify for Pathways or a traditional category is in a coverage gap. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>; Pathways criteria per <a href=\"https://pathways.georgia.gov/eligibility\" rel=\"noopener\">pathways.georgia.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Georgia | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Georgia | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Georgia | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Georgia. A direct cremation runs $2,525 and an immediate burial $3,225, well above the national median. Call 1-888-957-3337.",
+    "medicare": "Medicare Advantage in Georgia is filed county by county across 159 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337.",
+    "aca": "ACA plans in Georgia are sold through Georgia Access, the state exchange, and Georgia has not expanded Medicaid. Agents check your subsidy. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Georgia has a median cost of $2,525 and an immediate burial $3,225 &mdash; 27% and 15% above the national medians, and among the highest in the South. That cuts against the assumption that Southern states are cheap. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Georgia is the most expensive of the eleven states we cover on both measures.</strong> Cremation at $2,525 is 27% above the national median, burial at $3,225 is 15% above, and the non-declinable basic services fee of $2,578 is 17% above. Forty price lists sit behind those figures, so this is not a small-sample quirk. A Georgia family sizing a policy on national averages will come up short.</p>",
+    "coverageNote": "<p>Georgia families should size toward the top of each band. Burial with cemetery costs already exceeds $8,000 at the upper end before any service; a full traditional funeral with a viewing points to $15,000, and even cremation with a gathering is more comfortably covered by $10,000 here than in a below-average state.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Georgia has 159 counties, second only to Texas, and Medicare Advantage availability is decided county by county, not statewide. The plans filed for Fulton and DeKalb counties are not the plans filed for the small counties of south Georgia, and with 159 lists in play a neighbor&rsquo;s plan one county over may simply not be offered at your address.</p>"
+   },
+   "aca": {
+    "intro": "<p>Georgia runs its own marketplace, Georgia Access, rather than using healthcare.gov, and it is one of the states that has not expanded Medicaid. Georgia instead runs a limited program called Pathways to Coverage, with an income cap at the poverty level and a monthly activity requirement, so where a Georgia household falls relative to the federal poverty level decides which program applies.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Georgia?",
+      "From 40 Georgia funeral home price lists collected in 2026, the median direct cremation is $2,525 and the median immediate burial $3,225 &mdash; 27% and 15% above the national medians of $1,995 and $2,800, and among the highest in the South. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Are funerals really more expensive in Georgia than the national average?",
+      "Yes, on every funeral-home charge we measured. The basic services fee, which cannot be declined, has a Georgia median of $2,578 against a national $2,195. With 40 price lists behind the figures, Georgia is one of the better-sampled states, so the finding is solid rather than a small-sample artifact."
+     ],
+     [
+      "How much final expense coverage does a Georgia family need?",
+      "An immediate burial at Georgia&rsquo;s $3,225 median plus $2,000&ndash;$5,000 of cemetery costs is $5,225&ndash;$8,225 &mdash; the highest simplest-burial total of the eleven states we cover. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415 or more here. Most Georgia families should be looking at $15,000 rather than $10,000 for burial."
+     ],
+     [
+      "Are final expense premiums higher in Georgia?",
+      "No. Premiums come from the same age, gender, tobacco and health tables everywhere. What Georgia changes is the coverage amount: with cremation at $2,525 and burial at $3,225, both well above national, the same $10,000 policy covers less of a Georgia funeral than it does elsewhere, which is why $15,000 is the more common recommendation here."
+     ],
+     [
+      "Who regulates final expense insurance in Georgia?",
+      "The Georgia Office of Insurance and Safety Fire Commissioner, which licenses agents and carriers and handles consumer complaints."
+     ]
+    ],
+    "medicare": [
+     [
+      "Why does Georgia&rsquo;s county count matter for Medicare Advantage?",
+      "Because plans file by county and Georgia has 159 of them, more than any state except Texas. Metro Atlanta counties can each have a different list, and rural south Georgia counties often have much shorter ones. A licensed agent compares only the plans filed for your county."
+     ],
+     [
+      "Where can Georgians get free Medicare counseling?",
+      "From the Georgia State Health Insurance Assistance Program, run through the Georgia Division of Aging Services, at 1-866-552-4464. Counseling is free and independent; the counselors do not sell insurance."
+     ],
+     [
+      "I live in a rural Georgia county. Will I have options?",
+      "Possibly fewer than metro Atlanta, and in some counties very few. That is exactly why the county check comes first: if the list is short, a licensed agent can tell you what alternatives exist rather than leaving you to guess."
+     ],
+     [
+      "When can I enroll or switch?",
+      "In the seven months around your 65th birthday, from October 15 to December 7 each year, from January 1 to March 31 if you already have a plan and want to make one change, or during a Special Enrollment Period after a qualifying event such as a move."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Georgia residents buy marketplace coverage?",
+      "Through Georgia Access, the state&rsquo;s own exchange, not healthcare.gov. Every subsidized individual and family plan in Georgia is sold there, and a licensed agent can help you enroll at no extra cost."
+     ],
+     [
+      "Has Georgia expanded Medicaid?",
+      "No. Georgia is one of ten non-expansion states in medicaid.gov&rsquo;s most recent reporting. It runs a limited program, Georgia Pathways to Coverage, for adults aged 19 to 64 up to 100% of the federal poverty level who complete 80 hours a month of qualifying activities. Adults below the poverty level who do not qualify for Pathways or a traditional Medicaid category fall into a coverage gap, because marketplace subsidies begin at 100%."
+     ],
+     [
+      "Does Georgia Access run a longer open enrollment than healthcare.gov?",
+      "State-based marketplaces set their own windows, and they sometimes run longer than the federal one. Georgia Access&rsquo;s dates are set each plan year, so we confirm the current window on the call rather than publishing one here."
+     ],
+     [
+      "I am turning 65 in Georgia. What happens to my Georgia Access plan?",
+      "Once Medicare Part A and Part B begin, the premium tax credit ends and Medicare becomes primary, so the Georgia Access plan should end when Medicare starts. The next step is usually a Medicare Advantage plan &mdash; and in Georgia the county you live in decides which plans are filed for you, with 159 counties producing very different lists."
+     ]
+    ]
+   }
+  },
+  {
+   "slug": "arizona",
+   "name": "Arizona",
+   "abbr": "AZ",
+   "funeral": {
+    "lists": 29,
+    "cremation": 1240,
+    "burial": 2045,
+    "basic": 1550
+   },
+   "dept": {
+    "name": "Arizona Department of Insurance and Financial Institutions",
+    "url": "https://difi.az.gov/"
+   },
+   "ship": {
+    "name": "Arizona State Health Insurance Assistance Program (SHIP)",
+    "url": "https://azship.org/",
+    "phone": "1-800-432-4040",
+    "source": "https://www.shiphelp.org/ships/arizona/"
+   },
+   "exchange": {
+    "name": "healthcare.gov",
+    "url": "https://www.healthcare.gov/",
+    "kind": "Arizona uses the federal marketplace, so its window follows the healthcare.gov schedule.",
+    "note": "Arizona has no state-run exchange; the federal marketplace handles enrollment and the premium tax credit."
+   },
+   "counties": 15,
+   "medicaid": {
+    "expanded": true,
+    "section": "<p><strong>Arizona has expanded Medicaid.</strong> Adults with household income up to roughly 138% of the federal poverty level qualify for Medicaid, administered in Arizona by AHCCCS, rather than a subsidized marketplace plan, so there is no coverage gap. The healthcare.gov application checks income first and routes lower-income households to AHCCCS, while households above the line receive premium tax credits. Expansion status per <a href=\"https://www.medicaid.gov/medicaid/program-information/downloads/medicaid-expansion-state-map.pdf\" rel=\"noopener\">medicaid.gov</a>.</p>"
+   },
+   "titles": {
+    "fe": "Final Expense Insurance in Arizona | Rates & Funeral Costs",
+    "medicare": "Medicare Advantage Plans in Arizona | Senior Solutions Insurance",
+    "aca": "ACA Marketplace Plans in Arizona | Senior Solutions Insurance"
+   },
+   "descriptions": {
+    "fe": "Final expense insurance in Arizona. A direct cremation runs $1,240, second-lowest in the country, and an immediate burial $2,045. Call 1-888-957-3337.",
+    "medicare": "Medicare Advantage in Arizona is filed county by county across 15 counties. A licensed agent compares the plans for your county. Call 1-888-957-3337, TTY 711.",
+    "aca": "ACA plans in Arizona are sold on healthcare.gov, with AHCCCS Medicaid below 138% of the poverty level. Agents check your subsidy first. Call 1-888-957-3337."
+   },
+   "fe": {
+    "intro": "<p>A direct cremation in Arizona has a median cost of $1,240 and an immediate burial $2,045 &mdash; the second-lowest cremation cost in the country, 38% below the national median. Final expense insurance covers those costs with a small whole life policy, usually $5,000 to $25,000, that pays cash directly to your family.</p>",
+    "observation": "<p><strong>Arizona is the cheapest of the eleven states we cover, by a wide margin.</strong> Cremation at $1,240 is 38% below the national median and second-lowest in the country, behind only Nevada at $1,190; burial at $2,045 is 27% below national and the basic services fee of $1,550 is 29% below. Retirees moving to Arizona from higher-cost states are often insuring against a bill that is smaller than they expect &mdash; at the funeral home. The cemetery still charges what it charges.</p>",
+    "coverageNote": "<p>Arizona&rsquo;s low funeral-home charges mean $10,000 covers more here than almost anywhere: cremation with a memorial gathering with room to spare, and even a simple burial with cemetery costs at the lower end of the range. A full traditional funeral with a viewing still points toward $10,000 to $15,000 once the cemetery is included.</p>"
+   },
+   "medicare": {
+    "countyNote": "<p>Arizona has just 15 counties, and Medicare Advantage availability is still decided county by county, not statewide. Maricopa County, home to Phoenix and the largest retiree in-migration in the state, has a different list of filed plans from Pima, Yavapai or the rural counties, and a plan offered in one is not automatically offered in the next.</p>"
+   },
+   "aca": {
+    "intro": "<p>Arizona uses the federal marketplace, healthcare.gov, for individual and family plans, and it has expanded Medicaid, which in Arizona is run through AHCCCS. That means one place to shop and no coverage gap: below roughly 138% of the federal poverty level the application routes you to AHCCCS, and above it premium tax credits apply to a marketplace plan.</p>"
+   },
+   "faq": {
+    "fe": [
+     [
+      "How much does a funeral cost in Arizona?",
+      "From 29 Arizona funeral home price lists collected in 2026, the median direct cremation is $1,240 &mdash; 38% below the national median of $1,995 and the second-lowest in the country &mdash; and the median immediate burial is $2,045, 27% below the national $2,800. Cemetery costs are separate and add $2,000&ndash;$5,000 or more."
+     ],
+     [
+      "Why is cremation so inexpensive in Arizona?",
+      "The price lists show the result, not the reason: at $1,240, only Nevada ($1,190) is lower. Arizona&rsquo;s non-declinable basic services fee, $1,550 against a national $2,195, is a big part of it, since that fee is inside every cremation and burial price."
+     ],
+     [
+      "How much final expense coverage does an Arizona family need?",
+      "An immediate burial at Arizona&rsquo;s $2,045 median plus $2,000&ndash;$5,000 of cemetery costs is $4,045&ndash;$7,045, the lowest simplest-burial total of the eleven states we cover. A full traditional funeral with a viewing and cemetery costs comes to $8,415&ndash;$11,415. Most Arizona families are well served between $10,000 and $15,000, and cremation is comfortably within $10,000."
+     ],
+     [
+      "I moved to Arizona in retirement. Should I adjust my coverage?",
+      "Possibly downward at the funeral home, since Arizona&rsquo;s charges are 27 to 38% below national, but not before checking the cemetery and any medical bills or debts the policy should also cover. A licensed agent can rework the number with you."
+     ],
+     [
+      "Are final expense rates lower in Arizona?",
+      "No. Rates are set by age, gender, tobacco use and health, not by state. What is lower in Arizona is the bill you are insuring against, which means a given policy amount goes further."
+     ]
+    ],
+    "medicare": [
+     [
+      "With only 15 counties, are Arizona Medicare Advantage options the same everywhere?",
+      "No. Fifteen counties is fewer lists than many states, but they are still separate lists. Maricopa, Pima and Yavapai counties each have plans filed specifically for them, and the rural counties can have far fewer. A licensed agent compares the plans filed for your county."
+     ],
+     [
+      "Where can Arizonans get free Medicare counseling?",
+      "From the Arizona State Health Insurance Assistance Program (SHIP), at azship.org or 1-800-432-4040. Counseling is free and independent; the counselors do not sell insurance."
+     ],
+     [
+      "I just moved to Arizona. Can I change my Medicare Advantage plan?",
+      "Yes. Moving to a new county is a qualifying event that opens a Special Enrollment Period, because the plans available to you have changed. Many Arizona retirees are in exactly this position; tell the agent your move date, since the window is limited."
+     ],
+     [
+      "When are the regular enrollment windows?",
+      "The Initial Enrollment Period around your 65th birthday, the Annual Enrollment Period from October 15 to December 7, and the Medicare Advantage Open Enrollment Period from January 1 to March 31 for people already in a plan. For the many people who move to Arizona in retirement, the move itself opens a Special Enrollment Period, so a new Arizona resident does not have to wait for the fall."
+     ]
+    ],
+    "aca": [
+     [
+      "Where do Arizona residents buy ACA coverage?",
+      "Through healthcare.gov, the federal marketplace; Arizona has no state exchange. The application checks AHCCCS eligibility first, then calculates the premium tax credit for a marketplace plan. A licensed agent can enroll you at no extra cost."
+     ],
+     [
+      "Has Arizona expanded Medicaid?",
+      "Yes. Adults with household income up to about 138% of the federal poverty level qualify for Medicaid through AHCCCS, so Arizona has no coverage gap. The healthcare.gov application routes you to AHCCCS or to a subsidized plan based on income."
+     ],
+     [
+      "I retired to Arizona before 65. What are my options until Medicare?",
+      "A marketplace plan through healthcare.gov with the premium tax credit applied to your monthly premium, sized to your household income. Many early retirees qualify for a larger credit than they expect once earned income stops; we calculate it before comparing plans."
+     ],
+     [
+      "I am turning 65 in Arizona. What changes?",
+      "Your premium tax credit ends when Medicare Part A and Part B begin, and Medicare becomes primary. Most people then choose a Medicare Advantage plan filed for their Arizona county, which a licensed agent can compare on the same call."
+     ]
+    ]
+   }
+  }
+ ]
+}

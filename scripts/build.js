@@ -94,8 +94,16 @@ function pictures(html) {
   });
 }
 
+// Named entities used in page copy, decoded for schema text (JSON, not HTML).
+const ENTITIES = { amp: '&', nbsp: ' ', mdash: '—', ndash: '–', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', hellip: '…', rarr: '→', middot: '·', quot: '"', lt: '<', gt: '>' };
+function decodeEntities(s) {
+  return s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => e[0] === '#'
+    ? String.fromCodePoint(parseInt(e[1] === 'x' ? e.slice(2) : e.slice(1), e[1] === 'x' ? 16 : 10))
+    : (e in ENTITIES ? ENTITIES[e] : m));
+}
+
 function fill(tpl, vars) {
-  return tpl.replace(/\{\{([\w-]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
+  return tpl.replace(/\{\{([\w:-]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 }
 
 // Dates from git for a set of source files: first commit (published) and last
@@ -115,19 +123,29 @@ function gitDates(files) {
   return { published: firstIso, modified: lastIso, modifiedDate: dirty ? today : lastIso.slice(0, 10) };
 }
 
+// State landing pages are generated from src/states/ (data + three templates)
+// and flow through the same pipeline as the hand-written pages.
+const states = require('./states');
+const statePages = states.pages({ SITE, partials });
+partials['state-hub:fe'] = states.hub('fe');
+partials['state-hub:medicare'] = states.hub('medicare');
+partials['state-hub:aca'] = states.hub('aca');
+partials['state-footer-links'] = states.footerLinks();
+if (states.syncVercelNoindex()) console.log('vercel.json: state-page noindex rule updated from src/states/publish.json');
+
 const pagesDir = path.join(SRC, 'pages');
 const built = [];
-for (const f of fs.readdirSync(pagesDir).sort()) {
-  if (!f.endsWith('.html')) continue;
-  const raw = fs.readFileSync(path.join(pagesDir, f), 'utf8');
+const pageSources = fs.readdirSync(pagesDir).sort().filter(f => f.endsWith('.html')).map(f => ({ f, raw: fs.readFileSync(path.join(pagesDir, f), 'utf8'), src: 'src/pages/' + f }))
+  .concat(statePages.map(p => ({ f: p.name, raw: p.raw, src: p.src })));
+for (const { f, raw, src } of pageSources) {
   const m = raw.match(/^<!--\s*meta\s*(\{[\s\S]*?\})\s*-->\s*/);
   if (!m) throw new Error(f + ': missing <!-- meta {...} --> header');
   const meta = JSON.parse(m[1]);
   let body = raw.slice(m[0].length);
   // Which source files this page is made of (for the sitemap lastmod).
-  const sources = ['src/pages/' + f];
+  const sources = [src];
   const addPartials = (txt) => {
-    for (const [, k] of txt.matchAll(/\{\{([\w-]+)\}\}/g)) {
+    for (const [, k] of txt.matchAll(/\{\{([\w:-]+)\}\}/g)) {
       if (k === 'estimator') { if (!sources.includes('widgets/ssi-cost-estimator.html')) sources.push('widgets/ssi-cost-estimator.html'); }
       else if (k in partials) { const sp = 'src/partials/' + k + '.html'; if (!sources.includes(sp)) { sources.push(sp); addPartials(partials[k]); } }
     }
@@ -144,7 +162,7 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
   // while it is noindex and held.
   if (meta.faqSchema) {
     const qa = [...body.matchAll(/<details>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>\s*<\/details>/g)]
-      .map(m => [m[1], m[2]].map(t => t.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&mdash;/g, '—').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()));
+      .map(m => [m[1], m[2]].map(t => decodeEntities(t.replace(/<[^>]+>/g, '')).replace(/\s+/g, ' ').trim()));
     if (!qa.length) throw new Error(f + ': faqSchema set but no <details> FAQ found');
     schemas.push({
       '@context': 'https://schema.org',
@@ -186,7 +204,8 @@ for (const f of fs.readdirSync(pagesDir).sort()) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
-        { '@type': 'ListItem', position: 2, name: meta.crumb || meta.title.split('|')[0].trim(), item: SITE + meta.path }
+        ...(meta.parent ? [{ '@type': 'ListItem', position: 2, name: meta.parent.name, item: SITE + meta.parent.path }] : []),
+        { '@type': 'ListItem', position: meta.parent ? 3 : 2, name: meta.crumb || meta.title.split('|')[0].trim(), item: SITE + meta.path }
       ]
     });
   }

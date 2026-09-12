@@ -24,7 +24,8 @@
     { "source": "/health-insurance", "destination": "/health-insurance/", "statusCode": 301 },
     { "source": "/about-us", "destination": "/about-us/", "statusCode": 301 },
     { "source": "/contact-us", "destination": "/contact-us/", "statusCode": 301 },
-    { "source": "/index.html", "destination": "/", "statusCode": 301 }
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/:product(final-expense-insurance|medicare|health-insurance)/:state([a-z-]+)", "destination": "/:product/:state/", "statusCode": 301 }
   ],
   "routes": [
     { "src": "/wp-content/(.*)", "status": 410 },
@@ -70,6 +71,10 @@
     },
     {
       "source": "/(privacy|terms-and-conditions)/",
+      "headers": [ { "key": "X-Robots-Tag", "value": "noindex, follow" } ]
+    },
+    {
+      "source": "/(final-expense-insurance|medicare|health-insurance)/([a-z-]+)/",
       "headers": [ { "key": "X-Robots-Tag", "value": "noindex, follow" } ]
     },
     {
