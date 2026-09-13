@@ -33,7 +33,7 @@ Shared pieces: `src/layout.html` (head, header, footer, sticky call bar),
 The build also: wraps every `/assets/img/*.jpg` in a `<picture>` with its
 `.webp` sibling and stamps the real pixel size (so keep a `.webp` next to each
 photo — `scripts/imgsize.js` reads the JPEG header, no dependency); resolves
-the header "Get a Quote" button to `#quote` on pages that carry the form and
+the header "Request a Callback" button to `#quote` on pages that carry the form and
 to `/contact-us/#quote` on pages that do not; and emits a hero preload when a
 page's meta sets `preload`.
 

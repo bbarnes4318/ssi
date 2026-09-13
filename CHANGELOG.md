@@ -8,6 +8,38 @@ entry.
 
 ## [Unreleased]
 
+### Changed
+- Copy, SEO and conversion overhaul of the six core pages (`/`,
+  `/final-expense-insurance/`, `/medicare/`, `/health-insurance/`,
+  `/about-us/`, `/contact-us/`): one primary search intent per page, new
+  titles and meta descriptions, one H1 per page, contextual CTAs in place of
+  the sitewide "Get a Quote" (header button now "Request a Callback"),
+  descriptive internal-link anchors, and a no-pressure "what happens when
+  you call" step on every page. Every fact on the pages is one the repo
+  already carried (2008, Chris Martin, 25,000+ / 5,000+, all 50 states,
+  4.3 / 6 Google reviews, carrier panel, 2026 MoneyGeek rate tables); no
+  new claim was introduced. Removed marketing claims that had no source:
+  "same-day quotes", "most people are approved on the call", "coverage
+  starts the same day", "most of the nation's leading carriers".
+- `/final-expense-insurance/`: new "short answer" section, six-factor
+  pricing explainer, coverage-amount section, carrier section reframed as
+  "why carrier comparison matters"; FAQ expanded from 4 to 10 questions
+  (FAQPage schema follows). Rate tables, estimator, insights and the
+  MoneyGeek attribution are unchanged.
+- `/medicare/`: three-paragraph plain-English intro before the comparison
+  table, a "what to have ready" list, and the working-with-us section
+  reworded as the page's call to action. Block A untouched. Benefit-name and
+  superlative sweep still clean; the wording change is logged for the FMO in
+  `docs/open-items.md`.
+- `/health-insurance/`: financial-assistance and total-cost sections lead
+  the page; FAQ expanded from 4 to 10 questions.
+- `/about-us/`: story, "why our agents start with the products", numbers
+  and three-product cards, per the client brief.
+- `/contact-us/`: three-way reach section, "what happens after you contact
+  us", office section kept.
+- `assets/site.css`: `.ehb--single` (single-column checklist) and the
+  `.how + .creach` gap. Nothing else.
+
 ### Added
 - `/medicare/`: Medicare Advantage vs Original Medicare comparison table
   (delivery, parts, network, medication coverage, yearly cap on what you pay,

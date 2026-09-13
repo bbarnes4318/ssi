@@ -711,6 +711,8 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .ehb li::before{content:counter(ehb);width:2.2rem;height:2.2rem;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold);color:var(--navy);font-weight:700;font-size:.95rem;display:grid;place-items:center;}
 .ehb strong{display:block;color:var(--navy);font-size:1.05rem;}
 .ehb span{font-size:.95rem;}
+.ehb--single{columns:1;max-width:none;margin:1rem 0 1.25rem;}
+.how+.creach{margin-top:3rem;}
 
 /* Carrier cards */
 .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
