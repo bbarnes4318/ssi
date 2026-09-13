@@ -8,6 +8,32 @@ entry.
 
 ## [Unreleased]
 
+### Added
+- `/medicare/`: Medicare Advantage vs Original Medicare comparison table
+  (delivery, parts, network, medication coverage, yearly cap on what you pay,
+  administration) and a timeline of the four enrollment periods, checked
+  against Medicare.gov. Structural facts only; the benefit-name sweep is
+  still clean (the wording goes to the FMO with the rest of the current
+  page text — see `docs/open-items.md`).
+- `/health-insurance/`: metal tier table (Bronze/Silver/Gold/Platinum
+  actuarial values from HealthCare.gov) and the ten essential health
+  benefits as a list, both sourced inline.
+
+### Changed
+- `/contact-us/` map: the legacy `maps?q=…&output=embed` place card never
+  resolved (spinner, no pin) once third-party cookies are blocked; replaced
+  with the official `maps/embed?pb=` form. Same host, CSP unchanged.
+- Section layouts: numbered step rows are ruled rows, not cards; the card
+  shape is limited to one row per page. "Who you will be talking to" now
+  appears on `/medicare/` only. State hub lists on the three product pages
+  are a bordered panel of chips.
+- Homepage: gold CTA band removed (the callback block below it carries the
+  same phone number and form); FAQ section on a white ground. Card copy on
+  the homepage and contact page evened out; the "full benefit after two
+  years / from the first day" sentence moves into the homepage FAQ.
+- `/final-expense-insurance/` stat bar: "0 medical exams" replaced with the
+  $25,000 no-exam coverage figure already on the page.
+
 ## [2026-09-12] — Release 2: /medicare/ live
 
 ### Added
