@@ -33,6 +33,14 @@ entry.
   years / from the first day" sentence moves into the homepage FAQ.
 - `/final-expense-insurance/` stat bar: "0 medical exams" replaced with the
   $25,000 no-exam coverage figure already on the page.
+- Gold CTA band removed from the two guide pages and the three state page
+  templates (33 pages) as well: on every page it sat directly above the
+  callback block, which carries the same call and form. `.band` and
+  `cta-row--center` CSS deleted with it.
+- `docs/client-email-redesign-proposal.md` (the client redesign proposal)
+  entered version control in commit `a8ea4d1`, alongside the Medicare table
+  work, rather than in a commit of its own. Intentional; recorded here so the
+  commit contents are not a surprise.
 
 ## [2026-09-12] — Release 2: /medicare/ live
 

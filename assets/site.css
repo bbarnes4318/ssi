@@ -495,15 +495,6 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .quotes cite{font-style:normal;font-weight:700;color:var(--navy);font-size:.95rem;}
 .quotes cite small{display:block;font-weight:500;color:var(--gray);font-size:.78rem;}
 
-/* Gold call-out band */
-.band{padding:3.5rem 0;text-align:center;background:linear-gradient(135deg,var(--gold-hover),var(--gold) 55%,var(--gold-press));color:var(--navy);}
-.band h2,.band p{color:var(--navy);}
-.band__tel{display:inline-flex;align-items:center;gap:.6rem;font-size:clamp(1.6rem,1rem + 2vw,2.4rem);font-weight:700;color:var(--navy);text-decoration:none;margin:.25rem 0 1rem;}
-.band__tel svg{width:1.4em;height:1.4em;}
-.band__tel:hover{color:var(--navy-2);}
-.band .btn--blue{box-shadow:0 8px 20px rgba(11,18,32,.18);}
-.band h2{margin-bottom:.5rem;}
-.band p{max-width:44rem;margin:0 auto 1.5rem;font-size:1.1rem;}
 
 /* Two-column media sections */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
@@ -638,7 +629,6 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .sources__list{margin:0 0 .9rem;padding-left:1.2rem;font-size:1rem;color:var(--gray);}
 .sources__list li{margin-bottom:.3rem;}
 .sources__updated{font-size:.9rem;color:var(--gray);margin:0;}
-.cta-row--center{justify-content:center;}
 .fact a{color:#fff;text-decoration:underline;text-underline-offset:2px;}
 .fact a:hover{color:var(--gold);}
 
