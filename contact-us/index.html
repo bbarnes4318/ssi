@@ -31,7 +31,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-700.woff2" crossorigin>
 
-<link rel="stylesheet" href="/assets/site.css?v=6f0cc360">
+<link rel="stylesheet" href="/assets/site.css?v=125eba0a">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://ssifinalexpense.com/#agency","name":"Senior Solutions Insurance","legalName":"Christopher L Martin Insurance Group","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/img/team-boardroom.jpg","logo":"https://ssifinalexpense.com/assets/ssi-logo.png","foundingDate":"2008","founder":{"@type":"Person","name":"Chris Martin","jobTitle":"Founder & CEO"},"description":"Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.","hasMap":"https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"areaServed":{"@type":"Country","name":"United States"},"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ssifinalexpense.com/"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://ssifinalexpense.com/contact-us/"}]}</script>
@@ -202,9 +202,13 @@
     <h2 class="sec__h">Denver Tech Center, Greenwood Village</h2>
     <hr class="divider divider--center">
     <div class="office">
-      <!-- Official maps/embed?pb= form: the legacy maps?q=…&output=embed place card spins forever
-           without third-party cookies. 2z is the base64url address; 2d/3d the office coordinates. -->
-      <div class="map"><iframe title="Map to Senior Solutions Insurance, 5775 DTC Blvd Suite 250-S, Greenwood Village, CO" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1535!2d-104.8874!3d39.6115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTc3NSBEVEMgQmx2ZCBTdWl0ZSAyNTAtUywgR3JlZW53b29kIFZpbGxhZ2UsIENPIDgwMTEx!5e0!3m2!1sen!2sus!4v1757721600000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <!-- Static, self-hosted map (OSM tiles, ODbL — attribution in the credit line). The Google embed's
+           place card spins forever for a first-time visitor (clean profile / third-party cookies blocked),
+           so the map is an image linked to Google Maps directions instead: no third-party load, no CSP frame. -->
+      <a class="map" href="https://www.google.com/maps/dir/?api=1&amp;destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111" rel="noopener" aria-label="Open directions to 5775 DTC Blvd, Suite 250-S in Google Maps">
+        <img src="/assets/img/map-office.webp" alt="Map of the Senior Solutions Insurance office at 5775 DTC Blvd, between DTC Parkway and East Orchard Road, Greenwood Village" width="1000" height="704" loading="lazy" decoding="async">
+        <span class="map__credit">Map &copy; OpenStreetMap contributors &middot; Open in Google Maps &rarr;</span>
+      </a>
       <div class="office__card">
         <picture><source type="image/webp" srcset="/assets/img/agent-headset.webp"><img class="office__photo office__photo--focus-25" src="/assets/img/agent-headset.jpg" alt="A Senior Solutions agent on a headset taking notes for a client" width="1024" height="1280" loading="lazy" decoding="async"></picture>
         <h3>Senior Solutions&nbsp;Insurance</h3>

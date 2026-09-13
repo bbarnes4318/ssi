@@ -73,9 +73,13 @@
     <h2 class="sec__h">Denver Tech Center, Greenwood Village</h2>
     <hr class="divider divider--center">
     <div class="office">
-      <!-- Official maps/embed?pb= form: the legacy maps?q=…&output=embed place card spins forever
-           without third-party cookies. 2z is the base64url address; 2d/3d the office coordinates. -->
-      <div class="map"><iframe title="Map to Senior Solutions Insurance, 5775 DTC Blvd Suite 250-S, Greenwood Village, CO" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1535!2d-104.8874!3d39.6115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTc3NSBEVEMgQmx2ZCBTdWl0ZSAyNTAtUywgR3JlZW53b29kIFZpbGxhZ2UsIENPIDgwMTEx!5e0!3m2!1sen!2sus!4v1757721600000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <!-- Static, self-hosted map (OSM tiles, ODbL — attribution in the credit line). The Google embed's
+           place card spins forever for a first-time visitor (clean profile / third-party cookies blocked),
+           so the map is an image linked to Google Maps directions instead: no third-party load, no CSP frame. -->
+      <a class="map" href="https://www.google.com/maps/dir/?api=1&amp;destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111" rel="noopener" aria-label="Open directions to 5775 DTC Blvd, Suite 250-S in Google Maps">
+        <img src="/assets/img/map-office.webp" alt="Map of the Senior Solutions Insurance office at 5775 DTC Blvd, between DTC Parkway and East Orchard Road, Greenwood Village" width="1000" height="704" loading="lazy" decoding="async">
+        <span class="map__credit">Map &copy; OpenStreetMap contributors &middot; Open in Google Maps &rarr;</span>
+      </a>
       <div class="office__card">
         <img class="office__photo office__photo--focus-25" src="/assets/img/agent-headset.jpg" alt="A Senior Solutions agent on a headset taking notes for a client" width="1400" height="1750" loading="lazy" decoding="async">
         <h3>Senior Solutions&nbsp;Insurance</h3>

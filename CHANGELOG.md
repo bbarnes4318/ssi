@@ -20,9 +20,13 @@ entry.
   benefits as a list, both sourced inline.
 
 ### Changed
-- `/contact-us/` map: the legacy `maps?q=…&output=embed` place card never
-  resolved (spinner, no pin) once third-party cookies are blocked; replaced
-  with the official `maps/embed?pb=` form. Same host, CSP unchanged.
+- `/contact-us/` map: the Google embed's place card never resolves for a
+  first-time visitor (clean profile, third-party cookies blocked — the
+  official `maps/embed?pb=` form draws the pin but the card still spins).
+  Replaced with a self-hosted static map (`assets/img/map-office.webp`,
+  OpenStreetMap tiles, ODbL, credited on the image) linked to Google Maps
+  directions. No third-party load; `https://www.google.com` removed from the
+  CSP `frame-src`.
 - Section layouts: numbered step rows are ruled rows, not cards; the card
   shape is limited to one row per page. "Who you will be talking to" now
   appears on `/medicare/` only. State hub lists on the three product pages

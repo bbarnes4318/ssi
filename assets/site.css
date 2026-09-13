@@ -387,8 +387,10 @@ a.trust__item:hover strong{color:var(--gold-muted);}
 .how__step p{margin:0;font-size:.98rem;}
 
 /* Map */
-.map{border-radius:16px;overflow:hidden;box-shadow:0 24px 50px rgba(11,18,32,.18);border:1px solid var(--rule);aspect-ratio:16/10;background:var(--light);}
-.map iframe{width:100%;height:100%;border:0;display:block;}
+.map{display:block;position:relative;border-radius:16px;overflow:hidden;box-shadow:0 24px 50px rgba(11,18,32,.18);border:1px solid var(--rule);aspect-ratio:16/10;background:var(--light);}
+.map img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease;}
+.map:hover img{transform:scale(1.03);}
+.map__credit{position:absolute;left:0;right:0;bottom:0;padding:.45rem 1rem;font-size:.8rem;font-weight:600;color:var(--navy);background:rgba(255,255,255,.88);}
 
 /* Form success */
 .form__done{background:var(--paper);border-radius:14px;padding:2rem;color:var(--navy);text-align:center;box-shadow:0 24px 50px rgba(11,18,32,.25);}
