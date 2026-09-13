@@ -119,12 +119,13 @@
 
 <section class="sec sec--lighter">
   <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Working with us</span>
     <h2 class="sec__h">How it works</h2>
     <hr class="divider divider--center">
-    <div class="blurbs">
-      <div class="blurb"><svg aria-hidden="true"><use href="#i-list"/></svg><h3>Compare plans</h3><p>A licensed agent walks you through the marketplace plans available in your county, side by side.</p></div>
-      <div class="blurb"><svg aria-hidden="true"><use href="#i-dollar"/></svg><h3>Premium assistance comes first</h3><p>Premium assistance depends on your household income and size. We check it for you before you choose.</p></div>
-      <div class="blurb"><svg aria-hidden="true"><use href="#i-heart"/></svg><h3>Choose on total cost, not premium alone</h3><p>Pick the plan that balances the monthly premium against what you would pay when you actually use it.</p></div>
+    <div class="how">
+      <div class="how__step"><span class="how__n" aria-hidden="true">1</span><h3>Premium assistance comes first</h3><p>Premium assistance depends on your household income and size. We check it for you before you choose.</p></div>
+      <div class="how__step"><span class="how__n" aria-hidden="true">2</span><h3>Compare plans</h3><p>A licensed agent walks you through the marketplace plans available in your county, side by side.</p></div>
+      <div class="how__step"><span class="how__n" aria-hidden="true">3</span><h3>Choose on total cost, not premium alone</h3><p>Pick the plan that balances the monthly premium against what you would pay when you actually use it.</p></div>
     </div>
   </div>
 </section>
@@ -144,32 +145,48 @@
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <span class="eyebrow eyebrow--center">Why us</span>
-    <h2 class="sec__h">Who you will be talking to</h2>
+<section class="sec" id="tiers">
+  <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Plan categories</span>
+    <h2 class="sec__h">What the four metal tiers mean</h2>
     <hr class="divider divider--center">
-    <div class="blurbs">
-      <div class="blurb">
-        <svg aria-hidden="true"><use href="#i-people"/></svg>
-        <h3>Licensed, marketplace-certified&nbsp;agents</h3>
-        <p>Our agents are certified by Connect for Health Colorado and licensed to enroll you in the plan you choose.</p>
-      </div>
-      <div class="blurb">
-        <svg aria-hidden="true"><use href="#i-heart"/></svg>
-        <h3>Network and drug list checked first</h3>
-        <p>Bring your doctors and prescriptions to the call and we check that a plan covers them before you pick it, not after.</p>
-      </div>
-      <div class="blurb">
-        <svg aria-hidden="true"><use href="#i-shield"/></svg>
-        <h3>No cost to use an agent</h3>
-        <p>Enrolling through us costs the same as enrolling on your own. The carrier pays us; your premium does not change.</p>
-      </div>
-    </div>
+    <p class="sec__sub">Every marketplace plan is Bronze, Silver, Gold or Platinum. The metal says nothing about quality of care; it is the split between what you pay in premium each month and what you pay when you use care. The percentages are averages across a typical population, set by federal rule.</p>
+    <table class="ctable ctable--compare ctable--tiers"><caption class="sr">Marketplace metal tiers compared</caption>
+      <thead><tr><th scope="col">Tier</th><th scope="col">Plan pays</th><th scope="col">You pay</th><th scope="col">Monthly premium</th><th scope="col">Deductible and costs when you use care</th><th scope="col">Typically suits</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Bronze</th><td data-label="Plan pays">60%</td><td data-label="You pay">40%</td><td data-label="Monthly premium">Lowest</td><td data-label="Deductible and costs when you use care">Highest. The deductible can run into the thousands before most care is covered.</td><td data-label="Typically suits">People who want protection against a serious illness or accident and expect to use little routine care.</td></tr>
+        <tr><th scope="row">Silver</th><td data-label="Plan pays">70%</td><td data-label="You pay">30%</td><td data-label="Monthly premium">Moderate</td><td data-label="Deductible and costs when you use care">Moderate. If your income qualifies you for extra savings, a Silver plan pays 73&ndash;96% instead, and only Silver carries that discount.</td><td data-label="Typically suits">Most subsidy-eligible buyers, and anyone who wants the middle ground.</td></tr>
+        <tr><th scope="row">Gold</th><td data-label="Plan pays">80%</td><td data-label="You pay">20%</td><td data-label="Monthly premium">High</td><td data-label="Deductible and costs when you use care">Low. Care costs less at the point of use.</td><td data-label="Typically suits">People who use care regularly and would rather pay a steady premium than large bills.</td></tr>
+        <tr><th scope="row">Platinum</th><td data-label="Plan pays">90%</td><td data-label="You pay">10%</td><td data-label="Monthly premium">Highest</td><td data-label="Deductible and costs when you use care">Lowest. Very little is owed at the point of use.</td><td data-label="Typically suits">People with ongoing, predictable medical needs. Not offered in every county.</td></tr>
+      </tbody>
+    </table>
+    <p class="compare__note">Percentages are the tiers&rsquo; actuarial values as published by <a href="https://www.healthcare.gov/choose-a-plan/plans-categories/" rel="noopener">HealthCare.gov</a>. What any one person pays varies by plan and by how much care they use. A fifth category, Catastrophic, is limited to people under 30 or with a hardship exemption.</p>
   </div>
 </section>
 
-<section class="sec sec--lighter">
+<section class="sec sec--light" id="benefits">
+  <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Required by law</span>
+    <h2 class="sec__h">The ten essential health benefits</h2>
+    <hr class="divider divider--center">
+    <p class="sec__sub">Under the Affordable Care Act, every marketplace plan in every tier must cover these ten categories of care. Plans differ in what you pay for them, not in whether they are covered.</p>
+    <ol class="ehb">
+      <li><div><strong>Ambulatory patient services</strong><span>Outpatient care you get without being admitted to a hospital</span></div></li>
+      <li><div><strong>Emergency services</strong><span>Emergency room care</span></div></li>
+      <li><div><strong>Hospitalization</strong><span>Surgery and overnight stays</span></div></li>
+      <li><div><strong>Pregnancy, maternity and newborn care</strong><span>Both before and after birth</span></div></li>
+      <li><div><strong>Mental health and substance use disorder services</strong><span>Including behavioral health treatment</span></div></li>
+      <li><div><strong>Prescription drugs</strong><span>Covered medications, per the plan&rsquo;s formulary</span></div></li>
+      <li><div><strong>Rehabilitative and habilitative services and devices</strong><span>Help gaining or recovering skills after an injury, disability or chronic condition</span></div></li>
+      <li><div><strong>Laboratory services</strong><span>Tests and blood work</span></div></li>
+      <li><div><strong>Preventive and wellness services</strong><span>Screenings, vaccines and chronic disease management</span></div></li>
+      <li><div><strong>Pediatric services</strong><span>Including dental and vision care for children (adult dental and vision are not essential health benefits)</span></div></li>
+    </ol>
+    <p class="compare__note">Plans must also cover birth control and breastfeeding support. Source: <a href="https://www.healthcare.gov/coverage/what-marketplace-plans-cover/" rel="noopener">HealthCare.gov, what marketplace plans cover</a>.</p>
+  </div>
+</section>
+
+<section class="sec">
   <div class="wrap">
     <span class="eyebrow eyebrow--center">Questions</span>
     <h2 class="sec__h">Health insurance FAQs</h2>
