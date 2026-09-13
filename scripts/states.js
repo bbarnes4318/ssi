@@ -23,9 +23,9 @@ const tpl = {};
 for (const p of ['fe', 'medicare', 'aca']) tpl[p] = fs.readFileSync(path.join(DIR, 'templates', p + '.html'), 'utf8');
 
 const PRODUCTS = {
-  fe: { base: '/final-expense-insurance/', parentName: 'Final Expense Insurance', og: '/assets/img/og-final-expense.jpg', ogAlt: 'Final expense insurance monthly rates by age, 50 to 85', hub: 'Final expense insurance by state', hubId: 'by-state' },
-  medicare: { base: '/medicare/', parentName: 'Medicare', og: '/assets/img/og-medicare.jpg', ogAlt: 'A licensed agent comparing Medicare Advantage plans', hub: 'Medicare Advantage by state', hubId: 'by-state' },
-  aca: { base: '/health-insurance/', parentName: 'Health Insurance', og: '/assets/img/og-health.jpg', ogAlt: 'A licensed agent comparing ACA marketplace plans', hub: 'ACA marketplace plans by state', hubId: 'by-state' }
+  fe: { base: '/final-expense-insurance/', parentName: 'Final Expense Insurance', og: '/assets/img/og-final-expense.jpg', ogAlt: 'Final expense insurance monthly rates by age, 50 to 85', hub: 'Final expense insurance by state', hubSub: 'Funeral costs, coverage bands and state rules for the states we serve most.', hubId: 'by-state' },
+  medicare: { base: '/medicare/', parentName: 'Medicare', og: '/assets/img/og-medicare.jpg', ogAlt: 'A licensed agent comparing Medicare Advantage plans', hub: 'Medicare Advantage by state', hubSub: 'State-specific guides, each with the local SHIP counseling program and insurance department.', hubId: 'by-state' },
+  aca: { base: '/health-insurance/', parentName: 'Health Insurance', og: '/assets/img/og-health.jpg', ogAlt: 'A licensed agent comparing ACA marketplace plans', hub: 'ACA marketplace plans by state', hubSub: 'Each state’s marketplace, Medicaid rules and enrollment window.', hubId: 'by-state' }
 };
 
 const NAT = data.national; // verified national medians from the content file
@@ -163,10 +163,13 @@ function hub(product) {
   const items = data.states.map(st => `<li><a href="${P.base}${st.slug}/">${st.name}</a></li>`).join('\n      ');
   return `<section class="sec sec--tight statehub" id="${P.hubId}" aria-labelledby="${P.hubId}-h">
   <div class="wrap">
-    <h2 class="sec__h sec__h--sm" id="${P.hubId}-h">${P.hub}</h2>
-    <ul class="statehub__list">
+    <div class="statehub__panel">
+      <h2 class="sec__h sec__h--sm" id="${P.hubId}-h">${P.hub}</h2>
+      <p class="statehub__sub">${P.hubSub}</p>
+      <ul class="statehub__list">
       ${items}
-    </ul>
+      </ul>
+    </div>
   </div>
 </section>`;
 }

@@ -623,9 +623,13 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 
 /* State hub sections on the three product pages (rendered only once a product is published) */
 .statehub{background:var(--light);border-top:1px solid var(--rule);scroll-margin-top:5.5rem;}
-.statehub__list{list-style:none;margin:1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:.4rem 1.5rem;max-width:48rem;margin-left:auto;margin-right:auto;}
-.statehub__list a{display:block;padding:.45rem 0;color:var(--navy-2);text-decoration:none;font-weight:600;border-bottom:1px solid var(--rule);}
-.statehub__list a:hover{color:var(--navy);border-bottom-color:var(--gold);}
+.statehub__panel{max-width:64rem;margin:0 auto;background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--gold);border-radius:14px;padding:1.75rem 2rem 2rem;box-shadow:0 1px 2px rgba(11,18,32,.04),0 12px 32px rgba(11,18,32,.06);}
+.statehub__panel .sec__h{text-align:left;margin-bottom:.25rem;}
+.statehub__sub{margin:0 0 1.25rem;font-size:.98rem;}
+.statehub__list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;}
+.statehub__list a{display:inline-flex;align-items:center;min-height:2.75rem;padding:.4rem 1.1rem;border:1px solid var(--rule);border-radius:999px;background:var(--lighter);color:var(--navy-2);text-decoration:none;font-weight:600;font-size:.98rem;transition:background .15s,border-color .15s,color .15s,transform .15s;}
+.statehub__list a:hover{background:var(--gold-bg);border-color:var(--gold);color:var(--navy);transform:translateY(-1px);}
+.statehub__list a:focus-visible{border-color:var(--gold);}
 .review__list{list-style:none;padding:0;margin:0 0 1.5rem;}
 .review__list li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--rule);}
 .review__status{font-size:.85rem;color:var(--gray);white-space:nowrap;}
@@ -975,6 +979,9 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
   .ctable--compare th[scope="row"],.ctable--tiers th[scope="row"]{width:auto;}
   .timeline{padding-left:1.9rem;}
   .timeline li::before{left:-1.9rem;}
+  .statehub__panel{padding:1.25rem 1.1rem 1.4rem;}
+  .statehub__list li{flex:1 1 calc(50% - .6rem);}
+  .statehub__list a{width:100%;justify-content:center;}
   .topbar .topbar__hours{display:none;}  /* hours are in the call bar and footer; keeps the strip to one line at phone widths */
   .callbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--navy-1);border-top:2px solid var(--gold);}
   .callbar a{display:block;padding:.6rem 1rem;color:#fff;text-decoration:none;text-align:center;min-height:56px;}
