@@ -8,6 +8,37 @@ entry.
 
 ## [Unreleased]
 
+### Fixed
+- Final expense product facts, per client confirmation 13 Sep 2026:
+  simplified issue is $5,000 up to $50,000 depending on the carrier (was
+  "$5,000 to $25,000" in the homepage hero, homepage intro and FAQ, the
+  final expense fact strip and the at-a-glance card); the simplified vs
+  guaranteed issue comparison now states health questions yes/no, medical
+  exam no, coverage range, day-one full benefit, and cost as "often lower
+  than guaranteed issue when you qualify" / "typically higher", without
+  hedges. The "40–80% more" guaranteed-issue price differential is removed
+  from the page copy (comparison card and the $10,000 FAQ) — the estimator's
+  internal 1.42–1.80x band is a model input, not a citation. Replaced with
+  "typically more expensive".
+- Phone widths (375, 390, 430 checked, six core pages): the global
+  `a[href^="tel:"]{white-space:nowrap}` made the "Rather talk now? Call …"
+  button and the final expense "Ask a licensed agent" card wider than the
+  viewport; tel buttons now wrap and only the number stays on one line. The
+  contact hero call card was clipped by its own hours line (the topbar
+  hide rule did not reach it). The About stat cards stack under 30rem. The
+  at-a-glance list stacks its label/value under 48rem.
+
+### Changed
+- `/medicare/`: "Licensed agents, not a call center" → "Real licensed
+  agents who know the plans"; quote-form card drops "— not a call center".
+- `/health-insurance/`: "We look at the monthly premium alongside what you
+  would pay when you actually use care."; assistance is "checked whether
+  you qualify", never assumed.
+- `/about-us/`: "compare carriers for your situation on the spot" →
+  "A licensed agent can explain the carriers and coverage options available
+  for your situation." The "everyone starts as an agent" line is the
+  client's own copy from the original site and stays.
+
 ### Changed
 - Copy, SEO and conversion overhaul of the six core pages (`/`,
   `/final-expense-insurance/`, `/medicare/`, `/health-insurance/`,
