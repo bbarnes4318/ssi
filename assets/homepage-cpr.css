@@ -1,31 +1,56 @@
 /* Homepage conversion / hierarchy fixes. Scoped to .page-home. */
 
-/* 1. Put the estimator beside the hero copy so Step 1 / Your age is visible in the initial viewport. */
-.page-home .hero--tool{padding:2.75rem 0 4.25rem;min-height:0;}
-.page-home .hero--tool .hero__grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(25rem,.82fr);gap:2.75rem;align-items:start;}
-.page-home .hero--tool .hero__copy{max-width:38rem;padding-top:.5rem;}
+/* HERO / ESTIMATOR */
+.page-home .hero--tool{padding:1.75rem 0 2.5rem;min-height:0;}
+.page-home .hero--tool .hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(24rem,31rem);gap:2.25rem;align-items:start;}
+.page-home .hero--tool .hero__copy{max-width:38rem;padding-top:.25rem;}
 .page-home .hero--tool .tool{margin:0;align-self:start;}
+.page-home .hero--tool .ssi-est{font-size:16px;max-width:none;}
+.page-home .hero--tool .ssi-est__shell{padding:1rem 1.1rem 1.05rem;}
+.page-home .hero--tool .ssi-est__count{margin-bottom:.35rem;font-size:.7rem;}
+.page-home .hero--tool .ssi-est__steps{margin-bottom:.7rem;padding-bottom:.5rem;}
+.page-home .hero--tool .ssi-est__steps li{font-size:.68rem;gap:.2rem;}
+.page-home .hero--tool .ssi-est__steps li span{width:1.55rem;height:1.55rem;font-size:.75rem;border-width:1.5px;}
+.page-home .hero--tool .ssi-est__q{font-size:1.28rem;line-height:1.15;margin-bottom:.3rem;}
+.page-home .hero--tool .ssi-est__help{font-size:.8rem;line-height:1.35;margin-bottom:.65rem;}
+.page-home .hero--tool .ssi-est__selectlabel{font-size:.84rem;margin-bottom:.3rem;}
+.page-home .hero--tool .ssi-est select{min-height:2.75rem;font-size:.95rem;padding:.45rem .7rem;}
+.page-home .hero--tool .ssi-est__choices{gap:.45rem;}
+.page-home .hero--tool .ssi-est__choice{min-height:2.8rem;}
+.page-home .hero--tool .ssi-est__choice span{min-height:2.8rem;padding:.35rem .75rem;font-size:.94rem;}
+.page-home .hero--tool .ssi-est__nav{margin-top:.65rem;gap:.5rem;}
+.page-home .hero--tool .ssi-est__next,.page-home .hero--tool .ssi-est__back{min-height:2.7rem;padding:.45rem 1rem;font-size:.92rem;}
+.page-home .hero--tool .ssi-est__note{margin:.55rem 0 0;padding:.55rem .7rem;font-size:.78rem;}
+.page-home .hero--tool .ssi-est__nudge{margin:.35rem 0 0;font-size:.76rem;}
+.page-home .hero--tool .ssi-est__options{gap:.45rem;}
+.page-home .hero--tool .ssi-est__opt{padding:.8rem .7rem .65rem;border-radius:5px;}
+.page-home .hero--tool .ssi-est__price{font-size:1.25rem;}
+.page-home .hero--tool .ssi-est__ticks{font-size:.7rem;}
+.page-home .hero--tool .ssi-est__wait{margin-top:.45rem;padding:.45rem .6rem;border-radius:5px;}
+.page-home .hero--tool .ssi-est__call{margin-top:.45rem;min-height:2.8rem;border-radius:5px;}
+.page-home .hero--tool .ssi-est__callno{font-size:1.1rem;}
+.page-home .hero--tool .ssi-est__estnote{margin-top:.45rem;padding:.45rem .6rem;font-size:.72rem;}
+.page-home .hero--tool .ssi-est__foot{margin-top:.25rem;}
 
-/* 2. Carrier section: one punchy idea, then immediate visual proof. */
-.page-home .sec:has(.carriers){background:#F5F6F8;color:var(--ink);padding:4.25rem 0 4.5rem;border-top:1px solid #D9DDE3;border-bottom:1px solid #D9DDE3;}
+/* CARRIER SECTION: decisive editorial composition instead of a long question. */
+.page-home .sec:has(.carriers){background:#F7F6F2;color:var(--ink);padding:4.5rem 0;border-top:1px solid #D8D6D0;border-bottom:1px solid #D8D6D0;}
 .page-home .sec:has(.carriers)::after{display:none;}
-.page-home .sec:has(.carriers) .sec__head{max-width:58rem;padding:0;border:0;margin:0 0 .7rem;}
-.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold-muted);margin-bottom:.45rem;}
-.page-home .sec:has(.carriers) .sec__head h2{max-width:22ch;color:var(--navy);font-size:clamp(2rem,3.7vw,3.1rem);line-height:1.06;letter-spacing:-.035em;}
-/* Replace the paragraph visually with the sentence people actually need to understand. */
-.page-home .sec:has(.carriers) .sec__sub{max-width:42rem;margin:0 0 1rem;padding:0;color:#4B5665;font-size:0;line-height:1.5;}
-.page-home .sec:has(.carriers) .sec__sub::after{content:"Different carriers treat health histories differently. Comparing options can mean a better fit — not just a different price.";display:block;font-size:1rem;line-height:1.55;color:#4B5665;}
-.page-home .sec:has(.carriers) .center.muted{color:#5A6574;text-align:left;margin:0 0 1rem;font-size:0;line-height:1.4;}
-.page-home .sec:has(.carriers) .center.muted::after{content:"A few of the carriers we work with:";display:block;font-size:.88rem;color:#5A6574;}
-.page-home .sec:has(.carriers) .carriers{margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #D2D7DE;box-shadow:0 12px 30px rgba(11,18,32,.08);}
-.page-home .sec:has(.carriers) .carriers li{min-height:6.25rem;padding:1.15rem 1.4rem;background:#fff;border:0;border-right:1px solid #D9DDE3;border-radius:0;}
+.page-home .sec:has(.carriers) .wrap{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);column-gap:4rem;align-items:center;}
+.page-home .sec:has(.carriers) .sec__head{max-width:32rem;padding:0;border:0;margin:0;}
+.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold-muted);margin-bottom:.65rem;}
+.page-home .sec:has(.carriers) .sec__head h2{max-width:none;color:var(--navy);font-size:0;line-height:1.02;letter-spacing:-.04em;margin:0;}
+.page-home .sec:has(.carriers) .sec__head h2::after{content:"Don't settle for the first policy you see.";display:block;font-size:clamp(2.35rem,3.8vw,3.5rem);line-height:1.02;letter-spacing:-.04em;color:var(--navy);}
+.page-home .sec:has(.carriers) .sec__sub{max-width:31rem;margin:.9rem 0 0;padding:0;color:#4B5665;font-size:1rem;line-height:1.55;}
+.page-home .sec:has(.carriers) .sec__sub::after{display:none;}
+.page-home .sec:has(.carriers) .center.muted{grid-column:2;color:#5A6574;text-align:left;margin:0 0 .65rem;font-size:.82rem;line-height:1.4;}
+.page-home .sec:has(.carriers) .center.muted::after{display:none;}
+.page-home .sec:has(.carriers) .carriers{grid-column:2;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #C9CDD2;box-shadow:0 10px 24px rgba(11,18,32,.07);}
+.page-home .sec:has(.carriers) .carriers li{min-height:6.1rem;padding:1rem 1.15rem;background:#fff;border:0;border-right:1px solid #D9DDE3;border-radius:0;}
 .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:0;}
 .page-home .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid #D9DDE3;}
-.page-home .sec:has(.carriers) .carriers img{display:block;max-width:86%;max-height:2.8rem;object-fit:contain;filter:none;opacity:1;}
+.page-home .sec:has(.carriers) .carriers img{display:block;max-width:90%;max-height:2.7rem;object-fit:contain;filter:none;opacity:1;}
 
-/* 3. Chris: stop stretching the portrait across a huge panel. The supplied
-   source is an 800px square; keep the displayed portrait disciplined and let
-   the name/title block carry the executive identity. */
+/* Founder: restrained executive treatment. */
 .page-home .founder__top{grid-template-columns:18rem 1fr;min-height:18rem;border-left:4px solid var(--gold);background:var(--navy-1);}
 .page-home .founder img{width:18rem;height:18rem;object-fit:cover;object-position:50% 30%;image-rendering:auto;}
 .page-home .founder__plate{padding:2rem 2.25rem;align-self:center;}
@@ -34,13 +59,16 @@
 .page-home .founder__plate span + span{margin-top:.2rem;color:#8F9AAA;font-size:.72rem;}
 
 @media (max-width:900px){
-  .page-home .hero--tool .hero__grid{grid-template-columns:1fr;gap:1.75rem;}
+  .page-home .hero--tool{padding:1rem 0 2rem;}
+  .page-home .hero--tool .hero__grid{grid-template-columns:1fr;gap:1.25rem;}
   .page-home .hero--tool .tool{order:-1;}
   .page-home .hero--tool .hero__copy{padding-top:0;}
+  .page-home .sec:has(.carriers) .wrap{grid-template-columns:1fr;row-gap:1.25rem;}
+  .page-home .sec:has(.carriers) .center.muted,.page-home .sec:has(.carriers) .carriers{grid-column:1;}
 }
 @media (max-width:680px){
   .page-home .sec:has(.carriers){padding:3.25rem 0 3.5rem;}
-  .page-home .sec:has(.carriers) .sec__head h2{font-size:clamp(1.9rem,8.5vw,2.5rem);}
+  .page-home .sec:has(.carriers) .sec__head h2::after{font-size:clamp(2rem,9vw,2.7rem);}
   .page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(2,1fr);}
   .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D9DDE3;}
   .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
