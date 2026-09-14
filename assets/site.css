@@ -74,25 +74,15 @@
 .blurb p:last-child,.card p:last-child{margin-bottom:0;}
 .quotes__meta{margin-top:1rem;}
 
-/* Hero proof rail — restore the stronger, designed treatment under the CTAs.
-   It reads as three credentials, not three loose lines of text. */
-.hero__proof{
-  margin-top:1.5rem;
-  padding:1rem 1.15rem;
-  gap:.8rem 1.4rem;
-  background:rgba(11,18,32,.62);
-  border:1px solid rgba(198,168,107,.42);
-  border-left:3px solid var(--gold);
-  box-shadow:0 12px 28px rgba(0,0,0,.18);
-}
+/* Hero proof rail — restore the stronger, designed treatment under the CTAs. */
+.hero__proof{margin-top:1.5rem;padding:1rem 1.15rem;gap:.8rem 1.4rem;background:rgba(11,18,32,.62);border:1px solid rgba(198,168,107,.42);border-left:3px solid var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.18);}
 .hero__proof li:not(:first-child){padding-left:1.4rem;border-left:1px solid rgba(198,168,107,.38);}
 .hero__proof li strong{font-size:1.02rem;letter-spacing:.015em;}
 .hero__proof li span{font-size:.8rem;color:#D4DAE2;}
 .hero__proof .hero__bbb{width:116px;}
 .hero__proof .hero__bbb img{filter:none;}
 
-/* Independent-agency / carrier section — turn the awkward block into an
-   editorial insurance comparison section rather than a pile of centered copy. */
+/* Independent-agency / carrier section. */
 .sec:has(.carriers){background:var(--lighter);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
 .sec:has(.carriers) .sec__head{max-width:52rem;position:relative;padding-left:1.25rem;border-left:4px solid var(--gold);}
 .sec:has(.carriers) .sec__head .eyebrow{margin-bottom:.5rem;}
@@ -104,175 +94,41 @@
 .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid var(--rule);}
 .sec:has(.carriers) .carriers img{max-height:2.4rem;max-width:78%;}
 
-/* Founder / Chris Martin — make the photo feel like part of an editorial
-   story, not a floating little card dropped into the page. */
-.founder{
-  max-width:64rem;
-  margin:0;
-  border:0;
-  border-radius:0;
-  overflow:visible;
-  background:transparent;
-  box-shadow:none;
-}
-.founder__top{
-  grid-template-columns:minmax(16rem,19rem) 1fr;
-  background:var(--navy-1);
-  border:0;
-  border-left:4px solid var(--gold);
-  min-height:19rem;
-}
+/* Founder / Chris Martin. */
+.founder{max-width:64rem;margin:0;border:0;border-radius:0;overflow:visible;background:transparent;box-shadow:none;}
+.founder__top{grid-template-columns:minmax(16rem,19rem) 1fr;background:var(--navy-1);border:0;border-left:4px solid var(--gold);min-height:19rem;}
 .founder img{width:100%;height:19rem;object-fit:cover;object-position:center 30%;}
 .founder__plate{padding:2.2rem 2.4rem;align-self:center;}
 .founder__plate strong{font-size:1.65rem;}
 .founder__plate span{font-size:.92rem;color:#D0D6DE;}
 .founder__q{margin:0;padding:1.25rem 1.5rem 1.35rem;border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--paper);font-size:1rem;color:var(--navy);}
 
-/* Keep the page's main content consistently editorial on wide screens. */
 .split{align-items:start;}
 .split > div:first-child .sec__head,.split > div:first-child .sec__h{text-align:left;}
 
-/* ========================================================================
-   Interior-page refinement
-   Apply the same mature editorial system to Medicare, ACA, About and Contact.
-   The goal is stronger hierarchy and composition — not more decoration.
-   ======================================================================== */
-
-/* Interior heroes: give every page the same deliberate credential treatment
-   used on the homepage without changing the underlying copy. */
-.page-medicare .hero__points,
-.page-health .hero__points,
-.page-about .hero__points,
-.page-contact .hero__points{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:0;
-  margin:1.5rem 0 0;
-  padding:0;
-  list-style:none;
-  border-top:1px solid rgba(198,168,107,.45);
-  border-bottom:1px solid rgba(198,168,107,.45);
-}
-.page-medicare .hero__points li,
-.page-health .hero__points li,
-.page-about .hero__points li,
-.page-contact .hero__points li{
-  margin:0;
-  padding:.9rem 1rem;
-  color:#fff;
-  font-size:.78rem;
-  font-weight:600;
-  letter-spacing:.02em;
-  line-height:1.35;
-  border-right:1px solid rgba(198,168,107,.32);
-}
-.page-medicare .hero__points li:last-child,
-.page-health .hero__points li:last-child,
-.page-about .hero__points li:last-child,
-.page-contact .hero__points li:last-child{border-right:0;}
-
-/* Make interior section introductions read like editorial chapters rather
-   than centered template blocks. */
-.page-medicare .sec__h,
-.page-health .sec__h,
-.page-about .sec__h,
-.page-contact .sec__h{
-  max-width:32ch;
-  text-align:left;
-}
-.page-medicare .sec > .wrap > .eyebrow,
-.page-health .sec > .wrap > .eyebrow,
-.page-about .sec > .wrap > .eyebrow,
-.page-contact .sec > .wrap > .eyebrow{display:block;text-align:left;margin-bottom:.55rem;}
-.page-medicare .sec > .wrap > .eyebrow--center,
-.page-health .sec > .wrap > .eyebrow--center,
-.page-about .sec > .wrap > .eyebrow--center,
-.page-contact .sec > .wrap > .eyebrow--center{margin-left:0;margin-right:0;}
-
-/* Comparison / information grids should feel structured and substantial,
-   while avoiding the floating SaaS-card look. */
-.page-medicare .cards,
-.page-health .cards,
-.page-about .cards{
-  align-items:stretch;
-}
-.page-medicare .card,
-.page-health .card,
-.page-about .card{
-  border-radius:3px;
-  border-top:3px solid var(--gold);
-  background:#fff;
-  box-shadow:0 4px 16px rgba(11,18,32,.055);
-}
-.page-medicare .card:hover,
-.page-health .card:hover,
-.page-about .card:hover{box-shadow:0 4px 16px rgba(11,18,32,.055);}
-
-/* Three-step sections: replace the generic numbered-card appearance with a
-   clean editorial rule and generous spacing. */
-.page-medicare .how,
-.page-health .how,
-.page-about .how,
-.page-contact .how{
-  border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-  gap:0;
-}
-.page-medicare .how__step,
-.page-health .how__step,
-.page-about .how__step,
-.page-contact .how__step{
-  border:0;
-  border-right:1px solid var(--rule);
-  border-radius:0;
-  background:transparent;
-  padding:1.65rem 1.5rem 1.5rem;
-  box-shadow:none;
-}
-.page-medicare .how__step:last-child,
-.page-health .how__step:last-child,
-.page-about .how__step:last-child,
-.page-contact .how__step:last-child{border-right:0;}
-.page-medicare .how__n,
-.page-health .how__n,
-.page-about .how__n,
-.page-contact .how__n{
-  display:block;
-  width:auto;
-  height:auto;
-  margin:0 0 .85rem;
-  border:0;
-  border-radius:0;
-  background:none;
-  color:var(--gold);
-  font-size:.8rem;
-  font-weight:700;
-  letter-spacing:.14em;
-}
-
-/* Stats should read as proof, not dashboard widgets. */
-.page-about .stat{
-  border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-  margin-bottom:4.5rem;
-}
+/* Interior-page refinement. */
+.page-medicare .hero__points,.page-health .hero__points,.page-about .hero__points,.page-contact .hero__points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:1.5rem 0 0;padding:0;list-style:none;border-top:1px solid rgba(198,168,107,.45);border-bottom:1px solid rgba(198,168,107,.45);}
+.page-medicare .hero__points li,.page-health .hero__points li,.page-about .hero__points li,.page-contact .hero__points li{margin:0;padding:.9rem 1rem;color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.02em;line-height:1.35;border-right:1px solid rgba(198,168,107,.32);}
+.page-medicare .hero__points li:last-child,.page-health .hero__points li:last-child,.page-about .hero__points li:last-child,.page-contact .hero__points li:last-child{border-right:0;}
+.page-medicare .sec__h,.page-health .sec__h,.page-about .sec__h,.page-contact .sec__h{max-width:32ch;text-align:left;}
+.page-medicare .sec > .wrap > .eyebrow,.page-health .sec > .wrap > .eyebrow,.page-about .sec > .wrap > .eyebrow,.page-contact .sec > .wrap > .eyebrow{display:block;text-align:left;margin-bottom:.55rem;}
+.page-medicare .sec > .wrap > .eyebrow--center,.page-health .sec > .wrap > .eyebrow--center,.page-about .sec > .wrap > .eyebrow--center,.page-contact .sec > .wrap > .eyebrow--center{margin-left:0;margin-right:0;}
+.page-medicare .cards,.page-health .cards,.page-about .cards{align-items:stretch;}
+.page-medicare .card,.page-health .card,.page-about .card{border-radius:3px;border-top:3px solid var(--gold);background:#fff;box-shadow:0 4px 16px rgba(11,18,32,.055);}
+.page-medicare .card:hover,.page-health .card:hover,.page-about .card:hover{box-shadow:0 4px 16px rgba(11,18,32,.055);}
+.page-medicare .how,.page-health .how,.page-about .how,.page-contact .how{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);gap:0;}
+.page-medicare .how__step,.page-health .how__step,.page-about .how__step,.page-contact .how__step{border:0;border-right:1px solid var(--rule);border-radius:0;background:transparent;padding:1.65rem 1.5rem 1.5rem;box-shadow:none;}
+.page-medicare .how__step:last-child,.page-health .how__step:last-child,.page-about .how__step:last-child,.page-contact .how__step:last-child{border-right:0;}
+.page-medicare .how__n,.page-health .how__n,.page-about .how__n,.page-contact .how__n{display:block;width:auto;height:auto;margin:0 0 .85rem;border:0;border-radius:0;background:none;color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.14em;}
+.page-about .stat{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:4.5rem;}
 .page-about .stat > div{padding:1.25rem 1.5rem;border-right:1px solid var(--rule);}
 .page-about .stat > div:last-child{border-right:0;}
 .page-about .stat svg{color:var(--gold);}
 .page-about .stat strong{font-size:1.65rem;}
 .page-about .stat span{font-size:.8rem;color:var(--muted);}
-
-/* About-page photography gets editorial scale instead of looking like a
-   random card sitting beside the copy. */
-.page-about .split > picture,
-.page-about .split > img{display:block;}
-.page-about .split > picture img,
-.page-about .split > img{width:100%;min-height:28rem;object-fit:cover;border-radius:4px;box-shadow:0 18px 36px rgba(11,18,32,.13);}
-.page-about .split--rev > picture img,
-.page-about .split--rev > img{min-height:24rem;}
-
-/* Contact page: the phone card becomes a strong visual anchor, while the
-   reach-us panel stays flat and trustworthy. */
+.page-about .split > picture,.page-about .split > img{display:block;}
+.page-about .split > picture img,.page-about .split > img{width:100%;min-height:28rem;object-fit:cover;border-radius:4px;box-shadow:0 18px 36px rgba(11,18,32,.13);}
+.page-about .split--rev > picture img,.page-about .split--rev > img{min-height:24rem;}
 .page-contact .callcard{border-radius:4px;box-shadow:0 20px 42px rgba(0,0,0,.25);overflow:hidden;}
 .page-contact .callcard img{filter:saturate(.88) contrast(1.03);}
 .page-contact .callcard__status{background:rgba(11,18,32,.9);}
@@ -283,31 +139,13 @@
 .page-contact .cpanel__row{border-top:1px solid var(--rule);padding:1rem 0;}
 .page-contact .cpanel__row:last-child{border-bottom:1px solid var(--rule);}
 .page-contact .cpanel__row svg{color:var(--gold);}
-
-/* Interior forms and callback panels: align labels and controls to the same
-   quiet, premium visual language as the rest of the site. */
-.page-medicare .form,
-.page-health .form,
-.page-about .form,
-.page-contact .form{border-radius:4px;box-shadow:0 12px 30px rgba(11,18,32,.07);}
-.page-medicare .quick,
-.page-health .quick,
-.page-about .quick,
-.page-contact .quick{border-radius:4px;box-shadow:none;border:1px solid var(--rule);}
+.page-medicare .form,.page-health .form,.page-about .form,.page-contact .form{border-radius:4px;box-shadow:0 12px 30px rgba(11,18,32,.07);}
+.page-medicare .quick,.page-health .quick,.page-about .quick,.page-contact .quick{border-radius:4px;box-shadow:none;border:1px solid var(--rule);}
 
 @media (max-width:900px){
-  .page-medicare .hero__points,
-  .page-health .hero__points,
-  .page-about .hero__points,
-  .page-contact .hero__points{grid-template-columns:1fr;}
-  .page-medicare .hero__points li,
-  .page-health .hero__points li,
-  .page-about .hero__points li,
-  .page-contact .hero__points li{border-right:0;border-bottom:1px solid rgba(198,168,107,.25);}
-  .page-medicare .hero__points li:last-child,
-  .page-health .hero__points li:last-child,
-  .page-about .hero__points li:last-child,
-  .page-contact .hero__points li:last-child{border-bottom:0;}
+  .page-medicare .hero__points,.page-health .hero__points,.page-about .hero__points,.page-contact .hero__points{grid-template-columns:1fr;}
+  .page-medicare .hero__points li,.page-health .hero__points li,.page-about .hero__points li,.page-contact .hero__points li{border-right:0;border-bottom:1px solid rgba(198,168,107,.25);}
+  .page-medicare .hero__points li:last-child,.page-health .hero__points li:last-child,.page-about .hero__points li:last-child,.page-contact .hero__points li:last-child{border-bottom:0;}
   .page-contact .creach{grid-template-columns:1fr;}
 }
 
@@ -332,7 +170,41 @@
   .ssi-est__options{gap:.65rem;}
   .page-about .stat{margin-bottom:3rem;}
   .page-about .stat > div{padding:1rem;}
-  .page-about .split > picture img,
-  .page-about .split > img{min-height:20rem;}
+  .page-about .split > picture img,.page-about .split > img{min-height:20rem;}
   .page-contact .creach{margin-top:2rem;}
+}
+
+/* ========================================================================
+   Homepage CPR — carrier comparison and founder photo.
+   These overrides intentionally come last so the homepage has a stronger
+   editorial composition without changing the copy or estimator behavior.
+   ======================================================================== */
+.page-home .founder__top{grid-template-columns:minmax(22rem,29rem) 1fr;min-height:23rem;}
+.page-home .founder img{height:23rem;object-fit:cover;object-position:50% 24%;transform:none;filter:none;image-rendering:auto;}
+.page-home .founder__plate{padding:2.5rem 2.75rem;}
+
+.page-home .sec:has(.carriers){background:var(--navy-1);border-top:0;border-bottom:0;padding:5.5rem 0;position:relative;overflow:hidden;}
+.page-home .sec:has(.carriers)::after{content:"";position:absolute;right:-8rem;top:-8rem;width:30rem;height:30rem;border:1px solid rgba(198,168,107,.12);border-radius:50%;pointer-events:none;}
+.page-home .sec:has(.carriers) .wrap{position:relative;z-index:1;}
+.page-home .sec:has(.carriers) .sec__head{max-width:60rem;padding:0 0 0 1.5rem;border-left:4px solid var(--gold);margin-bottom:.75rem;}
+.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold);margin-bottom:.7rem;}
+.page-home .sec:has(.carriers) .sec__head h2{max-width:25ch;color:#fff;font-size:clamp(2.15rem,4vw,3.45rem);line-height:1.04;letter-spacing:-.04em;margin:0;}
+.page-home .sec:has(.carriers) .sec__sub{max-width:52rem;margin:0 0 2.5rem;padding:0 0 0 1.5rem;color:#D5DBE4;font-size:1.05rem;line-height:1.75;}
+.page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(3,1fr);gap:0;margin:0;border:1px solid rgba(198,168,107,.28);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.2);}
+.page-home .sec:has(.carriers) .carriers li{min-height:6.5rem;border:0;border-right:1px solid #D4D8DE;border-radius:0;background:#fff;padding:1.15rem 1.35rem;}
+.page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:0;}
+.page-home .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid #D4D8DE;}
+.page-home .sec:has(.carriers) .carriers img{max-height:2.65rem;max-width:76%;}
+
+@media (max-width:680px){
+  .page-home .founder__top{grid-template-columns:1fr;min-height:0;}
+  .page-home .founder img{height:21rem;object-position:50% 24%;}
+  .page-home .sec:has(.carriers){padding:4rem 0;}
+  .page-home .sec:has(.carriers) .sec__head{padding-left:1rem;border-left-width:3px;}
+  .page-home .sec:has(.carriers) .sec__head h2{font-size:clamp(2rem,9vw,2.65rem);}
+  .page-home .sec:has(.carriers) .sec__sub{padding-left:0;font-size:.98rem;}
+  .page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(2,1fr);}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D4D8DE;}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(n+3){border-top:1px solid #D4D8DE;}
 }
