@@ -1,0 +1,48 @@
+name: One-time homepage/about image swap
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  swap:
+    if: ${{ !contains(github.event.head_commit.message, 'Swap homepage/about section images') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Swap the three section images
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p = Path(path)
+              s = p.read_text()
+              if old not in s:
+                  raise SystemExit(f'Missing expected text in {path}: {old}')
+              p.write_text(s.replace(old, new, 1))
+
+          for path in ['src/pages/about-us.html', 'about-us/index.html']:
+              replace_once(path, '/assets/img/chris-martin-2.webp', '/assets/img/team-office-2.webp')
+              replace_once(path, '/assets/img/chris-martin-2.jpg', '/assets/img/team-office-2.jpg')
+              replace_once(path, '/assets/img/team-office-2.webp', '/assets/img/team-meeting-2.webp')
+              replace_once(path, '/assets/img/team-office-2.jpg', '/assets/img/team-meeting-2.jpg')
+
+          for path in ['src/pages/home.html', 'index.html']:
+              replace_once(path, '/assets/img/team-meeting-2.webp', '/assets/img/chris-martin-2.webp')
+              replace_once(path, '/assets/img/team-meeting-2.jpg', '/assets/img/chris-martin-2.jpg')
+          PY
+
+      - name: Commit and remove this one-time workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/pages/about-us.html about-us/index.html src/pages/home.html index.html
+          git rm .github/workflows/one-time-image-swap.yml
+          git commit -m 'Swap homepage/about section images'
+          git push
