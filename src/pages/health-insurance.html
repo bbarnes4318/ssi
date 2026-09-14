@@ -29,6 +29,15 @@
   </div>
 </section>
 
+<section class="facts">
+  <div class="wrap facts__grid">
+    <div class="fact"><strong>10</strong><span>essential health benefits every Marketplace plan must cover, by law</span></div>
+    <div class="fact"><strong>4 tiers</strong><span>Bronze, Silver, Gold, Platinum: the same care, a different split of the cost</span></div>
+    <div class="fact"><strong>60 days</strong><span>to enroll after losing job-based coverage, outside Open Enrollment</span></div>
+    <div class="fact"><strong>Nov&ndash;Jan</strong><span>Open Enrollment window most years; exact dates vary by state</span></div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap split" data-reveal>
     <div>
@@ -69,15 +78,40 @@
       <p>A lower monthly premium can come with a higher deductible or higher costs when you use medical care. A higher-premium plan may make more sense for someone who expects to use healthcare regularly.</p>
       <p>Every Marketplace plan is Bronze, Silver, Gold or Platinum. The metal says nothing about quality of care; it is the split between what you pay in premium each month and what you pay when you use care. The percentages are averages across a typical population, set by federal rule.</p>
     </div>
-    <table class="ctable ctable--compare ctable--tiers"><caption class="sr">Marketplace metal tiers compared</caption>
-      <thead><tr><th scope="col">Tier</th><th scope="col">Plan pays</th><th scope="col">You pay</th><th scope="col">Monthly premium</th><th scope="col">Deductible and costs when you use care</th><th scope="col">Typically suits</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Bronze</th><td data-label="Plan pays">60%</td><td data-label="You pay">40%</td><td data-label="Monthly premium">Lowest</td><td data-label="Deductible and costs when you use care">Highest. The deductible can run into the thousands before most care is covered.</td><td data-label="Typically suits">People who want protection against a serious illness or accident and expect to use little routine care.</td></tr>
-        <tr><th scope="row">Silver</th><td data-label="Plan pays">70%</td><td data-label="You pay">30%</td><td data-label="Monthly premium">Moderate</td><td data-label="Deductible and costs when you use care">Moderate. If your income qualifies you for extra savings, a Silver plan pays 73&ndash;96% instead, and only Silver carries that discount.</td><td data-label="Typically suits">Most subsidy-eligible buyers, and anyone who wants the middle ground.</td></tr>
-        <tr><th scope="row">Gold</th><td data-label="Plan pays">80%</td><td data-label="You pay">20%</td><td data-label="Monthly premium">High</td><td data-label="Deductible and costs when you use care">Low. Care costs less at the point of use.</td><td data-label="Typically suits">People who use care regularly and would rather pay a steady premium than large bills.</td></tr>
-        <tr><th scope="row">Platinum</th><td data-label="Plan pays">90%</td><td data-label="You pay">10%</td><td data-label="Monthly premium">Highest</td><td data-label="Deductible and costs when you use care">Lowest. Very little is owed at the point of use.</td><td data-label="Typically suits">People with ongoing, predictable medical needs. Not offered in every county.</td></tr>
-      </tbody>
-    </table>
+    <div class="tiers">
+      <article class="tier tier--bronze">
+        <h3>Bronze</h3>
+        <div class="tier__split"><span><b>60%</b> plan pays</span><span><b>40%</b> you pay</span></div>
+        <div class="tier__bar" aria-hidden="true"><b></b></div>
+        <div class="tier__row"><span>Monthly premium</span><b>Lowest</b><i class="meter meter--1" aria-hidden="true"></i></div>
+        <div class="tier__row"><span>Out-of-pocket costs</span><b>Highest</b><i class="meter meter--4" aria-hidden="true"></i></div>
+        <p class="tier__suits"><strong>Suits:</strong> people who want protection against a serious illness or accident and expect to use little routine care. The deductible can run into the thousands.</p>
+      </article>
+      <article class="tier tier--silver">
+        <h3>Silver <span class="tier__tag">Extra savings</span></h3>
+        <div class="tier__split"><span><b>70%</b> plan pays</span><span><b>30%</b> you pay</span></div>
+        <div class="tier__bar" aria-hidden="true"><b></b></div>
+        <div class="tier__row"><span>Monthly premium</span><b>Moderate</b><i class="meter meter--2" aria-hidden="true"></i></div>
+        <div class="tier__row"><span>Out-of-pocket costs</span><b>Moderate</b><i class="meter meter--3" aria-hidden="true"></i></div>
+        <p class="tier__suits"><strong>Suits:</strong> most subsidy-eligible buyers. If your income qualifies for extra savings, Silver pays 73&ndash;96% instead, and only Silver carries that discount.</p>
+      </article>
+      <article class="tier tier--gold">
+        <h3>Gold</h3>
+        <div class="tier__split"><span><b>80%</b> plan pays</span><span><b>20%</b> you pay</span></div>
+        <div class="tier__bar" aria-hidden="true"><b></b></div>
+        <div class="tier__row"><span>Monthly premium</span><b>High</b><i class="meter meter--3" aria-hidden="true"></i></div>
+        <div class="tier__row"><span>Out-of-pocket costs</span><b>Low</b><i class="meter meter--2" aria-hidden="true"></i></div>
+        <p class="tier__suits"><strong>Suits:</strong> people who use care regularly and would rather pay a steady premium than large bills.</p>
+      </article>
+      <article class="tier tier--platinum">
+        <h3>Platinum</h3>
+        <div class="tier__split"><span><b>90%</b> plan pays</span><span><b>10%</b> you pay</span></div>
+        <div class="tier__bar" aria-hidden="true"><b></b></div>
+        <div class="tier__row"><span>Monthly premium</span><b>Highest</b><i class="meter meter--4" aria-hidden="true"></i></div>
+        <div class="tier__row"><span>Out-of-pocket costs</span><b>Lowest</b><i class="meter meter--1" aria-hidden="true"></i></div>
+        <p class="tier__suits"><strong>Suits:</strong> people with ongoing, predictable medical needs. Not offered in every county.</p>
+      </article>
+    </div>
     <p class="compare__note">Percentages are the tiers&rsquo; actuarial values as published by <a href="https://www.healthcare.gov/choose-a-plan/plans-categories/" rel="noopener">HealthCare.gov</a>. What any one person pays varies by plan and by how much care they use. A fifth category, Catastrophic, is limited to people under 30 or with a hardship exemption.</p>
   </div>
 </section>
