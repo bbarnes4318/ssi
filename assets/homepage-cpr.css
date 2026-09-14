@@ -1,0 +1,149 @@
+/* Homepage conversion / hierarchy fixes. Scoped to .page-home. */
+
+/* 1. Put the estimator beside the hero copy so Step 1 / Your age is visible in the initial viewport. */
+.page-home .hero--tool{
+  padding:2.75rem 0 4.25rem;
+  min-height:0;
+}
+.page-home .hero--tool .hero__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(25rem,.82fr);
+  gap:2.75rem;
+  align-items:start;
+}
+.page-home .hero--tool .hero__copy{
+  max-width:38rem;
+  padding-top:.5rem;
+}
+.page-home .hero--tool .tool{
+  margin:0;
+  align-self:start;
+}
+
+/* 2. Kill the long, low-attention carrier essay. The section should communicate
+   one idea in seconds, then let the carrier wall do the proof. */
+.page-home .sec:has(.carriers){
+  background:#F5F6F8;
+  color:var(--ink);
+  padding:4.25rem 0 4.5rem;
+  border-top:1px solid #D9DDE3;
+  border-bottom:1px solid #D9DDE3;
+}
+.page-home .sec:has(.carriers)::after{display:none;}
+.page-home .sec:has(.carriers) .sec__head{
+  max-width:58rem;
+  padding:0;
+  border:0;
+  margin:0 0 .75rem;
+}
+.page-home .sec:has(.carriers) .sec__head .eyebrow{
+  color:var(--gold-muted);
+  margin-bottom:.45rem;
+}
+.page-home .sec:has(.carriers) .sec__head h2{
+  color:var(--navy);
+  max-width:22ch;
+  font-size:clamp(2rem,3.7vw,3.1rem);
+  line-height:1.06;
+  letter-spacing:-.035em;
+}
+.page-home .sec:has(.carriers) .sec__sub{
+  max-width:40rem;
+  margin:0 0 1.15rem;
+  padding:0;
+  color:#4B5665;
+  font-size:1rem;
+  line-height:1.55;
+}
+.page-home .sec:has(.carriers) .center.muted{
+  color:#5A6574;
+  text-align:left;
+  margin:0 0 1rem;
+  font-size:.9rem;
+}
+.page-home .sec:has(.carriers) .carriers{
+  margin:0;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  background:#fff;
+  border:1px solid #D2D7DE;
+  box-shadow:0 12px 30px rgba(11,18,32,.08);
+}
+.page-home .sec:has(.carriers) .carriers li{
+  min-height:6.25rem;
+  padding:1.15rem 1.4rem;
+  background:#fff;
+  border:0;
+  border-right:1px solid #D9DDE3;
+  border-radius:0;
+}
+.page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:0;}
+.page-home .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid #D9DDE3;}
+.page-home .sec:has(.carriers) .carriers img{
+  display:block;
+  max-width:86%;
+  max-height:2.8rem;
+  object-fit:contain;
+  filter:none;
+  opacity:1;
+}
+
+/* 3. Chris: stop stretching the low-res portrait across a huge panel.
+   Keep the portrait close to the supplied 800px square source and make the
+   identity block look like a deliberate executive credential, not loose copy. */
+.page-home .founder__top{
+  grid-template-columns:18rem 1fr;
+  min-height:18rem;
+  border-left:4px solid var(--gold);
+  background:var(--navy-1);
+}
+.page-home .founder img{
+  width:18rem;
+  height:18rem;
+  object-fit:cover;
+  object-position:50% 30%;
+  image-rendering:auto;
+}
+.page-home .founder__plate{
+  padding:2rem 2.25rem;
+  align-self:center;
+}
+.page-home .founder__plate strong{
+  display:block;
+  margin:0 0 .4rem;
+  color:#fff;
+  font-size:1.8rem;
+  line-height:1.1;
+  letter-spacing:-.025em;
+}
+.page-home .founder__plate span{
+  display:block;
+  margin:0;
+  color:#C7CFDA;
+  font-size:.82rem;
+  line-height:1.45;
+  letter-spacing:.02em;
+}
+.page-home .founder__plate span + span{
+  margin-top:.2rem;
+  color:#8F9AAA;
+  font-size:.72rem;
+}
+
+@media (max-width:900px){
+  .page-home .hero--tool .hero__grid{grid-template-columns:1fr;gap:1.75rem;}
+  .page-home .hero--tool .tool{order:-1;}
+  .page-home .hero--tool .hero__copy{padding-top:0;}
+}
+
+@media (max-width:680px){
+  .page-home .sec:has(.carriers){padding:3.25rem 0 3.5rem;}
+  .page-home .sec:has(.carriers) .sec__head h2{font-size:clamp(1.9rem,8.5vw,2.5rem);}
+  .page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(2,1fr);}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D9DDE3;}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
+  .page-home .sec:has(.carriers) .carriers li:nth-child(n+3){border-top:1px solid #D9DDE3;}
+  .page-home .founder__top{grid-template-columns:1fr;min-height:0;}
+  .page-home .founder img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
+  .page-home .founder__plate{padding:1.4rem 1.5rem 1.5rem;}
+}
