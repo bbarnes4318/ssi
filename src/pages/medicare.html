@@ -56,30 +56,35 @@
       <p>Original Medicare is administered by the federal government. Medicare Advantage provides Part A and Part B coverage through a private Medicare-approved plan. You must be enrolled in both Part A and Part B to join one.</p>
       <p>Neither choice is automatically right for everyone. Provider access, plan rules, costs and individual circumstances matter. The structural differences, side by side:</p>
     </div>
-    <div class="compare">
-      <div class="compare__col">
-        <span class="compare__tag">Run by the federal government</span>
-        <h3>Original Medicare</h3>
-        <p class="compare__lead">Part A and Part B, directly from Medicare.</p>
-        <dl>
-          <div><dt>Delivered by</dt><dd>The federal Medicare program (Centers for Medicare &amp; Medicaid Services)</dd></div>
-          <div><dt>Parts A and B</dt><dd>Managed separately, each with its own rules</dd></div>
-          <div><dt>Doctors</dt><dd>Any doctor or hospital in the U.S. that accepts Medicare</dd></div>
-          <div><dt>Medications</dt><dd>Not included; added through a separate Medicare plan</dd></div>
-          <div><dt>Yearly limit</dt><dd>None on what you pay, unless you buy separate supplemental coverage</dd></div>
-        </dl>
+    <div class="versus">
+      <div class="versus__heads">
+        <div class="versus__head versus__head--om"><span class="compare__tag">Run by the federal government</span><h3>Original Medicare</h3><p>Part A and Part B, directly from Medicare.</p></div>
+        <div class="versus__head versus__head--ma"><span class="compare__tag">Run by a private plan</span><h3>Medicare Advantage</h3><p>Part A and Part B through a Medicare-approved private plan that must cover everything Original Medicare covers.</p></div>
       </div>
-      <div class="compare__col compare__col--gi">
-        <span class="compare__tag">Run by a private plan</span>
-        <h3>Medicare Advantage</h3>
-        <p class="compare__lead">Part A and Part B through a Medicare-approved private plan that must cover everything Original Medicare covers.</p>
-        <dl>
-          <div><dt>Delivered by</dt><dd>A private insurance company, under contract with Medicare</dd></div>
-          <div><dt>Parts A and B</dt><dd>Under one plan, one card and one set of plan rules</dd></div>
-          <div><dt>Doctors</dt><dd>Each plan sets its own network; you may need to use providers in it</dd></div>
-          <div><dt>Medications</dt><dd>Usually included in the plan; some plans leave it out</dd></div>
-          <div><dt>Yearly limit</dt><dd>Every plan sets a yearly cap on what you pay for covered Medicare services</dd></div>
-        </dl>
+      <div class="versus__row">
+        <div class="versus__k"><svg aria-hidden="true"><use href="#i-building"/></svg><span>Delivered by</span></div>
+        <div class="versus__om" data-label="Original Medicare">The federal Medicare program (CMS)</div>
+        <div class="versus__ma" data-label="Medicare Advantage">A private insurance company, under contract with Medicare</div>
+      </div>
+      <div class="versus__row">
+        <div class="versus__k"><svg aria-hidden="true"><use href="#i-card"/></svg><span>Parts A and B</span></div>
+        <div class="versus__om" data-label="Original Medicare">Managed separately, each with its own rules</div>
+        <div class="versus__ma" data-label="Medicare Advantage">One plan, one card, one set of plan rules</div>
+      </div>
+      <div class="versus__row">
+        <div class="versus__k"><svg aria-hidden="true"><use href="#i-stetho"/></svg><span>Doctors</span></div>
+        <div class="versus__om" data-label="Original Medicare">Any doctor or hospital in the U.S. that accepts Medicare</div>
+        <div class="versus__ma" data-label="Medicare Advantage">Each plan sets its own network; you may need to use providers in it</div>
+      </div>
+      <div class="versus__row">
+        <div class="versus__k"><svg aria-hidden="true"><use href="#i-pill"/></svg><span>Medications</span></div>
+        <div class="versus__om" data-label="Original Medicare">Not included; added through a separate Medicare plan</div>
+        <div class="versus__ma" data-label="Medicare Advantage">Usually included in the plan; some plans leave it out</div>
+      </div>
+      <div class="versus__row">
+        <div class="versus__k"><svg aria-hidden="true"><use href="#i-cap"/></svg><span>Yearly limit on what you pay</span></div>
+        <div class="versus__om" data-label="Original Medicare">None, unless you buy separate supplemental coverage</div>
+        <div class="versus__ma" data-label="Medicare Advantage">Every plan sets a yearly cap for covered Medicare services</div>
       </div>
     </div>
     <p class="compare__note">Each plan sets its own network, its own costs and its own rules. A licensed agent lays those differences side by side for the plans filed for your county.</p>
@@ -87,23 +92,20 @@
 </section>
 
 <section class="sec sec--light" id="prepare">
-  <div class="wrap split" data-reveal>
-    <div>
-      <span class="eyebrow">Before you compare</span>
-      <h2>What should you have ready when comparing plans?</h2>
-      <hr class="divider">
-      <p>The more information you have available, the easier it is to compare whether a plan fits the way you actually use healthcare. Nothing on this list is required to talk with us, but each item lets the agent check a plan against your real situation rather than a general one.</p>
-      <ol class="ehb ehb--single">
-        <li><div><strong>Your Medicare card</strong><span>Your Part A and Part B start dates are printed on it</span></div></li>
-        <li><div><strong>Your doctors&rsquo; names</strong><span>Each plan has its own network, checked against its directory</span></div></li>
-        <li><div><strong>Your prescription list</strong><span>Name, dose and how often, so coverage can be checked plan by plan</span></div></li>
-        <li><div><strong>Your current insurance information</strong><span>Whatever you have now, whether Medicare, an employer plan or something else</span></div></li>
-        <li><div><strong>Your preferred pharmacies</strong><span>Plans can treat pharmacies differently</span></div></li>
-        <li><div><strong>Questions about upcoming care</strong><span>A planned surgery, a specialist you expect to see, anything you want a plan to handle</span></div></li>
-      </ol>
-      <p class="muted">Whether a specific doctor, medication or pharmacy is covered is verified against the plan itself before you enroll, not assumed.</p>
+  <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Before you compare</span>
+    <h2 class="sec__h">What should you have ready when comparing plans?</h2>
+    <hr class="divider divider--center">
+    <p class="sec__sub">Nothing on this list is required to talk with us, but each item lets the agent check a plan against your real situation rather than a general one.</p>
+    <div class="blurbs">
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-card"/></svg><h3>Your Medicare card</h3><p>Your Part A and Part B start dates are printed on it</p></div>
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-stetho"/></svg><h3>Your doctors&rsquo; names</h3><p>Each plan has its own network, checked against its directory</p></div>
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-pill"/></svg><h3>Your prescription list</h3><p>Name, dose and how often, so coverage can be checked plan by plan</p></div>
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-shield"/></svg><h3>Your current insurance</h3><p>Whatever you have now, whether Medicare, an employer plan or something else</p></div>
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-pharmacy"/></svg><h3>Your preferred pharmacies</h3><p>Plans can treat pharmacies differently</p></div>
+      <div class="blurb"><svg aria-hidden="true"><use href="#i-calendar"/></svg><h3>Questions about upcoming care</h3><p>A planned surgery, a specialist you expect to see, anything you want a plan to handle</p></div>
     </div>
-    <img src="/assets/img/handshake-sign-2.jpg" alt="A handshake under the Senior Solutions Insurance sign at the office" width="1440" height="1920" loading="lazy" decoding="async" class="split__photo split__photo--focus-22">
+    <p class="compare__note">Whether a specific doctor, medication or pharmacy is covered is verified against the plan itself before you enroll, not assumed.</p>
   </div>
 </section>
 
