@@ -9,34 +9,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Correct image placement
+      - name: Repair exact image placements
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          about = Path('src/pages/about-us.html')
-          s = about.read_text()
-          # Source: Why section must be plain team-office; Meet section must be Chris founder card.
-          s = re.sub(r'(<h2>Why our agents start with the products</h2>.*?<div class="founder">).*?(</div>\s*</div>\s*</section>)', r'\1'.replace('<div class="founder">','<img src="/assets/img/team-office-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">') + r'\2', s, count=1, flags=re.S)
-          if '<h2>Meet Chris Martin</h2>' in s and 'src="/assets/img/chris-martin-2.jpg"' not in s[s.index('<h2>Meet Chris Martin</h2>'):s.index('<h2>Meet Chris Martin</h2>')+2500]:
-              s = re.sub(r'(<h2>Meet Chris Martin</h2>.*?<p class="badge__wrap">.*?</p>\s*</div>\s*)<img[^>]+>', r'\1<div class="founder"><div class="founder__top"><img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async"><div class="founder__plate"><strong>Chris Martin</strong><span>Founder &amp; CEO · Licensed insurance agent</span><span>Senior Solutions Insurance, est. 2008</span></div></div><blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote></div>', s, count=1, flags=re.S)
-          about.write_text(s)
+          founder = '''<div class="founder">
+      <div class="founder__top">
+        <img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async">
+        <div class="founder__plate">
+          <strong>Chris Martin</strong>
+          <span>Founder &amp; CEO · Licensed insurance agent</span>
+          <span>Senior Solutions Insurance, est. 2008</span>
+        </div>
+      </div>
+      <blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote>
+    </div>'''
 
-          home = Path('src/pages/home.html')
-          s = home.read_text()
-          s = s.replace('/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"', '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"', 1)
-          home.write_text(s)
+          # Source About page: restore the full Chris founder card if a prior pass emptied it.
+          p = Path('src/pages/about-us.html')
+          s = p.read_text().replace('<div class="founder"></div>', founder, 1)
+          p.write_text(s)
 
-          # Generated About HTML: target only the two named sections.
+          # Source homepage: the image immediately below the hero/trust area is team-office-2.
+          p = Path('src/pages/home.html')
+          s = p.read_text().replace('/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"', '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"', 1)
+          p.write_text(s)
+
+          # Generated About page: replace the Meet image with the same founder card.
           p = Path('about-us/index.html')
           t = p.read_text()
-          t = re.sub(r'(<h2>Why our agents start with the products</h2>.*?<div class="founder">).*?(</section>)', r'\1', t, count=0) if False else t
-          t = re.sub(r'(<h2>Why our agents start with the products</h2>.*?)(<div class="founder">.*?</section>)', r'\1<img src="/assets/img/team-office-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">\n</section>', t, count=1, flags=re.S)
-          t = re.sub(r'(<h2>Meet Chris Martin</h2>.*?<p class="badge__wrap">.*?</p>\s*</div>\s*)<img[^>]+>', r'\1<div class="founder"><div class="founder__top"><img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async"><div class="founder__plate"><strong>Chris Martin</strong><span>Founder &amp; CEO · Licensed insurance agent</span><span>Senior Solutions Insurance, est. 2008</span></div></div><blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote></div>', t, count=1, flags=re.S)
+          meet_img = r'<picture><source type="image/webp" srcset="/assets/img/team-meeting-2.webp"><img src="/assets/img/team-meeting-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async"></picture>'
+          t = t.replace(meet_img, founder, 1)
           p.write_text(t)
 
-          # Generated homepage: use team-office in the first Who-we-are image.
+          # Generated homepage: swap the first Who-we-are image from Chris to team-office.
           p = Path('index.html')
           t = p.read_text().replace('/assets/img/chris-martin-2.webp', '/assets/img/team-office-2.webp', 1)
           t = t.replace('/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"', '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"', 1)
@@ -46,8 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -f image-fix-trigger.txt
-          git add src/pages/about-us.html src/pages/home.html about-us/index.html index.html image-fix-trigger.txt
+          git add src/pages/about-us.html src/pages/home.html about-us/index.html index.html
           git diff --cached --quiet && exit 0
-          git commit -m "fix: restore intended Chris and team imagery"
+          git commit -m "fix: restore Chris founder card and team imagery"
           git push
