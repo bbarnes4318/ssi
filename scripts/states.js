@@ -21,6 +21,22 @@ const data = JSON.parse(fs.readFileSync(path.join(DIR, 'states.json'), 'utf8'));
 const publish = JSON.parse(fs.readFileSync(path.join(DIR, 'publish.json'), 'utf8'));
 const tpl = {};
 for (const p of ['fe', 'medicare', 'aca']) tpl[p] = fs.readFileSync(path.join(DIR, 'templates', p + '.html'), 'utf8');
+// State outlines (CC0, Wikimedia Commons "Blank US Map (states only)"), one path per state.
+const outlines = JSON.parse(fs.readFileSync(path.join(DIR, 'outlines.json'), 'utf8'));
+// One office photo per state so the eleven pages do not all look alike.
+const PHOTOS = [
+  ['agent-computer', 1200, 1600, 'A Senior Solutions agent at her computer'],
+  ['team-meeting', 1600, 1200, 'The Senior Solutions team in a meeting'],
+  ['agent-phone', 1200, 1600, 'A Senior Solutions agent on the phone with a client'],
+  ['team-boardroom', 1600, 1200, 'The Senior Solutions team around the boardroom table'],
+  ['agent-thumbsup', 1600, 1200, 'A Senior Solutions agent giving a thumbs up at his desk'],
+  ['team-office-2', 1600, 960, 'The Senior Solutions office in Greenwood Village'],
+  ['agent-headset', 1024, 1280, 'A Senior Solutions agent on a headset taking notes'],
+  ['team-highfive', 1600, 1200, 'Two Senior Solutions colleagues high-five in the office'],
+  ['handshake-sign', 720, 960, 'A handshake under the Senior Solutions Insurance sign'],
+  ['team-meeting-2', 1600, 1200, 'Senior Solutions agents comparing plans together'],
+  ['agent-blue-polo', 1200, 1407, 'A Senior Solutions agent on a headset at his desk']
+];
 
 const PRODUCTS = {
   fe: { base: '/final-expense-insurance/', parentName: 'Final Expense Insurance', og: '/assets/img/og-final-expense.jpg', ogAlt: 'Final expense insurance monthly rates by age, 50 to 85', hub: 'Final expense insurance by state', hubSub: 'Funeral costs, coverage bands and state rules for the states we serve most.', hubId: 'by-state' },
@@ -58,7 +74,10 @@ function vars(st, product) {
     shipName: st.ship.name, shipUrl: st.ship.url, shipPhone: st.ship.phone, shipTel: '+1' + st.ship.phone.replace(/\D/g, '').replace(/^1/, ''),
     shipSource: st.ship.source,
     faq: faq(st.faq[product] || []),
-    description: st.descriptions[product]
+    description: st.descriptions[product],
+    counties: st.counties,
+    outline: `<svg viewBox="${outlines[st.slug].viewBox}" xmlns="http://www.w3.org/2000/svg"><path d="${outlines[st.slug].d}"/></svg>`,
+    photo: (([f, w, h, alt]) => `<img src="/assets/img/${f}.jpg" alt="${alt}" width="${w}" height="${h}" loading="lazy" decoding="async" class="split__photo">`)(PHOTOS[data.states.indexOf(st) % PHOTOS.length])
   };
   if (product === 'fe') {
     // National comparisons, computed from the verified table.
@@ -91,11 +110,15 @@ function vars(st, product) {
     });
   }
   if (product === 'aca') {
-    Object.assign(v, { intro: st.aca.intro, heroStat: st.aca.heroStat, medicaidSection: st.medicaid.section, exchangeKind: st.exchange.kind, exchangeNote: st.exchange.note || '' });
+    Object.assign(v, { intro: st.aca.intro, heroStat: st.aca.heroStat, medicaidSection: st.medicaid.section, exchangeKind: st.exchange.kind, exchangeNote: st.exchange.note || '',
+      medicaidLabel: st.medicaid.expanded ? 'Expanded' : 'Not expanded',
+      medicaidSub: st.medicaid.expanded ? 'Medicaid in ' + st.name + '; lower incomes qualify there, and marketplace subsidies pick up above that' : 'Medicaid in ' + st.name + '; see below for what that means for lower-income households' });
   }
   if (product === 'medicare') {
     Object.assign(v, { intro: st.medicare.intro, heroStat: st.medicare.heroStat, shipSection: st.medicare.shipSection, regSection: st.medicare.regSection,
-      shipBody: unlink(st.medicare.shipSection, st.ship.url), regBody: unlink(st.medicare.regSection, st.dept.url) });
+      shipBody: unlink(st.medicare.shipSection, st.ship.url), regBody: unlink(st.medicare.regSection, st.dept.url),
+      // "Health Information, Counseling, and Advocacy Program (HICAP)" -> "HICAP" for the facts strip
+      shipShort: (st.ship.name.match(/\(([^)]+)\)/) || [])[1] || st.ship.name });
   }
   return v;
 }

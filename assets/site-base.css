@@ -739,6 +739,17 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
 .versus__k svg{flex:none;width:1.5rem;height:1.5rem;padding:.6rem;box-sizing:content-box;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold);color:var(--navy);}
 .versus__om,.versus__ma{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--navy-2);border-radius:10px;padding:.9rem 1.1rem;font-size:.98rem;line-height:1.5;color:var(--navy-2);}
 .versus__ma{border-left-color:var(--gold);}
+/* State pages: the state's outline in the hero, one card per program in the body */
+.hero--state .hero__grid{grid-template-columns:1.3fr 1fr;}
+.hero__state{position:relative;width:100%;max-width:26rem;margin:0 auto;}
+.hero__state svg{display:block;width:100%;height:auto;max-height:22rem;overflow:visible;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5));}
+.hero__state path{fill:rgba(198,168,107,.18);stroke:var(--gold);stroke-width:2;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+.hero__state span{position:absolute;right:0;bottom:0;background:var(--gold);color:var(--navy);font-weight:700;font-size:1.25rem;letter-spacing:.08em;padding:.3rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.compare--one{grid-template-columns:1fr;max-width:48rem;}
+.compare__col p{font-size:1.02rem;line-height:1.6;}
+.compare__col .cta-row{margin-top:1.1rem;}
+.split .prose--guide p{font-size:1.08rem;}
+.split .agentcard--light{margin:1.5rem 0 0;}
 /* Enrollment period date badge (on the insight cards) */
 .timeline__when{display:inline-block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-muted);background:var(--gold-bg);padding:.2rem .6rem;border-radius:3px;margin-bottom:.5rem;}
 .how+.creach{margin-top:3rem;}
@@ -984,6 +995,8 @@ body .ssi-est__steps li[data-state="done"] span{border-color:var(--gold);color:v
   .form__row--2{grid-template-columns:1fr;}
   .btn--big{width:100%;}
   .cgrid,.facts__grid,.tiers,.blurbs--5{grid-template-columns:1fr;}
+  .hero__state{max-width:14rem;}
+  .hero__state svg{max-height:12rem;}
   .trust__grid{grid-template-columns:1fr 1fr;gap:0 1rem;}
   .trust__item{padding:.8rem 0;border-top:1px solid var(--rule);gap:.6rem;}
   .trust__item:nth-child(-n+2){border-top:0;}
