@@ -19,8 +19,6 @@
 .page-home .hero--tool .ssi-est__choices{gap:.4rem;}
 .page-home .hero--tool .ssi-est__choice{min-height:2.65rem;}
 .page-home .hero--tool .ssi-est__choice span{min-height:2.65rem;padding:.3rem .7rem;font-size:.9rem;}
-/* Valid answers advance automatically. Remove the now-redundant Continue/Back
-   row from the homepage so it cannot push the next question below the fold. */
 .page-home .hero--tool .ssi-est__step .ssi-est__nav{display:none;}
 .page-home .hero--tool .ssi-est__note{margin:.45rem 0 0;padding:.5rem .65rem;font-size:.74rem;line-height:1.35;}
 .page-home .hero--tool .ssi-est__nudge{margin:.3rem 0 0;font-size:.74rem;}
@@ -34,23 +32,25 @@
 .page-home .hero--tool .ssi-est__estnote{margin-top:.4rem;padding:.4rem .55rem;font-size:.7rem;}
 .page-home .hero--tool .ssi-est__foot{margin-top:.2rem;}
 
-/* CARRIER SECTION: decisive editorial composition instead of the old question. */
-.page-home .sec:has(.carriers){background:#F7F6F2;color:var(--ink);padding:4.25rem 0;border-top:1px solid #D8D6D0;border-bottom:1px solid #D8D6D0;}
+/* CARRIER SECTION — this is proof, not a lesson about comparison shopping.
+   The customer cares about getting coverage that fits; the carrier list is
+   supporting evidence and stays visually secondary. */
+.page-home .sec:has(.carriers){background:#F7F6F2;color:var(--ink);padding:5rem 0;border-top:1px solid #D8D6D0;border-bottom:1px solid #D8D6D0;}
 .page-home .sec:has(.carriers)::after{display:none;}
-.page-home .sec:has(.carriers) .wrap{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);column-gap:4rem;align-items:center;}
-.page-home .sec:has(.carriers) .sec__head{max-width:32rem;padding:0;border:0;margin:0;}
-.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold-muted);margin-bottom:.65rem;}
-.page-home .sec:has(.carriers) .sec__head h2{max-width:none;color:var(--navy);font-size:0;line-height:1.02;letter-spacing:-.04em;margin:0;}
-.page-home .sec:has(.carriers) .sec__head h2::after{content:"Don't settle for the first policy you see.";display:block;font-size:clamp(2.35rem,3.8vw,3.5rem);line-height:1.02;letter-spacing:-.04em;color:var(--navy);}
-.page-home .sec:has(.carriers) .sec__sub{max-width:31rem;margin:.9rem 0 0;padding:0;color:#4B5665;font-size:1rem;line-height:1.55;}
+.page-home .sec:has(.carriers) .wrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:5rem;align-items:center;}
+.page-home .sec:has(.carriers) .sec__head{max-width:36rem;padding:0 0 0 1.35rem;border-left:4px solid var(--gold);margin:0;}
+.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold-muted);margin-bottom:.7rem;}
+.page-home .sec:has(.carriers) .sec__head h2{max-width:15ch;color:var(--navy);font-size:0;line-height:1.02;letter-spacing:-.045em;margin:0;}
+.page-home .sec:has(.carriers) .sec__head h2::after{content:"Your coverage should fit your needs.";display:block;font-size:clamp(2.45rem,4vw,3.65rem);line-height:1.02;letter-spacing:-.045em;color:var(--navy);}
+.page-home .sec:has(.carriers) .sec__sub{max-width:33rem;margin:1.1rem 0 0;padding:0;color:#4B5665;font-size:1rem;line-height:1.6;}
 .page-home .sec:has(.carriers) .sec__sub::after{display:none;}
-.page-home .sec:has(.carriers) .center.muted{grid-column:2;color:#5A6574;text-align:left;margin:0 0 .65rem;font-size:.82rem;line-height:1.4;}
+.page-home .sec:has(.carriers) .center.muted{grid-column:2;color:#68717D;text-align:left;margin:0 0 .65rem;font-size:.74rem;line-height:1.4;text-transform:uppercase;letter-spacing:.13em;font-weight:700;}
 .page-home .sec:has(.carriers) .center.muted::after{display:none;}
-.page-home .sec:has(.carriers) .carriers{grid-column:2;margin:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #C9CDD2;box-shadow:0 10px 24px rgba(11,18,32,.07);}
-.page-home .sec:has(.carriers) .carriers li{min-height:6.1rem;padding:1rem 1.15rem;background:#fff;border:0;border-right:1px solid #D9DDE3;border-radius:0;}
+.page-home .sec:has(.carriers) .carriers{grid-column:2;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #CDD1D6;box-shadow:none;}
+.page-home .sec:has(.carriers) .carriers li{min-height:5.4rem;padding:1rem 1.1rem;background:#fff;border:0;border-right:1px solid #D9DDE3;border-radius:0;display:flex;align-items:center;justify-content:center;}
 .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:0;}
 .page-home .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid #D9DDE3;}
-.page-home .sec:has(.carriers) .carriers img{display:block;max-width:90%;max-height:2.7rem;object-fit:contain;filter:none;opacity:1;}
+.page-home .sec:has(.carriers) .carriers img{display:block;max-width:82%;max-height:2.45rem;object-fit:contain;filter:none;opacity:1;}
 
 /* Founder: restrained executive treatment. */
 .page-home .founder__top{grid-template-columns:18rem 1fr;min-height:18rem;border-left:4px solid var(--gold);background:var(--navy-1);}
@@ -65,12 +65,13 @@
   .page-home .hero--tool .hero__grid{grid-template-columns:1fr;gap:1.25rem;}
   .page-home .hero--tool .tool{order:-1;}
   .page-home .hero--tool .hero__copy{padding-top:0;}
-  .page-home .sec:has(.carriers) .wrap{grid-template-columns:1fr;row-gap:1.25rem;}
+  .page-home .sec:has(.carriers) .wrap{grid-template-columns:1fr;row-gap:1.5rem;}
+  .page-home .sec:has(.carriers) .sec__head{max-width:40rem;}
   .page-home .sec:has(.carriers) .center.muted,.page-home .sec:has(.carriers) .carriers{grid-column:1;}
 }
 @media (max-width:680px){
   .page-home .sec:has(.carriers){padding:3.25rem 0 3.5rem;}
-  .page-home .sec:has(.carriers) .sec__head h2::after{font-size:clamp(2rem,9vw,2.7rem);}
+  .page-home .sec:has(.carriers) .sec__head h2::after{font-size:clamp(2.15rem,9vw,2.8rem);}
   .page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(2,1fr);}
   .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D9DDE3;}
   .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
