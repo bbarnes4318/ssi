@@ -1,0 +1,43 @@
+name: Fix about image order
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, 'Fix about image order') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swap the two About section images without touching the gallery
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          def swap_two(path, a, b):
+              p = Path(path)
+              s = p.read_text()
+              marker = '__ABOUT_IMAGE_SWAP__'
+              if s.count(a) < 1 or s.count(b) < 1:
+                  raise SystemExit(f'Expected both image refs in {path}')
+              s = s.replace(a, marker, 1)
+              s = s.replace(b, a, 1)
+              s = s.replace(marker, b, 1)
+              p.write_text(s)
+
+          swap_two('src/pages/about-us.html', '/assets/img/team-meeting-2.jpg', '/assets/img/team-office-2.jpg')
+          for ext in ['webp', 'jpg']:
+              swap_two('about-us/index.html', f'/assets/img/team-meeting-2.{ext}', f'/assets/img/team-office-2.{ext}')
+          PY
+      - name: Commit and remove workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/pages/about-us.html about-us/index.html
+          git rm .github/workflows/fix-about-image-order.yml
+          git commit -m 'Fix about image order'
+          git push
