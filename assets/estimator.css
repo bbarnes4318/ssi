@@ -1,26 +1,2 @@
+/* Final Expense Cost Estimator — primary stylesheet. */
 @import url('/assets/estimator-base.css');
-
-/* A+ estimator finish: calm, premium, high-clarity controls. */
-.ssi-est{--si:#174f43;--si-bg:#edf5f2;--gi:#8b6426;--gi-bg:#faf4e8;--ink:#172333;--ink-soft:#617080;--rule:#d6dde3;--panel:#f4f6f7;--focus:#6d8fe8;font-family:inherit;font-size:18px;line-height:1.55;max-width:100%;}
-.ssi-est__shell{border:0;border-radius:0;padding:0;background:#fff;}
-.ssi-est__count{font-family:inherit;font-size:.72rem;color:#526171;letter-spacing:.01em;}
-.ssi-est__private{color:#756033;font-weight:700;}
-.ssi-est__steps{gap:.2rem;margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid #e2e6e9;}
-.ssi-est__steps li{font-family:inherit;font-size:.7rem;gap:.35rem;color:#687482;}
-.ssi-est__steps li span{width:1.8rem;height:1.8rem;border:1px solid #cbd3da;font-size:.78rem;}
-.ssi-est__steps li[data-state="on"] span{border-color:var(--si);background:var(--si);}
-.ssi-est__q{font-family:inherit;font-size:1.38rem;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink);}
-.ssi-est__help{font-family:inherit;font-size:.82rem;line-height:1.48;color:var(--ink-soft);}
-.ssi-est__selectlabel{font-size:.78rem;font-weight:700;color:#465363;margin-bottom:.4rem;}
-.ssi-est select{min-height:3.35rem;border:1px solid #aeb9c4;border-radius:6px;font-size:1rem;padding:.65rem .85rem;}
-.ssi-est__choices{gap:.55rem}.ssi-est__choices--grid{gap:.55rem}
-.ssi-est__choice{min-height:3.35rem;border:1px solid #cbd3da;border-radius:6px;transition:border-color .15s,background-color .15s,box-shadow .15s}
-.ssi-est__choice span{min-height:3.35rem;padding:.5rem .9rem;font-size:.98rem;font-weight:600;}
-.ssi-est__choice:has(input:checked),.ssi-est__choice.is-checked{border-color:var(--si);background:var(--si-bg);box-shadow:0 0 0 1px rgba(23,79,67,.12)}
-.ssi-est__choice:has(input:checked) span,.ssi-est__choice.is-checked span{color:var(--si)}
-.ssi-est__nav{gap:.55rem;margin-top:1rem}.ssi-est button{border-radius:6px}
-.ssi-est__next{min-height:3.35rem;background:var(--si);border-color:var(--si);font-size:1rem;font-weight:700}.ssi-est__back{min-height:3.35rem;border-radius:6px;font-size:.95rem}
-.ssi-est__rhead{margin-bottom:.3rem}.ssi-est__rkicker{font-family:inherit;font-size:.68rem;color:#756033}.ssi-est__resulth{font-family:inherit;font-size:1.18rem;line-height:1.25}.ssi-est__edit{border-radius:6px;font-size:.75rem}
-.ssi-est__chips{gap:.3rem}.ssi-est__chips li{border-radius:5px;background:#f0f2f4;padding:.2rem .5rem;font-size:.68rem}
-.ssi-est__options{gap:.55rem}.ssi-est__opt{border-radius:7px;padding:1rem .8rem .75rem;border-width:1px}.ssi-est__ribbon{border-radius:4px;top:-.55rem;left:.75rem;padding:.18rem .45rem;font-size:.6rem}.ssi-est__price{font-family:inherit;font-size:1.42rem}.ssi-est__ticks{font-family:inherit;font-size:.72rem}.ssi-est__wait{border-radius:7px}.ssi-est__call{border-radius:7px;min-height:3.35rem;background:var(--si)}.ssi-est__callno{font-family:inherit;font-size:1.18rem}.ssi-est__estnote{font-size:.74rem}.ssi-est__secondary{border-radius:5px}.ssi-est__discwrap{margin-top:.35rem}
-@media(max-width:680px){.ssi-est{font-size:17px}.ssi-est__q{font-size:1.28rem}.ssi-est__steps li{font-size:.62rem}.ssi-est__steps li span{width:1.7rem;height:1.7rem}.ssi-est__options{grid-template-columns:1fr}.ssi-est__opt{padding-top:1rem}}
