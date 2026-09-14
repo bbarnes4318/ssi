@@ -174,15 +174,10 @@
   .page-contact .creach{margin-top:2rem;}
 }
 
-/* ========================================================================
-   Homepage CPR — carrier comparison and founder photo.
-   These overrides intentionally come last so the homepage has a stronger
-   editorial composition without changing the copy or estimator behavior.
-   ======================================================================== */
+/* Homepage CPR — carrier comparison and founder photo. */
 .page-home .founder__top{grid-template-columns:minmax(22rem,29rem) 1fr;min-height:23rem;}
 .page-home .founder img{height:23rem;object-fit:cover;object-position:50% 24%;transform:none;filter:none;image-rendering:auto;}
 .page-home .founder__plate{padding:2.5rem 2.75rem;}
-
 .page-home .sec:has(.carriers){background:var(--navy-1);border-top:0;border-bottom:0;padding:5.5rem 0;position:relative;overflow:hidden;}
 .page-home .sec:has(.carriers)::after{content:"";position:absolute;right:-8rem;top:-8rem;width:30rem;height:30rem;border:1px solid rgba(198,168,107,.12);border-radius:50%;pointer-events:none;}
 .page-home .sec:has(.carriers) .wrap{position:relative;z-index:1;}
@@ -207,4 +202,129 @@
   .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D4D8DE;}
   .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
   .page-home .sec:has(.carriers) .carriers li:nth-child(n+3){border-top:1px solid #D4D8DE;}
+}
+
+/* ========================================================================
+   2026 Medicare + Health Insurance conversion redesign.
+   Page-scoped only. Keeps Poppins and the existing SSI palette; no pseudo-copy.
+   ======================================================================== */
+.page-medicare,.page-health{--page-ink:#101A28;--page-muted:#596675;--page-line:#D9DEE5;--page-paper:#fff;--page-soft:#F5F2EB;}
+.page-medicare .hero--split,.page-health .hero--split{padding:0;min-height:0;background:var(--navy);}
+.page-medicare .hero--split::before,.page-health .hero--split::before{display:none;}
+.page-medicare .hero--split::after,.page-health .hero--split::after{height:4px;}
+.page-medicare .hero__grid,.page-health .hero__grid{max-width:var(--wrap);display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.78fr);min-height:620px;padding:0 1.5rem;align-items:stretch;}
+.page-medicare .hero__copy,.page-health .hero__copy{max-width:690px;padding:5.4rem 4rem 5rem 0;align-self:center;}
+.page-medicare .hero__eyebrow,.page-health .hero__eyebrow{font-size:.78rem;letter-spacing:.18em;color:var(--gold);margin-bottom:1.15rem;}
+.page-medicare .hero h1,.page-health .hero h1{font-size:clamp(2.9rem,4.8vw,4.65rem);line-height:1.03;letter-spacing:-.045em;max-width:13ch;margin-bottom:1.35rem;text-shadow:none;}
+.page-medicare .hero__sub,.page-health .hero__sub{font-size:1.08rem;line-height:1.72;color:#DCE3EB;max-width:40rem;margin-bottom:0;}
+.page-medicare .hero__points,.page-health .hero__points{margin:2rem 0 0;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(198,168,107,.45);border-bottom:1px solid rgba(198,168,107,.45);}
+.page-medicare .hero__points li,.page-health .hero__points li{padding:1rem .8rem;color:#fff;font-size:.76rem;line-height:1.4;text-transform:none;letter-spacing:.01em;}
+.page-medicare .hero__points li:first-child,.page-health .hero__points li:first-child{padding-left:0;}
+.page-medicare .hero__actions,.page-health .hero__actions{margin-top:1.8rem;gap:.75rem;}
+.page-medicare .hero__actions .btn,.page-health .hero__actions .btn{min-height:3.4rem;padding:.75rem 1.25rem;font-size:1rem;}
+.page-medicare .hero__actions .btn--gold,.page-health .hero__actions .btn--gold{box-shadow:0 10px 26px rgba(0,0,0,.18);}
+.page-medicare .hero__photo,.page-health .hero__photo{min-height:620px;margin:0;overflow:hidden;border-left:1px solid rgba(255,255,255,.12);}
+.page-medicare .hero__photo img,.page-health .hero__photo img{width:100%;height:100%;object-fit:cover;border:0;border-radius:0;box-shadow:none;filter:saturate(.92) contrast(1.04);}
+.page-medicare .hero__photo::after,.page-health .hero__photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,18,32,.38),transparent 42%),linear-gradient(0deg,rgba(11,18,32,.28),transparent 38%);pointer-events:none;}
+.page-medicare .hero__photo figcaption,.page-health .hero__photo figcaption{left:1.25rem;bottom:1.25rem;border-radius:0;border-left:3px solid var(--gold);background:rgba(11,18,32,.86);padding:.65rem .8rem;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;}
+
+.page-medicare .sec,.page-health .sec{padding:5.75rem 0;}
+.page-medicare .sec--lighter,.page-health .sec--lighter{background:#F6F7F8;}
+.page-medicare .sec--light,.page-health .sec--light{background:#fff;}
+.page-medicare .sec__h,.page-health .sec__h{font-size:clamp(2rem,3.3vw,3rem);line-height:1.08;letter-spacing:-.035em;max-width:23ch;color:var(--page-ink);margin-bottom:.8rem;}
+.page-medicare .sec__sub,.page-health .sec__sub{max-width:52rem;color:var(--page-muted);font-size:1.03rem;line-height:1.75;}
+.page-medicare .eyebrow,.page-health .eyebrow{color:var(--gold-muted);font-size:.72rem;letter-spacing:.17em;margin-bottom:.65rem;}
+.page-medicare .divider,.page-health .divider{width:54px;height:3px;background:var(--gold);margin:1rem 0 1.5rem;}
+.page-medicare .split,.page-health .split{gap:4.5rem;align-items:center;}
+.page-medicare .split > div,.page-health .split > div{max-width:42rem;}
+.page-medicare .split > picture img,.page-health .split > picture img,.page-medicare .split > img,.page-health .split > img{width:100%;min-height:30rem;object-fit:cover;border-radius:0;box-shadow:none;}
+.page-medicare .split > picture,.page-health .split > picture{position:relative;display:block;}
+.page-medicare .split > picture::after,.page-health .split > picture::after{content:"";position:absolute;left:-12px;bottom:-12px;width:42%;height:42%;border-left:3px solid var(--gold);border-bottom:3px solid var(--gold);pointer-events:none;}
+
+/* Replace floating card soup with deliberate editorial grids. */
+.page-medicare .how,.page-health .how{display:grid;grid-template-columns:repeat(3,1fr);margin-top:2.75rem;background:#fff;border:1px solid var(--page-line);}
+.page-medicare .how__step,.page-health .how__step{min-height:220px;padding:2rem 1.7rem;border:0;border-right:1px solid var(--page-line);}
+.page-medicare .how__step:last-child,.page-health .how__step:last-child{border-right:0;}
+.page-medicare .how__n,.page-health .how__n{color:var(--gold-deep);font-size:.74rem;letter-spacing:.18em;font-weight:700;}
+.page-medicare .how h3,.page-health .how h3{font-size:1.15rem;color:var(--page-ink);margin-bottom:.65rem;}
+.page-medicare .how p,.page-health .how p{font-size:.94rem;color:var(--page-muted);}
+
+.page-medicare .ctable,.page-health .ctable{border-collapse:collapse;border:1px solid var(--page-line);background:#fff;box-shadow:0 10px 30px rgba(11,18,32,.05);}
+.page-medicare .ctable thead,.page-health .ctable thead{background:var(--navy);color:#fff;}
+.page-medicare .ctable th,.page-health .ctable th{font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;}
+.page-medicare .ctable td,.page-health .ctable td{font-size:.92rem;color:var(--page-muted);line-height:1.55;}
+.page-medicare .ctable tbody tr:nth-child(even),.page-health .ctable tbody tr:nth-child(even){background:#F8F9FA;}
+.page-medicare .ctable tbody th,.page-health .ctable tbody th{color:var(--page-ink);font-size:.95rem;text-transform:none;letter-spacing:0;}
+
+.page-health .ehb{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--page-line);border-left:1px solid var(--page-line);margin-top:2rem;counter-reset:benefit;}
+.page-health .ehb li{display:flex;gap:1rem;padding:1.35rem 1.4rem;border-right:1px solid var(--page-line);border-bottom:1px solid var(--page-line);background:#fff;list-style:none;}
+.page-health .ehb li::before{counter-increment:benefit;content:counter(benefit,decimal-leading-zero);font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--gold-deep);flex:none;padding-top:.15rem;}
+.page-health .ehb strong{display:block;color:var(--page-ink);font-size:.94rem;margin-bottom:.2rem;}
+.page-health .ehb span{display:block;color:var(--page-muted);font-size:.82rem;line-height:1.5;}
+
+.page-medicare .cards,.page-health .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--page-line);background:#fff;}
+.page-medicare .card,.page-health .card{min-height:250px;border:0;border-top:3px solid var(--gold);border-right:1px solid var(--page-line);border-radius:0;box-shadow:none;padding:2rem 1.7rem;background:#fff;}
+.page-medicare .card:last-child,.page-health .card:last-child{border-right:0;}
+.page-medicare .card h3,.page-health .card h3{color:var(--page-ink);font-size:1.18rem;}
+.page-medicare .card p,.page-health .card p{color:var(--page-muted);font-size:.94rem;}
+
+.page-medicare .carriers,.page-health .carriers{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--page-line);border-bottom:1px solid var(--page-line);gap:0;background:#fff;}
+.page-medicare .carriers li,.page-health .carriers li{min-height:5.5rem;border:0;border-right:1px solid var(--page-line);border-radius:0;background:#fff;padding:1rem;}
+.page-medicare .carriers li:nth-child(3n),.page-health .carriers li:nth-child(3n){border-right:0;}
+.page-medicare .carriers li:nth-child(n+4),.page-health .carriers li:nth-child(n+4){border-top:1px solid var(--page-line);}
+
+.page-medicare .faq,.page-health .faq{max-width:54rem;border-top:1px solid var(--page-line);}
+.page-medicare .faq details,.page-health .faq details{border:0;border-bottom:1px solid var(--page-line);border-radius:0;background:transparent;}
+.page-medicare .faq summary,.page-health .faq summary{padding:1.3rem 0;font-size:1.02rem;color:var(--page-ink);font-weight:600;}
+.page-medicare .faq details p,.page-health .faq details p{padding:0 2rem 1.25rem 0;color:var(--page-muted);font-size:.95rem;line-height:1.7;}
+
+.page-medicare .statehub__panel,.page-health .statehub__panel{border-top:3px solid var(--gold);background:var(--navy);padding:2.25rem 2rem;}
+.page-medicare .statehub__panel h2,.page-health .statehub__panel h2{color:#fff;}
+.page-medicare .statehub__sub,.page-health .statehub__sub{color:#CBD4DE;}
+.page-medicare .statehub__list,.page-health .statehub__list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
+.page-medicare .statehub__list a,.page-health .statehub__list a{display:block;color:#fff;text-decoration:none;border-bottom:1px solid rgba(198,168,107,.55);padding:.25rem 0;}
+.page-medicare .statehub__list a:hover,.page-health .statehub__list a:hover{color:var(--gold);}
+
+.page-medicare .quote,.page-health .quote{background:var(--navy);border:0;padding:5.75rem 0;}
+.page-medicare .quote__in,.page-health .quote__in{display:grid;grid-template-columns:minmax(0,1fr) minmax(24rem,.72fr);gap:4rem;align-items:start;}
+.page-medicare .quote h2,.page-health .quote h2{color:#fff;font-size:clamp(2rem,3.4vw,3rem);max-width:15ch;line-height:1.08;}
+.page-medicare .quote .eyebrow,.page-health .quote .eyebrow{color:var(--gold);}
+.page-medicare .quote p,.page-health .quote p{color:#CBD4DE;}
+.page-medicare .agentcard,.page-health .agentcard{border:1px solid rgba(198,168,107,.35);background:#fff;padding:0;}
+.page-medicare .agentcard img,.page-health .agentcard img{display:block;width:100%;height:20rem;object-fit:cover;}
+.page-medicare .agentcard p,.page-health .agentcard p{padding:1rem 1.1rem;margin:0;color:var(--page-ink);}
+.page-medicare .steps,.page-health .steps{margin-top:2rem;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14);}
+.page-medicare .steps li,.page-health .steps li{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:1.35rem 0;border-bottom:1px solid rgba(255,255,255,.14);list-style:none;}
+.page-medicare .steps svg,.page-health .steps svg{width:1.65rem;height:1.65rem;color:var(--gold);}
+.page-medicare .steps h3,.page-health .steps h3{color:#fff;font-size:1rem;margin:0 0 .25rem;}
+.page-medicare .steps p,.page-health .steps p{font-size:.88rem;margin:0;}
+.page-medicare .quote .form,.page-health .quote .form{background:#fff;border-top:4px solid var(--gold);border-radius:0;box-shadow:0 20px 50px rgba(0,0,0,.25);padding:2rem;}
+.page-medicare .quote .form>p:first-child,.page-health .quote .form>p:first-child{color:var(--page-muted);font-size:.94rem;}
+.page-medicare .quote .btn--gold,.page-health .quote .btn--gold{width:100%;}
+
+@media(max-width:1000px){
+  .page-medicare .hero__grid,.page-health .hero__grid{grid-template-columns:1fr;min-height:0;}
+  .page-medicare .hero__copy,.page-health .hero__copy{padding:4.5rem 0 3.5rem;max-width:46rem;}
+  .page-medicare .hero__photo,.page-health .hero__photo{min-height:440px;border-left:0;}
+  .page-medicare .quote__in,.page-health .quote__in{grid-template-columns:1fr;gap:2.5rem;}
+}
+@media(max-width:760px){
+  .page-medicare .hero__points,.page-health .hero__points{grid-template-columns:1fr;}
+  .page-medicare .hero__points li,.page-health .hero__points li{border-right:0;border-bottom:1px solid rgba(198,168,107,.24);padding:.8rem 0;}
+  .page-medicare .hero__points li:last-child,.page-health .hero__points li:last-child{border-bottom:0;}
+  .page-medicare .hero h1,.page-health .hero h1{font-size:2.75rem;max-width:12ch;}
+  .page-medicare .hero__actions,.page-health .hero__actions{flex-direction:column;}
+  .page-medicare .hero__actions .btn,.page-health .hero__actions .btn{width:100%;}
+  .page-medicare .sec,.page-health .sec{padding:4.25rem 0;}
+  .page-medicare .how,.page-health .how,.page-medicare .cards,.page-health .cards{grid-template-columns:1fr;}
+  .page-medicare .how__step,.page-health .how__step,.page-medicare .card,.page-health .card{border-right:0;border-bottom:1px solid var(--page-line);min-height:0;}
+  .page-medicare .how__step:last-child,.page-health .how__step:last-child,.page-medicare .card:last-child,.page-health .card:last-child{border-bottom:0;}
+  .page-medicare .ehb,.page-health .ehb{grid-template-columns:1fr;}
+  .page-medicare .split,.page-health .split{gap:2.5rem;}
+  .page-medicare .split > picture img,.page-health .split > picture img,.page-medicare .split > img,.page-health .split > img{min-height:22rem;}
+  .page-medicare .carriers,.page-health .carriers{grid-template-columns:repeat(2,1fr);}
+  .page-medicare .carriers li:nth-child(3n),.page-health .carriers li:nth-child(3n){border-right:1px solid var(--page-line);}
+  .page-medicare .carriers li:nth-child(2n),.page-health .carriers li:nth-child(2n){border-right:0;}
+  .page-medicare .carriers li:nth-child(n+3),.page-health .carriers li:nth-child(n+3){border-top:1px solid var(--page-line);}
+  .page-medicare .quote,.page-health .quote{padding:4.25rem 0;}
 }
