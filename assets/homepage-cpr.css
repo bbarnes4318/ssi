@@ -1,7 +1,6 @@
 /* Homepage conversion / hierarchy fixes. Scoped to .page-home. */
 
-/* HERO / ESTIMATOR: the form is answer-driven, not click-driven. Keep the
-   complete interaction compact enough for the first viewport. */
+/* HERO / ESTIMATOR */
 .page-home .hero--tool{padding:1.5rem 0 2.25rem;min-height:0;}
 .page-home .hero--tool .hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(24rem,31rem);gap:2.25rem;align-items:start;}
 .page-home .hero--tool .hero__copy{max-width:38rem;padding-top:.25rem;}
@@ -32,27 +31,106 @@
 .page-home .hero--tool .ssi-est__estnote{margin-top:.4rem;padding:.4rem .55rem;font-size:.7rem;}
 .page-home .hero--tool .ssi-est__foot{margin-top:.2rem;}
 
-/* CARRIER SECTION — this is proof, not a lesson about comparison shopping.
-   The customer cares about getting coverage that fits; the carrier list is
-   supporting evidence and stays visually secondary. */
-.page-home .sec:has(.carriers){background:#F7F6F2;color:var(--ink);padding:5rem 0;border-top:1px solid #D8D6D0;border-bottom:1px solid #D8D6D0;}
+/* CARRIER PROOF — intentionally simple. The section communicates one idea:
+   SSI can help the customer find coverage from established carriers. The
+   carrier marks are evidence, not a second content section. */
+.page-home .sec:has(.carriers){
+  background:#F7F6F2;
+  color:var(--ink);
+  padding:4.5rem 0 4.75rem;
+  border-top:1px solid #D8D6D0;
+  border-bottom:1px solid #D8D6D0;
+}
 .page-home .sec:has(.carriers)::after{display:none;}
-.page-home .sec:has(.carriers) .wrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:5rem;align-items:center;}
-.page-home .sec:has(.carriers) .sec__head{max-width:36rem;padding:0 0 0 1.35rem;border-left:4px solid var(--gold);margin:0;}
-.page-home .sec:has(.carriers) .sec__head .eyebrow{color:var(--gold-muted);margin-bottom:.7rem;}
-.page-home .sec:has(.carriers) .sec__head h2{max-width:15ch;color:var(--navy);font-size:0;line-height:1.02;letter-spacing:-.045em;margin:0;}
-.page-home .sec:has(.carriers) .sec__head h2::after{content:"Your coverage should fit your needs.";display:block;font-size:clamp(2.45rem,4vw,3.65rem);line-height:1.02;letter-spacing:-.045em;color:var(--navy);}
-.page-home .sec:has(.carriers) .sec__sub{max-width:33rem;margin:1.1rem 0 0;padding:0;color:#4B5665;font-size:1rem;line-height:1.6;}
+.page-home .sec:has(.carriers) .wrap{
+  display:block;
+  max-width:72rem;
+  margin-inline:auto;
+}
+.page-home .sec:has(.carriers) .sec__head{
+  max-width:46rem;
+  margin:0 0 2.5rem;
+  padding:0;
+  border:0;
+  text-align:left;
+}
+.page-home .sec:has(.carriers) .sec__head::before{
+  content:"";
+  display:block;
+  width:3.25rem;
+  height:3px;
+  margin-bottom:1.25rem;
+  background:var(--gold);
+}
+.page-home .sec:has(.carriers) .sec__head .eyebrow{
+  color:var(--gold-muted);
+  margin-bottom:.65rem;
+}
+.page-home .sec:has(.carriers) .sec__head h2{
+  max-width:18ch;
+  color:var(--navy);
+  font-size:clamp(2.35rem,4vw,3.55rem);
+  line-height:1.03;
+  letter-spacing:-.045em;
+  margin:0;
+}
+.page-home .sec:has(.carriers) .sec__head h2::after{display:none;}
+.page-home .sec:has(.carriers) .sec__sub{
+  max-width:41rem;
+  margin:1rem 0 0;
+  padding:0;
+  color:#4B5665;
+  font-size:1rem;
+  line-height:1.65;
+}
 .page-home .sec:has(.carriers) .sec__sub::after{display:none;}
-.page-home .sec:has(.carriers) .center.muted{grid-column:2;color:#68717D;text-align:left;margin:0 0 .65rem;font-size:.74rem;line-height:1.4;text-transform:uppercase;letter-spacing:.13em;font-weight:700;}
+.page-home .sec:has(.carriers) .center.muted{
+  margin:0 0 1rem;
+  color:#69727E;
+  text-align:left;
+  font-size:.7rem;
+  line-height:1.3;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:700;
+}
 .page-home .sec:has(.carriers) .center.muted::after{display:none;}
-.page-home .sec:has(.carriers) .carriers{grid-column:2;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #CDD1D6;box-shadow:none;}
-.page-home .sec:has(.carriers) .carriers li{min-height:5.4rem;padding:1rem 1.1rem;background:#fff;border:0;border-right:1px solid #D9DDE3;border-radius:0;display:flex;align-items:center;justify-content:center;}
-.page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:0;}
-.page-home .sec:has(.carriers) .carriers li:nth-child(n+4){border-top:1px solid #D9DDE3;}
-.page-home .sec:has(.carriers) .carriers img{display:block;max-width:82%;max-height:2.45rem;object-fit:contain;filter:none;opacity:1;}
+.page-home .sec:has(.carriers) .carriers{
+  margin:0;
+  padding:1.4rem 0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.4rem 2.5rem;
+  background:transparent;
+  border:0;
+  border-top:1px solid #CDD1D6;
+  border-bottom:1px solid #CDD1D6;
+  box-shadow:none;
+}
+.page-home .sec:has(.carriers) .carriers li{
+  flex:1 1 8rem;
+  min-height:3.75rem;
+  padding:.25rem .5rem;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.page-home .sec:has(.carriers) .carriers img{
+  display:block;
+  width:auto;
+  max-width:9.5rem;
+  max-height:2.6rem;
+  object-fit:contain;
+  filter:none;
+  opacity:1;
+}
 
-/* Founder: restrained executive treatment. */
+/* Founder */
 .page-home .founder__top{grid-template-columns:18rem 1fr;min-height:18rem;border-left:4px solid var(--gold);background:var(--navy-1);}
 .page-home .founder img{width:18rem;height:18rem;object-fit:cover;object-position:50% 30%;image-rendering:auto;}
 .page-home .founder__plate{padding:2rem 2.25rem;align-self:center;}
@@ -65,17 +143,18 @@
   .page-home .hero--tool .hero__grid{grid-template-columns:1fr;gap:1.25rem;}
   .page-home .hero--tool .tool{order:-1;}
   .page-home .hero--tool .hero__copy{padding-top:0;}
-  .page-home .sec:has(.carriers) .wrap{grid-template-columns:1fr;row-gap:1.5rem;}
-  .page-home .sec:has(.carriers) .sec__head{max-width:40rem;}
-  .page-home .sec:has(.carriers) .center.muted,.page-home .sec:has(.carriers) .carriers{grid-column:1;}
+  .page-home .sec:has(.carriers){padding:3.75rem 0 4rem;}
+  .page-home .sec:has(.carriers) .wrap{max-width:none;}
+  .page-home .sec:has(.carriers) .sec__head{max-width:40rem;margin-bottom:2rem;}
+  .page-home .sec:has(.carriers) .carriers{justify-content:flex-start;gap:1.1rem 1.5rem;}
+  .page-home .sec:has(.carriers) .carriers li{flex:1 1 7rem;}
 }
 @media (max-width:680px){
   .page-home .sec:has(.carriers){padding:3.25rem 0 3.5rem;}
-  .page-home .sec:has(.carriers) .sec__head h2::after{font-size:clamp(2.15rem,9vw,2.8rem);}
-  .page-home .sec:has(.carriers) .carriers{grid-template-columns:repeat(2,1fr);}
-  .page-home .sec:has(.carriers) .carriers li:nth-child(3n){border-right:1px solid #D9DDE3;}
-  .page-home .sec:has(.carriers) .carriers li:nth-child(2n){border-right:0;}
-  .page-home .sec:has(.carriers) .carriers li:nth-child(n+3){border-top:1px solid #D9DDE3;}
+  .page-home .sec:has(.carriers) .sec__head h2{font-size:clamp(2.15rem,9vw,2.8rem);}
+  .page-home .sec:has(.carriers) .carriers{gap:1rem .75rem;padding:1.1rem 0;}
+  .page-home .sec:has(.carriers) .carriers li{flex:1 1 8rem;min-height:3.25rem;}
+  .page-home .sec:has(.carriers) .carriers img{max-width:8rem;max-height:2.2rem;}
   .page-home .founder__top{grid-template-columns:1fr;min-height:0;}
   .page-home .founder img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
   .page-home .founder__plate{padding:1.4rem 1.5rem 1.5rem;}
