@@ -1,2 +1,50 @@
 /* Senior Solutions Insurance — primary stylesheet. */
 @import url('/assets/site-base.css');
+
+/* Visual refinement layer: preserve the elevated navy/gold direction while
+   removing excess decoration, floating-app-card treatment and glass effects. */
+.btn{border-radius:5px;box-shadow:none;}
+.btn:hover{box-shadow:0 5px 14px rgba(11,18,32,.12);}
+.btn--gold:hover{box-shadow:0 5px 14px rgba(198,168,107,.20);}
+
+.hero__photo img{border-radius:8px;border-width:1px;box-shadow:0 18px 36px rgba(11,18,32,.28);}
+.hero__photo::before{inset:-10px -10px auto auto;width:36%;height:34%;border-width:2px;border-radius:0;}
+.hero__photo figcaption{border-radius:3px;background:rgba(11,18,32,.88);padding:.3rem .6rem;}
+.hero--team .hero__copy{border-radius:6px;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 18px 36px rgba(11,18,32,.28);}
+
+.sec{padding:4.5rem 0;}
+.sec--tight{padding:2.75rem 0;}
+.divider{height:2px;border-radius:0;}
+.stat{border-radius:0;box-shadow:none;}
+
+.blurbs,.cards,.quotes{gap:1.25rem;}
+.blurb,.card,.quotes blockquote{border-radius:6px;box-shadow:0 6px 18px rgba(11,18,32,.055);}
+.blurb:hover,.card:hover{transform:none;box-shadow:0 8px 22px rgba(11,18,32,.08);}
+.blurb{padding:2rem 1.5rem;}
+.card{border-top-width:3px;}
+.quotes blockquote{padding:1.5rem;}
+.quotes blockquote::before{font-size:3.2rem;}
+
+.carriers{gap:.5rem;}
+.carriers li{min-height:4.5rem;padding:.65rem .8rem;border-radius:4px;background:#fff;box-shadow:none;}
+
+.faq details{border:1px solid var(--rule);border-radius:4px;box-shadow:none;}
+.faq details[open]{box-shadow:none;border-color:#c7cdd5;}
+.faq summary{padding:1rem 1.1rem;}
+
+.split img,.split .faq__photo img{border-radius:8px;box-shadow:0 18px 36px rgba(11,18,32,.14);}
+.founder,.quick,.callcard{border-radius:7px;box-shadow:0 16px 34px rgba(11,18,32,.16);}
+.quick__call{border-radius:5px;}
+.callcard{border-top-width:3px;}
+.hero__photo figcaption,.hero__bbb,.quotes__avatar{border-radius:4px;}
+
+.form input[type="text"],.form input[type="tel"],.form input[type="date"]{border-radius:5px;}
+.form__consent input{border-radius:3px;}
+
+@media (max-width:680px){
+  .sec{padding:3.5rem 0;}
+  .hero--split{padding:2.5rem 0 3rem;}
+  .hero__photo::before{display:none;}
+  .hero__photo figcaption{left:.65rem;bottom:.65rem;}
+  .blurbs,.cards,.quotes{gap:1rem;}
+}
