@@ -1,6 +1,7 @@
 name: Fix image placement
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
 permissions:
   contents: write
 jobs:
@@ -16,54 +17,35 @@ jobs:
 
           about = Path('src/pages/about-us.html')
           s = about.read_text()
-
-          # Why our agents: plain team-office image, no founder/bio plate.
           why_old = '''<div class="founder">\n      <div class="founder__top">\n        <img src="/assets/img/team-office-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async">\n        <div class="founder__plate">\n          <strong>Chris Martin</strong>\n          <span>Founder &amp; CEO · Licensed insurance agent</span>\n          <span>Senior Solutions Insurance, est. 2008</span>\n        </div>\n      </div>\n      <blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote>\n    </div>'''
           why_new = '''<img src="/assets/img/team-office-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">'''
-          if why_old not in s:
-              raise SystemExit('Expected Why section image block not found')
+          if why_old not in s: raise SystemExit('Expected Why block not found')
           s = s.replace(why_old, why_new, 1)
-
-          # Meet Chris: Chris headshot + the existing bio plate/graphic treatment.
           meet_old = '''<img src="/assets/img/team-meeting-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">'''
           meet_new = '''<div class="founder">\n      <div class="founder__top">\n        <img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async">\n        <div class="founder__plate">\n          <strong>Chris Martin</strong>\n          <span>Founder &amp; CEO · Licensed insurance agent</span>\n          <span>Senior Solutions Insurance, est. 2008</span>\n        </div>\n      </div>\n      <blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote>\n    </div>'''
-          if meet_old not in s:
-              raise SystemExit('Expected Meet section image not found')
+          if meet_old not in s: raise SystemExit('Expected Meet image not found')
           s = s.replace(meet_old, meet_new, 1)
           about.write_text(s)
 
-          # Homepage section directly below the trust band: use the team-office image.
           home = Path('src/pages/home.html')
           s = home.read_text()
           old = '/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"'
           new = '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"'
-          if old not in s:
-              raise SystemExit('Expected homepage image not found')
-          s = s.replace(old, new, 1)
-          home.write_text(s)
+          if old not in s: raise SystemExit('Expected homepage image not found')
+          home.write_text(s.replace(old, new, 1))
 
-          # Keep committed generated HTML in sync with source. Handle both picture/source
-          # variants by changing only the image basename in the intended sections.
-          for path in [Path('about-us/index.html'), Path('index.html')]:
-              t = path.read_text()
-              if path.name == 'index.html' and path.parent.name == 'about-us':
-                  # About: Why block currently has team-office, Meet currently has team-meeting.
-                  # Replace the Why section's founder plate wrapper with a plain image.
-                  t = re.sub(
-                      r'(<h2>Why our agents start with the products</h2>.*?<div class="founder">).*?(</div>\s*</div>\s*</section>)',
-                      lambda m: m.group(1).replace('<div class="founder">','<img src="/assets/img/team-office-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">') + m.group(2),
-                      t, count=1, flags=re.S)
-                  # Meet: replace its image with the Chris founder block, including plate/quote.
-                  t = re.sub(
-                      r'(<h2>Meet Chris Martin</h2>.*?<p class="badge__wrap">.*?</p>\s*</div>\s*)<img[^>]+>',
-                      lambda m: m.group(1) + '''<div class="founder">\n      <div class="founder__top">\n        <img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async">\n        <div class="founder__plate"><strong>Chris Martin</strong><span>Founder &amp; CEO · Licensed insurance agent</span><span>Senior Solutions Insurance, est. 2008</span></div>\n      </div>\n      <blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote>\n    </div>''',
-                      t, count=1, flags=re.S)
-                  path.write_text(t)
-              else:
-                  # Homepage: only the first matching image in the Who we are section.
-                  t = t.replace('/assets/img/chris-martin-2.webp', '/assets/img/team-office-2.webp', 1)
-                  t = t.replace('/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"', '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"', 1)
-                  path.write_text(t)
+          # Update committed generated HTML only where needed.
+          about_out = Path('about-us/index.html')
+          t = about_out.read_text()
+          t = re.sub(r'(<h2>Why our agents start with the products</h2>.*?)(<div class="founder">.*?</div>\s*</div>\s*</section>)', lambda m: m.group(1) + '<img src="/assets/img/team-office-2.jpg" alt="The whole Senior Solutions team standing together in the office" width="1600" height="960" loading="lazy" decoding="async">' + '</div>\n</section>', t, count=1, flags=re.S)
+          t = re.sub(r'(<h2>Meet Chris Martin</h2>.*?<p class="badge__wrap">.*?</p>\s*</div>\s*)<img[^>]+>', lambda m: m.group(1) + '<div class="founder"><div class="founder__top"><img src="/assets/img/chris-martin-2.jpg" alt="Chris Martin, founder and CEO of Senior Solutions Insurance" width="800" height="800" loading="lazy" decoding="async"><div class="founder__plate"><strong>Chris Martin</strong><span>Founder &amp; CEO · Licensed insurance agent</span><span>Senior Solutions Insurance, est. 2008</span></div></div><blockquote class="founder__q">"We go out of our way to genuinely help others because it is our core value. We make buying Final Expense Insurance easy."</blockquote></div>', t, count=1, flags=re.S)
+          about_out.write_text(t)
+
+          home_out = Path('index.html')
+          t = home_out.read_text()
+          t = t.replace('/assets/img/chris-martin-2.webp', '/assets/img/team-office-2.webp', 1)
+          t = t.replace('/assets/img/chris-martin-2.jpg" alt="The Senior Solutions Insurance team around the conference table in their Greenwood Village office"', '/assets/img/team-office-2.jpg" alt="The Senior Solutions Insurance team standing together in their Greenwood Village office"', 1)
+          home_out.write_text(t)
           PY
       - name: Commit and remove workflow
         run: |
