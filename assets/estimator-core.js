@@ -348,7 +348,7 @@
     root.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
     root.querySelectorAll('.ssi-est__choice').forEach(function (l) { l.classList.remove('is-checked'); });
     root.querySelectorAll('[data-agenote],[data-covnote],[data-nudge]').forEach(function (n) { n.hidden = true; });
-    show(1);
+    show(0);
     syncNext();
   });
 
@@ -366,7 +366,7 @@
     // Do not steal focus on a plain page load.
     root.querySelector('.ssi-est__resulth').blur();
   } else {
-    show(1);
+    show(0);
     syncNext();
   }
 })();
