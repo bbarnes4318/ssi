@@ -41,3 +41,6 @@
 .medigap-point span{font-size:.95rem;line-height:1.55;}
 @media (max-width:60rem){.medicare-choice{grid-template-columns:1fr;}.medigap-grid{grid-template-columns:1fr;}}
 @media (max-width:40rem){.medicare-choice__top{display:block;}.medicare-choice__type{display:block;text-align:left;margin-top:.45rem;}.medicare-choice__panel dl div{grid-template-columns:1fr;gap:.25rem;}}
+
+.statehub__list li>span{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.65rem .8rem;color:var(--gray);font-weight:600;background:var(--paper);border:1px solid var(--rule);border-radius:8px;}
+.statehub__list li>span>span,.statehub__list a>span{font-size:.72rem;letter-spacing:.08em;color:var(--gold-muted);font-weight:700;}
