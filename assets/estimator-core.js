@@ -66,7 +66,7 @@
   function range(lo, hi) { return money(lo) + ' to ' + money(hi); }
 
   var state = { age: null, gender: null, coverage: null, tobacco: null };
-  var current = 1;
+  var current = 0;
 
   // Build the age list. "Under 50" and "Over 85" are real answers too: they
   // get a straight explanation and the phone number instead of a dead end.
@@ -93,7 +93,7 @@
       var n = Number(li.dataset.dot);
       li.dataset.state = n < current ? 'done' : (n === current ? 'on' : 'off');
     });
-    root.querySelector('[data-progress]').hidden = current > 4;
+    root.querySelector('[data-progress]').hidden = current < 1 || current > 4;
     var sc = root.querySelector('[data-stepcount]');
     if (sc && current <= 4) sc.textContent = 'Step ' + current + ' of 4';
   }
