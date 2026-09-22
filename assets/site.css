@@ -21,3 +21,23 @@
 .home-supplement__aside span{font-size:.9rem;color:var(--gray);text-align:right;}
 @media (max-width:60rem){.home-lines__grid{grid-template-columns:1fr;}.home-line--primary{border-top:4px solid var(--gold);}.home-supplement__aside{margin-top:1rem;border-left:0;border-top:3px solid var(--gold);padding:1.2rem 0 0;}}
 @media (max-width:40rem){.home-line{padding:1.45rem 1.2rem 1.6rem;}.home-supplement__aside div{display:block;}.home-supplement__aside span{display:block;text-align:left;margin-top:.15rem;}}
+
+
+/* Medicare coverage-choice layout */
+.medicare-choice{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.25rem;}
+.medicare-choice__panel{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--navy-2);padding:1.65rem 1.65rem 1.3rem;}
+.medicare-choice__panel--accent{border-top-color:var(--gold);background:#fffdf8;}
+.medicare-choice__top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--rule);}
+.medicare-choice__label{font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1.2;}
+.medicare-choice__type{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--gold-muted);text-align:right;}
+.medicare-choice__panel>p{margin:1rem 0 1.1rem;font-size:1.03rem;color:var(--navy-2);}
+.medicare-choice__panel dl{margin:0;}
+.medicare-choice__panel dl div{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.85rem 0;border-top:1px solid var(--rule);}
+.medicare-choice__panel dt{font-weight:700;color:var(--navy);font-size:.9rem;}
+.medicare-choice__panel dd{margin:0;font-size:.95rem;line-height:1.55;}
+.medigap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem;}
+.medigap-point{background:var(--paper);padding:1.4rem 1.5rem;display:grid;gap:.35rem;}
+.medigap-point strong{color:var(--navy);font-size:1.05rem;}
+.medigap-point span{font-size:.95rem;line-height:1.55;}
+@media (max-width:60rem){.medicare-choice{grid-template-columns:1fr;}.medigap-grid{grid-template-columns:1fr;}}
+@media (max-width:40rem){.medicare-choice__top{display:block;}.medicare-choice__type{display:block;text-align:left;margin-top:.45rem;}.medicare-choice__panel dl div{grid-template-columns:1fr;gap:.25rem;}}
