@@ -99,6 +99,8 @@
   }
 
   function show(n) {
+    var typeStep = stepEl(0);
+    if (typeStep) typeStep.hidden = n !== 0;
     for (var i = 1; i <= 4; i++) {
       var el = stepEl(i);
       el.hidden = i !== n;
@@ -107,7 +109,8 @@
     root.querySelector('[data-result]').hidden = true;
     current = n;
     paintProgress();
-    syncNext(); // an already-answered step lands with Continue enabled
+    if (n === 0) return;
+    syncNext();
     var focusable = stepEl(n).querySelector('input:checked, select, input, button');
     if (focusable) focusable.focus({ preventScroll: true });
   }
@@ -152,6 +155,10 @@
     var f = el.querySelector('select, input');
     if (f) f.focus({ preventScroll: true });
   }
+
+  // ── Coverage type ────────────────────────────────────────────────────────
+  var finalExpenseStart = root.querySelector('[data-coverage-type="final-expense"]');
+  if (finalExpenseStart) finalExpenseStart.addEventListener('click', function () { show(1); });
 
   // ── Inputs ────────────────────────────────────────────────────────────────
   ageSel.addEventListener('change', function () {
