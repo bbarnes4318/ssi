@@ -44,3 +44,15 @@
 
 .statehub__list li>span{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.65rem .8rem;color:var(--gray);font-weight:600;background:var(--paper);border:1px solid var(--rule);border-radius:8px;}
 .statehub__list li>span>span,.statehub__list a>span{font-size:.72rem;letter-spacing:.08em;color:var(--gold-muted);font-weight:700;}
+
+/* Homepage estimator coverage-type gate */
+.ssi-est__typechoices{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.ssi-est__typechoice{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:.42rem;padding:1.35rem 1.35rem 1.25rem;background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--navy-2);color:var(--navy);text-decoration:none;cursor:pointer;font:inherit;transition:border-color .18s ease,transform .18s ease,background-color .18s ease;}
+.ssi-est__typechoice:hover{background:var(--lighter);border-top-color:var(--gold);color:var(--navy);transform:translateY(-2px);}
+.ssi-est__typechoice--primary{border-top-color:var(--gold);}
+.ssi-est__typechoice-kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:var(--gold-muted);}
+.ssi-est__typechoice strong{font-size:1.12rem;line-height:1.25;}
+.ssi-est__typechoice>span:not(.ssi-est__typechoice-kicker){font-size:.92rem;line-height:1.5;color:var(--gray);}
+.ssi-est__typechoice b{margin-top:.55rem;color:var(--navy-2);font-size:.9rem;}
+.home-line--note{background:var(--lighter);}
+@media (max-width:40rem){.ssi-est__typechoices{grid-template-columns:1fr;}.ssi-est__typechoice{padding:1.2rem;}}
