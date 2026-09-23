@@ -39,9 +39,9 @@ const PHOTOS = [
 ];
 
 const PRODUCTS = {
-  fe: { base: '/final-expense-insurance/', parentName: 'Final Expense Insurance', og: '/assets/img/og-final-expense.jpg', ogAlt: 'Final expense insurance monthly rates by age, 50 to 85', hub: 'Final expense insurance by state', hubSub: 'Funeral costs, coverage bands and state rules for the states we serve most.', hubId: 'by-state' },
-  medicare: { base: '/medicare/', parentName: 'Medicare', og: '/assets/img/og-medicare.jpg', ogAlt: 'A licensed agent comparing Medicare Advantage plans', hub: 'Medicare Advantage by state', hubSub: 'State-specific guides, each with the local SHIP counseling program and insurance department.', hubId: 'by-state' },
-  aca: { base: '/health-insurance/', parentName: 'Health Insurance', og: '/assets/img/og-health.jpg', ogAlt: 'A licensed agent comparing ACA marketplace plans', hub: 'ACA marketplace plans by state', hubSub: 'Each state’s marketplace, Medicaid rules and enrollment window.', hubId: 'by-state' }
+  fe: { base: '/final-expense-insurance/', parentName: 'Final Expense Insurance', og: '/assets/img/og-final-expense.jpg', ogAlt: 'Final expense insurance monthly rates by age, 50 to 85', hub: 'Final expense insurance by state', hubSub: 'Licensed in 36 states. State-specific guides are published for selected states.', hubId: 'by-state' },
+  medicare: { base: '/medicare/', parentName: 'Medicare', og: '/assets/img/og-medicare.jpg', ogAlt: 'A licensed agent comparing Medicare Advantage plans', hub: 'Medicare Advantage by state', hubSub: 'State-specific guides, including local Medicare resources and insurance information.', hubId: 'by-state' },
+  aca: { base: '/health-insurance/', parentName: 'Health Insurance', og: '/assets/img/og-health.jpg', ogAlt: 'A licensed agent comparing ACA marketplace plans', hub: 'ACA marketplace plans by state', hubSub: 'State-specific marketplace, Medicaid and enrollment information.', hubId: 'by-state' }
 };
 
 const NAT = data.national; // verified national medians from the content file
