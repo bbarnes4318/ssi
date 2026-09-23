@@ -66,7 +66,7 @@
   function range(lo, hi) { return money(lo) + ' to ' + money(hi); }
 
   var state = { age: null, gender: null, coverage: null, tobacco: null };
-  var current = 0;
+  var current = 1;
 
   // Build the age list. "Under 50" and "Over 85" are real answers too: they
   // get a straight explanation and the phone number instead of a dead end.
@@ -93,14 +93,12 @@
       var n = Number(li.dataset.dot);
       li.dataset.state = n < current ? 'done' : (n === current ? 'on' : 'off');
     });
-    root.querySelector('[data-progress]').hidden = current < 1 || current > 4;
+    root.querySelector('[data-progress]').hidden = current > 4;
     var sc = root.querySelector('[data-stepcount]');
     if (sc && current <= 4) sc.textContent = 'Step ' + current + ' of 4';
   }
 
   function show(n) {
-    var typeStep = stepEl(0);
-    if (typeStep) typeStep.hidden = n !== 0;
     for (var i = 1; i <= 4; i++) {
       var el = stepEl(i);
       el.hidden = i !== n;
@@ -109,8 +107,7 @@
     root.querySelector('[data-result]').hidden = true;
     current = n;
     paintProgress();
-    if (n === 0) return;
-    syncNext();
+    syncNext(); // an already-answered step lands with Continue enabled
     var focusable = stepEl(n).querySelector('input:checked, select, input, button');
     if (focusable) focusable.focus({ preventScroll: true });
   }
@@ -155,10 +152,6 @@
     var f = el.querySelector('select, input');
     if (f) f.focus({ preventScroll: true });
   }
-
-  // ── Coverage type ────────────────────────────────────────────────────────
-  var finalExpenseStart = root.querySelector('[data-coverage-type="final-expense"]');
-  if (finalExpenseStart) finalExpenseStart.addEventListener('click', function () { show(1); });
 
   // ── Inputs ────────────────────────────────────────────────────────────────
   ageSel.addEventListener('change', function () {
@@ -355,7 +348,7 @@
     root.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
     root.querySelectorAll('.ssi-est__choice').forEach(function (l) { l.classList.remove('is-checked'); });
     root.querySelectorAll('[data-agenote],[data-covnote],[data-nudge]').forEach(function (n) { n.hidden = true; });
-    show(0);
+    show(1);
     syncNext();
   });
 
@@ -373,7 +366,7 @@
     // Do not steal focus on a plain page load.
     root.querySelector('.ssi-est__resulth').blur();
   } else {
-    show(0);
+    show(1);
     syncNext();
   }
 })();
