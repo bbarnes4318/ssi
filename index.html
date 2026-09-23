@@ -104,10 +104,10 @@
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow">Medicare &middot; Final Expense</p>
-      <h1>Medicare and final expense insurance, without the runaround.</h1>
-      <p class="hero__sub">Medicare and final expense are two very different kinds of coverage, but choosing either one should start the same way: understand your options, know what you are paying for, and talk with someone who can explain the details in plain English.</p>
+      <h1>Medicare and Final Expense Insurance</h1>
+      <p class="hero__sub">Clear answers. Licensed agents. Coverage options from an established independent agency serving families since 2008.</p>
       <div class="hero__actions">
-        <a class="btn btn--gold" href="#coverage-options">See Your Coverage Options</a>
+        <a class="btn btn--gold" href="#coverage-options">Explore Your Options</a>
         <a class="btn btn--outline" href="tel:+18889573337">Talk to a Licensed Agent</a>
       </div>
       <ul class="hero__proof">
@@ -118,283 +118,31 @@
     </div>
     <div class="tool" id="estimate">
       <div class="tool__head">
-        <span class="tool__kicker">Free estimate</span>
-        <h2>What could final expense insurance cost you?</h2>
-        <p>Four quick questions, about 60 seconds. No name, phone or email needed.</p>
+        <span class="tool__kicker">Final expense estimate</span>
+        <h2>See an estimated monthly range</h2>
+        <p>Answer four questions. No name, phone or email required.</p>
       </div>
-      <div class="tool__body">
-                <!--
-          Final Expense Cost Estimator — markup
-          Built for ssifinalexpense.com. Three files, no dependencies, no external
-          requests:
-            widgets/ssi-cost-estimator.html   this file: the markup (inlined by the build)
-            assets/estimator.css              styles, scoped under .ssi-est
-            assets/estimator.js               behaviour, an IIFE; load it with defer
-          The styles and script live in their own files so the site can run a strict
-          Content-Security-Policy with no inline script or style allowances.
-        
-          ── Configuration ────────────────────────────────────────────────────────────
-          Edit the data- attributes on <div class="ssi-est"> below:
-        
-            data-phone      Display phone number.            default "1-888-957-3337"
-            data-tel        tel: href digits, E.164.         default "+18889573337"
-            data-form       CSS selector of the existing     default "#quote"
-                            lead form to scroll to when the
-                            visitor asks for a call back.
-            data-schedule   URL of the online scheduler      default "" (link hidden)
-                            shown as a third option on the
-                            result card.
-        
-          ── Wiring the result into your lead record ──────────────────────────────────
-          When a visitor finishes the estimate, the widget fires:
-        
-            window.SSIEstimator.onComplete = function (data) { ... }
-        
-          with data = { age, gender, coverage, tobacco, siLow, siHigh, giLow, giHigh }
-        
-          By default it also fills any of these input names in your existing form, if
-          they exist: ssi_age, ssi_gender, ssi_coverage, ssi_tobacco. Add them to the
-          form as hidden fields and the agent gets the qualification data on the lead.
-        
-          ── Rate basis ───────────────────────────────────────────────────────────────
-          Base figures are market-average monthly premiums for simplified-issue final
-          expense whole life, from MoneyGeek's 2026 final expense rate analysis
-          (updated 12 Aug 2026), baseline profile a nonsmoker in average health.
-          Ages between the five-year anchors and coverage amounts between $10k/$20k/$30k
-          are linearly interpolated.
-        
-          Bands applied:
-            Simplified issue   0.80x – 1.20x of the market average
-                               (calibrated to the cheapest and dearest simplified-issue
-                                carriers in the source: Transamerica $31 and Fidelity $44
-                                against a $38 average for a 50-year-old man at $10,000)
-            Guaranteed issue   1.42x – 1.80x  (42% floor: 2026 Gerber SI-vs-GI comparison;
-                                               80% ceiling: 2026 GI pricing analysis)
-            Tobacco            1.25x – 1.30x on top of either band
-        
-          Guaranteed issue is capped at $25,000 face, which reflects the category norm.
-        
-          Re-pull the source annually. A rate table dated 2026 sitting on the site in
-          2028 is worse than no table at all.
-        -->
-        
-        <div class="ssi-est"
-             data-phone="1-888-957-3337"
-             data-tel="+18889573337"
-             data-form="#quote"
-             data-schedule="https://calendly.com/admin-ssi/insurance-review">
-        
-          <noscript>
-            <p class="ssi-est__noscript">
-              To see estimated monthly rates, please call a licensed agent at
-              <a href="tel:+18889573337">1-888-957-3337</a>. We are open Monday through
-              Friday, 9:00 AM to 7:00 PM, and Saturday, 9:00 AM to 5:00 PM.
-            </p>
-          </noscript>
-        
-          <div class="ssi-est__shell" data-shell>
-        
-            <fieldset class="ssi-est__step ssi-est__step--type" data-step="0">
-              <legend class="ssi-est__q">What kind of coverage are you looking for?</legend>
-              <p class="ssi-est__help">Choose one and we will send you down the right path.</p>
-              <div class="ssi-est__typechoices">
-                <a class="ssi-est__typechoice ssi-est__typechoice--primary" data-coverage-type="medicare" href="tel:+18889573337">
-                  <span class="ssi-est__typechoice-kicker">Medicare</span>
-                  <strong>Medicare Advantage or Medicare Supplement</strong>
-                  <span>Talk with a licensed agent about plans available in your area.</span>
-                  <b>Call 1-888-957-3337 &rarr;</b>
-                </a>
-                <button type="button" class="ssi-est__typechoice" data-coverage-type="final-expense">
-                  <span class="ssi-est__typechoice-kicker">Final Expense</span>
-                  <strong>See an estimated monthly cost</strong>
-                  <span>Answer four quick questions. No name, phone or email needed.</span>
-                  <b>Start the estimate &rarr;</b>
-                </button>
-              </div>
-            </fieldset>
-        
-            <div class="ssi-est__progress" data-progress>
-              <p class="ssi-est__count"><span data-stepcount>Step 1 of 4</span><span class="ssi-est__private">Private &middot; no contact details needed</span></p>
-              <ol class="ssi-est__steps" aria-hidden="true">
-                <li data-dot="1"><span>1</span>Age</li>
-                <li data-dot="2"><span>2</span>Gender</li>
-                <li data-dot="3"><span>3</span>Coverage</li>
-                <li data-dot="4"><span>4</span>Tobacco</li>
-              </ol>
-            </div>
-        
-            <!-- Step 1 — age -->
-            <fieldset class="ssi-est__step" data-step="1">
-              <legend class="ssi-est__q">How old are you?</legend>
-              <p class="ssi-est__help">Age is the single largest factor in what final expense coverage costs.</p>
-              <label class="ssi-est__selectwrap">
-                <span class="ssi-est__selectlabel">Your age</span>
-                <select data-age>
-                  <option value="">Select your age</option>
-                  <option value="lt50">Under 50</option>
-                </select>
-              </label>
-              <p class="ssi-est__note" data-agenote hidden></p>
-              <div class="ssi-est__nav">
-                <button type="button" class="ssi-est__next" data-next>Continue</button>
-              </div>
-              <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
-            </fieldset>
-        
-            <!-- Step 2 — gender -->
-            <fieldset class="ssi-est__step" data-step="2" hidden>
-              <legend class="ssi-est__q">Are you male or female?</legend>
-              <p class="ssi-est__help">Carriers price these differently because of average life expectancy.</p>
-              <div class="ssi-est__choices">
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-gender" value="female"><span>Female</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-gender" value="male"><span>Male</span>
-                </label>
-              </div>
-              <div class="ssi-est__nav">
-                <button type="button" class="ssi-est__back" data-back>Back</button>
-                <button type="button" class="ssi-est__next" data-next>Continue</button>
-              </div>
-              <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
-            </fieldset>
-        
-            <!-- Step 3 — coverage -->
-            <fieldset class="ssi-est__step" data-step="3" hidden>
-              <legend class="ssi-est__q">How much coverage do you want?</legend>
-              <p class="ssi-est__help">The median funeral and burial costs about $8,300, so most people start at $10,000.</p>
-              <div class="ssi-est__choices ssi-est__choices--grid">
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-cov" value="10000"><span>$10,000</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-cov" value="15000"><span>$15,000</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-cov" value="20000"><span>$20,000</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-cov" value="25000"><span>$25,000</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-cov" value="30000"><span>$30,000</span>
-                </label>
-              </div>
-              <p class="ssi-est__note" data-covnote hidden></p>
-              <div class="ssi-est__nav">
-                <button type="button" class="ssi-est__back" data-back>Back</button>
-                <button type="button" class="ssi-est__next" data-next>Continue</button>
-              </div>
-              <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
-            </fieldset>
-        
-            <!-- Step 4 — tobacco -->
-            <fieldset class="ssi-est__step" data-step="4" hidden>
-              <legend class="ssi-est__q">Have you used tobacco in the past year?</legend>
-              <p class="ssi-est__help">This includes cigarettes, cigars, chewing tobacco and nicotine products.</p>
-              <div class="ssi-est__choices">
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-tob" value="no"><span>No</span>
-                </label>
-                <label class="ssi-est__choice">
-                  <input type="radio" name="ssi-tob" value="yes"><span>Yes</span>
-                </label>
-              </div>
-              <div class="ssi-est__nav">
-                <button type="button" class="ssi-est__back" data-back>Back</button>
-                <button type="button" class="ssi-est__next ssi-est__next--go" data-next>See my estimate</button>
-              </div>
-              <p class="ssi-est__nudge" data-nudge hidden role="alert"></p>
-            </fieldset>
-        
-            <!-- Result -->
-            <section class="ssi-est__result" data-result hidden aria-live="polite">
-              <div class="ssi-est__rhead">
-                <div>
-                  <p class="ssi-est__rkicker">Your estimate</p>
-                  <h3 class="ssi-est__resulth" data-resulth></h3>
-                </div>
-                <button type="button" class="ssi-est__edit" data-restart>Edit answers</button>
-              </div>
-              <ul class="ssi-est__chips" data-chips></ul>
-        
-              <div class="ssi-est__options">
-                <div class="ssi-est__opt ssi-est__opt--si">
-                  <span class="ssi-est__ribbon">Most people qualify</span>
-                  <p class="ssi-est__optlabel">With a few health questions</p>
-                  <p class="ssi-est__price"><span data-si></span><span class="ssi-est__per">/mo</span></p>
-                  <ul class="ssi-est__ticks">
-                    <li>No medical exam</li>
-                    <li>Full benefit from day one on most plans</li>
-                  </ul>
-                </div>
-                <div class="ssi-est__opt ssi-est__opt--gi">
-                  <span class="ssi-est__ribbon ssi-est__ribbon--gi">Guaranteed acceptance</span>
-                  <p class="ssi-est__optlabel">No health questions at all</p>
-                  <p class="ssi-est__price"><span data-gi></span><span class="ssi-est__per">/mo</span></p>
-                  <ul class="ssi-est__ticks" data-giticks>
-                    <li>Approved regardless of health</li>
-                    <li>Full benefit after two years</li>
-                  </ul>
-                </div>
-              </div>
-        
-              <div class="ssi-est__wait" data-wait hidden>
-                <p class="ssi-est__waith">The cost of waiting <span>same coverage, if you buy later</span></p>
-                <div class="ssi-est__ladder" data-ladder></div>
-              </div>
-        
-              <p class="ssi-est__estnote"><strong>An estimate, not a quote.</strong> Based on 2026 market averages. Your actual rate is set by the carrier after a few health questions and depends on your state &mdash; a licensed agent confirms it in one call.</p>
-        
-              <p class="ssi-est__nexth">Want to see which plans you actually qualify for?</p>
-              <a class="ssi-est__call" data-call href="#">
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-                <span><span class="ssi-est__callsm">Talk to a licensed agent now</span><span class="ssi-est__callno" data-callno></span></span>
-              </a>
-              <p class="ssi-est__foot"><button type="button" class="ssi-est__secondary" data-request>Have a licensed agent call me back &rarr;</button><a class="ssi-est__tertiary" data-schedule-link href="#" hidden rel="noopener">Schedule a time online</a></p>
-        
-              <details class="ssi-est__discwrap">
-                <summary>About these figures</summary>
-                <p class="ssi-est__disc">
-                These figures are an estimate, not a quote and not an offer of insurance.
-                They are based on market-average monthly premiums for simplified-issue
-                final expense whole life coverage from MoneyGeek's 2026 rate analysis of
-                final expense quotes across major carriers, updated August 12, 2026, using
-                a baseline profile of a nonsmoker in average health. Your actual premium
-                depends on your age, gender, tobacco use, health history, coverage amount,
-                the carrier you select and your state of residence. Coverage availability
-                and maximum face amounts vary by carrier and by age.
-                Senior Solutions Insurance is a licensed insurance agency. Not all
-                products are available in all states.
-                </p>
-              </details>
-            </section>
-        
-          </div>
-        </div>
-        
-      </div>
+      <div class="tool__body">{{estimator}}</div>
     </div>
   </div>
 </section>
 
 <section class="sec home-lines" id="coverage-options">
   <div class="wrap" data-reveal>
-    <span class="eyebrow">Two specialties. One experienced agency.</span>
-    <h2 class="sec__h">The coverage we help families compare every day.</h2>
-    <p class="sec__sub">Medicare and final expense are where our licensed agents spend their time. We explain the differences between plans and carriers, answer the questions that matter, and help you make sense of the fine print before you apply.</p>
+    <span class="eyebrow">What we do</span>
+    <h2 class="sec__h">Two areas. One experienced agency.</h2>
+    <p class="sec__sub">We help families compare Medicare coverage and final expense insurance, with licensed agents who can explain the differences before you apply.</p>
     <div class="home-lines__grid">
       <a class="home-line home-line--primary" href="/medicare/">
         <span class="home-line__num">01</span>
-        <div><span class="home-line__eyebrow">Medicare</span><h3>Medicare Advantage &amp; Medicare Supplement</h3><p>Understand the two main ways to get Medicare coverage, then look at Medicare Supplement options if Original Medicare is the route you choose.</p><span class="home-line__link">Explore Medicare &rarr;</span></div>
+        <div><span class="home-line__eyebrow">Medicare</span><h3>Medicare Advantage &amp; Medicare Supplement</h3><p>Understand Original Medicare, Medicare Advantage and Medicare Supplement Insurance, and see how the pieces fit together.</p><span class="home-line__link">Explore Medicare &rarr;</span></div>
       </a>
       <a class="home-line" href="/final-expense-insurance/">
         <span class="home-line__num">02</span>
-        <div><span class="home-line__eyebrow">Final Expense</span><h3>Coverage for the expenses your family will face</h3><p>Compare coverage amounts, health requirements and carrier options with an agent who can look at more than one company.</p><span class="home-line__link">Explore Final Expense &rarr;</span></div>
+        <div><span class="home-line__eyebrow">Final Expense</span><h3>Life insurance for final expenses</h3><p>Learn how final expense coverage works, what affects the price and how different health histories can affect your options.</p><span class="home-line__link">Explore Final Expense &rarr;</span></div>
       </a>
     </div>
-    <p class="home-lines__secondary">Looking for health insurance before Medicare? <a href="/health-insurance/">See our ACA marketplace health insurance guide</a>.</p>
+    <p class="home-lines__secondary">Need health coverage before Medicare? <a href="/health-insurance/">Visit our ACA health insurance guide</a>.</p>
   </div>
 </section>
 
