@@ -25,7 +25,7 @@ and commit the output alongside the source.
 | `/agents/` | `src/pages/agents.html` | For licensed agents: links to the Life Leads Plus lead platform (lifeleadsplus.com). Not customer facing: `noindex`, not in the sitemap. Linked from the desktop utility bar ("For agents"), the footer Company column and bottom bar, and the About page "How we work" section. |
 | `/404.html` | `src/pages/404.html` | Branded not-found page (Vercel serves root `404.html`). `noindex`, not in the sitemap. |
 | `/preview/` | `preview/index.html` | Internal links page, `noindex`. |
-| `/api/lead` | `api/lead.js` | Quote form handler. Needs `LEAD_WEBHOOK_URL` (see below). |
+| `/api/lead` | `api/lead.js` | Quote form handler. Needs `BREVO_API_KEY` (or another delivery option, see below). |
 
 Shared pieces: `src/layout.html` (head, header, footer, sticky call bar),
 `src/partials/quote-form.html` (the one lead form, every page), `assets/site.css`,
@@ -45,9 +45,10 @@ form returns 503 and tells the visitor to call.
 
 | Variable | What it does |
 |---|---|
-| `RESEND_API_KEY` | **Option 1, simplest.** Emails every lead to **cmartin@ssifinalexpense.com** (built into `api/lead.js`, so it cannot be dropped by a setting). Free resend.com account. Resend's default sender only delivers to the address the Resend account was created with, so either open the Resend account as cmartin@ssifinalexpense.com, or verify ssifinalexpense.com in Resend → Domains (DNS records) and set `LEAD_FROM_EMAIL`. |
+| `BREVO_API_KEY` | **Option 1, email (what SSI uses).** Emails every lead to **cmartin@ssifinalexpense.com** (built into `api/lead.js`, so no setting can drop it). Key from Brevo → SMTP & API → API Keys. Brevo only sends from a verified sender: verify cmartin@ssifinalexpense.com (the default sender) or whatever `LEAD_FROM_EMAIL` names, under Brevo → Senders, Domains & Dedicated IPs. |
+| `RESEND_API_KEY` | Alternative to Brevo (Brevo wins if both are set). Resend's default sender only delivers to the address the Resend account was created with. |
 | `LEAD_TO_EMAIL` | Optional. Extra recipients, comma-separated, added to cmartin@ssifinalexpense.com. |
-| `LEAD_FROM_EMAIL` | Optional sender, e.g. `SSI Website <leads@ssifinalexpense.com>`. Needs ssifinalexpense.com verified in Resend. Defaults to `onboarding@resend.dev`. |
+| `LEAD_FROM_EMAIL` | Optional sender, `Name <email>` or a bare address. Must be verified in Brevo. Brevo default `SSI Website <cmartin@ssifinalexpense.com>`. |
 | `LEAD_WEBHOOK_URL` | **Option 2.** POSTs every lead as JSON to that URL — a CRM webhook, a Make.com/Zapier catch hook, a Google Apps Script. |
 | `TURNSTILE_SECRET` | Optional bot check (Cloudflare Turnstile, free). When set, submissions must carry a valid token; put the matching site key in `TURNSTILE_SITE_KEY` at the top of `assets/site.js`. The honeypot runs regardless, so this can wait until spam actually shows up. |
 
