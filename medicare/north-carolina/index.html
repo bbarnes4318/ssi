@@ -31,7 +31,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-700.woff2" crossorigin>
 
-<link rel="stylesheet" href="/assets/site.css?v=3aceef46">
+<link rel="stylesheet" href="/assets/site.css?v=eabc55a8">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://ssifinalexpense.com/#agency","name":"Senior Solutions Insurance","legalName":"Christopher L Martin Insurance Group","url":"https://ssifinalexpense.com/","telephone":"+1-888-957-3337","image":"https://ssifinalexpense.com/assets/img/team-boardroom.jpg","logo":"https://ssifinalexpense.com/assets/ssi-logo.png","foundingDate":"2008","founder":{"@type":"Person","name":"Chris Martin","jobTitle":"Founder & CEO"},"description":"Licensed insurance agency in Greenwood Village, Colorado. Final expense and burial insurance, Medicare Advantage and ACA health plans, quoted by licensed agents.","hasMap":"https://www.google.com/maps/dir/?api=1&destination=5775+DTC+Blvd+Suite+250-S+Greenwood+Village+CO+80111","address":{"@type":"PostalAddress","streetAddress":"5775 DTC Blvd, Suite 250-S","addressLocality":"Greenwood Village","addressRegion":"CO","postalCode":"80111","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}],"areaServed":{"@type":"Country","name":"United States"},"sameAs":["https://www.facebook.com/SeniorSolutionsInsuranceMedicare","https://www.bbb.org/us/co/denver/profile/funeral-related-services/senior-solutions-insurance-1296-90265012"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are Charlotte and Raleigh Medicare Advantage options the same as the mountains or the coast?","acceptedAnswer":{"@type":"Answer","text":"No. Plans file for specific counties, and North Carolina has 100 of them. Mecklenburg, Wake, the western mountain counties and the eastern coastal counties each have their own list. A licensed agent compares the plans filed for your county."}},{"@type":"Question","name":"Where can North Carolinians get free Medicare counseling?","acceptedAnswer":{"@type":"Answer","text":"From the Seniors’ Health Insurance Information Program (SHIIP), run by the North Carolina Department of Insurance, at 1-855-408-1212. It is federally funded and free, and SHIIP counselors do not sell insurance."}},{"@type":"Question","name":"I retired to North Carolina from another state. Can I change my plan?","acceptedAnswer":{"@type":"Answer","text":"Moving to a new county is a qualifying event that opens a Special Enrollment Period, because the plans available to you have changed. Tell the agent your move date; the window is limited, and SHIIP at 1-855-408-1212 will confirm your timing for free."}},{"@type":"Question","name":"Who handles a complaint about a Medicare agent in North Carolina?","acceptedAnswer":{"@type":"Answer","text":"The North Carolina Department of Insurance, which licenses the agents, takes complaints through the assistance section of its website and also runs SHIIP and Smart NC. If your problem is a denied health insurance claim rather than how a plan was sold, the department’s homepage has a dedicated route for that too."}}]}</script>
@@ -254,8 +254,8 @@
       </div>
       <ol class="steps">
   <li><svg aria-hidden="true"><use href="#i-phone"/></svg><div><h3>A licensed agent calls you back</h3><p>During business hours: Monday to Friday 9 to 7, Saturday 9 to 5, Mountain Time.</p></div></li>
-  <li><svg aria-hidden="true"><use href="#i-list"/></svg><div><h3>We compare carriers for you</h3><p>Up to 25 companies, checked against your age and health. You hear the monthly premium from each carrier that will take your case.</p></div></li>
-  <li><svg aria-hidden="true"><use href="#i-pen"/></svg><div><h3>You decide</h3><p>Enroll on the call, or take the numbers and think it over. There is no fee and no obligation either way.</p></div></li>
+  <li><svg aria-hidden="true"><use href="#i-list"/></svg><div><h3>We focus on what you actually need</h3><p>Tell us whether you need help with Final Expense insurance, Medicare or another health coverage question. Your agent reviews the options that apply to your situation.</p></div></li>
+  <li><svg aria-hidden="true"><use href="#i-pen"/></svg><div><h3>You decide what fits</h3><p>We explain the important differences and next steps. If an option makes sense, we can help you move forward. There is no fee for speaking with us.</p></div></li>
 </ol>
 
       <div class="cta-row">
@@ -265,7 +265,7 @@
     </div>
 
     <form class="form" method="post" action="/api/lead" data-lead-form novalidate>
-      <p>Four fields, no email address. A licensed agent calls you back during business hours with quotes for your age and health.</p>
+      <p>Four fields, no email address. A licensed agent calls you back during business hours to understand what you need and review the options available to you.</p>
       <div class="form__row form__row--2">
         <div class="form__field">
           <label for="q-name">Full name</label>
@@ -280,12 +280,12 @@
       </div>
       <div class="form__row form__row--2">
         <div class="form__field">
-          <label for="q-zip">ZIP code <span class="form__why">so we quote your state</span></label>
+          <label for="q-zip">ZIP code <span class="form__why">options vary by location</span></label>
           <input id="q-zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required aria-describedby="q-zip-err">
           <p class="form__err" id="q-zip-err" data-err-for="zip" hidden></p>
         </div>
         <div class="form__field">
-          <label for="q-dob">Date of birth <span class="form__why">rates are set by age</span></label>
+          <label for="q-dob">Date of birth <span class="form__why">eligibility and pricing can depend on age</span></label>
           <input id="q-dob" name="dob" type="date" autocomplete="bday" required aria-describedby="q-dob-err">
           <p class="form__err" id="q-dob-err" data-err-for="dob" hidden></p>
         </div>
@@ -355,7 +355,7 @@
         <li><a href="/medicare/">Medicare</a></li>
         <li><a href="/health-insurance/">Health Insurance</a></li>
         <li><a href="/final-expense-insurance/#rates">Rates by age</a></li>
-        <li><a href="/#estimate">Cost estimator</a></li>
+        <li><a href="/final-expense-insurance/#estimate">Cost estimator</a></li>
         <li><a href="/how-much-does-a-funeral-cost/">How much does a funeral cost?</a></li>
         <li><a href="/burial-insurance-with-pre-existing-conditions/">Burial insurance with pre-existing conditions</a></li>
         <li><a href="/final-expense-insurance/#by-state">Final expense insurance by state</a></li>
