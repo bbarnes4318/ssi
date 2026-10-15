@@ -1,0 +1,257 @@
+/* Homepage hero — integrated editorial composition.
+   Loaded after site.css and scoped to .page-home so legacy split-hero rules on
+   other pages remain untouched. */
+
+.page-home .hero--home {
+  position: relative;
+  display: block;
+  min-height: clamp(34rem, calc(100vh - 7.9rem), 40rem);
+  padding: 0;
+  overflow: hidden;
+  background: #0B1220 !important;
+  background-image: none !important;
+}
+
+.page-home .hero--home::before,
+.page-home .hero--home::after {
+  display: none;
+}
+
+/* The wrap only aligns the copy. It must NOT be the containing block for the
+   photo; the photo is anchored to the full hero/viewport edge. */
+.page-home .hero--home > .hero__grid {
+  position: static;
+  display: flex;
+  align-items: center;
+  min-height: clamp(34rem, calc(100vh - 7.9rem), 40rem);
+  width: 100%;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+
+.page-home .hero--home .hero__copy {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 53%;
+  max-width: 42rem;
+}
+
+.page-home .hero--home h1 {
+  max-width: 18ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(3.15rem, 4.4vw, 4.45rem);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+  text-shadow: none;
+  text-wrap: balance;
+}
+
+.page-home .hero--home .hero__accent {
+  display: block;
+  color: var(--gold);
+}
+
+.page-home .hero--home .hero__sub {
+  max-width: 35rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.18rem;
+  line-height: 1.58;
+  color: #F2F4F7;
+}
+
+.page-home .hero--home .hero__actions--paths {
+  max-width: 44rem;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.page-home .hero--home .hero__actions--paths .btn {
+  min-height: 3.65rem;
+  padding-inline: 1.45rem;
+  font-size: 1rem;
+}
+
+.page-home .hero--home .hero__actions--paths .btn:first-child {
+  flex: 1.22 1 0;
+}
+
+.page-home .hero--home .hero__actions--paths .btn:last-child {
+  flex: 1 1 0;
+}
+
+/* Full-height photographic layer. This deliberately escapes the normal wrap
+   and runs flush to the browser's right edge. */
+.page-home .hero--home .hero__photo--home {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 58vw;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.page-home .hero--home .hero__photo--home::before {
+  display: none !important;
+}
+
+.page-home .hero--home .hero__photo--home::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #0B1220 0%,
+    rgba(11,18,32,.97) 6%,
+    rgba(11,18,32,.82) 13%,
+    rgba(11,18,32,.55) 22%,
+    rgba(11,18,32,.24) 31%,
+    rgba(11,18,32,0) 44%
+  );
+}
+
+.page-home .hero--home .hero__photo--home img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  aspect-ratio: auto !important;
+  object-fit: cover;
+  object-position: 61% 50%;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the trust row simple and editorial: icon + label + quiet separators. */
+.page-home .hero--home .hero__trust {
+  position: relative;
+  z-index: 3;
+  max-width: 45rem;
+  margin-top: 1.9rem;
+}
+
+.page-home .hero--home .hero__trust li {
+  padding-inline: 1rem;
+}
+
+.page-home .hero--home .hero__trust li:first-child {
+  padding-left: 0;
+}
+
+/* Wide laptop/tablet: keep the integrated composition but give the copy a bit
+   more room and reduce type before the stacked breakpoint. */
+@media (max-width: 72rem) and (min-width: 60.0625rem) {
+  .page-home .hero--home > .hero__grid {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .page-home .hero--home .hero__copy {
+    flex-basis: 55%;
+    max-width: 38rem;
+  }
+
+  .page-home .hero--home h1 {
+    font-size: clamp(2.8rem, 4.7vw, 3.7rem);
+    max-width: 18ch;
+  }
+
+  .page-home .hero--home .hero__sub {
+    max-width: 32rem;
+    font-size: 1.08rem;
+  }
+
+  .page-home .hero--home .hero__photo--home {
+    width: 56vw;
+  }
+}
+
+/* Tablet and phone: stop forcing the desktop overlap. The photo becomes a
+   full-bleed media band after the copy, with no card treatment. */
+@media (max-width: 60rem) {
+  .page-home .hero--home {
+    min-height: 0;
+  }
+
+  .page-home .hero--home > .hero__grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    padding-top: 3rem;
+    padding-bottom: 0;
+  }
+
+  .page-home .hero--home .hero__copy {
+    flex: none;
+    width: 100%;
+    max-width: 44rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .page-home .hero--home h1 {
+    max-width: 18ch;
+    font-size: clamp(2.65rem, 7vw, 3.65rem);
+  }
+
+  .page-home .hero--home .hero__photo--home {
+    position: relative;
+    z-index: 1;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: calc(100% + 3rem);
+    height: clamp(22rem, 58vw, 30rem);
+    margin: 0 -1.5rem;
+  }
+
+  .page-home .hero--home .hero__photo--home::after {
+    background: linear-gradient(180deg, #0B1220 0%, rgba(11,18,32,.35) 12%, rgba(11,18,32,0) 30%);
+  }
+
+  .page-home .hero--home .hero__photo--home img {
+    object-position: 58% 45%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .page-home .hero--home > .hero__grid {
+    padding-top: 2.35rem;
+  }
+
+  .page-home .hero--home h1 {
+    max-width: 15ch;
+    margin-bottom: 1rem;
+    font-size: clamp(2.35rem, 11vw, 3.05rem);
+  }
+
+  .page-home .hero--home .hero__sub {
+    margin-bottom: 1.35rem;
+    font-size: 1.04rem;
+  }
+
+  .page-home .hero--home .hero__actions--paths {
+    flex-direction: column;
+    max-width: none;
+  }
+
+  .page-home .hero--home .hero__actions--paths .btn {
+    width: 100%;
+  }
+
+  .page-home .hero--home .hero__trust {
+    margin-top: 1.5rem;
+  }
+
+  .page-home .hero--home .hero__photo--home {
+    height: clamp(19rem, 72vw, 24rem);
+  }
+}
