@@ -71,3 +71,61 @@
 /* Final editorial treatment for Medicare Supplement */
 .medigap-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(18rem,.95fr);gap:4rem;align-items:end;border-bottom:1px solid var(--rule);padding-bottom:2rem}.medigap-head h2{max-width:35rem;margin:0}.medigap-head>p{margin:0;max-width:35rem;color:var(--gray);font-size:1rem;line-height:1.7}.medigap-facts{display:grid;grid-template-columns:1fr 1fr}.medigap-facts article{padding:1.7rem 2rem 1.7rem 0;border-bottom:1px solid var(--rule)}.medigap-facts article:nth-child(even){padding-left:2rem;border-left:1px solid var(--rule)}.medigap-facts__num{display:block;font-size:.68rem;letter-spacing:.12em;font-weight:700;color:var(--gold-muted);margin-bottom:.45rem}.medigap-facts h3{font-size:1.05rem;line-height:1.3;margin:0 0 .45rem;color:var(--navy)}.medigap-facts p{margin:0;color:var(--gray);font-size:.93rem;line-height:1.62}.medigap-foot{display:grid;grid-template-columns:15rem 1fr;gap:2rem;padding-top:1.25rem;color:var(--gray);font-size:.9rem;line-height:1.6}.medigap-foot strong{color:var(--navy)}
 @media(max-width:60rem){.medigap-head{grid-template-columns:1fr;gap:1rem}.medigap-facts{grid-template-columns:1fr}.medigap-facts article,.medigap-facts article:nth-child(even){padding:1.35rem 0;border-left:0}.medigap-foot{grid-template-columns:1fr;gap:.35rem}}
+
+/* Homepage: two equal paths (Final Expense / Medicare).
+   .hero__actions--paths gives both path buttons the same width so neither
+   reads as the secondary product; reused by the route band near the foot. */
+.hero__actions--paths .btn{flex:1 1 auto;white-space:nowrap;padding-inline:1.35rem;}
+.home-lines__grid--even{grid-template-columns:1fr 1fr;}
+.home-lines__grid--even .home-line{display:flex;flex-direction:column;}
+.home-lines__grid--even .home-line>div{display:flex;flex-direction:column;flex:1;}
+.home-lines__grid--even .home-line__link{margin-top:auto;align-self:flex-start;}
+.home-line:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;background:var(--lighter);}
+.home-line:hover .home-line__link{text-decoration-thickness:2px;}
+
+.page-home .hero--split{padding:3.25rem 0 3.5rem;}
+.page-home .hero--split .hero__grid{grid-template-columns:1.2fr 1fr;gap:3rem;}
+.page-home .hero h1{font-size:clamp(2.1rem,1.4rem + 2.2vw,3rem);line-height:1.12;max-width:20ch;margin-bottom:.9rem;}
+.page-home .hero__sub{max-width:34rem;margin-bottom:1.75rem;}
+.page-home .hero__points{margin:1.5rem 0 0;}
+
+.home-route{text-align:center;border-top:1px solid var(--rule);}
+.home-route .sec__sub{margin-bottom:1.75rem;}
+.home-route__actions{justify-content:center;max-width:42rem;margin:0 auto;}
+.home-route__alt{margin:1.25rem 0 0;color:var(--gray);font-size:.98rem;}
+.home-route__alt a{font-weight:700;color:var(--navy-2);text-decoration-color:var(--gold);text-underline-offset:3px;}
+
+/* Laptop/tablet landscape: keep copy and photo side by side down to 60rem
+   instead of stacking a full-width photo under the copy at 72rem. */
+@media (min-width:60.0625rem) and (max-width:72rem){
+  .page-home .hero--split .hero__grid{grid-template-columns:1.15fr .85fr;gap:2.25rem;}
+  .page-home .hero--split .hero__photo figcaption{display:none;}
+}
+@media (max-width:60rem){
+  .home-lines__grid--even{grid-template-columns:1fr;}
+  .page-home .hero--split .hero__grid{grid-template-columns:1fr;gap:2rem;}
+  .page-home .hero--split .hero__photo{max-width:36rem;}
+  .page-home .hero--split .hero__photo img{aspect-ratio:16/9;object-position:center 40%;}
+}
+@media (max-width:40rem){
+  .hero__actions--paths{flex-direction:column;gap:.75rem;}
+  .hero__actions--paths .btn{flex:none;width:100%;}
+  .page-home .hero__sub{font-size:1.08rem;margin-bottom:1.4rem;}
+  .page-home .hero__points{margin-top:1.25rem;}
+  .page-home .hero--split .hero__photo::before{display:none;}
+}
+
+/* Callback form: a longer label helper ("eligibility and pricing can depend
+   on age") must not push one input lower than its neighbour. Paired fields
+   share row heights through subgrid; browsers without subgrid keep the old
+   layout. Stacked (narrow) fields put the helper on its own line. */
+@media (min-width:48.0625rem){
+  @supports (grid-template-rows:subgrid){
+    .form__row--2{row-gap:0;}
+    .form__row--2>.form__field{display:grid;grid-row:span 3;grid-template-rows:subgrid;}
+    .form__row--2>.form__field>label{align-self:end;}
+  }
+}
+@media (max-width:48rem){
+  .form__why{display:block;margin:.05rem 0 0;line-height:1.35;}
+}
