@@ -5,12 +5,16 @@
 // Set ONE of the two delivery options; both may be set.
 //
 //   Option 1 — email the lead (simplest):
-//   RESEND_API_KEY     API key from resend.com (free account).
-//   LEAD_TO_EMAIL      Inbox that receives leads. Until a sending domain is
-//                      verified in Resend, this must be the email the Resend
-//                      account was created with.
-//   LEAD_FROM_EMAIL    Optional. Defaults to onboarding@resend.dev, which
-//                      works without domain verification.
+//   RESEND_API_KEY     API key from resend.com (free account). Every lead is
+//                      emailed to LEAD_ALWAYS_TO below; that address is built
+//                      in so a missing or changed setting cannot drop it.
+//   LEAD_TO_EMAIL      Optional. Extra recipients, comma-separated. They are
+//                      added to LEAD_ALWAYS_TO, never instead of it.
+//   LEAD_FROM_EMAIL    Optional sender, e.g. "SSI Website <leads@ssifinalexpense.com>".
+//                      Defaults to onboarding@resend.dev, which only delivers
+//                      to the address the Resend account was created with.
+//                      To reach any other inbox, verify ssifinalexpense.com
+//                      in Resend (Domains) and set this to an address on it.
 //
 //   Option 2 — POST the lead as JSON somewhere:
 //   LEAD_WEBHOOK_URL   Any URL that accepts a JSON POST — a CRM webhook, a
@@ -28,6 +32,20 @@
 // dispute asks for.
 
 'use strict';
+
+// Every lead is emailed here, whatever the environment says.
+var LEAD_ALWAYS_TO = 'cmartin@ssifinalexpense.com';
+
+function leadRecipients() {
+  var list = [LEAD_ALWAYS_TO].concat(String(process.env.LEAD_TO_EMAIL || '').split(','));
+  var seen = {};
+  return list.map(function (a) { return a.trim(); }).filter(function (a) {
+    var k = a.toLowerCase();
+    if (!a || seen[k]) return false;
+    seen[k] = true;
+    return true;
+  });
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -76,7 +94,7 @@ module.exports = async function handler(req, res) {
     if (!ok) return res.status(400).json({ error: 'Verification failed. Please try again or call 1-888-957-3337.' });
   }
 
-  var canEmail = !!(process.env.RESEND_API_KEY && process.env.LEAD_TO_EMAIL);
+  var canEmail = !!process.env.RESEND_API_KEY;
   var canPost = !!process.env.LEAD_WEBHOOK_URL;
   if (!canEmail && !canPost) {
     return res.status(503).json({ error: 'Online requests are not available right now. Please call 1-888-957-3337 and we will take care of you.' });
@@ -138,7 +156,7 @@ module.exports = async function handler(req, res) {
         headers: { 'Authorization': 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           from: process.env.LEAD_FROM_EMAIL || 'SSI Website <onboarding@resend.dev>',
-          to: [process.env.LEAD_TO_EMAIL],
+          to: leadRecipients(),
           subject: 'New lead: ' + lead.name + ' - ' + lead.phone,
           text: text
         })

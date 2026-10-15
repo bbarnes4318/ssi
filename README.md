@@ -45,7 +45,9 @@ form returns 503 and tells the visitor to call.
 
 | Variable | What it does |
 |---|---|
-| `RESEND_API_KEY` + `LEAD_TO_EMAIL` | **Option 1, simplest.** Emails every lead to `LEAD_TO_EMAIL`. Free resend.com account; until a sending domain is verified there, `LEAD_TO_EMAIL` must be the address the Resend account was created with. |
+| `RESEND_API_KEY` | **Option 1, simplest.** Emails every lead to **cmartin@ssifinalexpense.com** (built into `api/lead.js`, so it cannot be dropped by a setting). Free resend.com account. Resend's default sender only delivers to the address the Resend account was created with, so either open the Resend account as cmartin@ssifinalexpense.com, or verify ssifinalexpense.com in Resend → Domains (DNS records) and set `LEAD_FROM_EMAIL`. |
+| `LEAD_TO_EMAIL` | Optional. Extra recipients, comma-separated, added to cmartin@ssifinalexpense.com. |
+| `LEAD_FROM_EMAIL` | Optional sender, e.g. `SSI Website <leads@ssifinalexpense.com>`. Needs ssifinalexpense.com verified in Resend. Defaults to `onboarding@resend.dev`. |
 | `LEAD_WEBHOOK_URL` | **Option 2.** POSTs every lead as JSON to that URL — a CRM webhook, a Make.com/Zapier catch hook, a Google Apps Script. |
 | `TURNSTILE_SECRET` | Optional bot check (Cloudflare Turnstile, free). When set, submissions must carry a valid token; put the matching site key in `TURNSTILE_SITE_KEY` at the top of `assets/site.js`. The honeypot runs regardless, so this can wait until spam actually shows up. |
 

@@ -9,6 +9,11 @@ entry.
 ## [Unreleased]
 
 ### Changed
+- Lead email: every form submission is emailed to cmartin@ssifinalexpense.com,
+  built into `api/lead.js`. `LEAD_TO_EMAIL` is now optional and only adds
+  recipients; email needs just `RESEND_API_KEY`.
+
+### Changed
 - `/agents/` rebuilt: split hero with an agent photo and new copy ("Pay for
   applications, not phone calls."), and the "Who it is for" block replaced
   by a fit checklist, call-type summary and a navy rate card with proper
