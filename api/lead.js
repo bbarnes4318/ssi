@@ -4,17 +4,20 @@
 // Environment variables (Vercel → Project → Settings → Environment Variables).
 // Set ONE of the two delivery options; both may be set.
 //
-//   Option 1 — email the lead (simplest):
-//   RESEND_API_KEY     API key from resend.com (free account). Every lead is
-//                      emailed to LEAD_ALWAYS_TO below; that address is built
-//                      in so a missing or changed setting cannot drop it.
+//   Option 1 — email the lead (simplest). Every lead is emailed to
+//   LEAD_ALWAYS_TO below; that address is built in so a missing or changed
+//   setting cannot drop it. Set ONE of these two keys (Brevo wins if both):
+//   BREVO_API_KEY      API key from Brevo (SMTP & API → API Keys). Brevo only
+//                      sends from a sender verified in the Brevo account, so
+//                      verify LEAD_FROM_EMAIL there (default: LEAD_ALWAYS_TO).
+//   RESEND_API_KEY     API key from resend.com.
 //   LEAD_TO_EMAIL      Optional. Extra recipients, comma-separated. They are
 //                      added to LEAD_ALWAYS_TO, never instead of it.
 //   LEAD_FROM_EMAIL    Optional sender, e.g. "SSI Website <leads@ssifinalexpense.com>".
-//                      Defaults to onboarding@resend.dev, which only delivers
-//                      to the address the Resend account was created with.
-//                      To reach any other inbox, verify ssifinalexpense.com
-//                      in Resend (Domains) and set this to an address on it.
+//                      Brevo default: "SSI Website <cmartin@ssifinalexpense.com>".
+//                      Resend default: onboarding@resend.dev, which only
+//                      delivers to the address the Resend account was created
+//                      with unless ssifinalexpense.com is verified in Resend.
 //
 //   Option 2 — POST the lead as JSON somewhere:
 //   LEAD_WEBHOOK_URL   Any URL that accepts a JSON POST — a CRM webhook, a
@@ -35,6 +38,12 @@
 
 // Every lead is emailed here, whatever the environment says.
 var LEAD_ALWAYS_TO = 'cmartin@ssifinalexpense.com';
+
+// "Name <email>" or a bare address -> { name, email } for Brevo's sender field.
+function parseSender(v) {
+  var m = String(v).match(/^\s*(.*?)\s*<([^>]+)>\s*$/);
+  return m ? { name: m[1] || 'SSI Website', email: m[2].trim() } : { name: 'SSI Website', email: String(v).trim() };
+}
 
 function leadRecipients() {
   var list = [LEAD_ALWAYS_TO].concat(String(process.env.LEAD_TO_EMAIL || '').split(','));
@@ -94,7 +103,7 @@ module.exports = async function handler(req, res) {
     if (!ok) return res.status(400).json({ error: 'Verification failed. Please try again or call 1-888-957-3337.' });
   }
 
-  var canEmail = !!process.env.RESEND_API_KEY;
+  var canEmail = !!(process.env.BREVO_API_KEY || process.env.RESEND_API_KEY);
   var canPost = !!process.env.LEAD_WEBHOOK_URL;
   if (!canEmail && !canPost) {
     return res.status(503).json({ error: 'Online requests are not available right now. Please call 1-888-957-3337 and we will take care of you.' });
@@ -151,17 +160,33 @@ module.exports = async function handler(req, res) {
         'Consent text shown:',
         lead.consent.text
       ].join('\n');
-      var er = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { 'Authorization': 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from: process.env.LEAD_FROM_EMAIL || 'SSI Website <onboarding@resend.dev>',
-          to: leadRecipients(),
-          subject: 'New lead: ' + lead.name + ' - ' + lead.phone,
-          text: text
-        })
-      });
-      if (!er.ok) throw new Error('resend ' + er.status + ' ' + (await er.text()).slice(0, 200));
+      var subject = 'New lead: ' + lead.name + ' - ' + lead.phone;
+      var er;
+      if (process.env.BREVO_API_KEY) {
+        er = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: { 'api-key': process.env.BREVO_API_KEY, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            sender: parseSender(process.env.LEAD_FROM_EMAIL || 'SSI Website <' + LEAD_ALWAYS_TO + '>'),
+            to: leadRecipients().map(function (a) { return { email: a }; }),
+            subject: subject,
+            textContent: text
+          })
+        });
+        if (!er.ok) throw new Error('brevo ' + er.status + ' ' + (await er.text()).slice(0, 200));
+      } else {
+        er = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: process.env.LEAD_FROM_EMAIL || 'SSI Website <onboarding@resend.dev>',
+            to: leadRecipients(),
+            subject: subject,
+            text: text
+          })
+        });
+        if (!er.ok) throw new Error('resend ' + er.status + ' ' + (await er.text()).slice(0, 200));
+      }
       delivered = true;
     } catch (e) {
       console.error('lead email failed', e && e.message);

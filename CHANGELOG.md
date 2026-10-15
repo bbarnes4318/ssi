@@ -8,6 +8,14 @@ entry.
 
 ## [Unreleased]
 
+### Added
+- Brevo email delivery for leads (`BREVO_API_KEY`). Leads go to
+  cmartin@ssifinalexpense.com from a Brevo-verified sender (default
+  cmartin@ssifinalexpense.com, or `LEAD_FROM_EMAIL`). Brevo is used when its
+  key is set; Resend stays as the fallback. Before this, no delivery option
+  was configured in production and the live form returned 503 to every
+  visitor ("please call").
+
 ### Changed
 - Lead email: every form submission is emailed to cmartin@ssifinalexpense.com,
   built into `api/lead.js`. `LEAD_TO_EMAIL` is now optional and only adds
