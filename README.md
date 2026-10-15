@@ -72,7 +72,7 @@ and the exact consent text shown. Whatever receives the webhook must store it.
 | Deliverable | File | Status | Waiting on |
 |---|---|---|---|
 | Final expense cost estimator | `widgets/ssi-cost-estimator.html` | **Ready to ship** — Release 1 | Nothing. Goes on the new `/final-expense-insurance/` page. |
-| Footer licensing line (Block B) | `compliance/ssi-medicare-disclosures.html` | **Ready to ship** — Release 1 | Nothing. Entity name is supplied; state list deliberately omitted. |
+| Footer licensing line (Block B) | `compliance/ssi-medicare-disclosures.html` | **Shipped** | Nothing. Licensed in 36 states, with the state list (FMO sign-off 15 Oct 2026). |
 | `/medicare/` false-claim removal | `deploy/release-1-ship-now.md` | **Ready to ship** — Release 1 | Nothing. Removal of a false claim does not wait on the FMO. |
 | `/medicare/` TPMO disclaimer (Block A) | `compliance/ssi-medicare-disclosures.html` | **Shipped** — Release 2, 12 Sep 2026 | Re-confirm paragraph 1 against the FMO text at each plan-year turnover. |
 | `/medicare/` copy rewrite (Block C) | `compliance/ssi-medicare-disclosures.html` | **Shipped** — Release 2, 12 Sep 2026 | Nothing. |
