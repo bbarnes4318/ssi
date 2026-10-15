@@ -37,7 +37,7 @@
 }
 
 .page-home .hero--home h1 {
-  max-width: 12.5ch;
+  max-width: 18.5ch;
   margin-bottom: 1rem;
   font-size: clamp(2.8rem, 3.6vw, 3.85rem);
   line-height: 1.02;
@@ -165,7 +165,7 @@
 
   .page-home .hero--home h1 {
     font-size: clamp(2.55rem, 4vw, 3.35rem);
-    max-width: 13ch;
+    max-width: 18.5ch;
   }
 
   .page-home .hero--home .hero__sub {
