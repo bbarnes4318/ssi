@@ -8,6 +8,29 @@ entry.
 
 ## [Unreleased]
 
+### Changed
+- Homepage rewritten as an agency-level router for the two primary needs,
+  Final Expense and Medicare: dual-path hero ("I Need Final Expense
+  Insurance" / "I Need Medicare Help", equal weight), an equal two-card
+  choice section, short trust and process sections, reviews, a compact
+  route band and the callback form. Product education (rate tables,
+  underwriting, carriers, long FAQs, Medicare Supplement detail) stays on
+  the product pages. The final expense estimator moved off the homepage;
+  it remains on `/final-expense-insurance/`, and every `/#estimate` link
+  (footer, guides, state pages, 404) now points there.
+- Shared callback form and "what happens next" steps are product-neutral:
+  a Medicare visitor is no longer promised final expense quotes from "up
+  to 25 companies" or told rates depend on health. TCPA consent text is
+  unchanged.
+- Callback form: paired fields share row heights (subgrid) so a longer
+  label helper cannot push one input below its neighbour; on narrow
+  screens the helper sits on its own line.
+
+### Removed
+- `assets/homepage-estimator-flow.js` (loaded by no page) and the
+  `.page-home` rules in `assets/homepage-cpr.css` (the homepage no longer
+  loads the estimator stylesheet that imports it).
+
 ### Fixed
 - Final expense product facts, per client confirmation 13 Sep 2026:
   simplified issue is $5,000 up to $50,000 depending on the carrier (was
