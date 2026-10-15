@@ -12,9 +12,11 @@ entry.
 - Footer licensing line on every published page now reads "Licensed in 36
   states: AL, AZ, … WI." (client confirmation 15 Oct 2026). The source had
   carried 36 since 22 Sep 2026 but the published pages were never rebuilt
-  and still said "all 50 states". Block B in
-  `compliance/ssi-medicare-disclosures.html` is unchanged and still says
-  "all 50 states" — it needs FMO sign-off before it can be brought in line.
+  and still said "all 50 states".
+- Block B in `compliance/ssi-medicare-disclosures.html` brought in line:
+  "Licensed in 36 states: AL, AZ, … WI. Not all products are available in
+  every state. …", word for word the line on the published pages.
+  **FMO sign-off:** approval relayed by the client (Jimmy) on 15 Oct 2026.
 - Carrier logos: the Aflac logo is self-hosted (`assets/carriers/aflac.jpg`).
   The PR Newswire URL now 301s to mmx.prnewswire.com, which the CSP blocked,
   so the logo never loaded on `/about-us/` or the final expense state pages;
