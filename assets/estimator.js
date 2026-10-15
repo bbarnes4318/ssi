@@ -6,7 +6,7 @@
   'use strict';
 
   var core = document.createElement('script');
-  core.src = '/assets/estimator-core.js?v=1';
+  core.src = '/assets/estimator-core.js?v=2';
   core.onload = function () {
     var root = document.querySelector('.ssi-est');
     if (!root) return;

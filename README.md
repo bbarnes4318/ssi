@@ -22,6 +22,7 @@ and commit the output alongside the source.
 | `/contact-us/` | `src/pages/contact-us.html` | |
 | `/privacy/` | `src/pages/privacy.html` | Text as supplied by the client (the live WordPress policy), verbatim. Contents rail + `prose--legal` layout. |
 | `/terms-and-conditions/` | `src/pages/terms-and-conditions.html` | Text as supplied by the client (the live WordPress terms, last updated 15 Nov 2024), verbatim. Markup only: numbered headings, lists, contents rail. |
+| `/agents/` | `src/pages/agents.html` | For licensed agents: links to the Life Leads Plus lead platform (lifeleadsplus.com). Not customer facing: `noindex`, not in the sitemap, linked only from the footer bar ("For Agents"). |
 | `/404.html` | `src/pages/404.html` | Branded not-found page (Vercel serves root `404.html`). `noindex`, not in the sitemap. |
 | `/preview/` | `preview/index.html` | Internal links page, `noindex`. |
 | `/api/lead` | `api/lead.js` | Quote form handler. Needs `LEAD_WEBHOOK_URL` (see below). |

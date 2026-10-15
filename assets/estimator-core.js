@@ -272,10 +272,13 @@
         var d = document.createElement('div');
         d.className = 'ssi-est__rung ' + (i === 0 ? 'ssi-est__rung--now' : 'ssi-est__rung--later');
         var pct = Math.round((mids[i] / mids[0] - 1) * 100);
-        d.innerHTML = '<i style="height:' + Math.max(8, Math.round(mids[i] / top * 36)) + 'px"></i>' +
+        // Bar height goes through the CSSOM, not a style="" attribute: the
+        // site CSP (style-src 'self') blocks inline style attributes.
+        d.innerHTML = '<i></i>' +
           '<b>' + money(mids[i]) + '<span class="ssi-est__per">/mo</span></b>' +
           '<small>' + (i === 0 ? 'Buy now, age ' + a : 'At age ' + a) + '</small>' +
-          (i === 0 ? '<em>&nbsp;</em>' : '<em>+' + pct + '%</em>');
+          (i === 0 ? '<em>Today</em>' : '<em>+' + pct + '%</em>');
+        d.querySelector('i').style.height = Math.max(12, Math.round(mids[i] / top * 56)) + 'px';
         ladder.appendChild(d);
       });
       wait.hidden = false;
