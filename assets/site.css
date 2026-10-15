@@ -83,11 +83,21 @@
 .home-line:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;background:var(--lighter);}
 .home-line:hover .home-line__link{text-decoration-thickness:2px;}
 
-.page-home .hero--split{padding:3.25rem 0 3.5rem;}
-.page-home .hero--split .hero__grid{grid-template-columns:1.2fr 1fr;gap:3rem;}
-.page-home .hero h1{font-size:clamp(2.1rem,1.4rem + 2.2vw,3rem);line-height:1.12;max-width:20ch;margin-bottom:.9rem;}
-.page-home .hero__sub{max-width:34rem;margin-bottom:1.75rem;}
-.page-home .hero__points{margin:1.5rem 0 0;}
+.page-home .hero--split{padding:3.75rem 0 4rem;}
+.page-home .hero--split .hero__grid{grid-template-columns:1.1fr .9fr;gap:3.5rem;}
+.page-home .hero h1{font-size:clamp(2.2rem,1.2rem + 2.6vw,3.3rem);line-height:1.08;letter-spacing:-.01em;max-width:none;text-wrap:wrap;margin-bottom:1.1rem;text-shadow:none;}
+.page-home .hero__accent{display:block;color:var(--gold);}
+.page-home .hero__sub{max-width:36rem;margin-bottom:1.9rem;}
+/* Hero photo: clean frame, no gold corner, no caption; native 3:2 so no face is cropped */
+.hero__photo--home::before{display:none;}
+.page-home .hero__photo--home img{aspect-ratio:4/3;object-fit:cover;object-position:68% 45%;border:1px solid rgba(255,255,255,.14);border-radius:12px;box-shadow:0 24px 48px rgba(0,0,0,.35);}
+/* Trust indicators: icon + label, thin dividers */
+.hero__trust{list-style:none;margin:2rem 0 0;padding:0;display:flex;flex-wrap:nowrap;align-items:center;}
+.hero__trust li{display:flex;align-items:center;gap:.7rem;padding:0 1.25rem;font-size:.95rem;line-height:1.35;color:#E6EAF0;border-left:1px solid rgba(255,255,255,.22);}
+.hero__trust li:first-child{padding-left:0;border-left:0;}
+.hero__trust li:last-child{padding-right:0;}
+.hero__trust svg{width:2rem;height:2rem;flex:none;color:var(--gold);}
+.hero__trust span{max-width:9rem;}
 
 .home-route{text-align:center;border-top:1px solid var(--rule);}
 .home-route .sec__sub{margin-bottom:1.75rem;}
@@ -98,21 +108,25 @@
 /* Laptop/tablet landscape: keep copy and photo side by side down to 60rem
    instead of stacking a full-width photo under the copy at 72rem. */
 @media (min-width:60.0625rem) and (max-width:72rem){
-  .page-home .hero--split .hero__grid{grid-template-columns:1.15fr .85fr;gap:2.25rem;}
-  .page-home .hero--split .hero__photo figcaption{display:none;}
+  .page-home .hero--split .hero__grid{grid-template-columns:1.05fr .95fr;gap:2.25rem;}
+  .page-home .hero__trust li{padding:0 .9rem;gap:.55rem;font-size:.88rem;}
+  .page-home .hero__trust li:first-child{padding-left:0;}
+  .page-home .hero__trust svg{width:1.7rem;height:1.7rem;}
 }
 @media (max-width:60rem){
   .home-lines__grid--even{grid-template-columns:1fr;}
-  .page-home .hero--split .hero__grid{grid-template-columns:1fr;gap:2rem;}
-  .page-home .hero--split .hero__photo{max-width:36rem;}
-  .page-home .hero--split .hero__photo img{aspect-ratio:16/9;object-position:center 40%;}
+  .page-home .hero--split .hero__grid{grid-template-columns:1fr;gap:2.25rem;}
+  .page-home .hero--split .hero__photo{max-width:44rem;}
+  .page-home .hero__photo--home img{aspect-ratio:3/2;object-position:center;}
 }
 @media (max-width:40rem){
   .hero__actions--paths{flex-direction:column;gap:.75rem;}
   .hero__actions--paths .btn{flex:none;width:100%;}
   .page-home .hero__sub{font-size:1.08rem;margin-bottom:1.4rem;}
-  .page-home .hero__points{margin-top:1.25rem;}
-  .page-home .hero--split .hero__photo::before{display:none;}
+  .hero__trust{flex-direction:column;align-items:flex-start;gap:.75rem;margin-top:1.6rem;}
+  .hero__trust li,.hero__trust li:first-child{padding:0;border-left:0;}
+  .hero__trust span{max-width:none;}
+  .hero__trust svg{width:1.6rem;height:1.6rem;}
 }
 
 /* Callback form: a longer label helper ("eligibility and pricing can depend
