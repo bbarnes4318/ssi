@@ -57,6 +57,7 @@ a{color:var(--navy-3);text-decoration-color:var(--gold);}
 a[href^="tel:"]{white-space:nowrap;}
 /* A tel button with a sentence in it must wrap on a phone; only the number stays on one line. */
 .btn[href^="tel:"]{white-space:normal;flex-wrap:wrap;}
+.trio a[href^="tel:"]{white-space:normal;}
 .nowrap,.quick__call strong{white-space:nowrap;}
 a.quick__call{white-space:normal;}
 a:hover{color:var(--blue);}
