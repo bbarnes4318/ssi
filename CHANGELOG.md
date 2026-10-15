@@ -8,6 +8,25 @@ entry.
 
 ## [Unreleased]
 
+### Fixed
+- Footer licensing line on every published page now reads "Licensed in 36
+  states: AL, AZ, … WI." (client confirmation 15 Oct 2026). The source had
+  carried 36 since 22 Sep 2026 but the published pages were never rebuilt
+  and still said "all 50 states". Block B in
+  `compliance/ssi-medicare-disclosures.html` is unchanged and still says
+  "all 50 states" — it needs FMO sign-off before it can be brought in line.
+- Carrier logos: the Aflac logo is self-hosted (`assets/carriers/aflac.jpg`).
+  The PR Newswire URL now 301s to mmx.prnewswire.com, which the CSP blocked,
+  so the logo never loaded on `/about-us/` or the final expense state pages;
+  `mma.prnewswire.com` is dropped from `img-src`. On the published
+  `/final-expense-insurance/`, stale `<picture>` WebP sources from the old
+  carrier lineup made the Aflac, American Amicable and Mutual of Omaha cards
+  show the Liberty Bankers, Americo and Prosperity logos; those wrappers are
+  removed, matching the page source.
+- 404 page scrolled sideways on phones: the "Talk to a licensed agent" card
+  is a tel link, and the global tel no-wrap kept its hours line on one
+  line. Tel cards in `.trio` wrap now.
+
 ### Changed
 - Homepage rewritten as an agency-level router for the two primary needs,
   Final Expense and Medicare: dual-path hero ("I Need Final Expense
