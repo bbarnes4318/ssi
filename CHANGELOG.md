@@ -8,6 +8,14 @@ entry.
 
 ## [Unreleased]
 
+### Changed
+- `/agents/` rebuilt: split hero with an agent photo and new copy ("Pay for
+  applications, not phone calls."), and the "Who it is for" block replaced
+  by a fit checklist, call-type summary and a navy rate card with proper
+  Get Your Rate / dashboard login buttons. Ways in beyond the footer bar:
+  a "For agents" link in the desktop utility bar, "For licensed agents" in
+  the footer Company column, and a compact button on the About page.
+
 ### Fixed
 - Footer licensing line on every published page now reads "Licensed in 36
   states: AL, AZ, … WI." (client confirmation 15 Oct 2026). The source had
