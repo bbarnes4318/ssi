@@ -165,3 +165,51 @@
   .page-home .founder img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;}
   .page-home .founder__plate{padding:1.4rem 1.5rem 1.5rem;}
 }
+/* ESTIMATOR RESULT CARD
+   Applies wherever the estimator sits in a .tool card (homepage hero and
+   /final-expense-insurance/). Labels sit inside the option cards instead of
+   straddling their borders, the two cards share a height, and the
+   cost-of-waiting rungs share a baseline. */
+.tool .ssi-est__result .ssi-est__rhead{align-items:center;margin-bottom:.6rem;}
+.tool .ssi-est__result .ssi-est__rkicker{font-size:.68rem;letter-spacing:.14em;}
+.tool .ssi-est__result .ssi-est__resulth{font-size:1.12rem;line-height:1.25;margin-top:.2rem;text-wrap:balance;}
+.tool .ssi-est__result .ssi-est__edit{font-size:.74rem;font-weight:600;color:var(--navy-2);border:1px solid #D5DAE1;border-radius:5px;padding:.3rem .65rem;min-height:0;line-height:1.3;}
+.tool .ssi-est__result .ssi-est__edit:hover{border-color:var(--navy-2);background:#F4F6F9;}
+.tool .ssi-est__result .ssi-est__chips{gap:.3rem;margin:0 0 .85rem;}
+.tool .ssi-est__result .ssi-est__chips li{font-size:.7rem;font-weight:600;color:#3B4656;background:#F1F3F6;border:1px solid #E3E7EC;border-radius:4px;padding:.15rem .5rem;line-height:1.4;}
+
+.tool .ssi-est__result .ssi-est__options{gap:.6rem;align-items:stretch;}
+.tool .ssi-est__result .ssi-est__opt{display:flex;flex-direction:column;padding:.85rem .85rem .75rem;border-width:1px;border-radius:8px;}
+.tool .ssi-est__result .ssi-est__opt--si{border-color:var(--navy-2);box-shadow:inset 0 3px 0 var(--navy-2);}
+.tool .ssi-est__result .ssi-est__opt--gi{border-color:var(--gold-muted);box-shadow:inset 0 3px 0 var(--gold-muted);}
+.tool .ssi-est__result .ssi-est__ribbon{position:static;align-self:flex-start;margin:0 0 .5rem;font-size:.6rem;letter-spacing:.1em;padding:.18rem .5rem;border-radius:3px;line-height:1.3;}
+.tool .ssi-est__result .ssi-est__optlabel{font-size:.76rem;margin:0 0 .2rem;}
+.tool .ssi-est__result .ssi-est__price{font-size:1.4rem;margin:0 0 .5rem;white-space:nowrap;}
+.tool .ssi-est__result .ssi-est__per{font-size:.74rem;}
+.tool .ssi-est__result .ssi-est__ticks{font-size:.72rem;line-height:1.4;margin-top:auto;}
+.tool .ssi-est__result .ssi-est__ticks li{margin-bottom:.15rem;}
+
+.tool .ssi-est__result .ssi-est__wait{margin-top:.6rem;padding:.7rem .85rem .75rem;border-radius:8px;}
+.tool .ssi-est__result .ssi-est__waith{font-size:.76rem;margin-bottom:.6rem;}
+.tool .ssi-est__result .ssi-est__ladder{gap:.5rem;align-items:end;}
+.tool .ssi-est__result .ssi-est__rung{justify-content:flex-end;}
+.tool .ssi-est__result .ssi-est__rung i{width:1.4rem;margin-bottom:.4rem;border-radius:3px 3px 0 0;}
+.tool .ssi-est__result .ssi-est__rung b{font-size:.92rem;white-space:nowrap;}
+.tool .ssi-est__result .ssi-est__rung small{font-size:.66rem;white-space:nowrap;line-height:1.4;}
+.tool .ssi-est__result .ssi-est__rung em{font-size:.64rem;line-height:1.4;}
+.tool .ssi-est__result .ssi-est__rung--now em{color:var(--navy-2);}
+
+.tool .ssi-est__result .ssi-est__estnote{margin-top:.6rem;padding:.55rem .75rem;font-size:.72rem;line-height:1.45;border-radius:0 6px 6px 0;}
+.tool .ssi-est__result .ssi-est__nexth{margin:.85rem 0 .45rem;font-size:.92rem;}
+.tool .ssi-est__result .ssi-est__call{margin-top:0;min-height:3rem;border-radius:6px;}
+.tool .ssi-est__result .ssi-est__callno{font-size:1.15rem;}
+.tool .ssi-est__result .ssi-est__foot{margin-top:.35rem;gap:0 1rem;}
+.tool .ssi-est__result .ssi-est__secondary{font-size:.8rem;padding:.35rem .25rem;min-height:2rem;}
+.tool .ssi-est__result .ssi-est__tertiary{font-size:.78rem;padding:.35rem .25rem;min-height:2rem;}
+.tool .ssi-est__result .ssi-est__discwrap{margin-top:.5rem;padding-top:.5rem;}
+.tool .ssi-est__result .ssi-est__discwrap summary{font-size:.72rem;}
+
+@media (max-width:26rem){
+  .tool .ssi-est__result .ssi-est__options{grid-template-columns:1fr;}
+  .tool .ssi-est__result .ssi-est__resulth{font-size:1.05rem;}
+}
