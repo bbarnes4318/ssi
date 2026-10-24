@@ -144,41 +144,36 @@
   .form__why{display:block;margin:.05rem 0 0;line-height:1.35;}
 }
 
-/* Agents page (/agents/): fit checklist beside a navy call-to-action card. */
-.page-agents .hero h1{font-size:clamp(2.1rem,1.4rem + 2.2vw,3rem);line-height:1.12;max-width:16ch;margin-bottom:.9rem;}
-.page-agents .hero__sub{max-width:34rem;margin-bottom:1.75rem;}
-.page-agents .hero__points{margin:1.5rem 0 0;}
-.agent-fit__grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3.5rem;align-items:center;}
-.agent-fit .lede{color:var(--gray);margin-bottom:1.25rem;}
-.agent-fit__list{list-style:none;margin:0 0 1.75rem;padding:0;display:grid;gap:.7rem;}
-.agent-fit__list li{position:relative;padding-left:2rem;color:var(--navy);font-weight:500;line-height:1.45;}
-.agent-fit__list li::before{content:"";position:absolute;left:0;top:.1em;width:1.3rem;height:1.3rem;border-radius:50%;background:var(--gold-bg);border:1.5px solid var(--gold);}
-.agent-fit__list li::after{content:"";position:absolute;left:.42rem;top:.42em;width:.45rem;height:.25rem;border-left:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:rotate(-45deg);}
-.agent-fit__types{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:0;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;}
-.agent-fit__types div{background:var(--paper);padding:.9rem 1.1rem;}
-.agent-fit__types dt{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-muted);margin-bottom:.2rem;}
-.agent-fit__types dd{margin:0;color:var(--navy);font-weight:600;line-height:1.35;}
-.agent-cta{background:linear-gradient(160deg,var(--navy-1),var(--navy-2));color:#C7CFDA;border-radius:16px;padding:2.1rem 2rem 2rem;box-shadow:0 24px 50px rgba(11,18,32,.22);border-top:4px solid var(--gold);}
-.agent-cta__kicker{margin:0 0 .5rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
-.agent-cta h3{color:#fff;font-size:1.45rem;line-height:1.25;margin:0 0 .7rem;}
-.agent-cta p{margin:0 0 1.4rem;line-height:1.6;}
-.agent-cta__btn{width:100%;}
-.agent-cta__login{margin-top:1.4rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.14);display:grid;gap:.6rem;}
-.agent-cta__login span{font-size:.88rem;color:#A9B3C1;text-align:center;}
-@media (min-width:60.0625rem) and (max-width:72rem){
-  .page-agents .hero--split .hero__grid{grid-template-columns:1.1fr .9fr;gap:2.25rem;}
-  .page-agents .hero--split .hero__photo figcaption{display:none;}
-}
-@media (max-width:60rem){
-  .agent-fit__grid{grid-template-columns:1fr;gap:2.25rem;}
-  .page-agents .hero--split .hero__grid{grid-template-columns:1fr;gap:2rem;}
-  .page-agents .hero--split .hero__photo{max-width:36rem;}
-  .page-agents .hero--split .hero__photo img{aspect-ratio:16/10;}
-}
-@media (max-width:40rem){
-  .agent-fit__types{grid-template-columns:1fr;}
-  .agent-cta{padding:1.6rem 1.35rem 1.5rem;}
-  .page-agents .hero--split .hero__photo::before{display:none;}
+/* Agents page (/agents/): Life Leads Plus logo hero, in-house trio, calls/web-leads pair, invite card. */
+.hero--llp{min-height:0;padding:5rem 0 5.5rem;text-align:center;background:radial-gradient(38rem 20rem at 70% 38%,rgba(225,29,42,.22),transparent 70%),radial-gradient(40rem 22rem at 30% 45%,rgba(37,84,170,.35),transparent 70%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);}
+.hero--llp::before{display:none;}
+.llp-hero{display:flex;flex-direction:column;align-items:center;}
+.llp-hero__logo{margin:.4rem 0 1.6rem;width:min(44rem,100%);}
+.llp-hero__logo img{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 30px rgba(0,0,0,.45));}
+.llp-hero__h{margin:0 0 .8rem;color:#fff;font-size:clamp(1.6rem,1.1rem + 1.8vw,2.4rem);font-weight:700;line-height:1.2;text-wrap:balance;}
+.page-agents .hero__sub{max-width:40rem;margin:0 auto 1.9rem;}
+.page-agents .hero__actions,.page-agents .hero__points{justify-content:center;}
+.page-agents .hero__points{margin:1.75rem 0 0;}
+.llp-duo__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem;}
+.llp-duo__card{background:linear-gradient(160deg,var(--navy-1),var(--navy-3));border:1px solid var(--navy-border);border-top:4px solid var(--gold);border-radius:16px;padding:2rem;box-shadow:0 24px 50px rgba(0,0,0,.25);}
+.llp-duo__card svg{width:1.6rem;height:1.6rem;color:var(--gold);padding:.7rem;box-sizing:content-box;border-radius:12px;background:rgba(198,168,107,.12);border:1px solid rgba(198,168,107,.5);margin-bottom:1rem;}
+.llp-duo__card h3{color:#fff;font-size:1.35rem;margin:0 0 .5rem;}
+.llp-duo__card p{color:#C7CFDA;margin:0 0 1.1rem;line-height:1.6;}
+.llp-duo__links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:0!important;}
+.llp-duo__links a{color:var(--gold);font-weight:700;text-decoration:none;}
+.llp-duo__links a::after{content:" →";}
+.llp-duo__links a:hover{color:var(--gold-hover);}
+.llp-invite{max-width:46rem;margin:0 auto;text-align:center;background:var(--paper);border:1px solid var(--rule);border-radius:20px;padding:2.75rem 2.25rem;box-shadow:0 1px 2px rgba(11,18,32,.04),0 24px 60px rgba(11,18,32,.1);}
+.llp-invite__logo{display:block;width:min(22rem,100%);height:auto;margin:0 auto 1.5rem;}
+.llp-invite h2{margin:0 0 .75rem;}
+.llp-invite p{color:var(--gray);margin:0 auto 1.6rem;max-width:36rem;line-height:1.6;}
+.llp-invite__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;}
+@media (max-width:48rem){
+  .hero--llp{padding:3.5rem 0 4rem;}
+  .llp-duo__grid{grid-template-columns:1fr;}
+  .llp-duo__card{padding:1.6rem 1.35rem;}
+  .llp-invite{padding:2rem 1.35rem;}
+  .page-agents .hero__actions .btn,.llp-invite__actions .btn{width:100%;}
 }
 
 /* Utility-bar link into /agents/ (desktop only; the bar's right side hides under 72rem). */
