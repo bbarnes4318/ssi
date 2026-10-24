@@ -177,8 +177,29 @@
 }
 
 /* Utility-bar link into /agents/ (desktop only; the bar's right side hides under 72rem). */
-.topbar a.topbar__agents{margin-left:.75rem;padding-left:.75rem;border-left:1px solid var(--navy-border);font-weight:500;color:#C7CFDA;}
-.topbar a.topbar__agents:hover{color:var(--gold);}
+.topbar a.topbar__agents{display:inline-flex;align-items:center;gap:.55rem;margin-left:.75rem;padding:.15rem .3rem .15rem .75rem;border-left:1px solid var(--navy-border);font-weight:500;color:#C7CFDA;border-radius:0 999px 999px 0;transition:background .2s;}
+.topbar a.topbar__agents span{border:0;padding:0;margin:0;}
+.topbar a.topbar__agents img{display:block;height:1.55rem;width:auto;filter:drop-shadow(0 0 6px rgba(225,29,42,.45));transition:transform .2s,filter .2s;}
+.topbar a.topbar__agents:hover{color:var(--gold);background:rgba(255,255,255,.06);}
+.topbar a.topbar__agents:hover img{transform:scale(1.06) rotate(-1.5deg);filter:drop-shadow(0 0 10px rgba(225,29,42,.75));}
+/* Mobile menu: Life Leads Plus logo as the last entry (desktop nav hides it). */
+.nav__llp{display:none;}
+@media (max-width:72rem){
+  .nav__llp{display:block;}
+  .nav .nav__llp a{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:600;color:var(--navy);background:var(--lighter);}
+  .nav__llp img{height:2.4rem;width:auto;}
+}
+/* Footer band: every page links to /agents/ through the Life Leads Plus logo. */
+.ftr a.ftr__llp{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem 2rem;margin:2rem 0 2.5rem;padding:1.4rem 1.75rem;border-radius:16px;color:#C7CFDA;background:radial-gradient(22rem 8rem at 12% 50%,rgba(225,29,42,.2),transparent 70%),radial-gradient(26rem 9rem at 30% 50%,rgba(37,84,170,.3),transparent 70%),linear-gradient(135deg,var(--navy-1),var(--navy-3));border:1px solid var(--navy-border);transition:border-color .2s,transform .2s,box-shadow .2s;}
+.ftr__llp img{display:block;width:15rem;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.45));transition:transform .25s;}
+.ftr__llptxt{line-height:1.5;text-wrap:balance;}
+.ftr__llptxt strong{color:#fff;}
+.ftr__llpgo{font-weight:700;color:var(--gold);white-space:nowrap;}
+.ftr a.ftr__llp:hover{color:#C7CFDA;border-color:var(--gold);transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.35);}
+.ftr a.ftr__llp:hover img{transform:scale(1.04) rotate(-1deg);}
+@media (max-width:60rem){
+  .ftr a.ftr__llp{grid-template-columns:1fr;justify-items:center;text-align:center;padding:1.6rem 1.25rem;}
+}
 /* About page: compact way into /agents/ under "How we work". */
 .agent-crosslink{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;margin:1.6rem 0 0;padding-top:1.3rem;border-top:1px solid var(--rule);}
 .agent-crosslink span{color:var(--navy);font-weight:600;}
