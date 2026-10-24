@@ -7,6 +7,26 @@
 } -->
 {{icons}}
 
+<dialog class="cam" id="consumer-alert-modal" aria-labelledby="cam-title">
+  <div class="cam__inner">
+    <div class="cam__side" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M12 8v4.5M12 15.5h.01"/></svg>
+      <span>Consumer Protection Notice</span>
+    </div>
+    <div class="cam__body">
+      <form method="dialog"><button class="cam__x" aria-label="Close this notice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>
+      <p class="cam__eyebrow">Important Consumer Alert</p>
+      <h2 id="cam-title">Calls falsely using our name</h2>
+      <p>We have recently become aware that an unknown company or group is making unsolicited telephone calls to consumers and falsely identifying themselves as our company, or providing our company&rsquo;s name and address.</p>
+      <p>These calls are <strong>not</strong> being made by us, and we have <strong>not</strong> authorized any other company to make these calls or use our identity. We take this matter very seriously and are actively working to identify the person or company responsible. We are asking for your help.</p>
+      <div class="cam__cta">
+        <p>Have you received an unsolicited call?</p>
+        <a class="btn btn--gold btn--arrow" href="#consumer-alert" data-close>Report the Call</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <section class="hero hero--band hero--navy hero--split hero--home">
   <div class="wrap hero__grid">
     <div class="hero__copy">
@@ -149,6 +169,49 @@
       <blockquote><p>Everything from inquiring about insurance to finalizing payment was smooth and explained in detail, definitely recommend.</p><div class="quotes__who"><span class="quotes__avatar" aria-hidden="true">AH</span><cite>Abby Howe<small>Senior Solutions client</small></cite></div></blockquote>
     </div>
     <p class="reviews__more"><a href="https://share.google/7cX0zbH3SjcK8Eqj2" rel="noopener" target="_blank">See our reviews on Google &rarr;</a></p>
+  </div>
+</section>
+
+<section class="sec sec--lighter calert" id="consumer-alert">
+  <div class="wrap" data-reveal>
+    <span class="eyebrow eyebrow--center">Important consumer alert</span>
+    <h2 class="sec__h">Unauthorized calls using our company name</h2>
+    <hr class="divider divider--center">
+    <div class="calert__intro">
+      <p>We have recently become aware that an unknown company or group is making unsolicited telephone calls to consumers and falsely identifying themselves as our company, or providing our company&rsquo;s name and address.</p>
+      <p>These calls are <strong>not</strong> being made by us, and we have <strong>not</strong> authorized any other company to make these calls or use our identity. We take this matter very seriously and are actively working to identify the person or company responsible. We are asking for your help.</p>
+    </div>
+    <p class="calert__warn" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.5h.01"/></svg><span>Please do not give the caller personal, financial, banking, Social Security or other sensitive information.</span></p>
+    <div class="calert__grid">
+      <div class="calert__card">
+        <h3>If you received one of these calls</h3>
+        <p>If someone called you unsolicited and claimed to represent our company, <strong>help us find out who is making the calls</strong> by sharing as much information as you can, including:</p>
+        <ul class="calert__list">
+          <li>The phone number that appeared on your caller ID</li>
+          <li>The date and approximate time of the call</li>
+          <li>The name of the person or company the caller claimed to represent</li>
+          <li>Any callback number or other contact information they provided</li>
+          <li>What the caller was offering, selling or discussing</li>
+          <li>The agent&rsquo;s insurance license number (NPN)</li>
+          <li>The insurance company they said they represent</li>
+          <li>Any website, email address, company name or other identifying information mentioned during the call</li>
+          <li>A screenshot of the call information from your phone, if available</li>
+          <li>Any voicemail, text message or other communication you received in connection with the call</li>
+        </ul>
+      </div>
+      <div class="calert__card calert__card--contact">
+        <h3>Help us identify who is responsible</h3>
+        <p>If you have information about one of these calls, please contact us and mention <strong>&ldquo;Unauthorized Call Report.&rdquo;</strong></p>
+        <a class="calert__line" href="tel:+18889573337"><svg aria-hidden="true"><use href="#i-phone"/></svg><span><small>Call</small>1-888-957-3337</span></a>
+        <a class="calert__line" href="mailto:admin@ssi-medicare.com?subject=Unauthorized%20Call%20Report"><svg aria-hidden="true"><use href="#i-doc"/></svg><span><small>Email</small>admin@ssi-medicare.com</span></a>
+        <p class="calert__thanks">We appreciate your help. Information from consumers may help us identify the company or individuals responsible and take appropriate action to stop the unauthorized use of our company&rsquo;s name.</p>
+      </div>
+    </div>
+    <div class="calert__note">
+      <h3>Please note</h3>
+      <p>A caller knowing our company name or address does not mean the caller is affiliated with or authorized by our company. Company names and addresses are generally available through public sources and can be misused by third parties.</p>
+      <p>If you are unsure whether a call actually came from us, do not rely on the phone number the caller gave you. Contact us directly using the contact information published on this website.</p>
+    </div>
   </div>
 </section>
 

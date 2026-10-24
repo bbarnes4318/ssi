@@ -75,6 +75,21 @@
     document.querySelectorAll('[data-toc]').forEach(function (d) { d.removeAttribute('open'); });
   }
 
+  // ── Consumer alert popup (homepage): once per browser session ─────────────
+  var cam = document.getElementById('consumer-alert-modal');
+  if (cam && cam.showModal) {
+    var seen = null;
+    try { seen = sessionStorage.getItem('ssi-alert'); } catch (e) {}
+    if (!seen) {
+      cam.showModal();
+      try { sessionStorage.setItem('ssi-alert', '1'); } catch (e) {}
+    }
+    // Backdrop click or the "Report the Call" link closes it; the link then scrolls to the notice.
+    cam.addEventListener('click', function (e) {
+      if (e.target === cam || e.target.closest('[data-close]')) cam.close();
+    });
+  }
+
   // ── Footer year ──────────────────────────────────────────────────────────
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = String(new Date().getFullYear());
